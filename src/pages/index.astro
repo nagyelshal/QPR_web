@@ -4,6 +4,9 @@ import PostCard from '../components/PostCard.astro';
 import Notice from '../components/Notice.astro';
 import { getCollection } from 'astro:content';
 
+// Get the base path from the config
+const base = import.meta.env.BASE_URL;
+
 // Get latest news posts
 const allPosts = await getCollection('news');
 const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
@@ -53,7 +56,7 @@ const config = await import('../../data/config.json');
           <p><strong>{config.practice_day}</strong><br>
           {config.practice_time}<br>
           {config.practice_location}</p>
-          <a href="/schedule" class="btn btn-small">Full Schedule →</a>
+          <a href={`${base}schedule/`} class="btn btn-small">Full Schedule →</a>
         </div>
 
         <div class="card game-card" style="margin-top: var(--spacing-lg);">
@@ -65,7 +68,7 @@ const config = await import('../../data/config.json');
         <div class="card game-card" style="margin-top: var(--spacing-lg);">
           <h3>👕 Kit Information</h3>
           <p>Pickup windows and exchange details</p>
-          <a href="/kits" class="btn btn-small">Kit Details →</a>
+          <a href={`${base}kits/`} class="btn btn-small">Kit Details →</a>
         </div>
       </div>
     </div>
@@ -74,17 +77,17 @@ const config = await import('../../data/config.json');
     <section style="margin-top: var(--spacing-2xl);">
       <h2 class="soccer-icon">Quick Links</h2>
       <div class="grid grid-3">
-        <a href="/training" class="card game-card" style="text-decoration: none; color: inherit;">
+        <a href={`${base}training/`} class="card game-card" style="text-decoration: none; color: inherit;">
           <h3>📋 Training Plans</h3>
           <p>View detailed training sessions and objectives</p>
         </a>
         
-        <a href="/roster" class="card game-card" style="text-decoration: none; color: inherit;">
+        <a href={`${base}roster/`} class="card game-card" style="text-decoration: none; color: inherit;">
           <h3>👥 Team Roster</h3>
           <p>Meet the QPR U11B squad</p>
         </a>
         
-        <a href="/downloads" class="card game-card" style="text-decoration: none; color: inherit;">
+        <a href={`${base}downloads/`} class="card game-card" style="text-decoration: none; color: inherit;">
           <h3>📄 Downloads</h3>
           <p>Forms, checklists, and important documents</p>
         </a>

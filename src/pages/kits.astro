@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Notice from '../components/Notice.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Kits & Exchanges - Queens Park Rangers U11B">
@@ -134,10 +136,10 @@ import Notice from '../components/Notice.astro';
     <section style="margin-top: var(--spacing-2xl); text-align: center;">
       <h2>Downloads</h2>
       <div class="flex justify-center" style="gap: var(--spacing-md); flex-wrap: wrap;">
-        <a href="/downloads" class="btn">
+        <a href={`${base}downloads/`} class="btn">
           📄 Players Manifest PDF
         </a>
-        <a href="/downloads" class="btn btn-secondary">
+        <a href={`${base}downloads/`} class="btn btn-secondary">
           📋 Kit Care Guide
         </a>
       </div>
@@ -147,7 +149,7 @@ import Notice from '../components/Notice.astro';
     <Notice type="info" title="Questions?">
       <p>For kit-related questions, sizing concerns, or exchange requests, contact the coach directly. Response time is typically within 24 hours.</p>
       <div style="margin-top: var(--spacing-md);">
-        <a href="/about" class="btn btn-small">Coach Contact Info</a>
+        <a href={`${base}about/`} class="btn btn-small">Coach Contact Info</a>
       </div>
     </Notice>
   </div>

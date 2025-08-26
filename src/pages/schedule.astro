@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Notice from '../components/Notice.astro';
 
+const base = import.meta.env.BASE_URL;
 const config = await import('../../data/config.json');
 ---
 
@@ -31,7 +32,7 @@ const config = await import('../../data/config.json');
         </div>
 
         <div style="margin-top: var(--spacing-lg); text-align: center;">
-          <a href="/qpr_practice_placeholder.ics" class="btn" download>
+          <a href={`${base}qpr_practice_placeholder.ics`} class="btn" download>
             📅 Download Practice Calendar
           </a>
         </div>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Notice from '../components/Notice.astro';
 
+const base = import.meta.env.BASE_URL;
 const roster = await import('../../data/roster.json');
 ---
 
@@ -52,7 +53,7 @@ const roster = await import('../../data/roster.json');
             <h3>Coaching Staff</h3>
             <p><strong>Head Coach:</strong> Nagy Elshal<br>
             <strong>Assistant Coach:</strong> TBD</p>
-            <a href="/about" class="btn btn-small">Coach Details →</a>
+            <a href={`${base}about/`} class="btn btn-small">Coach Details →</a>
           </div>
 
           <div class="card">
@@ -82,8 +83,8 @@ const roster = await import('../../data/roster.json');
           </ul>
           
           <div style="margin-top: var(--spacing-md);">
-            <a href="/about" class="btn">Contact Coach</a>
-            <a href="/downloads" class="btn btn-secondary" style="margin-left: var(--spacing-sm);">Parent Forms</a>
+            <a href={`${base}about/`} class="btn">Contact Coach</a>
+            <a href={`${base}downloads/`} class="btn btn-secondary" style="margin-left: var(--spacing-sm);">Parent Forms</a>
           </div>
         </div>
       </section>

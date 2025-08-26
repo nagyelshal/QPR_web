@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Notice from '../components/Notice.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Downloads - Queens Park Rangers U11B">
@@ -135,7 +137,7 @@ import Notice from '../components/Notice.astro';
             <h3>🖨️ Training Plans</h3>
             <p>Detailed session plans that coaches and parents can print for reference.</p>
             <div style="margin-top: var(--spacing-md);">
-              <a href="/training" class="btn btn-secondary">
+              <a href={`${base}training/`} class="btn btn-secondary">
                 View Training Plans
               </a>
             </div>
@@ -145,7 +147,7 @@ import Notice from '../components/Notice.astro';
             <h3>📅 Schedule Summary</h3>
             <p>Practice and game schedule formatted for easy printing and posting.</p>
             <div style="margin-top: var(--spacing-md);">
-              <a href="/schedule" class="btn btn-secondary">
+              <a href={`${base}schedule/`} class="btn btn-secondary">
                 View Schedule
               </a>
             </div>
@@ -174,7 +176,7 @@ import Notice from '../components/Notice.astro';
 
         <div style="text-align: center; margin-top: var(--spacing-xl);">
           <p>Need help with downloads or have questions about any documents?</p>
-          <a href="/about" class="btn">Contact Coach</a>
+          <a href={`${base}about/`} class="btn">Contact Coach</a>
         </div>
       </section>
     </div>

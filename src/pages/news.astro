@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('news');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout title="News - Queens Park Rangers U11B">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+      <h1>Team News</h1>
+      <p>Stay up to date with the latest QPR announcements, practice updates, and team information.</p>
+    </header>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+      {sortedPosts.length > 0 ? (
+        <div class="grid" style="grid-template-columns: 1fr; gap: var(--spacing-lg);">
+          {sortedPosts.map(post => (
+            <PostCard 
+              title={post.data.title}
+              date={post.data.date}
+              summary={post.data.summary}
+              slug={post.slug}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="card" style="text-align: center;">
+          <h3>No news posts yet</h3>
+          <p>Check back soon for team updates and announcements!</p>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>

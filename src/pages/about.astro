@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Notice from '../components/Notice.astro';
+---
+
+<BaseLayout title="About - Queens Park Rangers U11B">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+      <h1>About Our Team</h1>
+      <p>Meet the coaching staff and learn more about Queens Park Rangers U11B.</p>
+    </header>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+      
+      <!-- Coaching Staff -->
+      <section>
+        <h2>Coaching Staff</h2>
+        
+        <div class="card card-highlight">
+          <div class="grid grid-2">
+            <div>
+              <h3>Head Coach</h3>
+              <h4>Nagy Elshal</h4>
+              <p>Coach Nagy brings enthusiasm and a player-development focus to QPR U11B. With experience in youth soccer, the coaching philosophy emphasizes skill development, teamwork, and most importantly - having fun while learning the beautiful game.</p>
+              
+              <h4 style="margin-top: var(--spacing-lg);">Coaching Philosophy</h4>
+              <ul>
+                <li>Every player gets equal playing time</li>
+                <li>Focus on effort and improvement over results</li>
+                <li>Positive reinforcement and encouragement</li>
+                <li>Building confidence through skill development</li>
+                <li>Teaching respect for teammates, opponents, and officials</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4>Contact Information</h4>
+              <Notice type="info">
+                <p><strong>For team-related questions:</strong><br>
+                Contact information is provided directly to registered parents via team communication channels.</p>
+              </Notice>
+              
+              <h4 style="margin-top: var(--spacing-lg);">Response Times</h4>
+              <ul>
+                <li><strong>Urgent matters:</strong> Same day</li>
+                <li><strong>General questions:</strong> Within 24 hours</li>
+                <li><strong>Schedule changes:</strong> As soon as possible</li>
+              </ul>
+              
+              <h4 style="margin-top: var(--spacing-lg);">Best Contact Methods</h4>
+              <ul>
+                <li>Team messaging app (fastest)</li>
+                <li>Email (for detailed questions)</li>
+                <li>Phone/text (urgent only)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: var(--spacing-lg);">
+          <h3>Assistant Coach</h3>
+          <p><strong>Position Available</strong></p>
+          <p>We're looking for a parent volunteer to assist with training sessions and provide additional support during practices and games.</p>
+          
+          <Notice type="success" title="Interested in Helping?">
+            <p>No previous coaching experience required! We provide guidance and support. Great opportunity to be more involved with your child's soccer experience.</p>
+          </Notice>
+          
+          <div style="margin-top: var(--spacing-md);">
+            <a href="#contact" class="btn">Express Interest</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Philosophy -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Team Philosophy</h2>
+        
+        <div class="grid">
+          <div class="card">
+            <h3>🎯 Our Goals</h3>
+            <ul>
+              <li>Develop fundamental soccer skills</li>
+              <li>Build teamwork and communication</li>
+              <li>Foster love for the game</li>
+              <li>Promote physical fitness and health</li>
+              <li>Teach good sportsmanship</li>
+              <li>Create lasting friendships</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>⭐ Our Values</h3>
+            <ul>
+              <li><strong>Respect:</strong> For teammates, opponents, and officials</li>
+              <li><strong>Effort:</strong> Trying your best is what matters most</li>
+              <li><strong>Fun:</strong> Soccer should be enjoyable for everyone</li>
+              <li><strong>Growth:</strong> Every mistake is a learning opportunity</li>
+              <li><strong>Team First:</strong> Supporting each other on and off the field</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Club Information -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Club Information</h2>
+        
+        <div class="card">
+          <h3>Coquitlam Metro-Ford SC</h3>
+          <p>Queens Park Rangers U11B is part of Coquitlam Metro-Ford Soccer Club, one of the leading youth soccer organizations in the Lower Mainland.</p>
+          
+          <div class="grid grid-2" style="margin-top: var(--spacing-lg);">
+            <div>
+              <h4>Club Resources</h4>
+              <ul>
+                <li>Professional coaching development</li>
+                <li>Quality field facilities</li>
+                <li>Equipment and kit programs</li>
+                <li>Player development pathways</li>
+                <li>Community soccer programs</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#" onclick="alert('Would link to club website')">Club Main Website</a></li>
+                <li><a href="#" onclick="alert('Would link to field maps')">Field Locations & Maps</a></li>
+                <li><a href="#" onclick="alert('Would link to club programs')">Other Age Group Programs</a></li>
+                <li><a href="#" onclick="alert('Would link to club policies')">Club Policies & Handbook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" style="margin-top: var(--spacing-2xl);">
+        <h2>Get in Touch</h2>
+        
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Team Communication</h3>
+            <p>We use multiple channels to keep everyone informed:</p>
+            <ul>
+              <li><strong>This website:</strong> Public updates and schedules</li>
+              <li><strong>Team messaging:</strong> Quick updates and reminders</li>
+              <li><strong>Email:</strong> Detailed information and forms</li>
+              <li><strong>In-person:</strong> Before/after practices</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>What to Contact About</h3>
+            <ul>
+              <li>Player absence from practice/games</li>
+              <li>Questions about training or development</li>
+              <li>Kit or equipment issues</li>
+              <li>Schedule clarifications</li>
+              <li>Volunteer opportunities</li>
+              <li>Any concerns or suggestions</li>
+            </ul>
+          </div>
+        </div>
+
+        <Notice type="info" title="Parent Communication">
+          <p><strong>Private contact information</strong> (phone numbers, email addresses) is shared only with registered team parents through secure team communication channels, not on this public website.</p>
+        </Notice>
+      </section>
+
+      <!-- Season Information -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Season 2025-2026</h2>
+        
+        <div class="card">
+          <h3>Season Overview</h3>
+          <div class="grid grid-2">
+            <div>
+              <p><strong>Season Start:</strong> September 2025<br>
+              <strong>Season End:</strong> May 2026<br>
+              <strong>Practice Day:</strong> Thursdays<br>
+              <strong>Game Day:</strong> Saturdays</p>
+            </div>
+            <div>
+              <p><strong>Age Group:</strong> U11 Boys<br>
+              <strong>Team Size:</strong> 14 players<br>
+              <strong>League:</strong> Coquitlam Metro-Ford<br>
+              <strong>Division:</strong> Recreational</p>
+            </div>
+          </div>
+          
+          <Notice type="success" title="New Season, New Opportunities">
+            <p>This is an exciting time for our players to develop their skills, make new friends, and experience the joy of team soccer. We're committed to making this a positive and memorable season for everyone!</p>
+          </Notice>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

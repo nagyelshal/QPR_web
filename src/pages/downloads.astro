@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Notice from '../components/Notice.astro';
+---
+
+<BaseLayout title="Downloads - Queens Park Rangers U11B">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+      <h1>Downloads</h1>
+      <p>Important forms, checklists, and documents for players and parents.</p>
+    </header>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+      
+      <!-- Essential Documents -->
+      <section>
+        <h2>Essential Documents</h2>
+        <div class="grid">
+          
+          <div class="card">
+            <h3>📄 Players Manifest</h3>
+            <p>Required form for all players - must be completed and signed before first practice.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn" onclick="alert('PDF download would be available in production')">
+                Download PDF
+              </a>
+              <p style="color: var(--color-text-light); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">
+                <em>Last updated: August 26, 2025</em>
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📋 Parent Information Sheet</h3>
+            <p>Important information for parents including emergency procedures, weather policies, and communication guidelines.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn" onclick="alert('PDF download would be available in production')">
+                Download PDF
+              </a>
+              <p style="color: var(--color-text-light); font-size: var(--font-size-sm); margin-top: var(--spacing-sm);">
+                <em>2025-2026 Season Edition</em>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Training Resources -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Training Resources</h2>
+        <div class="grid grid-2">
+          
+          <div class="card">
+            <h3>🏃‍♂️ Pre-Practice Checklist</h3>
+            <p>Printable checklist to help players prepare for practice sessions.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn btn-secondary" onclick="alert('PDF download would be available in production')">
+                Download Checklist
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>⚽ Skills Practice Guide</h3>
+            <p>Simple exercises players can practice at home to improve their skills.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn btn-secondary" onclick="alert('PDF download would be available in production')">
+                Download Guide
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>🥅 Position Guide</h3>
+            <p>Basic explanation of soccer positions and responsibilities for young players.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn btn-secondary" onclick="alert('PDF download would be available in production')">
+                Download Guide
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>🏆 Game Day Checklist</h3>
+            <p>Everything players need to bring and remember for game days.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn btn-secondary" onclick="alert('PDF download would be available in production')">
+                Download Checklist
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Club Resources -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Club Resources</h2>
+        <div class="grid">
+          
+          <div class="card">
+            <h3>🗺️ Field Maps</h3>
+            <p>Maps and directions to all practice and game locations in the Coquitlam area.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn btn-secondary" onclick="alert('PDF download would be available in production')">
+                Download Maps
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📜 Club Handbook</h3>
+            <p>Complete guide to Coquitlam Metro-Ford SC policies, procedures, and philosophy.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="#" class="btn btn-secondary" onclick="alert('External link would open club website')">
+                Visit Club Website
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Print-Friendly Pages -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Print-Friendly Pages</h2>
+        <Notice type="info" title="Print Options">
+          <p>Several pages on this website are optimized for printing. Use your browser's print function on these pages:</p>
+        </Notice>
+        
+        <div class="grid grid-2">
+          
+          <div class="card">
+            <h3>🖨️ Training Plans</h3>
+            <p>Detailed session plans that coaches and parents can print for reference.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="/training" class="btn btn-secondary">
+                View Training Plans
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📅 Schedule Summary</h3>
+            <p>Practice and game schedule formatted for easy printing and posting.</p>
+            <div style="margin-top: var(--spacing-md);">
+              <a href="/schedule" class="btn btn-secondary">
+                View Schedule
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- File Formats & Help -->
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>Help & Information</h2>
+        
+        <div class="card">
+          <h3>File Formats</h3>
+          <p>Most documents are provided in PDF format for easy viewing and printing. If you need help opening PDF files:</p>
+          <ul>
+            <li><strong>Desktop/Laptop:</strong> Most browsers can open PDFs directly</li>
+            <li><strong>Mobile devices:</strong> Download a PDF reader app if needed</li>
+            <li><strong>Printing issues:</strong> Try downloading the file first, then printing</li>
+          </ul>
+        </div>
+
+        <Notice type="warning" title="Document Updates">
+          <p>Documents are updated as needed throughout the season. Always download the latest version when referenced in team news or communications.</p>
+        </Notice>
+
+        <div style="text-align: center; margin-top: var(--spacing-xl);">
+          <p>Need help with downloads or have questions about any documents?</p>
+          <a href="/about" class="btn">Contact Coach</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

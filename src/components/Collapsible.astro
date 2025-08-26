@@ -1,0 +1,20 @@
+---
+export interface Props {
+  title: string;
+  isOpen?: boolean;
+}
+
+const { title, isOpen = false } = Astro.props;
+---
+
+<div class={`collapsible ${isOpen ? 'active' : ''}`}>
+  <button class="collapsible-header">
+    {title}
+    <svg class="collapsible-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 12l-4-4h8l-4 4z"/>
+    </svg>
+  </button>
+  <div class="collapsible-content">
+    <slot />
+  </div>
+</div>

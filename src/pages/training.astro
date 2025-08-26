@@ -1,0 +1,276 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Collapsible from '../components/Collapsible.astro';
+import Notice from '../components/Notice.astro';
+---
+
+<BaseLayout title="Training Plans - Queens Park Rangers U11B">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+      <h1>Training Plans</h1>
+      <p>Detailed session plans and objectives for skill development and team preparation.</p>
+    </header>
+
+    <div style="margin-bottom: var(--spacing-lg); text-align: center;" class="no-print">
+      <button onclick="window.print()" class="btn">
+        🖨️ Print Training Plans
+      </button>
+    </div>
+
+    <div style="max-width: 900px; margin: 0 auto;">
+      
+      <!-- Training Session 1 -->
+      <Collapsible title="Training #1 - Thursday, September 4, 2025" isOpen={true}>
+        <div class="training-session">
+          <div class="grid grid-2" style="margin-bottom: var(--spacing-lg);">
+            <div>
+              <h4>Session Focus</h4>
+              <ul>
+                <li>Team introductions & basic rules</li>
+                <li>Ball control fundamentals</li>
+                <li>Simple passing patterns</li>
+                <li>Positioning basics</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Equipment Needed</h4>
+              <ul>
+                <li>Cones (12-15)</li>
+                <li>Balls (8-10)</li>
+                <li>Pinnies/bibs (2 colors)</li>
+                <li>Small goals or markers</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Session Plan (60 minutes)</h4>
+          
+          <div class="training-block">
+            <h5>Warm-up & Introductions (10 minutes)</h5>
+            <ul>
+              <li>Light jogging around the field</li>
+              <li>Dynamic stretching (high knees, butt kicks, leg swings)</li>
+              <li>Player introductions - name and favorite position</li>
+              <li>Brief review of basic soccer rules</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Ball Control Drills (15 minutes)</h5>
+            <ul>
+              <li><strong>Individual touch:</strong> Each player with a ball, practice stopping with inside of foot</li>
+              <li><strong>Cone weaving:</strong> Dribble through 5 cones using both feet</li>
+              <li><strong>Red light/Green light:</strong> Dribbling game with ball control</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Passing Practice (15 minutes)</h5>
+            <ul>
+              <li><strong>Partner passing:</strong> 5-yard passes using inside of foot</li>
+              <li><strong>Triangle passing:</strong> Groups of 3, pass and move to next position</li>
+              <li><strong>Target practice:</strong> Pass to specific cones or targets</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Positioning Basics (10 minutes)</h5>
+            <ul>
+              <li>Explain basic field positions (defenders, midfielders, forwards)</li>
+              <li>Practice spreading out when team has the ball</li>
+              <li>Simple "find space" exercises</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Scrimmage (8 minutes)</h5>
+            <ul>
+              <li>4v4 or 5v5 small-sided games</li>
+              <li>Focus on trying new skills learned</li>
+              <li>Positive encouragement for effort</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Cool Down (2 minutes)</h5>
+            <ul>
+              <li>Light walking</li>
+              <li>Basic stretching</li>
+              <li>Recap of what we learned</li>
+              <li>Preview next week's focus</li>
+            </ul>
+          </div>
+        </div>
+      </Collapsible>
+
+      <!-- Training Session 2 -->
+      <Collapsible title="Training #2 - Thursday, September 11, 2025">
+        <div class="training-session">
+          <div class="grid grid-2" style="margin-bottom: var(--spacing-lg);">
+            <div>
+              <h4>Session Focus</h4>
+              <ul>
+                <li>Support play (moving to help teammates)</li>
+                <li>Goal kick organization</li>
+                <li>Corner kick basics</li>
+                <li>Game situation practice</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Equipment Needed</h4>
+              <ul>
+                <li>Cones (15-20)</li>
+                <li>Balls (10-12)</li>
+                <li>Pinnies/bibs (3 colors)</li>
+                <li>Corner flags or markers</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Session Plan (60 minutes)</h4>
+          
+          <div class="training-block">
+            <h5>Warm-up (10 minutes)</h5>
+            <ul>
+              <li>Jogging with ball control</li>
+              <li>Dynamic stretching routine</li>
+              <li>Quick review of last week's skills</li>
+              <li>Passing warm-up in pairs</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Support Play Patterns (15 minutes)</h5>
+            <ul>
+              <li><strong>2v1 exercises:</strong> Practice supporting the player with the ball</li>
+              <li><strong>Give and go:</strong> Pass and move into space</li>
+              <li><strong>Wide support:</strong> Moving to create passing options</li>
+              <li><strong>Communication:</strong> Calling for the ball properly</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Goal Kick Setup (10 minutes)</h5>
+            <ul>
+              <li>Proper goalkeeper goal kick technique</li>
+              <li>Field players positioning for goal kicks</li>
+              <li>Short vs long goal kick options</li>
+              <li>Practice receiving goal kicks under pressure</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Corner Kick Routines (10 minutes)</h5>
+            <ul>
+              <li><strong>Attacking corners:</strong> Near post, far post, and penalty spot runs</li>
+              <li><strong>Defending corners:</strong> Man marking and clearing techniques</li>
+              <li><strong>Short corner option:</strong> Simple pass and cross alternative</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Game Situations (12 minutes)</h5>
+            <ul>
+              <li>6v6 scrimmage with restarts (goal kicks, corners, throw-ins)</li>
+              <li>Emphasize trying new techniques learned</li>
+              <li>Coach stops play to highlight good decision-making</li>
+            </ul>
+          </div>
+
+          <div class="training-block">
+            <h5>Cool Down (3 minutes)</h5>
+            <ul>
+              <li>Walking and light stretching</li>
+              <li>Q&A about today's session</li>
+              <li>Reminder about next practice</li>
+              <li>Positive reinforcement for effort and improvement</li>
+            </ul>
+          </div>
+        </div>
+      </Collapsible>
+
+      <!-- Future Training Template -->
+      <Collapsible title="Training #3 - Thursday, September 18, 2025">
+        <div class="training-session">
+          <Notice type="info" title="Planning in Progress">
+            <p>Session plan will be added based on team progress and areas needing development from previous sessions.</p>
+          </Notice>
+          
+          <h4>Potential Focus Areas</h4>
+          <ul>
+            <li>Shooting technique and accuracy</li>
+            <li>Defensive positioning and tackling</li>
+            <li>Throw-in techniques</li>
+            <li>Small-sided game tactics</li>
+            <li>First touch and receiving under pressure</li>
+          </ul>
+        </div>
+      </Collapsible>
+    </div>
+
+    <!-- Training Notes -->
+    <section style="margin-top: var(--spacing-2xl); max-width: 800px; margin-left: auto; margin-right: auto;">
+      <h2>Training Notes for Parents</h2>
+      <div class="grid grid-2">
+        <Notice type="success" title="What to Bring">
+          <ul style="margin: 0;">
+            <li>Water bottle (mandatory)</li>
+            <li>Shin guards (mandatory)</li>
+            <li>Soccer cleats or running shoes</li>
+            <li>Weather-appropriate clothing</li>
+          </ul>
+        </Notice>
+        
+        <Notice type="info" title="Our Philosophy">
+          <p>Fun, development, and effort over winning. Every player gets equal playing time, and we celebrate improvement and good sportsmanship.</p>
+        </Notice>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .training-session {
+      line-height: 1.6;
+    }
+    
+    .training-block {
+      margin-bottom: var(--spacing-lg);
+      padding: var(--spacing-md);
+      border-left: 3px solid var(--color-primary);
+      background: var(--color-bg-alt);
+    }
+    
+    .training-block h5 {
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-sm);
+      font-weight: 600;
+    }
+    
+    .training-block ul {
+      margin: 0;
+      padding-left: var(--spacing-lg);
+    }
+    
+    .training-block li {
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    @media print {
+      .training-block {
+        border-left: 2px solid #000;
+        background: transparent;
+        break-inside: avoid;
+      }
+      
+      .collapsible {
+        border: 1px solid #000;
+        margin-bottom: var(--spacing-lg);
+      }
+      
+      .collapsible-header {
+        background: #f0f0f0;
+        font-weight: bold;
+      }
+    }
+  </style>
+</BaseLayout>

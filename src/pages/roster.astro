@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Notice from '../components/Notice.astro';
+
+const roster = await import('../../data/roster.json');
+---
+
+<BaseLayout title="Roster - Queens Park Rangers U11B">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+      <h1>Team Roster</h1>
+      <p><strong>{roster.team}</strong> • {roster.season}</p>
+    </header>
+
+    <div style="max-width: 600px; margin: 0 auto;">
+      <div class="card">
+        <h2>Players</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Jersey #</th>
+                <th>Player Name</th>
+                <th>Preferred Position</th>
+              </tr>
+            </thead>
+            <tbody>
+              {roster.players.map((player, index) => (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>{player}</td>
+                  <td>TBD</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg);">
+          <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">
+            <strong>Total Players:</strong> {roster.players.length}
+          </p>
+        </div>
+      </div>
+
+      <!-- Team Information -->
+      <div style="margin-top: var(--spacing-xl);">
+        <h2>Team Information</h2>
+        
+        <div class="grid">
+          <div class="card">
+            <h3>Coaching Staff</h3>
+            <p><strong>Head Coach:</strong> Nagy Elshal<br>
+            <strong>Assistant Coach:</strong> TBD</p>
+            <a href="/about" class="btn btn-small">Coach Details →</a>
+          </div>
+
+          <div class="card">
+            <h3>Team Details</h3>
+            <p><strong>Division:</strong> U11 Boys<br>
+            <strong>Club:</strong> Coquitlam Metro-Ford SC<br>
+            <strong>Team Name:</strong> Queens Park Rangers</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacy Notice -->
+      <Notice type="info" title="Privacy & Safety">
+        <p>Only first names and initials are displayed to protect player privacy. No birth dates, addresses, or contact information is shared on this public website.</p>
+      </Notice>
+
+      <!-- Parent Information -->
+      <section style="margin-top: var(--spacing-xl);">
+        <h2>For Parents</h2>
+        <div class="card">
+          <h3>Communication</h3>
+          <p>Team communication happens through:</p>
+          <ul>
+            <li><strong>This website</strong> - Public announcements and schedules</li>
+            <li><strong>Team messaging</strong> - Direct contact info available to registered parents only</li>
+            <li><strong>Email updates</strong> - Important notifications from coach</li>
+          </ul>
+          
+          <div style="margin-top: var(--spacing-md);">
+            <a href="/about" class="btn">Contact Coach</a>
+            <a href="/downloads" class="btn btn-secondary" style="margin-left: var(--spacing-sm);">Parent Forms</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

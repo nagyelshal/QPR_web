@@ -1,0 +1,13 @@
+---
+export interface Props {
+  type?: 'info' | 'warning' | 'success';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+---
+
+<div class={`notice notice-${type}`}>
+  {title && <h4 style="margin-bottom: var(--spacing-sm);">{title}</h4>}
+  <slot />
+</div>

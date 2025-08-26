@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Notice from '../components/Notice.astro';
+---
+
+<BaseLayout title="Kits & Exchanges - Queens Park Rangers U11B">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+      <h1>Kits & Exchanges</h1>
+      <p>Information about team kit pickup, sizing, and the club's exchange policy.</p>
+    </header>
+
+    <div class="grid grid-2">
+      
+      <!-- Pickup Information -->
+      <div>
+        <h2>Kit Pickup</h2>
+        <div class="card card-highlight">
+          <h3>Pickup Windows</h3>
+          <div style="font-size: var(--font-size-lg); margin: var(--spacing-md) 0;">
+            <p><strong>Window 1:</strong> Saturday, August 30<br>
+            <strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+            
+            <p><strong>Window 2:</strong> Sunday, August 31<br>
+            <strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+          </div>
+          
+          <div style="margin-top: var(--spacing-lg);">
+            <h4>Pickup Location</h4>
+            <p><strong>Coach's Residence</strong><br>
+            [Address will be provided via team communication]</p>
+            
+            <Notice type="info">
+              <p><strong>Note:</strong> Exact address and any special instructions will be sent directly to registered parents via email and team messaging.</p>
+            </Notice>
+          </div>
+        </div>
+        
+        <div class="card" style="margin-top: var(--spacing-lg);">
+          <h3>What's Included</h3>
+          <ul>
+            <li>Home jersey (blue/white)</li>
+            <li>Away jersey (if applicable)</li>
+            <li>Shorts</li>
+            <li>Socks</li>
+            <li>Team bag (if provided by club)</li>
+          </ul>
+          
+          <Notice type="warning" title="Bring to Pickup">
+            <ul style="margin: 0;">
+              <li>Players Manifest form (signed)</li>
+              <li>Payment for any additional items</li>
+              <li>Player for sizing (recommended)</li>
+            </ul>
+          </Notice>
+        </div>
+      </div>
+
+      <!-- Exchange Policy -->
+      <div>
+        <h2>Exchange Policy</h2>
+        <div class="card">
+          <h3>Club Exchange Rules</h3>
+          <p>The club understands that getting the right fit is important for player comfort and performance.</p>
+          
+          <div style="margin: var(--spacing-lg) 0;">
+            <h4>✅ Exchanges Allowed</h4>
+            <ul>
+              <li><strong>Size exchanges:</strong> Within 7 days of pickup</li>
+              <li><strong>Defective items:</strong> Manufacturing defects covered anytime</li>
+              <li><strong>Wrong items:</strong> Incorrect items provided at pickup</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-lg);">❌ No Exchanges</h4>
+            <ul>
+              <li>Damage from normal wear and use</li>
+              <li>Items damaged by washing incorrectly</li>
+              <li>Size changes after 7-day window</li>
+              <li>Personal preference changes</li>
+            </ul>
+          </div>
+          
+          <Notice type="success" title="Exchange Process">
+            <p><strong>Contact coach within 7 days</strong> with photo and description of issue. Bring original item and receipt for all exchanges.</p>
+          </Notice>
+        </div>
+
+        <div class="card" style="margin-top: var(--spacing-lg);">
+          <h3>Care Instructions</h3>
+          <ul>
+            <li><strong>Wash in cold water</strong> (30°C max)</li>
+            <li><strong>Turn jerseys inside out</strong> before washing</li>
+            <li><strong>Air dry recommended</strong> - avoid high heat</li>
+            <li><strong>No bleach or fabric softener</strong></li>
+            <li><strong>Iron on low heat</strong> if needed (inside out)</li>
+          </ul>
+          
+          <p style="color: var(--color-text-light); font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+            <em>Following care instructions helps maintain kit quality and prevents damage that voids exchanges.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Information -->
+    <section style="margin-top: var(--spacing-2xl);">
+      <h2>Additional Information</h2>
+      
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Lost or Damaged Kits</h3>
+          <p>Replacement kits can be ordered through the club. Costs vary by item:</p>
+          <ul>
+            <li>Jersey: $XX (check with club)</li>
+            <li>Shorts: $XX</li>
+            <li>Socks: $XX</li>
+          </ul>
+          <p><em>Contact coach for replacement orders.</em></p>
+        </div>
+        
+        <div class="card">
+          <h3>End of Season</h3>
+          <p>Players keep all kit items at the end of the season. Items in good condition can be:</p>
+          <ul>
+            <li>Kept as souvenirs</li>
+            <li>Passed to younger siblings</li>
+            <li>Donated to club kit bank</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section style="margin-top: var(--spacing-2xl); text-align: center;">
+      <h2>Downloads</h2>
+      <div class="flex justify-center" style="gap: var(--spacing-md); flex-wrap: wrap;">
+        <a href="/downloads" class="btn">
+          📄 Players Manifest PDF
+        </a>
+        <a href="/downloads" class="btn btn-secondary">
+          📋 Kit Care Guide
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <Notice type="info" title="Questions?">
+      <p>For kit-related questions, sizing concerns, or exchange requests, contact the coach directly. Response time is typically within 24 hours.</p>
+      <div style="margin-top: var(--spacing-md);">
+        <a href="/about" class="btn btn-small">Coach Contact Info</a>
+      </div>
+    </Notice>
+  </div>
+</BaseLayout>

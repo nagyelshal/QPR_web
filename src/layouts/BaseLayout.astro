@@ -1,0 +1,109 @@
+---
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Coquitlam Metro-Ford SC - Queens Park Rangers U11 Boys team website" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header class="header">
+      <div class="container">
+        <a href="/" class="logo">QPR U11B</a>
+        
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        
+        <nav class="nav" id="nav-menu">
+          <a href="/">Home</a>
+          <a href="/news">News</a>
+          <a href="/schedule">Schedule</a>
+          <a href="/training">Training</a>
+          <a href="/roster">Roster</a>
+          <a href="/kits">Kits</a>
+          <a href="/downloads">Downloads</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="grid grid-2">
+          <div>
+            <h4>Queens Park Rangers U11B</h4>
+            <p>Coquitlam Metro-Ford SC<br>Season 2025-2026</p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <div class="flex flex-col">
+              <a href="/schedule">Practice Schedule</a>
+              <a href="/kits">Kit Information</a>
+              <a href="/about">Contact Coach</a>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+          <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">
+            &copy; 2025 Queens Park Rangers U11B - Privacy-first team site
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      menuToggle?.addEventListener('click', () => {
+        navMenu?.classList.toggle('active');
+      });
+
+      // Set active nav link
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav a');
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath || 
+            (currentPath === '/' && link.getAttribute('href') === '/')) {
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+
+      // Collapsible functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const collapsibles = document.querySelectorAll('.collapsible-header');
+        collapsibles.forEach(header => {
+          header.addEventListener('click', () => {
+            const collapsible = header.parentElement;
+            collapsible?.classList.toggle('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

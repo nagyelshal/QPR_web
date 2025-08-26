@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import Notice from '../components/Notice.astro';
+import { getCollection } from 'astro:content';
+
+// Get latest news posts
+const allPosts = await getCollection('news');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const latestPost = sortedPosts[0];
+
+// Import config
+const config = await import('../../data/config.json');
+---
+
+<BaseLayout title="Home - Queens Park Rangers U11B">
+  <!-- Hero Section -->
+  <section class="hero field-pattern">
+    <div class="container">
+      <h1 class="soccer-bounce">⚽ Queens Park Rangers ⚽</h1>
+      <p><strong>U11 Boys • Coquitlam Metro-Ford SC • Season 2025-2026</strong></p>
+      <p>Welcome to our team website! Stay updated with practice schedules, news, and everything QPR. 🏆</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="grid grid-2" style="margin-top: var(--spacing-2xl);">
+      
+      <!-- This Week Section -->
+      <div>
+        <h2>This Week</h2>
+        {latestPost ? (
+          <PostCard 
+            title={latestPost.data.title}
+            date={latestPost.data.date}
+            summary={latestPost.data.summary}
+            slug={latestPost.slug}
+            tags={latestPost.data.tags}
+          />
+        ) : (
+          <div class="card">
+            <p>No recent news posts. Check back soon!</p>
+          </div>
+        )}
+      </div>
+
+      <!-- Quick Info Section -->
+      <div>
+        <h2 class="soccer-icon">Quick Info</h2>
+        
+        <div class="card card-highlight team-highlight">
+          <h3>🏃‍♂️ Practice Details</h3>
+          <p><strong>{config.practice_day}</strong><br>
+          {config.practice_time}<br>
+          {config.practice_location}</p>
+          <a href="/schedule" class="btn btn-small">Full Schedule →</a>
+        </div>
+
+        <div class="card game-card" style="margin-top: var(--spacing-lg);">
+          <h3>🏆 First Game</h3>
+          <p>{config.first_game_weekend}</p>
+          <p><em>Fixture details will be posted once available</em></p>
+        </div>
+
+        <div class="card game-card" style="margin-top: var(--spacing-lg);">
+          <h3>👕 Kit Information</h3>
+          <p>Pickup windows and exchange details</p>
+          <a href="/kits" class="btn btn-small">Kit Details →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <section style="margin-top: var(--spacing-2xl);">
+      <h2 class="soccer-icon">Quick Links</h2>
+      <div class="grid grid-3">
+        <a href="/training" class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>📋 Training Plans</h3>
+          <p>View detailed training sessions and objectives</p>
+        </a>
+        
+        <a href="/roster" class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>👥 Team Roster</h3>
+          <p>Meet the QPR U11B squad</p>
+        </a>
+        
+        <a href="/downloads" class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>📄 Downloads</h3>
+          <p>Forms, checklists, and important documents</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Important Notice -->
+    <Notice type="info" title="New Season Updates">
+      <p>We're preparing for an exciting 2025-2026 season! Keep checking back for the latest updates on practice schedules, game fixtures, and important announcements.</p>
+    </Notice>
+  </div>
+</BaseLayout>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <!-- Soccer ball background -->
+  <circle cx="16" cy="16" r="14" fill="#00a651" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Soccer ball pattern -->
+  <g stroke="#ffffff" stroke-width="1.5" fill="none">
+    <!-- Pentagon in center -->
+    <polygon points="16,8 20,12 18,17 14,17 12,12" fill="#ffffff"/>
+    
+    <!-- Connecting lines -->
+    <line x1="16" y1="8" x2="16" y2="4"/>
+    <line x1="20" y1="12" x2="26" y2="10"/>
+    <line x1="18" y1="17" x2="24" y2="22"/>
+    <line x1="14" y1="17" x2="8" y2="22"/>
+    <line x1="12" y1="12" x2="6" y2="10"/>
+  </g>
+  
+  <!-- QPR text overlay -->
+  <text x="16" y="20" font-family="Arial, sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="#00a651">QPR</text>
+</svg>

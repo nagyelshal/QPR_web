@@ -1,0 +1,179 @@
+---
+interface Props {
+  formation: string;
+  players: Array<{name: string; pos: string; jersey?: string}>;
+  isRevealed: boolean;
+}
+
+const { formation, players, isRevealed } = Astro.props;
+
+// Position mapping for 2-3-2 formation
+const positionMap = {
+  'GK': { x: 50, y: 85 },
+  'RB': { x: 75, y: 65 },
+  'LB': { x: 25, y: 65 },
+  'CM': { x: 50, y: 45 },
+  'RW': { x: 75, y: 25 },
+  'LW': { x: 25, y: 25 },
+  'ST': { x: 50, y: 15 }
+};
+---
+
+<div class="pitch-container">
+  <svg viewBox="0 0 100 100" class="soccer-pitch" aria-label="Soccer field formation">
+    <!-- Field background -->
+    <rect x="5" y="5" width="90" height="90" fill="#4caf50" stroke="#ffffff" stroke-width="0.5" rx="2"/>
+    
+    <!-- Center circle -->
+    <circle cx="50" cy="50" r="8" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    <circle cx="50" cy="50" r="1" fill="#ffffff"/>
+    
+    <!-- Penalty boxes -->
+    <rect x="5" y="75" width="90" height="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    <rect x="5" y="5" width="90" height="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    
+    <!-- Goal boxes -->
+    <rect x="35" y="85" width="30" height="10" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    <rect x="35" y="5" width="30" height="10" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    
+    <!-- Center line -->
+    <line x1="5" y1="50" x2="95" y2="50" stroke="#ffffff" stroke-width="0.5"/>
+
+    <!-- Player positions -->
+    {players.map((player) => {
+      const pos = positionMap[player.pos] || { x: 50, y: 50 };
+      return (
+        <g class={`player-position ${isRevealed ? 'revealed' : 'hidden'}`}>
+          <circle 
+            cx={pos.x} 
+            cy={pos.y} 
+            r="4" 
+            fill={isRevealed ? "#1565c0" : "#bdbdbd"}
+            stroke="#ffffff" 
+            stroke-width="1"
+            class="player-dot"
+          />
+          {isRevealed && (
+            <>
+              <text 
+                x={pos.x} 
+                y={pos.y + 1} 
+                text-anchor="middle" 
+                class="player-jersey"
+                fill="#ffffff"
+                font-size="2.5"
+                font-weight="bold"
+              >
+                {player.jersey || '?'}
+              </text>
+              <text 
+                x={pos.x} 
+                y={pos.y + 8} 
+                text-anchor="middle" 
+                class="player-name-pitch"
+                fill="#ffffff"
+                font-size="2"
+              >
+                {player.name.split(' ')[0]}
+              </text>
+            </>
+          )}
+        </g>
+      );
+    })}
+  </svg>
+  
+  <div class="formation-label">
+    <span class="formation-text">Formation: {formation}</span>
+  </div>
+</div>
+
+<style>
+  .pitch-container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .soccer-pitch {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(135deg, #388e3c 0%, #4caf50 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+  }
+
+  .player-position {
+    transition: all 0.4s ease;
+  }
+
+  .player-position.hidden .player-dot {
+    opacity: 0.3;
+    r: 2;
+  }
+
+  .player-position.revealed {
+    animation: playerPop 0.6s ease-out;
+  }
+
+  @keyframes playerPop {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .player-jersey {
+    pointer-events: none;
+  }
+
+  .player-name-pitch {
+    pointer-events: none;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .formation-label {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .formation-text {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .player-position {
+      transition: none;
+    }
+    .player-position.revealed {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .soccer-pitch {
+      max-width: 300px;
+    }
+    
+    .player-jersey {
+      font-size: 2rem;
+    }
+    
+    .player-name-pitch {
+      font-size: 1.5rem;
+    }
+  }
+</style>

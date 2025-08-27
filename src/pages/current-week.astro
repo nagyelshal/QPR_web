@@ -1,0 +1,621 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PlayerChip from '../components/PlayerChip.astro';
+import Pitch from '../components/Pitch.astro';
+import Notice from '../components/Notice.astro';
+
+const base = import.meta.env.BASE_URL;
+
+// Load current week data
+const weekData = await import('../../data/current-week.json');
+
+// Check what should be revealed based on current time
+const now = new Date();
+const captainsRevealTime = new Date(weekData.captains.reveal_at);
+const lineupRevealTime = new Date(weekData.lineup.reveal_at);
+
+const captainsRevealed = now >= captainsRevealTime;
+const lineupRevealed = now >= lineupRevealTime;
+---
+
+<BaseLayout title="Current Week - Queens Park Rangers U11B">
+  <div class="container current-week-page">
+    
+    <!-- Hero Section -->
+    <header class="week-hero">
+      <div class="week-badge">
+        <span class="week-text">Current Week</span>
+        <span class="week-dates">{weekData.week.date_range}</span>
+      </div>
+      <h1 class="week-title">{weekData.week.theme}</h1>
+      <p class="week-subtitle">
+        Captains revealed Wednesday • Lineup revealed Friday
+      </p>
+    </header>
+
+    <!-- Training Focus -->
+    <section class="section">
+      <h2 class="section-title">🏃‍♂️ This Week's Training</h2>
+      <div class="training-card">
+        <div class="training-info">
+          <h3>Thursday, {new Date(weekData.training.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })} at {weekData.training.time}</h3>
+          <p><strong>Focus:</strong> {weekData.training.focus}</p>
+          <p><strong>Special Drill:</strong> {weekData.training.special_drill}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Captains Section -->
+    <section class="section">
+      <h2 class="section-title">🏅 Captains of the Week</h2>
+      
+      {captainsRevealed ? (
+        <div class="captains-grid">
+          {weekData.captains.names.map((captain, index) => (
+            <div class="captain-card revealed">
+              <div class="captain-badge">
+                <span class="captain-letter">C{index + 1}</span>
+              </div>
+              <h3 class="captain-name">{captain}</h3>
+              <p class="captain-duties">{weekData.captains.duties}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="captains-grid">
+          <div class="captain-card placeholder">
+            <div class="reveal-ribbon">Reveals Wednesday</div>
+            <div class="captain-placeholder">
+              <div class="shimmer-captain"></div>
+              <p>Captain duties: {weekData.captains.duties}</p>
+            </div>
+          </div>
+          <div class="captain-card placeholder">
+            <div class="reveal-ribbon">Reveals Wednesday</div>
+            <div class="captain-placeholder">
+              <div class="shimmer-captain"></div>
+              <p>Captain duties: {weekData.captains.duties}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- Match Info -->
+    <section class="section">
+      <h2 class="section-title">⚽ This Week's Match</h2>
+      <div class="match-card">
+        <div class="match-teams">
+          <div class="team-info">
+            <div class="team-crest qpr">QPR</div>
+            <span class="team-name">Queens Park Rangers</span>
+          </div>
+          <div class="vs">VS</div>
+          <div class="team-info">
+            <div class="team-crest opponent">{weekData.match.opponent.split(' ').map(word => word[0]).join('')}</div>
+            <span class="team-name">{weekData.match.opponent}</span>
+          </div>
+        </div>
+        <div class="match-details">
+          <p><strong>{new Date(weekData.match.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</strong></p>
+          <p>Kickoff: {weekData.match.kickoff}</p>
+          <p>{weekData.match.location}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Starting Lineup -->
+    <section class="section">
+      <h2 class="section-title">📋 Starting Lineup</h2>
+      
+      {lineupRevealed ? (
+        <div class="lineup-revealed">
+          <Pitch 
+            formation={weekData.match.formation}
+            players={weekData.lineup.starting}
+            isRevealed={true}
+          />
+          <div class="confetti-message">
+            <span class="confetti">🎉</span>
+            <span>Starting 8 revealed!</span>
+            <span class="confetti">🎉</span>
+          </div>
+        </div>
+      ) : (
+        <div class="lineup-placeholder">
+          <div class="reveal-banner">
+            <h3>Lineup Reveals Friday ⚡</h3>
+            <p>Check back Friday morning to see who's starting!</p>
+          </div>
+          <Pitch 
+            formation={weekData.match.formation}
+            players={weekData.lineup.starting}
+            isRevealed={false}
+          />
+        </div>
+      )}
+    </section>
+
+    <!-- Rotating Squad -->
+    <section class="section">
+      <h2 class="section-title">🔄 Full Squad</h2>
+      <p class="rotation-note">All players play — frequent rotations throughout the match!</p>
+      
+      <div class="rotating-grid">
+        {weekData.lineup.rotating.map((player) => (
+          <PlayerChip 
+            name={player.name}
+            position="SUB"
+            jersey={player.jersey}
+            isRevealed={true}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Hype Strip -->
+    <section class="section hype-section">
+      <h2 class="section-title">🎉 Week Hype</h2>
+      
+      <div class="hype-grid">
+        <div class="hype-card">
+          <h3>📣 Chant of the Week</h3>
+          <p class="chant">{weekData.hype.chant}</p>
+        </div>
+        
+        {weekData.hype.player_of_month && (
+          <div class="hype-card">
+            <h3>🏅 Player of the Month</h3>
+            <p><strong>{weekData.hype.player_of_month.name}</strong></p>
+            <p>{weekData.hype.player_of_month.month}</p>
+            <a href={`${base}awards/`} class="btn btn-small">See Awards →</a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Coach Notes -->
+    <section class="section">
+      <Notice type="info" title="Coach Notes">
+        <ul>
+          <li><strong>Arrival:</strong> {weekData.notes.arrival}</li>
+          <li><strong>Kit:</strong> {weekData.notes.kit}</li>
+          <li><strong>Focus:</strong> {weekData.notes.coach}</li>
+        </ul>
+      </Notice>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .current-week-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .week-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+    color: white;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .week-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.3;
+  }
+
+  .week-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 8px 20px;
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    backdrop-filter: blur(10px);
+  }
+
+  .week-text {
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .week-dates {
+    opacity: 0.9;
+    font-size: 0.9rem;
+  }
+
+  .week-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(45deg, #ffffff, #e3f2fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+  }
+
+  .week-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+  }
+
+  .training-card {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(21, 101, 192, 0.2);
+  }
+
+  .training-info h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .captains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .captain-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .captain-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .captain-card.revealed {
+    animation: cardReveal 0.8s ease-out;
+  }
+
+  .captain-card.placeholder {
+    background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+    color: #757575;
+  }
+
+  .captain-badge {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+  }
+
+  .captain-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+  }
+
+  .captain-duties {
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .reveal-ribbon {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: linear-gradient(135deg, #ff5722 0%, #d84315 100%);
+    color: white;
+    padding: 4px 40px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.3);
+  }
+
+  .captain-placeholder {
+    padding-top: var(--spacing-lg);
+  }
+
+  .shimmer-captain {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-md);
+    animation: shimmer 2s infinite;
+  }
+
+  .match-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .team-crest {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+  }
+
+  .team-crest.qpr {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  }
+
+  .team-crest.opponent {
+    background: linear-gradient(135deg, #757575 0%, #424242 100%);
+  }
+
+  .team-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .vs {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .match-details p {
+    margin: var(--spacing-xs) 0;
+    color: var(--color-text-light);
+  }
+
+  .match-details p:first-child {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .lineup-revealed {
+    text-align: center;
+  }
+
+  .confetti-message {
+    margin-top: var(--spacing-lg);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    animation: bounce 1s ease-out;
+  }
+
+  .confetti {
+    font-size: 1.5rem;
+    animation: spin 2s linear infinite;
+  }
+
+  .lineup-placeholder {
+    text-align: center;
+  }
+
+  .reveal-banner {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 2px dashed #ff9800;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .reveal-banner h3 {
+    color: #f57c00;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .rotation-note {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .rotating-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hype-section {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+  }
+
+  .hype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .hype-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(156, 39, 176, 0.2);
+  }
+
+  .chant {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: var(--spacing-md) 0;
+  }
+
+  @keyframes cardReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .captain-card.revealed,
+    .confetti-message,
+    .confetti {
+      animation: none;
+    }
+    
+    .shimmer-captain {
+      animation: none;
+      background: #e0e0e0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .week-title {
+      font-size: 2rem;
+    }
+    
+    .match-teams {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .vs {
+      transform: rotate(90deg);
+    }
+    
+    .captains-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Simple confetti effect when lineup is revealed
+  function showConfetti() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    
+    const confettiContainer = document.querySelector('.confetti-message');
+    if (!confettiContainer) return;
+
+    // Simple confetti burst effect
+    const colors = ['#1565c0', '#ff9800', '#4caf50', '#f44336', '#9c27b0'];
+    
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        const confetti = document.createElement('div');
+        confetti.style.cssText = `
+          position: fixed;
+          width: 8px;
+          height: 8px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 1000;
+          left: ${Math.random() * 100}vw;
+          top: -10px;
+          animation: confettiFall 3s linear forwards;
+        `;
+        
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 3000);
+      }, i * 100);
+    }
+  }
+
+  // Add confetti animation CSS
+  const confettiStyle = document.createElement('style');
+  confettiStyle.textContent = `
+    @keyframes confettiFall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(confettiStyle);
+
+  // Show confetti if lineup is revealed (check once on page load)
+  document.addEventListener('DOMContentLoaded', () => {
+    const lineupRevealed = document.querySelector('.lineup-revealed');
+    if (lineupRevealed && !sessionStorage.getItem('confetti-shown')) {
+      setTimeout(showConfetti, 500);
+      sessionStorage.setItem('confetti-shown', 'true');
+    }
+  });
+</script>

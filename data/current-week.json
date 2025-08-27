@@ -1,0 +1,57 @@
+{
+  "week": {
+    "date_range": "Sept 2-8, 2025",
+    "theme": "Season Opener Week"
+  },
+  "training": {
+    "date": "2025-09-05",
+    "time": "19:00",
+    "focus": "First touches and quick passing",
+    "special_drill": "Crossbar Challenge 🎯"
+  },
+  "match": {
+    "opponent": "Boro United FC",
+    "date": "2025-09-07",
+    "kickoff": "10:30",
+    "location": "Town Centre Park – Mobilio West",
+    "formation": "2-3-2"
+  },
+  "captains": {
+    "reveal_at": "2025-09-04T09:00:00-07:00",
+    "names": ["Ethan G.", "Rhodri W."],
+    "duties": "Lead warm-ups • Take set pieces • Guide positions"
+  },
+  "lineup": {
+    "reveal_at": "2025-09-06T09:00:00-07:00",
+    "starting": [
+      {"name": "Travis C.", "pos": "GK", "jersey": "3"},
+      {"name": "Adam K.", "pos": "RB", "jersey": "TBD"},
+      {"name": "Alexander V.", "pos": "LB", "jersey": "TBD"},
+      {"name": "Andrew E.", "pos": "CM", "jersey": "4"},
+      {"name": "Rafael H.", "pos": "CM", "jersey": "TBD"},
+      {"name": "Andrew N.", "pos": "RW", "jersey": "TBD"},
+      {"name": "David C.", "pos": "LW", "jersey": "TBD"},
+      {"name": "Ethan G.", "pos": "ST", "jersey": "TBD"}
+    ],
+    "rotating": [
+      {"name": "Henry K.", "jersey": "TBD"},
+      {"name": "Minh-An D.", "jersey": "TBD"}, 
+      {"name": "Niko D.", "jersey": "TBD"},
+      {"name": "Owen H.", "jersey": "9"},
+      {"name": "Rhodri W.", "jersey": "10"},
+      {"name": "Yejun K.", "jersey": "TBD"}
+    ]
+  },
+  "hype": {
+    "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
+    "player_of_month": {
+      "name": "Liam R.",
+      "month": "August"
+    }
+  },
+  "notes": {
+    "arrival": "Arrive 30 min early for warm-up",
+    "kit": "Blue shirts, white shorts, blue socks",
+    "coach": "Focus on spacing and supporting teammates"
+  }
+}

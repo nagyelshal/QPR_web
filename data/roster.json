@@ -2,19 +2,19 @@
   "team": "Queens Park Rangers U11B",
   "season": "2025-2026",
   "players": [
-    "Adam K",
-    "Alexander V", 
-    "Andrew E",
-    "Andrew N",
-    "David C",
-    "Ethan G",
-    "Henry K",
-    "Minh-An D",
-    "Niko D",
-    "Owen H",
-    "Rafael H",
-    "Rhodri W",
-    "Travis C",
-    "Yejun K"
+    {"name": "Adam K", "jersey": "TBD"},
+    {"name": "Alexander V", "jersey": "TBD"}, 
+    {"name": "Andrew E", "jersey": "4"},
+    {"name": "Andrew N", "jersey": "TBD"},
+    {"name": "David C", "jersey": "TBD"},
+    {"name": "Ethan G", "jersey": "TBD"},
+    {"name": "Henry K", "jersey": "TBD"},
+    {"name": "Minh-An D", "jersey": "TBD"},
+    {"name": "Niko D", "jersey": "TBD"},
+    {"name": "Owen H", "jersey": "9"},
+    {"name": "Rafael H", "jersey": "TBD"},
+    {"name": "Rhodri W", "jersey": "10"},
+    {"name": "Travis C", "jersey": "3"},
+    {"name": "Yejun K", "jersey": "TBD"}
   ]
 }

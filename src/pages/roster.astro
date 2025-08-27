@@ -26,10 +26,10 @@ const roster = await import('../../data/roster.json');
               </tr>
             </thead>
             <tbody>
-              {roster.players.map((player, index) => (
+              {roster.players.map((player) => (
                 <tr>
-                  <td>{index + 1}</td>
-                  <td>{player}</td>
+                  <td>{player.jersey}</td>
+                  <td>{player.name}</td>
                   <td>TBD</td>
                 </tr>
               ))}

@@ -1,0 +1,241 @@
+---
+interface Props {
+  formation: string;
+  allPlayers: Array<{name: string; jersey?: string}>;
+  startingPlayers: Array<{name: string; pos: string; jersey?: string}>;
+  rotatingPlayers: Array<{name: string; jersey?: string}>;
+  captains: {first_half: string; second_half: string};
+  phase: 'initial' | 'captains' | 'lineup';
+}
+
+const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, phase } = Astro.props;
+
+// Position mapping for 3-3-1 formation
+const positionMap = {
+  'GK': { x: 50, y: 85 },
+  'CB': { x: 50, y: 65 }, // We'll adjust for 3 CBs
+  'LM': { x: 25, y: 45 },
+  'CM': { x: 50, y: 45 },
+  'RM': { x: 75, y: 45 },
+  'ST': { x: 50, y: 25 }
+};
+
+// Adjust positions for 3-3-1 formation
+const getPositionForPlayer = (player, index) => {
+  if (player.pos === 'CB') {
+    const cbPositions = [
+      { x: 30, y: 65 }, // Left CB
+      { x: 50, y: 65 }, // Center CB  
+      { x: 70, y: 65 }  // Right CB
+    ];
+    const cbIndex = startingPlayers.filter(p => p.pos === 'CB').indexOf(player);
+    return cbPositions[cbIndex] || { x: 50, y: 65 };
+  }
+  return positionMap[player.pos] || { x: 50, y: 50 };
+};
+---
+
+<div class="phased-pitch-container">
+  <div class="pitch-section">
+    <!-- Left side - Formation positions -->
+    <div class="formation-side">
+      <h4>Formation Positions</h4>
+      <svg viewBox="0 0 100 100" class="soccer-pitch" aria-label="Soccer field formation">
+        <!-- Field background -->
+        <rect x="5" y="5" width="90" height="90" fill="#4caf50" stroke="#ffffff" stroke-width="0.5" rx="2"/>
+        
+        <!-- Center circle -->
+        <circle cx="50" cy="50" r="8" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        <circle cx="50" cy="50" r="1" fill="#ffffff"/>
+        
+        <!-- Penalty boxes -->
+        <rect x="5" y="75" width="90" height="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        <rect x="5" y="5" width="90" height="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        
+        <!-- Goal boxes -->
+        <rect x="35" y="85" width="30" height="10" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        <rect x="35" y="5" width="30" height="10" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        
+        <!-- Center line -->
+        <line x1="5" y1="50" x2="95" y2="50" stroke="#ffffff" stroke-width="0.5"/>
+
+        <!-- Position slots and players based on phase -->
+        {startingPlayers.map((player) => {
+          const pos = getPositionForPlayer(player);
+          const isRevealed = phase === 'lineup' || (phase === 'captains' && player.pos === 'CB' && (player.name === captains.first_half || player.name === captains.second_half));
+          
+          return (
+            <g class="player-position">
+              <circle 
+                cx={pos.x} 
+                cy={pos.y} 
+                r="4" 
+                fill={isRevealed ? "#1976d2" : "#cccccc"}
+                stroke="#ffffff" 
+                stroke-width="1"
+              />
+              {isRevealed ? (
+                <text 
+                  x={pos.x} 
+                  y={pos.y + 1} 
+                  text-anchor="middle" 
+                  fill="white" 
+                  font-size="2" 
+                  font-weight="bold"
+                >
+                  {player.name.split(' ')[0]}
+                </text>
+              ) : (
+                <text 
+                  x={pos.x} 
+                  y={pos.y + 1} 
+                  text-anchor="middle" 
+                  fill="white" 
+                  font-size="2" 
+                  font-weight="bold"
+                >
+                  {player.pos}
+                </text>
+              )}
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+
+    <!-- Right side - Player pool -->
+    <div class="player-pool-side">
+      <h4>
+        {phase === 'initial' && 'All Players Available'}
+        {phase === 'captains' && 'Players Available'}
+        {phase === 'lineup' && 'Rotating Squad'}
+      </h4>
+      
+      <div class="player-list">
+        {phase === 'initial' && (
+          <div class="all-players">
+            {allPlayers.map((player) => (
+              <div class="player-chip available">
+                <span class="player-name">{player.name}</span>
+                <span class="player-jersey">#{player.jersey}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {phase === 'captains' && (
+          <div class="available-players">
+            {allPlayers.filter(p => p.name !== captains.first_half && p.name !== captains.second_half).map((player) => (
+              <div class="player-chip available">
+                <span class="player-name">{player.name}</span>
+                <span class="player-jersey">#{player.jersey}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {phase === 'lineup' && (
+          <div class="rotating-players">
+            {rotatingPlayers.map((player) => (
+              <div class="player-chip rotating">
+                <span class="player-name">{player.name}</span>
+                <span class="player-jersey">#{player.jersey}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .phased-pitch-container {
+    width: 100%;
+    margin: var(--spacing-lg) 0;
+  }
+
+  .pitch-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+  }
+
+  .formation-side h4,
+  .player-pool-side h4 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .soccer-pitch {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .player-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-height: 400px;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .player-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 6px;
+    font-size: var(--font-size-sm);
+    transition: all 0.2s ease;
+  }
+
+  .player-chip.available {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    box-shadow: 0 2px 4px rgba(76,175,80,0.3);
+  }
+
+  .player-chip.rotating {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: white;
+    box-shadow: 0 2px 4px rgba(255,152,0,0.3);
+  }
+
+  .player-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .player-name {
+    font-weight: 600;
+  }
+
+  .player-jersey {
+    font-size: var(--font-size-xs);
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .pitch-section {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+    
+    .player-list {
+      max-height: 250px;
+    }
+  }
+</style>

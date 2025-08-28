@@ -24,6 +24,22 @@
   },
   "lineup": {
     "reveal_at": "2025-09-05T19:00:00-07:00",
+    "all_players": [
+      {"name": "Adam K", "jersey": "TBD"},
+      {"name": "Alexander V", "jersey": "TBD"}, 
+      {"name": "Andrew E", "jersey": "4"},
+      {"name": "Andrew N", "jersey": "TBD"},
+      {"name": "David C", "jersey": "TBD"},
+      {"name": "Ethan G", "jersey": "TBD"},
+      {"name": "Henry K", "jersey": "TBD"},
+      {"name": "Minh-An D", "jersey": "TBD"},
+      {"name": "Niko D", "jersey": "TBD"},
+      {"name": "Owen H", "jersey": "9"},
+      {"name": "Rafael H", "jersey": "TBD"},
+      {"name": "Rhodri W", "jersey": "10"},
+      {"name": "Travis C", "jersey": "3"},
+      {"name": "Yejun K", "jersey": "TBD"}
+    ],
     "starting": [
       {"name": "TBD", "pos": "GK", "jersey": "TBD"},
       {"name": "TBD", "pos": "CB", "jersey": "TBD"},
@@ -46,8 +62,8 @@
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
     "player_of_month": {
-      "name": "Liam R.",
-      "month": "August"
+      "name": "To be announced",
+      "month": "September"
     }
   },
   "notes": {

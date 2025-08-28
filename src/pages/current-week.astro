@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlayerChip from '../components/PlayerChip.astro';
 import Pitch from '../components/Pitch.astro';
+import PhasedPitch from '../components/PhasedPitch.astro';
 import Notice from '../components/Notice.astro';
 
 const base = import.meta.env.BASE_URL;
@@ -16,6 +17,14 @@ const lineupRevealTime = new Date(weekData.lineup.reveal_at);
 
 const captainsRevealed = now >= captainsRevealTime;
 const lineupRevealed = now >= lineupRevealTime;
+
+// Determine current phase for lineup display
+let currentPhase = 'initial';
+if (lineupRevealed) {
+  currentPhase = 'lineup';
+} else if (captainsRevealed) {
+  currentPhase = 'captains';
+}
 ---
 
 <BaseLayout title="Current Week - Queens Park Rangers U11B">
@@ -116,65 +125,37 @@ const lineupRevealed = now >= lineupRevealTime;
 
     <!-- Starting Lineup -->
     <section class="section">
-      <h2 class="section-title">📋 Starting Lineup</h2>
+      <h2 class="section-title">📋 Team Lineup Phases</h2>
       
-      {lineupRevealed ? (
-        <div class="lineup-revealed">
-          <Pitch 
-            formation={weekData.match.formation}
-            players={weekData.lineup.starting}
-            isRevealed={true}
-          />
-          <div class="confetti-message">
-            <span class="confetti">🎉</span>
-            <span>Starting 8 revealed!</span>
-            <span class="confetti">🎉</span>
+      <div class="phase-indicator">
+        {currentPhase === 'initial' && (
+          <div class="phase-banner initial">
+            <h3>🏃‍♂️ All Players Available</h3>
+            <p>Captains reveal Wednesday • Full lineup reveals Friday 7pm</p>
           </div>
-        </div>
-      ) : (
-        <div class="lineup-placeholder">
-          <div class="reveal-banner">
-            <h3>Lineup Reveals Friday 7pm ⚡</h3>
-            <p>Check back Friday night to see who's starting!</p>
+        )}
+        {currentPhase === 'captains' && (
+          <div class="phase-banner captains">
+            <h3>🏅 Captains Revealed!</h3>
+            <p>Full lineup reveals Friday 7pm</p>
           </div>
-          <Pitch 
-            formation={weekData.match.formation}
-            players={weekData.lineup.starting}
-            isRevealed={false}
-          />
-        </div>
-      )}
-    </section>
+        )}
+        {currentPhase === 'lineup' && (
+          <div class="phase-banner lineup">
+            <h3>⚡ Full Lineup Revealed!</h3>
+            <p>Starting 8 and rotating squad confirmed</p>
+          </div>
+        )}
+      </div>
 
-    <!-- Rotating Squad -->
-    <section class="section">
-      <h2 class="section-title">🔄 Full Squad</h2>
-      <p class="rotation-note">All players play — frequent rotations throughout the match!</p>
-      
-      {lineupRevealed ? (
-        <div class="rotating-grid">
-          {weekData.lineup.rotating.map((player) => (
-            <PlayerChip 
-              name={player.name}
-              position="SUB"
-              jersey={player.jersey}
-              isRevealed={true}
-            />
-          ))}
-        </div>
-      ) : (
-        <div class="rotating-preview">
-          <p>6 rotating substitutes will be revealed Friday 7pm</p>
-          <div class="rotating-placeholders">
-            <div class="sub-placeholder">SUB</div>
-            <div class="sub-placeholder">SUB</div>
-            <div class="sub-placeholder">SUB</div>
-            <div class="sub-placeholder">SUB</div>
-            <div class="sub-placeholder">SUB</div>
-            <div class="sub-placeholder">SUB</div>
-          </div>
-        </div>
-      )}
+      <PhasedPitch 
+        formation={weekData.match.formation}
+        allPlayers={weekData.lineup.all_players}
+        startingPlayers={weekData.lineup.starting}
+        rotatingPlayers={weekData.lineup.rotating}
+        captains={weekData.captains}
+        phase={currentPhase}
+      />
     </section>
 
     <!-- Hype Strip -->
@@ -637,6 +618,55 @@ const lineupRevealed = now >= lineupRevealTime;
       height: 50px;
       font-size: 0.6rem;
     }
+  }
+
+  /* Phase indicator styles */
+  .phase-indicator {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .phase-banner {
+    text-align: center;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phase-banner.initial {
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  }
+
+  .phase-banner.captains {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  }
+
+  .phase-banner.lineup {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  }
+
+  .phase-banner h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .phase-banner p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1rem;
+  }
+
+  .phase-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.5;
   }
 </style>
 

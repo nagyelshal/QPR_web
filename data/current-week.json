@@ -4,42 +4,43 @@
     "theme": "Season Opener Week"
   },
   "training": {
-    "date": "2025-09-05",
+    "date": "2025-09-04",
     "time": "19:00",
     "focus": "First touches and quick passing",
     "special_drill": "Crossbar Challenge 🎯"
   },
   "match": {
-    "opponent": "Boro United FC",
+    "opponent": "TBD",
     "date": "2025-09-07",
     "kickoff": "10:30",
     "location": "Town Centre Park – Mobilio West",
-    "formation": "2-3-2"
+    "formation": "3-3-1"
   },
   "captains": {
     "reveal_at": "2025-09-04T09:00:00-07:00",
-    "names": ["Ethan G.", "Rhodri W."],
-    "duties": "Lead warm-ups • Take set pieces • Guide positions"
+    "first_half": "TBD",
+    "second_half": "TBD",
+    "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
   },
   "lineup": {
-    "reveal_at": "2025-09-06T09:00:00-07:00",
+    "reveal_at": "2025-09-05T19:00:00-07:00",
     "starting": [
-      {"name": "Travis C.", "pos": "GK", "jersey": "3"},
-      {"name": "Adam K.", "pos": "RB", "jersey": "TBD"},
-      {"name": "Alexander V.", "pos": "LB", "jersey": "TBD"},
-      {"name": "Andrew E.", "pos": "CM", "jersey": "4"},
-      {"name": "Rafael H.", "pos": "CM", "jersey": "TBD"},
-      {"name": "Andrew N.", "pos": "RW", "jersey": "TBD"},
-      {"name": "David C.", "pos": "LW", "jersey": "TBD"},
-      {"name": "Ethan G.", "pos": "ST", "jersey": "TBD"}
+      {"name": "TBD", "pos": "GK", "jersey": "TBD"},
+      {"name": "TBD", "pos": "CB", "jersey": "TBD"},
+      {"name": "TBD", "pos": "CB", "jersey": "TBD"},
+      {"name": "TBD", "pos": "CB", "jersey": "TBD"},
+      {"name": "TBD", "pos": "LM", "jersey": "TBD"},
+      {"name": "TBD", "pos": "CM", "jersey": "TBD"},
+      {"name": "TBD", "pos": "RM", "jersey": "TBD"},
+      {"name": "TBD", "pos": "ST", "jersey": "TBD"}
     ],
     "rotating": [
-      {"name": "Henry K.", "jersey": "TBD"},
-      {"name": "Minh-An D.", "jersey": "TBD"}, 
-      {"name": "Niko D.", "jersey": "TBD"},
-      {"name": "Owen H.", "jersey": "9"},
-      {"name": "Rhodri W.", "jersey": "10"},
-      {"name": "Yejun K.", "jersey": "TBD"}
+      {"name": "TBD", "jersey": "TBD"},
+      {"name": "TBD", "jersey": "TBD"},
+      {"name": "TBD", "jersey": "TBD"},
+      {"name": "TBD", "jersey": "TBD"},
+      {"name": "TBD", "jersey": "TBD"},
+      {"name": "TBD", "jersey": "TBD"}
     ]
   },
   "hype": {

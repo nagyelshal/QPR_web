@@ -12,19 +12,32 @@ const base = import.meta.env.BASE_URL;
       <p>Important forms, checklists, and documents for players and parents.</p>
     </header>
 
-    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-      <Notice type="info" title="No Downloads Yet">
-        <p>Download section is being prepared. Forms and documents will be available once the season begins.</p>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <div class="card" style="margin-bottom: var(--spacing-xl);">
+        <h2>📅 Practice Calendar</h2>
+        <p>Download the complete practice schedule including holidays and breaks.</p>
+        <div style="text-align: center; margin-top: var(--spacing-lg);">
+          <a href={`${base}qpr_practice_calendar.ics`} class="btn" download>
+            📅 Download Practice Calendar (.ics)
+          </a>
+        </div>
+        <p style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-top: var(--spacing-md);">
+          <em>Import this calendar into your phone or computer to never miss a practice!</em>
+        </p>
+      </div>
+
+      <Notice type="info" title="Additional Documents Coming Soon">
+        <p>More forms and documents will be available once the season begins.</p>
         <p style="margin-top: var(--spacing-md);">Check back after the first practice for:</p>
         <ul style="text-align: left; margin-top: var(--spacing-sm);">
           <li>Player registration forms</li>
           <li>Parent information sheets</li>
           <li>Emergency contact forms</li>
-          <li>Season calendar downloads</li>
+          <li>Game schedule downloads</li>
         </ul>
       </Notice>
 
-      <div style="margin-top: var(--spacing-xl);">
+      <div style="margin-top: var(--spacing-xl); text-align: center;">
         <a href={`${base}about/`} class="btn">Contact Coach for Questions</a>
       </div>
     </div>

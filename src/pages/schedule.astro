@@ -20,19 +20,19 @@ const config = await import('../../data/config.json');
         <div class="card card-highlight team-highlight">
           <h3>🏃‍♂️ Weekly Practice</h3>
           <div style="font-size: var(--font-size-lg); margin: var(--spacing-md) 0;">
-            <p><strong>{config.practice_day}</strong></p>
-            <p><strong>{config.practice_time}</strong></p>
-            <p><strong>{config.practice_location}</strong></p>
+            <p><strong>Thursdays</strong></p>
+            <p><strong>7:00 PM - 8:30 PM</strong></p>
+            <p><strong>Town Centre Park - Field Grid D</strong></p>
           </div>
           <Notice type="info">
             <p><strong>Coach:</strong> Nagy Elshal<br>
             <strong>Team Level:</strong> U11B<br>
-            <strong>Field:</strong> Grid D</p>
+            <strong>Arrive:</strong> 10 minutes early for warm-up</p>
           </Notice>
         </div>
 
         <div style="margin-top: var(--spacing-lg); text-align: center;">
-          <a href={`${base}qpr_practice_placeholder.ics`} class="btn" download>
+          <a href={`${base}qpr_practice_calendar.ics`} class="btn" download>
             📅 Download Practice Calendar
           </a>
         </div>
@@ -44,7 +44,7 @@ const config = await import('../../data/config.json');
         <div class="card game-card">
           <h3>🏆 Saturday Games</h3>
           <p><strong>Game Day:</strong> Saturdays<br>
-          <strong>First Game:</strong> {config.first_game_weekend}</p>
+          <strong>First Game:</strong> September 7, 2025</p>
           
           <Notice type="warning" title="Fixtures Pending">
             <p>Complete game schedule with opponents, fields, and kickoff times will be posted once the league releases fixtures.</p>
@@ -66,19 +66,25 @@ const config = await import('../../data/config.json');
               </thead>
               <tbody>
                 <tr>
-                  <td>Sept 6</td>
+                  <td>Sept 7</td>
+                  <td>TBD</td>
+                  <td>Town Centre Park</td>
+                  <td>10:30 AM</td>
+                </tr>
+                <tr>
+                  <td>Sept 14</td>
                   <td>TBD</td>
                   <td>TBD</td>
                   <td>TBD</td>
                 </tr>
                 <tr>
-                  <td>Sept 13</td>
+                  <td>Sept 21</td>
                   <td>TBD</td>
                   <td>TBD</td>
                   <td>TBD</td>
                 </tr>
                 <tr>
-                  <td>Sept 20</td>
+                  <td>Sept 28</td>
                   <td>TBD</td>
                   <td>TBD</td>
                   <td>TBD</td>
@@ -100,11 +106,11 @@ const config = await import('../../data/config.json');
         <div class="card card-highlight">
           <h3>🍂 Fall 2025</h3>
           <ul style="line-height: 1.8;">
-            <li><strong>📅 Season Start:</strong> Week of Sept 1</li>
-            <li><strong>⚽ First Weekend of Games:</strong> Sept 6–7</li>
-            <li><strong>🍂 No Games:</strong> Thanksgiving Oct 11–12</li>
-            <li><strong>📅 Last Week of 2025 Practices:</strong> Dec 12</li>
-            <li><strong>⚽ Last Weekend of 2025 Games:</strong> Dec 6–7</li>
+            <li><strong>📅 Season Start:</strong> Thursday, Sept 4 (First Practice)</li>
+            <li><strong>⚽ First Game:</strong> Saturday, Sept 7</li>
+            <li><strong>🦃 No Practice/Games:</strong> Thanksgiving Oct 9 & 16</li>
+            <li><strong>📅 Last Practice 2025:</strong> Thursday, Dec 12</li>
+            <li><strong>⚽ Last Game 2025:</strong> Saturday, Dec 7</li>
           </ul>
         </div>
         
@@ -112,9 +118,10 @@ const config = await import('../../data/config.json');
           <h3>❄️ Winter Break & Spring 2026</h3>
           <ul style="line-height: 1.8;">
             <li><strong>❄️ Winter Break:</strong> Dec 15 – Jan 4</li>
-            <li><strong>📅 Practices Resume 2026:</strong> Week of Jan 5</li>
-            <li><strong>⚽ Games Resume:</strong> Jan 10–11</li>
-            <li><strong>🍁 No Games – Family Day Weekend:</strong> Feb 14–15</li>
+            <li><strong>📅 Practice Resumes:</strong> Thursday, Jan 8</li>
+            <li><strong>⚽ Games Resume:</strong> Saturday, Jan 11</li>
+            <li><strong>👨‍👩‍👧‍👦 No Practice/Games:</strong> Family Day Feb 12</li>
+            <li><strong>🏁 Season Ends:</strong> Late February 2026</li>
           </ul>
         </div>
       </div>

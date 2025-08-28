@@ -5,65 +5,66 @@ tags: ["training", "practice"]
 summary: "Preview of our first training session: team introductions, basic ball control, simple passing, and a fun scrimmage to start the season."
 ---
 
-Excited for our first practice this Thursday! Here's what we have planned for our inaugural QPR training session.
+---
+title: "Questionnaire responses collection + More kits distribution in progress"
+date: 2025-08-28
+tags: ["registration", "kits"]
+summary: "Collecting player questionnaire responses and continuing kit distribution. Kit size replacements will be handled after all initial kits are distributed."
+---
 
-## Training #1 Focus (Thursday, Sept 4)
+Great progress on getting our team organized! We're continuing to collect questionnaire responses and distribute kits to all our QPR players.
 
-Our first session will be all about getting to know each other and establishing some soccer fundamentals in a fun, supportive environment.
+## Questionnaire Collection Status
 
-### Key Objectives
-- Team introductions and basic rules review
-- Ball control fundamentals (stopping, basic touches)
-- Simple passing patterns with both feet
-- Understanding basic positioning concepts
-- Building confidence through small-sided play
+We're still gathering questionnaire responses from families to help us understand each player's experience level, preferred positions, and any important information for the coaching team.
 
-## Session Breakdown
+### Still Need Responses From
+If you haven't submitted your questionnaire yet, please complete it as soon as possible. The information helps us:
+- Plan appropriate training activities
+- Understand player experience levels
+- Know about any medical conditions or allergies
+- Learn about player position preferences
 
-**Warm-up & Introductions (10 min)**
-- Light jogging and dynamic stretching
-- Each player shares their name and favorite position
-- Quick review of basic soccer rules and expectations
+**Please submit your responses by Friday, August 30th** so we can be fully prepared for our first practice.
 
-**Ball Control Drills (15 min)**
-- Individual ball touches with inside of foot
-- Cone weaving exercises using both feet
-- "Red light/Green light" dribbling game
+## Kit Distribution Update
 
-**Passing Practice (15 min)**
-- Partner passing at 5 yards using inside of foot
-- Triangle passing in groups of 3
-- Target practice with cones
+Kit distribution is ongoing! We're working hard to get every player their complete QPR uniform package.
 
-**Positioning Basics (10 min)**
-- Introduction to field positions (defenders, midfielders, forwards)
-- "Find space" exercises when team has the ball
+### Distribution Progress
+- **Completed:** First round of kit distribution
+- **In Progress:** Additional kit pickups scheduled
+- **Next Phase:** Size replacements and adjustments
 
-**Fun Scrimmage (8 min)**
-- Small-sided games (4v4 or 5v5)
-- Focus on trying new skills learned
-- Positive encouragement for all efforts
+### Important Kit Information
 
-**Cool Down (2 min)**
-- Light walking and basic stretching
-- Recap what we learned
-- Preview next week's focus
+**Size Replacements Policy:**  
+Kit size replacements will be done after all kits are distributed to ensure we have enough inventory for everyone. If your child's kit doesn't fit perfectly, don't worry - we'll handle all size adjustments once the initial distribution is complete.
 
-## What to Bring
+### Kit Package Includes
+- Home jersey (red)
+- Away jersey (white) 
+- Shorts (black)
+- Socks (red)
+- Training shirt
 
-- **Water bottle** (mandatory)
-- **Shin guards** (mandatory) 
-- Soccer cleats or running shoes
-- Weather-appropriate clothing
-- Positive attitude and willingness to learn!
+## What's Next
 
-## Our Philosophy
+**This Week:**
+- Continue questionnaire collection
+- Complete remaining kit distributions
+- Finalize practice schedule details
 
-Remember, our focus is on **fun, development, and effort** over winning. Every player will get equal attention and playing time. We celebrate improvement, good effort, and supporting teammates.
+**Next Week:**
+- Begin size replacement process
+- First practice preparation
+- Team communication setup
 
-The complete training plan with detailed drills and timing is available on our [Training Plans page](/training) for parents who want to see more details.
+## Contact Information
 
-Can't wait to meet everyone and start this soccer journey together!
+If you have questions about questionnaires or kit pickup, please reach out:
 
 **Coach Nagy Elshal**  
 *Queens Park Rangers U11B*
+
+Thanks for your patience as we get everything organized for an amazing season!

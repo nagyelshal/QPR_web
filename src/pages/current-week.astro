@@ -40,8 +40,8 @@ const lineupRevealed = now >= lineupRevealTime;
         <div class="training-info">
           <h3>Thursday, {new Date(weekData.training.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })} at {weekData.training.time}</h3>
           <p><strong>Focus:</strong> {weekData.training.focus}</p>
-          <p><strong>Special Drill:</strong> {weekData.training.special_drill}</p>
-          <p><strong>Formation Practice:</strong> Captains will practice {weekData.match.formation} formation</p>
+          {weekData.training.special_drill && <p><strong>Special Drill:</strong> {weekData.training.special_drill}</p>}
+          <p><strong>Formation Practice:</strong> Team will practice {weekData.match.formation} formation</p>
         </div>
       </div>
     </section>
@@ -120,51 +120,11 @@ const lineupRevealed = now >= lineupRevealTime;
       
       {lineupRevealed ? (
         <div class="lineup-revealed">
-          <div class="formation-display">
-            <h3>Formation: {weekData.match.formation}</h3>
-            <div class="positions-grid">
-              <div class="position-row gk-row">
-                <div class="position-card">
-                  <span class="position-label">GK</span>
-                  <span class="player-name">{weekData.lineup.starting[0].name}</span>
-                </div>
-              </div>
-              <div class="position-row defense-row">
-                <div class="position-card">
-                  <span class="position-label">CB</span>
-                  <span class="player-name">{weekData.lineup.starting[1].name}</span>
-                </div>
-                <div class="position-card">
-                  <span class="position-label">CB</span>
-                  <span class="player-name">{weekData.lineup.starting[2].name}</span>
-                </div>
-                <div class="position-card">
-                  <span class="position-label">CB</span>
-                  <span class="player-name">{weekData.lineup.starting[3].name}</span>
-                </div>
-              </div>
-              <div class="position-row midfield-row">
-                <div class="position-card">
-                  <span class="position-label">LM</span>
-                  <span class="player-name">{weekData.lineup.starting[4].name}</span>
-                </div>
-                <div class="position-card">
-                  <span class="position-label">CM</span>
-                  <span class="player-name">{weekData.lineup.starting[5].name}</span>
-                </div>
-                <div class="position-card">
-                  <span class="position-label">RM</span>
-                  <span class="player-name">{weekData.lineup.starting[6].name}</span>
-                </div>
-              </div>
-              <div class="position-row forward-row">
-                <div class="position-card">
-                  <span class="position-label">ST</span>
-                  <span class="player-name">{weekData.lineup.starting[7].name}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Pitch 
+            formation={weekData.match.formation}
+            players={weekData.lineup.starting}
+            isRevealed={true}
+          />
           <div class="confetti-message">
             <span class="confetti">🎉</span>
             <span>Starting 8 revealed!</span>
@@ -177,51 +137,11 @@ const lineupRevealed = now >= lineupRevealTime;
             <h3>Lineup Reveals Friday 7pm ⚡</h3>
             <p>Check back Friday night to see who's starting!</p>
           </div>
-          <div class="formation-preview">
-            <h3>Formation: {weekData.match.formation}</h3>
-            <div class="positions-grid">
-              <div class="position-row gk-row">
-                <div class="position-card placeholder">
-                  <span class="position-label">GK</span>
-                  <span class="player-name">TBD</span>
-                </div>
-              </div>
-              <div class="position-row defense-row">
-                <div class="position-card placeholder">
-                  <span class="position-label">CB</span>
-                  <span class="player-name">TBD</span>
-                </div>
-                <div class="position-card placeholder">
-                  <span class="position-label">CB</span>
-                  <span class="player-name">TBD</span>
-                </div>
-                <div class="position-card placeholder">
-                  <span class="position-label">CB</span>
-                  <span class="player-name">TBD</span>
-                </div>
-              </div>
-              <div class="position-row midfield-row">
-                <div class="position-card placeholder">
-                  <span class="position-label">LM</span>
-                  <span class="player-name">TBD</span>
-                </div>
-                <div class="position-card placeholder">
-                  <span class="position-label">CM</span>
-                  <span class="player-name">TBD</span>
-                </div>
-                <div class="position-card placeholder">
-                  <span class="position-label">RM</span>
-                  <span class="player-name">TBD</span>
-                </div>
-              </div>
-              <div class="position-row forward-row">
-                <div class="position-card placeholder">
-                  <span class="position-label">ST</span>
-                  <span class="player-name">TBD</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Pitch 
+            formation={weekData.match.formation}
+            players={weekData.lineup.starting}
+            isRevealed={false}
+          />
         </div>
       )}
     </section>
@@ -571,103 +491,6 @@ const lineupRevealed = now >= lineupRevealTime;
   .reveal-banner h3 {
     color: #f57c00;
     margin-bottom: var(--spacing-sm);
-  }
-
-  .formation-display,
-  .formation-preview {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .positions-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-xl);
-    background: linear-gradient(135deg, #1b5e20 0%, #388e3c 100%);
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .positions-grid::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-  }
-
-  .position-row {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-    position: relative;
-    z-index: 1;
-  }
-
-  .gk-row {
-    justify-content: center;
-  }
-
-  .defense-row {
-    justify-content: space-evenly;
-  }
-
-  .midfield-row {
-    justify-content: space-evenly;
-  }
-
-  .forward-row {
-    justify-content: center;
-  }
-
-  .position-card {
-    background: white;
-    border-radius: 12px;
-    padding: var(--spacing-md);
-    text-align: center;
-    min-width: 80px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-  }
-
-  .position-card:hover {
-    transform: translateY(-2px);
-  }
-
-  .position-card.placeholder {
-    background: rgba(255, 255, 255, 0.9);
-    color: #757575;
-  }
-
-  .position-label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .position-card.placeholder .position-label {
-    color: #9e9e9e;
-  }
-
-  .player-name {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text);
-    line-height: 1.2;
-  }
-
-  .position-card.placeholder .player-name {
-    color: #bdbdbd;
-    font-style: italic;
   }
 
   .rotating-grid {

@@ -10,11 +10,13 @@
     "special_drill": ""
   },
   "match": {
-    "opponent": "TBD",
+    "opponent": "PMSC Storm",
     "date": "2025-09-06",
-    "kickoff": "TBD",
-    "location": "TBD",
-    "formation": "3-3-1"
+    "kickoff": "TBA",
+    "location": "Away",
+    "formation": "3-3-1",
+    "match_number": "2500544",
+    "week": 1
   },
   "captains": {
     "reveal_at": "2025-09-04T09:00:00-07:00",

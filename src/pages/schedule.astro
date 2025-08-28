@@ -4,6 +4,7 @@ import Notice from '../components/Notice.astro';
 
 const base = import.meta.env.BASE_URL;
 const config = await import('../../data/config.json');
+const seasonSchedule = await import('../../data/season-schedule.json');
 ---
 
 <BaseLayout title="Schedule - Queens Park Rangers U11B">
@@ -82,59 +83,58 @@ const config = await import('../../data/config.json');
       <div>
         <h2 class="soccer-icon">Game Schedule</h2>
         <div class="card game-card">
-          <h3>🏆 Saturday Games</h3>
-          <p><strong>Game Day:</strong> Saturdays<br>
+          <h3>🏆 NFYSA Boys U11 DIV 3</h3>
+          <p><strong>Season:</strong> Fall/Winter 2025<br>
+          <strong>Game Day:</strong> Saturdays<br>
           <strong>First Game:</strong> September 6, 2025</p>
           
-          <Notice type="warning" title="Fixtures Pending">
-            <p>Complete game schedule with opponents, fields, and kickoff times will be posted once the league releases fixtures.</p>
+          <Notice type="success" title="Fixtures Confirmed">
+            <p>Our complete game schedule is now available! All games are scheduled for Saturdays with kickoff times and venues TBA.</p>
           </Notice>
         </div>
 
-        <!-- Placeholder Game Schedule Table -->
+        <!-- Actual Game Schedule Table -->
         <div class="card" style="margin-top: var(--spacing-lg);">
-          <h4>Upcoming Games</h4>
+          <h4>⚽ Season Fixtures</h4>
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
+                  <th>Week</th>
                   <th>Date</th>
                   <th>Opponent</th>
-                  <th>Field</th>
-                  <th>Kickoff</th>
+                  <th>Venue</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Sept 6</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                </tr>
-                <tr>
-                  <td>Sept 13</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                </tr>
-                <tr>
-                  <td>Sept 20</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                </tr>
-                <tr>
-                  <td>Sept 27</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                  <td>TBD</td>
-                </tr>
+                {seasonSchedule.matches.map(match => (
+                  <tr class={match.week === 1 ? 'next-game' : ''}>
+                    <td>{match.week}</td>
+                    <td>{new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
+                    <td>
+                      <strong>{match.venue === 'Home' ? '🏠' : '✈️'} {match.venue === 'Home' ? match.away_team : match.home_team}</strong>
+                    </td>
+                    <td>
+                      <span class={match.venue === 'Home' ? 'venue-home' : 'venue-away'}>
+                        {match.venue}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="status-scheduled">📅 Scheduled</span>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-          <p style="color: var(--color-text-light); font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
-            <em>Schedule will be updated as league fixtures are confirmed</em>
-          </p>
+          <div style="margin-top: var(--spacing-md);">
+            <Notice type="info">
+              <p><strong>Season Summary:</strong> {seasonSchedule.season_summary.total_matches} games total • {seasonSchedule.season_summary.home_matches} home • {seasonSchedule.season_summary.away_matches} away<br>
+              <strong>Match Times:</strong> All kickoff times TBA by league<br>
+              <strong>Match Numbers:</strong> Available for tracking in league system</p>
+            </Notice>
+          </div>
         </div>
       </div>
     </div>
@@ -186,3 +186,45 @@ const config = await import('../../data/config.json');
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .next-game {
+    background-color: rgba(25, 118, 210, 0.1);
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .venue-home {
+    background: rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  
+  .venue-away {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ef6c00;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  
+  .status-scheduled {
+    background: rgba(25, 118, 210, 0.1);
+    color: var(--color-primary);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  
+  .game-card {
+    border-left: 4px solid var(--color-primary);
+  }
+  
+  .table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+</style>

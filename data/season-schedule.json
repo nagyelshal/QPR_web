@@ -1,0 +1,70 @@
+{
+  "season": "Fall/Winter 2025",
+  "division": "Boys U11 DIV 3",
+  "team": "CMFSC Queens Park Rangers",
+  "league": "NFYSA",
+  "matches": [
+    {
+      "week": 1,
+      "match_number": "2500544",
+      "date": "2025-09-06",
+      "home_team": "PMSC Storm",
+      "away_team": "CMFSC Queens Park Rangers",
+      "venue": "Away",
+      "kickoff": "TBA",
+      "field": "TBA",
+      "status": "scheduled"
+    },
+    {
+      "week": 2,
+      "match_number": "2500560",
+      "date": "2025-09-13",
+      "home_team": "CMFSC Queens Park Rangers",
+      "away_team": "CMFSC Millwall",
+      "venue": "Home",
+      "kickoff": "TBA",
+      "field": "TBA",
+      "status": "scheduled"
+    },
+    {
+      "week": 3,
+      "match_number": "2500567",
+      "date": "2025-09-20",
+      "home_team": "PCFC Wolf Pack (McNeill)",
+      "away_team": "CMFSC Queens Park Rangers",
+      "venue": "Away",
+      "kickoff": "TBA",
+      "field": "TBA",
+      "status": "scheduled"
+    },
+    {
+      "week": 4,
+      "match_number": "2500583",
+      "date": "2025-09-27",
+      "home_team": "CMFSC Queens Park Rangers",
+      "away_team": "CMFSC Swansea",
+      "venue": "Home",
+      "kickoff": "TBA",
+      "field": "TBA",
+      "status": "scheduled"
+    },
+    {
+      "week": 5,
+      "match_number": "2500595",
+      "date": "2025-10-04",
+      "home_team": "RMSC U11B8D3 (Tones)",
+      "away_team": "CMFSC Queens Park Rangers",
+      "venue": "Away",
+      "kickoff": "TBA",
+      "field": "TBA",
+      "status": "scheduled"
+    }
+  ],
+  "season_summary": {
+    "total_matches": 5,
+    "home_matches": 2,
+    "away_matches": 3,
+    "season_start": "2025-09-06",
+    "season_end": "2025-10-04"
+  }
+}

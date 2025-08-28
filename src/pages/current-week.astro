@@ -131,13 +131,13 @@ if (lineupRevealed) {
         {currentPhase === 'initial' && (
           <div class="phase-banner initial">
             <h3>🏃‍♂️ All Players Available</h3>
-            <p>Captains reveal Wednesday • Full lineup reveals Friday 7pm</p>
+            <p>Captains and goalkeepers reveal Wed • Full lineup reveals Friday</p>
           </div>
         )}
         {currentPhase === 'captains' && (
           <div class="phase-banner captains">
-            <h3>🏅 Captains Revealed!</h3>
-            <p>Full lineup reveals Friday 7pm</p>
+            <h3>🏅 Captains & Goalkeepers Revealed!</h3>
+            <p>Full lineup reveals Friday</p>
           </div>
         )}
         {currentPhase === 'lineup' && (
@@ -154,6 +154,7 @@ if (lineupRevealed) {
         startingPlayers={weekData.lineup.starting}
         rotatingPlayers={weekData.lineup.rotating}
         captains={weekData.captains}
+        goalkeepers={weekData.goalkeepers}
         phase={currentPhase}
       />
     </section>

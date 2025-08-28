@@ -5,30 +5,50 @@ interface Props {
   jersey?: string;
   isRevealed: boolean;
   onClick?: () => void;
+  linkToProfile?: boolean;
 }
 
-const { name, position, jersey, isRevealed, onClick } = Astro.props;
+const { name, position, jersey, isRevealed, onClick, linkToProfile = true } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// Convert name to ID for URL
+const playerId = name.toLowerCase()
+  .replace(/\s+/g, '-')
+  .replace(/[^a-z0-9-]/g, '');
 ---
 
-<div 
-  class={`player-chip ${isRevealed ? 'revealed' : 'placeholder'}`}
-  data-position={position}
-  role="button"
-  tabindex="0"
-  onclick={onClick}
->
-  {isRevealed ? (
-    <>
-      <div class="jersey-number">{jersey || '?'}</div>
-      <div class="player-name">{name}</div>
-      <div class="position">{position}</div>
-    </>
-  ) : (
-    <div class="placeholder-content">
-      <div class="shimmer"></div>
-      <div class="position">{position}</div>
-    </div>
-  )}
+{isRevealed && linkToProfile ? (
+  <a 
+    href={`${base}players/${playerId}/`}
+    class={`player-chip revealed clickable`}
+    data-position={position}
+  >
+    <div class="jersey-number">{jersey || '?'}</div>
+    <div class="player-name">{name}</div>
+    <div class="position">{position}</div>
+  </a>
+) : (
+  <div 
+    class={`player-chip ${isRevealed ? 'revealed' : 'placeholder'}`}
+    data-position={position}
+    role={onClick ? "button" : undefined}
+    tabindex={onClick ? "0" : undefined}
+    onclick={onClick}
+  >
+    {isRevealed ? (
+      <>
+        <div class="jersey-number">{jersey || '?'}</div>
+        <div class="player-name">{name}</div>
+        <div class="position">{position}</div>
+      </>
+    ) : (
+      <div class="placeholder-content">
+        <div class="shimmer"></div>
+        <div class="position">{position}</div>
+      </div>
+    )}
+  </div>
+)}
 </div>
 
 <style>
@@ -104,6 +124,31 @@ const { name, position, jersey, isRevealed, onClick } = Astro.props;
 
   .player-chip.revealed {
     animation: chipReveal 0.6s ease-out;
+  }
+
+  .player-chip.clickable {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .player-chip.clickable:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .player-chip.clickable:active {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .player-chip.clickable .player-name {
+    transition: color 0.2s ease;
+  }
+
+  .player-chip.clickable:hover .player-name {
+    color: var(--color-primary);
+    font-weight: 700;
   }
 
   @keyframes chipReveal {

@@ -22,6 +22,11 @@
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
   },
+  "goalkeepers": {
+    "first_half": "TBD",
+    "second_half": "TBD",
+    "duties": "One GK in goal, one GK plays field • Switch at half-time"
+  },
   "lineup": {
     "reveal_at": "2025-09-05T19:00:00-07:00",
     "all_players": [

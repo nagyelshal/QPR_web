@@ -5,10 +5,11 @@ interface Props {
   startingPlayers: Array<{name: string; pos: string; jersey?: string}>;
   rotatingPlayers: Array<{name: string; jersey?: string}>;
   captains: {first_half: string; second_half: string};
+  goalkeepers: {first_half: string; second_half: string};
   phase: 'initial' | 'captains' | 'lineup';
 }
 
-const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, phase } = Astro.props;
+const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, goalkeepers, phase } = Astro.props;
 
 // Position mapping for 3-3-1 formation
 const positionMap = {
@@ -62,7 +63,11 @@ const getPositionForPlayer = (player, index) => {
         <!-- Position slots and players based on phase -->
         {startingPlayers.map((player) => {
           const pos = getPositionForPlayer(player);
-          const isRevealed = phase === 'lineup' || (phase === 'captains' && player.pos === 'CB' && (player.name === captains.first_half || player.name === captains.second_half));
+          const isRevealed = phase === 'lineup' || 
+            (phase === 'captains' && (
+              (player.pos === 'CB' && (player.name === captains.first_half || player.name === captains.second_half)) ||
+              (player.pos === 'GK' && (player.name === goalkeepers.first_half || player.name === goalkeepers.second_half))
+            ));
           
           return (
             <g class="player-position">
@@ -125,7 +130,12 @@ const getPositionForPlayer = (player, index) => {
         
         {phase === 'captains' && (
           <div class="available-players">
-            {allPlayers.filter(p => p.name !== captains.first_half && p.name !== captains.second_half).map((player) => (
+            {allPlayers.filter(p => 
+              p.name !== captains.first_half && 
+              p.name !== captains.second_half && 
+              p.name !== goalkeepers.first_half && 
+              p.name !== goalkeepers.second_half
+            ).map((player) => (
               <div class="player-chip available">
                 <span class="player-name">{player.name}</span>
                 <span class="player-jersey">#{player.jersey}</span>

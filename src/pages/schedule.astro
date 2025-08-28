@@ -31,10 +31,56 @@ const config = await import('../../data/config.json');
           </Notice>
         </div>
 
-        <div style="margin-top: var(--spacing-lg); text-align: center;">
-          <a href={`${base}qpr_practice_calendar.ics`} class="btn" download>
-            📅 Download Practice Calendar
-          </a>
+        <!-- Upcoming Training Dates -->
+        <div class="card" style="margin-top: var(--spacing-lg);">
+          <h4>📅 Upcoming Training Sessions</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Focus</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sept 5</td>
+                  <td>7:00 PM</td>
+                  <td>First touches & passing</td>
+                  <td>✅ Confirmed</td>
+                </tr>
+                <tr>
+                  <td>Sept 12</td>
+                  <td>7:00 PM</td>
+                  <td>Shooting & finishing</td>
+                  <td>✅ Confirmed</td>
+                </tr>
+                <tr>
+                  <td>Sept 19</td>
+                  <td>7:00 PM</td>
+                  <td>Defensive positioning</td>
+                  <td>✅ Confirmed</td>
+                </tr>
+                <tr>
+                  <td>Sept 26</td>
+                  <td>7:00 PM</td>
+                  <td>Small-sided games</td>
+                  <td>✅ Confirmed</td>
+                </tr>
+                <tr style="background-color: rgba(255, 193, 7, 0.1);">
+                  <td>Oct 10</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>❌ Thanksgiving Break</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="color: var(--color-text-light); font-size: var(--font-size-sm); margin-top: var(--spacing-md);">
+            <em>Training schedule may be adjusted due to weather. Check team news for updates.</em>
+          </p>
         </div>
       </div>
 

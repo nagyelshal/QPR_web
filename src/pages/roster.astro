@@ -54,12 +54,19 @@ const playersWithProfiles = roster.players.map(player => {
             
             <div class="player-info">
               <h3 class="player-name">{player.name}</h3>
-              <div class="player-position">
-                {player.profile?.basic_info?.favorite_position || 'Versatile'}
-              </div>
+              {player.profile?.basic_info?.favorite_position && (
+                <div class="player-position">
+                  📍 {player.profile.basic_info.favorite_position}
+                </div>
+              )}
               <div class="player-team">
                 ⚽ {player.profile?.basic_info?.favorite_team || 'Team TBD'}
               </div>
+              {player.profile?.basic_info?.favorite_player && (
+                <div class="player-idol">
+                  ⭐ {player.profile.basic_info.favorite_player}
+                </div>
+              )}
               
               {player.profile?.season_stats && (
                 <div class="quick-stats">
@@ -197,26 +204,28 @@ const playersWithProfiles = roster.players.map(player => {
 
   .roster-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
   }
 
   .player-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 16px;
     padding: var(--spacing-lg);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     color: inherit;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
   }
 
   .player-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    border-color: rgba(25, 118, 210, 0.2);
   }
 
   .player-card::before {
@@ -226,10 +235,10 @@ const playersWithProfiles = roster.players.map(player => {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 50%, #ff9800 100%);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .player-card:hover::before {
@@ -243,7 +252,12 @@ const playersWithProfiles = roster.players.map(player => {
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto var(--spacing-md);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .player-card:hover .player-photo {
+    transform: scale(1.05);
   }
 
   .player-photo img {
@@ -256,7 +270,7 @@ const playersWithProfiles = roster.players.map(player => {
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #ff9800;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
     color: white;
     width: 32px;
     height: 32px;
@@ -267,7 +281,12 @@ const playersWithProfiles = roster.players.map(player => {
     font-weight: bold;
     font-size: 0.9rem;
     border: 2px solid white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 12px rgba(245, 124, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .player-card:hover .jersey-badge {
+    transform: scale(1.1);
   }
 
   .player-info {
@@ -283,15 +302,27 @@ const playersWithProfiles = roster.players.map(player => {
   }
 
   .player-position {
-    color: var(--color-text);
+    color: var(--color-primary);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+    background: rgba(25, 118, 210, 0.1);
+    padding: 4px 12px;
+    border-radius: 16px;
+    display: inline-block;
   }
 
   .player-team {
     color: var(--color-text-light);
     font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .player-idol {
+    color: #ff9800;
+    font-size: 0.85rem;
     margin-bottom: var(--spacing-sm);
+    font-weight: 500;
   }
 
   .quick-stats {

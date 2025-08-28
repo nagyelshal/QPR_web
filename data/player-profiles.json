@@ -8,9 +8,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'2\"",
-        "favorite_position": "Center Back",
         "favorite_team": "Manchester City",
-        "favorite_player": "Virgil van Dijk",
         "fun_fact": "Can juggle the ball 25 times!"
       },
       "season_stats": {
@@ -34,9 +32,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'1\"",
-        "favorite_position": "Left Back",
         "favorite_team": "Barcelona",
-        "favorite_player": "Jordi Alba",
         "fun_fact": "Loves nutmegs!"
       },
       "season_stats": {
@@ -61,7 +57,7 @@
         "age": 11,
         "height": "4'3\"",
         "favorite_position": "Central Midfielder",
-        "favorite_team": "Liverpool",
+        "favorite_team": "Juventus",
         "favorite_player": "Jordan Henderson",
         "fun_fact": "Captain of his school team!"
       },
@@ -86,9 +82,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'0\"",
-        "favorite_position": "Right Wing",
         "favorite_team": "Real Madrid",
-        "favorite_player": "Vinicius Jr",
         "fun_fact": "Fastest runner on the team!"
       },
       "season_stats": {
@@ -112,9 +106,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'2\"",
-        "favorite_position": "Left Wing",
         "favorite_team": "Chelsea",
-        "favorite_player": "Christian Pulisic",
         "fun_fact": "Knows all FIFA player ratings!"
       },
       "season_stats": {
@@ -138,9 +130,7 @@
       "basic_info": {
         "age": 11,
         "height": "4'4\"",
-        "favorite_position": "Striker",
         "favorite_team": "Arsenal",
-        "favorite_player": "Gabriel Jesus",
         "fun_fact": "Dreams of playing for Brazil!"
       },
       "season_stats": {
@@ -164,9 +154,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'1\"",
-        "favorite_position": "Goalkeeper",
         "favorite_team": "Manchester United",
-        "favorite_player": "David de Gea",
         "fun_fact": "Can save penalties blindfolded!"
       },
       "season_stats": {
@@ -177,7 +165,10 @@
         "minutes_played": 60,
         "captain_games": 0,
         "goalkeeper_games": 1,
-        "positions_played": ["GK", "CM"]
+        "positions_played": [
+          "GK",
+          "CM"
+        ]
       },
       "achievements": [
         {
@@ -207,9 +198,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'0\"",
-        "favorite_position": "Left Midfielder",
         "favorite_team": "Paris Saint-Germain",
-        "favorite_player": "Kylian Mbappé",
         "fun_fact": "Speaks three languages!"
       },
       "season_stats": {
@@ -220,7 +209,9 @@
         "minutes_played": 60,
         "captain_games": 0,
         "goalkeeper_games": 0,
-        "positions_played": ["ST"]
+        "positions_played": [
+          "ST"
+        ]
       },
       "achievements": [
         {
@@ -250,9 +241,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'2\"",
-        "favorite_position": "Center Back",
         "favorite_team": "Bayern Munich",
-        "favorite_player": "Manuel Neuer",
         "fun_fact": "Can play any position!"
       },
       "season_stats": {
@@ -276,9 +265,7 @@
       "basic_info": {
         "age": 11,
         "height": "4'3\"",
-        "favorite_position": "Center Back",
         "favorite_team": "Tottenham",
-        "favorite_player": "Harry Kane",
         "fun_fact": "Loves tactical discussions!"
       },
       "season_stats": {
@@ -289,7 +276,9 @@
         "minutes_played": 30,
         "captain_games": 1,
         "goalkeeper_games": 0,
-        "positions_played": ["CB"]
+        "positions_played": [
+          "CB"
+        ]
       },
       "achievements": [
         {
@@ -325,9 +314,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'1\"",
-        "favorite_position": "Right Midfielder",
         "favorite_team": "Real Madrid",
-        "favorite_player": "Luka Modrić",
         "fun_fact": "Best free kick taker on the team!"
       },
       "season_stats": {
@@ -338,7 +325,10 @@
         "minutes_played": 60,
         "captain_games": 0,
         "goalkeeper_games": 1,
-        "positions_played": ["RM", "GK"]
+        "positions_played": [
+          "RM",
+          "GK"
+        ]
       },
       "achievements": [
         {
@@ -368,9 +358,7 @@
       "basic_info": {
         "age": 11,
         "height": "4'4\"",
-        "favorite_position": "Center Back",
         "favorite_team": "Manchester City",
-        "favorite_player": "Kevin De Bruyne",
         "fun_fact": "Never misses a practice!"
       },
       "season_stats": {
@@ -381,7 +369,9 @@
         "minutes_played": 30,
         "captain_games": 1,
         "goalkeeper_games": 0,
-        "positions_played": ["CB"]
+        "positions_played": [
+          "CB"
+        ]
       },
       "achievements": [
         {
@@ -418,7 +408,7 @@
         "age": 10,
         "height": "4'2\"",
         "favorite_position": "Center Back",
-        "favorite_team": "Liverpool",
+        "favorite_team": "Barcelona",
         "favorite_player": "Virgil van Dijk",
         "fun_fact": "Reads soccer tactics books!"
       },
@@ -430,7 +420,9 @@
         "minutes_played": 60,
         "captain_games": 0,
         "goalkeeper_games": 0,
-        "positions_played": ["CB"]
+        "positions_played": [
+          "CB"
+        ]
       },
       "achievements": [
         {
@@ -466,9 +458,7 @@
       "basic_info": {
         "age": 10,
         "height": "4'1\"",
-        "favorite_position": "Striker",
         "favorite_team": "Son Heung-min's team",
-        "favorite_player": "Son Heung-min",
         "fun_fact": "Practices juggling every day!"
       },
       "season_stats": {

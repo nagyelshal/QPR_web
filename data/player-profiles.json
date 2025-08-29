@@ -98,7 +98,6 @@
       "jersey": "TBD",
       "photo": "/images/players/david-c.jpg",
       "basic_info": {
-        "favorite_team": "Chelsea",
         "fun_fact": "Knows all FIFA player ratings!"
       },
       "season_stats": {
@@ -120,7 +119,6 @@
       "jersey": "TBD",
       "photo": "/images/players/ethan-g.jpg",
       "basic_info": {
-        "favorite_team": "Arsenal",
         "fun_fact": "Dreams of playing for Brazil!"
       },
       "season_stats": {
@@ -142,7 +140,6 @@
       "jersey": "TBD",
       "photo": "/images/players/henry-k.jpg",
       "basic_info": {
-        "favorite_team": "Manchester United",
         "fun_fact": "Can save penalties blindfolded!"
       },
       "season_stats": {
@@ -164,7 +161,6 @@
       "jersey": "TBD",
       "photo": "/images/players/minh-an-d.jpg",
       "basic_info": {
-        "favorite_team": "Paris Saint-Germain",
         "fun_fact": "Speaks three languages!"
       },
       "season_stats": {
@@ -281,7 +277,6 @@
       "photo": "/images/players/travis-c.jpg",
       "basic_info": {
         "favorite_position": "Center Back",
-        "favorite_team": "Barcelona",
         "favorite_player": "Virgil van Dijk",
         "fun_fact": "Reads soccer tactics books!"
       },

@@ -158,37 +158,17 @@
         "fun_fact": "Can save penalties blindfolded!"
       },
       "season_stats": {
-        "games_played": 1,
+        "games_played": 0,
         "goals": 0,
         "assists": 0,
         "clean_sheets": 0,
-        "minutes_played": 60,
+        "minutes_played": 0,
         "captain_games": 0,
-        "goalkeeper_games": 1,
-        "positions_played": [
-          "GK",
-          "CM"
-        ]
+        "goalkeeper_games": 0,
+        "positions_played": []
       },
-      "achievements": [
-        {
-          "title": "First Game Goalkeeper",
-          "description": "Started as goalkeeper in the first game of the season",
-          "date": "2025-09-06",
-          "icon": "🥅"
-        }
-      ],
-      "match_history": [
-        {
-          "date": "2025-09-06",
-          "opponent": "TBD",
-          "position": "GK",
-          "minutes": 30,
-          "goals": 0,
-          "assists": 0,
-          "notes": "Solid first half in goal, switched to field for second half"
-        }
-      ]
+      "achievements": [],
+      "match_history": []
     },
     {
       "id": "minh-an-d",
@@ -202,36 +182,17 @@
         "fun_fact": "Speaks three languages!"
       },
       "season_stats": {
-        "games_played": 1,
-        "goals": 1,
+        "games_played": 0,
+        "goals": 0,
         "assists": 0,
         "clean_sheets": 0,
-        "minutes_played": 60,
+        "minutes_played": 0,
         "captain_games": 0,
         "goalkeeper_games": 0,
-        "positions_played": [
-          "ST"
-        ]
+        "positions_played": []
       },
-      "achievements": [
-        {
-          "title": "First Goal of the Season",
-          "description": "Scored the first goal for QPR in the 2025-26 season",
-          "date": "2025-09-06",
-          "icon": "⚽"
-        }
-      ],
-      "match_history": [
-        {
-          "date": "2025-09-06",
-          "opponent": "TBD",
-          "position": "ST",
-          "minutes": 60,
-          "goals": 1,
-          "assists": 0,
-          "notes": "Excellent performance up front, scored the opener"
-        }
-      ]
+      "achievements": [],
+      "match_history": []
     },
     {
       "id": "niko-d",
@@ -269,42 +230,17 @@
         "fun_fact": "Loves tactical discussions!"
       },
       "season_stats": {
-        "games_played": 1,
+        "games_played": 0,
         "goals": 0,
-        "assists": 1,
-        "clean_sheets": 1,
-        "minutes_played": 30,
-        "captain_games": 1,
+        "assists": 0,
+        "clean_sheets": 0,
+        "minutes_played": 0,
+        "captain_games": 0,
         "goalkeeper_games": 0,
-        "positions_played": [
-          "CB"
-        ]
+        "positions_played": []
       },
-      "achievements": [
-        {
-          "title": "Second Half Captain",
-          "description": "Led the team as captain in the second half",
-          "date": "2025-09-06",
-          "icon": "🏅"
-        },
-        {
-          "title": "Clean Sheet",
-          "description": "Helped keep a clean sheet in his half",
-          "date": "2025-09-06",
-          "icon": "🛡️"
-        }
-      ],
-      "match_history": [
-        {
-          "date": "2025-09-06",
-          "opponent": "TBD",
-          "position": "CB",
-          "minutes": 30,
-          "goals": 0,
-          "assists": 1,
-          "notes": "Strong leadership as second half captain, key defensive play"
-        }
-      ]
+      "achievements": [],
+      "match_history": []
     },
     {
       "id": "rafael-h",
@@ -318,37 +254,17 @@
         "fun_fact": "Best free kick taker on the team!"
       },
       "season_stats": {
-        "games_played": 1,
+        "games_played": 0,
         "goals": 0,
         "assists": 0,
         "clean_sheets": 0,
-        "minutes_played": 60,
+        "minutes_played": 0,
         "captain_games": 0,
-        "goalkeeper_games": 1,
-        "positions_played": [
-          "RM",
-          "GK"
-        ]
+        "goalkeeper_games": 0,
+        "positions_played": []
       },
-      "achievements": [
-        {
-          "title": "Versatile Player",
-          "description": "Played both field and goalkeeper positions in the same game",
-          "date": "2025-09-06",
-          "icon": "🔄"
-        }
-      ],
-      "match_history": [
-        {
-          "date": "2025-09-06",
-          "opponent": "TBD",
-          "position": "RM/GK",
-          "minutes": 60,
-          "goals": 0,
-          "assists": 0,
-          "notes": "Started at RM, moved to goalkeeper for second half"
-        }
-      ]
+      "achievements": [],
+      "match_history": []
     },
     {
       "id": "rhodri-w",
@@ -362,42 +278,17 @@
         "fun_fact": "Never misses a practice!"
       },
       "season_stats": {
-        "games_played": 1,
+        "games_played": 0,
         "goals": 0,
         "assists": 0,
-        "clean_sheets": 1,
-        "minutes_played": 30,
-        "captain_games": 1,
+        "clean_sheets": 0,
+        "minutes_played": 0,
+        "captain_games": 0,
         "goalkeeper_games": 0,
-        "positions_played": [
-          "CB"
-        ]
+        "positions_played": []
       },
-      "achievements": [
-        {
-          "title": "First Half Captain",
-          "description": "Led the team as captain in the first half of the season opener",
-          "date": "2025-09-06",
-          "icon": "🏅"
-        },
-        {
-          "title": "Clean Sheet",
-          "description": "Helped keep a clean sheet in his half",
-          "date": "2025-09-06",
-          "icon": "🛡️"
-        }
-      ],
-      "match_history": [
-        {
-          "date": "2025-09-06",
-          "opponent": "TBD",
-          "position": "CB",
-          "minutes": 30,
-          "goals": 0,
-          "assists": 0,
-          "notes": "Excellent leadership as first half captain, solid defending"
-        }
-      ]
+      "achievements": [],
+      "match_history": []
     },
     {
       "id": "travis-c",
@@ -413,42 +304,17 @@
         "fun_fact": "Reads soccer tactics books!"
       },
       "season_stats": {
-        "games_played": 1,
+        "games_played": 0,
         "goals": 0,
         "assists": 0,
-        "clean_sheets": 1,
-        "minutes_played": 60,
+        "clean_sheets": 0,
+        "minutes_played": 0,
         "captain_games": 0,
         "goalkeeper_games": 0,
-        "positions_played": [
-          "CB"
-        ]
+        "positions_played": []
       },
-      "achievements": [
-        {
-          "title": "Iron Man",
-          "description": "Played the full game in the season opener",
-          "date": "2025-09-06",
-          "icon": "🔥"
-        },
-        {
-          "title": "Clean Sheet",
-          "description": "Helped keep a clean sheet for the full game",
-          "date": "2025-09-06",
-          "icon": "🛡️"
-        }
-      ],
-      "match_history": [
-        {
-          "date": "2025-09-06",
-          "opponent": "TBD",
-          "position": "CB",
-          "minutes": 60,
-          "goals": 0,
-          "assists": 0,
-          "notes": "Solid 60-minute performance, key defensive contributions"
-        }
-      ]
+      "achievements": [],
+      "match_history": []
     },
     {
       "id": "yejun-k",

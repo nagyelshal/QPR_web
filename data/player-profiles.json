@@ -6,8 +6,6 @@
       "jersey": "TBD",
       "photo": "/images/players/adam-k.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'2\"",
         "favorite_team": "Manchester City",
         "fun_fact": "Can juggle the ball 25 times!"
       },
@@ -30,8 +28,6 @@
       "jersey": "TBD",
       "photo": "/images/players/alexander-v.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'1\"",
         "favorite_team": "Barcelona",
         "fun_fact": "Loves nutmegs!"
       },
@@ -80,8 +76,6 @@
       "jersey": "TBD",
       "photo": "/images/players/andrew-n.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'0\"",
         "favorite_team": "Real Madrid",
         "fun_fact": "Fastest runner on the team!"
       },
@@ -104,8 +98,6 @@
       "jersey": "TBD",
       "photo": "/images/players/david-c.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'2\"",
         "favorite_team": "Chelsea",
         "fun_fact": "Knows all FIFA player ratings!"
       },
@@ -128,8 +120,6 @@
       "jersey": "TBD",
       "photo": "/images/players/ethan-g.jpg",
       "basic_info": {
-        "age": 11,
-        "height": "4'4\"",
         "favorite_team": "Arsenal",
         "fun_fact": "Dreams of playing for Brazil!"
       },
@@ -152,8 +142,6 @@
       "jersey": "TBD",
       "photo": "/images/players/henry-k.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'1\"",
         "favorite_team": "Manchester United",
         "fun_fact": "Can save penalties blindfolded!"
       },
@@ -176,8 +164,6 @@
       "jersey": "TBD",
       "photo": "/images/players/minh-an-d.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'0\"",
         "favorite_team": "Paris Saint-Germain",
         "fun_fact": "Speaks three languages!"
       },
@@ -200,8 +186,6 @@
       "jersey": "TBD",
       "photo": "/images/players/niko-d.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'2\"",
         "favorite_team": "Bayern Munich",
         "fun_fact": "Can play any position!"
       },
@@ -224,8 +208,6 @@
       "jersey": "9",
       "photo": "/images/players/owen-h.jpg",
       "basic_info": {
-        "age": 11,
-        "height": "4'3\"",
         "favorite_team": "Tottenham",
         "fun_fact": "Loves tactical discussions!"
       },
@@ -248,8 +230,6 @@
       "jersey": "TBD",
       "photo": "/images/players/rafael-h.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'1\"",
         "favorite_team": "Real Madrid",
         "fun_fact": "Best free kick taker on the team!"
       },
@@ -272,10 +252,12 @@
       "jersey": "10",
       "photo": "/images/players/rhodri-w.jpg",
       "basic_info": {
-        "age": 11,
-        "height": "4'4\"",
-        "favorite_team": "Manchester City",
-        "fun_fact": "Never misses a practice!"
+        "age": 10,
+        "height": "4'7\"",
+        "favorite_position": "Striker",
+        "favorite_team": "Real Madrid",
+        "favorite_player": "Lamine Yamal",
+        "fun_fact": "Rhodri is a box lacrosse goalie during the soccer offseason"
       },
       "season_stats": {
         "games_played": 0,
@@ -296,8 +278,6 @@
       "jersey": "3",
       "photo": "/images/players/travis-c.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'2\"",
         "favorite_position": "Center Back",
         "favorite_team": "Barcelona",
         "favorite_player": "Virgil van Dijk",
@@ -322,8 +302,6 @@
       "jersey": "TBD",
       "photo": "/images/players/yejun-k.jpg",
       "basic_info": {
-        "age": 10,
-        "height": "4'1\"",
         "favorite_team": "Son Heung-min's team",
         "fun_fact": "Practices juggling every day!"
       },

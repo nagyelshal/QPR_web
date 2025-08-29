@@ -96,31 +96,34 @@ const seasonSchedule = await import('../../data/season-schedule.json');
         <!-- Actual Game Schedule Table -->
         <div class="card fixtures-card" style="margin-top: var(--spacing-lg);">
           <h4>⚽ Season Fixtures</h4>
-          <div class="table-responsive">
+          <div class="table-responsive fixtures-table-container">
             <table class="table fixtures-table">
               <thead>
                 <tr>
-                  <th>Week</th>
-                  <th>Date</th>
-                  <th>Opponent</th>
-                  <th>Venue</th>
-                  <th>Status</th>
+                  <th class="week-col">Week</th>
+                  <th class="date-col">Date</th>
+                  <th class="opponent-col">Opponent</th>
+                  <th class="venue-col">Venue</th>
+                  <th class="status-col">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {seasonSchedule.matches.map(match => (
                   <tr class={match.week === 1 ? 'next-game' : ''}>
-                    <td>{match.week}</td>
-                    <td>{new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
-                    <td>
-                      <strong>{match.venue === 'Home' ? '🏠' : '✈️'} {match.venue === 'Home' ? match.away_team : match.home_team}</strong>
+                    <td class="week-col">{match.week}</td>
+                    <td class="date-col">{new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
+                    <td class="opponent-col">
+                      <div class="opponent-info">
+                        <span class="opponent-icon">{match.venue === 'Home' ? '🏠' : '✈️'}</span>
+                        <span class="opponent-name">{match.venue === 'Home' ? match.away_team : match.home_team}</span>
+                      </div>
                     </td>
-                    <td>
+                    <td class="venue-col">
                       <span class={match.venue === 'Home' ? 'venue-home' : 'venue-away'}>
                         {match.venue}
                       </span>
                     </td>
-                    <td>
+                    <td class="status-col">
                       <span class="status-scheduled">📅 Scheduled</span>
                     </td>
                   </tr>
@@ -192,8 +195,37 @@ const seasonSchedule = await import('../../data/season-schedule.json');
     padding: var(--spacing-xl);
   }
   
+  .fixtures-table-container {
+    overflow-x: auto;
+    margin: 0 -var(--spacing-lg);
+    padding: 0 var(--spacing-lg);
+  }
+  
   .fixtures-table {
     font-size: 1rem;
+    width: 100%;
+    min-width: 700px;
+    table-layout: fixed;
+  }
+  
+  .fixtures-table .week-col {
+    width: 10%;
+  }
+  
+  .fixtures-table .date-col {
+    width: 15%;
+  }
+  
+  .fixtures-table .opponent-col {
+    width: 40%;
+  }
+  
+  .fixtures-table .venue-col {
+    width: 15%;
+  }
+  
+  .fixtures-table .status-col {
+    width: 20%;
   }
   
   .fixtures-table th {
@@ -204,6 +236,7 @@ const seasonSchedule = await import('../../data/season-schedule.json');
     letter-spacing: 0.5px;
     border-bottom: 2px solid var(--color-primary);
     background: rgba(25, 118, 210, 0.05);
+    white-space: nowrap;
   }
   
   .fixtures-table td {
@@ -212,6 +245,24 @@ const seasonSchedule = await import('../../data/season-schedule.json');
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 1rem;
     line-height: 1.5;
+  }
+  
+  .opponent-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .opponent-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  
+  .opponent-name {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .fixtures-table tbody tr {
@@ -242,6 +293,7 @@ const seasonSchedule = await import('../../data/season-schedule.json');
     display: inline-block;
     min-width: 60px;
     text-align: center;
+    white-space: nowrap;
   }
   
   .venue-away {
@@ -254,6 +306,7 @@ const seasonSchedule = await import('../../data/season-schedule.json');
     display: inline-block;
     min-width: 60px;
     text-align: center;
+    white-space: nowrap;
   }
   
   .status-scheduled {
@@ -264,6 +317,7 @@ const seasonSchedule = await import('../../data/season-schedule.json');
     font-weight: 600;
     font-size: 0.9rem;
     display: inline-block;
+    white-space: nowrap;
   }
   
   .game-card {
@@ -273,6 +327,15 @@ const seasonSchedule = await import('../../data/season-schedule.json');
   @media (max-width: 768px) {
     .fixtures-card {
       padding: var(--spacing-lg);
+    }
+    
+    .fixtures-table-container {
+      margin: 0 -var(--spacing-md);
+      padding: 0 var(--spacing-md);
+    }
+    
+    .fixtures-table {
+      min-width: 600px;
     }
     
     .fixtures-table th,
@@ -287,6 +350,10 @@ const seasonSchedule = await import('../../data/season-schedule.json');
       padding: 4px 8px;
       font-size: 0.8rem;
       min-width: 50px;
+    }
+    
+    .opponent-name {
+      font-size: 0.9rem;
     }
   }
 </style>

@@ -92,55 +92,57 @@ const seasonSchedule = await import('../../data/season-schedule.json');
             <p>Our complete game schedule is now available! All games are scheduled for Saturdays with kickoff times and venues TBA.</p>
           </Notice>
         </div>
-
-        <!-- Actual Game Schedule Table -->
-        <div class="card fixtures-card" style="margin-top: var(--spacing-lg);">
-          <h4>⚽ Season Fixtures</h4>
-          <div class="table-responsive fixtures-table-container">
-            <table class="table fixtures-table">
-              <thead>
-                <tr>
-                  <th class="week-col">Week</th>
-                  <th class="date-col">Date</th>
-                  <th class="opponent-col">Opponent</th>
-                  <th class="venue-col">Venue</th>
-                  <th class="status-col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {seasonSchedule.matches.map(match => (
-                  <tr class={match.week === 1 ? 'next-game' : ''}>
-                    <td class="week-col">{match.week}</td>
-                    <td class="date-col">{new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
-                    <td class="opponent-col">
-                      <div class="opponent-info">
-                        <span class="opponent-icon">{match.venue === 'Home' ? '🏠' : '✈️'}</span>
-                        <span class="opponent-name">{match.venue === 'Home' ? match.away_team : match.home_team}</span>
-                      </div>
-                    </td>
-                    <td class="venue-col">
-                      <span class={match.venue === 'Home' ? 'venue-home' : 'venue-away'}>
-                        {match.venue}
-                      </span>
-                    </td>
-                    <td class="status-col">
-                      <span class="status-scheduled">📅 Scheduled</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div style="margin-top: var(--spacing-md);">
-            <Notice type="info">
-              <p><strong>Season Summary:</strong> {seasonSchedule.season_summary.total_matches} games total • {seasonSchedule.season_summary.home_matches} home • {seasonSchedule.season_summary.away_matches} away<br>
-              <strong>Match Times:</strong> All kickoff times TBA by league<br>
-              <strong>Match Numbers:</strong> Available for tracking in league system</p>
-            </Notice>
-          </div>
-        </div>
       </div>
     </div>
+
+    <!-- Full Width Season Fixtures -->
+    <section style="margin-top: var(--spacing-2xl);">
+      <h2 class="soccer-icon">⚽ Season Fixtures</h2>
+      <div class="card fixtures-card">
+        <div class="table-responsive fixtures-table-container">
+          <table class="table fixtures-table">
+            <thead>
+              <tr>
+                <th class="week-col">Week</th>
+                <th class="date-col">Date</th>
+                <th class="opponent-col">Opponent</th>
+                <th class="venue-col">Venue</th>
+                <th class="status-col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {seasonSchedule.matches.map(match => (
+                <tr class={match.week === 1 ? 'next-game' : ''}>
+                  <td class="week-col">{match.week}</td>
+                  <td class="date-col">{new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
+                  <td class="opponent-col">
+                    <div class="opponent-info">
+                      <span class="opponent-icon">{match.venue === 'Home' ? '🏠' : '✈️'}</span>
+                      <span class="opponent-name">{match.venue === 'Home' ? match.away_team : match.home_team}</span>
+                    </div>
+                  </td>
+                  <td class="venue-col">
+                    <span class={match.venue === 'Home' ? 'venue-home' : 'venue-away'}>
+                      {match.venue}
+                    </span>
+                  </td>
+                  <td class="status-col">
+                    <span class="status-scheduled">📅 Scheduled</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top: var(--spacing-md);">
+          <Notice type="info">
+            <p><strong>Season Summary:</strong> {seasonSchedule.season_summary.total_matches} games total • {seasonSchedule.season_summary.home_matches} home • {seasonSchedule.season_summary.away_matches} away<br>
+            <strong>Match Times:</strong> All kickoff times TBA by league<br>
+            <strong>Match Numbers:</strong> Available for tracking in league system</p>
+          </Notice>
+        </div>
+      </div>
+    </section>
 
     <!-- Season Calendar -->
     <section style="margin-top: var(--spacing-2xl);">
@@ -197,27 +199,24 @@ const seasonSchedule = await import('../../data/season-schedule.json');
   
   .fixtures-table-container {
     overflow-x: auto;
-    margin: 0 -var(--spacing-lg);
-    padding: 0 var(--spacing-lg);
   }
   
   .fixtures-table {
     font-size: 1rem;
     width: 100%;
-    min-width: 700px;
     table-layout: fixed;
   }
   
   .fixtures-table .week-col {
-    width: 10%;
+    width: 8%;
   }
   
   .fixtures-table .date-col {
-    width: 15%;
+    width: 12%;
   }
   
   .fixtures-table .opponent-col {
-    width: 40%;
+    width: 50%;
   }
   
   .fixtures-table .venue-col {
@@ -225,7 +224,7 @@ const seasonSchedule = await import('../../data/season-schedule.json');
   }
   
   .fixtures-table .status-col {
-    width: 20%;
+    width: 15%;
   }
   
   .fixtures-table th {

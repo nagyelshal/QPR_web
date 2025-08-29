@@ -6,8 +6,8 @@
       "jersey": "TBD",
       "photo": "/images/players/adam-k.jpg",
       "basic_info": {
-        "favorite_team": "Manchester City",
-        "fun_fact": "Can juggle the ball 25 times!"
+        "fun_fact": "Can juggle the ball 25 times!",
+        "favorite_position": "Attacking Midfielder"
       },
       "season_stats": {
         "games_played": 0,
@@ -28,8 +28,8 @@
       "jersey": "TBD",
       "photo": "/images/players/alexander-v.jpg",
       "basic_info": {
-        "favorite_team": "Barcelona",
-        "fun_fact": "Loves nutmegs!"
+        "fun_fact": "Loves nutmegs!",
+        "favorite_position": "Winger"
       },
       "season_stats": {
         "games_played": 0,
@@ -50,7 +50,7 @@
       "jersey": "4",
       "photo": "/images/players/andrew-e.jpg",
       "basic_info": {
-        "age": 11,
+        "age": 10,
         "height": "4'3\"",
         "favorite_position": "Central Midfielder",
         "favorite_team": "Juventus",
@@ -76,8 +76,8 @@
       "jersey": "TBD",
       "photo": "/images/players/andrew-n.jpg",
       "basic_info": {
-        "favorite_team": "Real Madrid",
-        "fun_fact": "Fastest runner on the team!"
+        "fun_fact": "Fastest runner on the team!",
+        "favorite_position": "Defender"
       },
       "season_stats": {
         "games_played": 0,
@@ -186,8 +186,10 @@
       "jersey": "TBD",
       "photo": "/images/players/niko-d.jpg",
       "basic_info": {
-        "favorite_team": "Bayern Munich",
-        "fun_fact": "Can play any position!"
+        "favorite_team": "FC Barcelona",
+        "fun_fact": "Can play any position!",
+        "favorite_position": "Centre Back",
+        "favorite_player": "Nico Williams, Lamine Yamal & Pedro Neto"
       },
       "season_stats": {
         "games_played": 0,
@@ -208,8 +210,8 @@
       "jersey": "9",
       "photo": "/images/players/owen-h.jpg",
       "basic_info": {
-        "favorite_team": "Tottenham",
-        "fun_fact": "Loves tactical discussions!"
+        "fun_fact": "Loves tactical discussions!",
+        "favorite_position": "Central Midfielder"
       },
       "season_stats": {
         "games_played": 0,
@@ -230,8 +232,8 @@
       "jersey": "TBD",
       "photo": "/images/players/rafael-h.jpg",
       "basic_info": {
-        "favorite_team": "Real Madrid",
-        "fun_fact": "Best free kick taker on the team!"
+        "fun_fact": "Best free kick taker on the team!",
+        "favorite_position": "Central Midfielder"
       },
       "season_stats": {
         "games_played": 0,
@@ -302,8 +304,10 @@
       "jersey": "TBD",
       "photo": "/images/players/yejun-k.jpg",
       "basic_info": {
-        "favorite_team": "Son Heung-min's team",
-        "fun_fact": "Practices juggling every day!"
+        "favorite_team": "Tottenham",
+        "fun_fact": "Practices juggling every day!",
+        "favorite_position": "Defender",
+        "favorite_player": "Son Heung-Min"
       },
       "season_stats": {
         "games_played": 0,

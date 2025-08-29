@@ -94,10 +94,10 @@ const seasonSchedule = await import('../../data/season-schedule.json');
         </div>
 
         <!-- Actual Game Schedule Table -->
-        <div class="card" style="margin-top: var(--spacing-lg);">
+        <div class="card fixtures-card" style="margin-top: var(--spacing-lg);">
           <h4>⚽ Season Fixtures</h4>
           <div class="table-responsive">
-            <table class="table">
+            <table class="table fixtures-table">
               <thead>
                 <tr>
                   <th>Week</th>
@@ -188,43 +188,105 @@ const seasonSchedule = await import('../../data/season-schedule.json');
 </BaseLayout>
 
 <style>
+  .fixtures-card {
+    padding: var(--spacing-xl);
+  }
+  
+  .fixtures-table {
+    font-size: 1rem;
+  }
+  
+  .fixtures-table th {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--color-primary);
+    background: rgba(25, 118, 210, 0.05);
+  }
+  
+  .fixtures-table td {
+    padding: var(--spacing-lg);
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .fixtures-table tbody tr {
+    transition: all 0.2s ease;
+  }
+  
+  .fixtures-table tbody tr:hover {
+    background-color: rgba(25, 118, 210, 0.03);
+    transform: translateX(2px);
+  }
+
   .next-game {
-    background-color: rgba(25, 118, 210, 0.1);
+    background-color: rgba(25, 118, 210, 0.08);
     border-left: 4px solid var(--color-primary);
+  }
+  
+  .next-game td {
+    font-weight: 600;
   }
   
   .venue-home {
     background: rgba(76, 175, 80, 0.2);
     color: #2e7d32;
-    padding: 4px 8px;
-    border-radius: 12px;
+    padding: 6px 12px;
+    border-radius: 16px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
   }
   
   .venue-away {
     background: rgba(255, 152, 0, 0.2);
     color: #ef6c00;
-    padding: 4px 8px;
-    border-radius: 12px;
+    padding: 6px 12px;
+    border-radius: 16px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
   }
   
   .status-scheduled {
     background: rgba(25, 118, 210, 0.1);
     color: var(--color-primary);
-    padding: 4px 8px;
-    border-radius: 12px;
+    padding: 6px 12px;
+    border-radius: 16px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    display: inline-block;
   }
   
   .game-card {
     border-left: 4px solid var(--color-primary);
   }
   
-  .table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+  @media (max-width: 768px) {
+    .fixtures-card {
+      padding: var(--spacing-lg);
+    }
+    
+    .fixtures-table th,
+    .fixtures-table td {
+      padding: var(--spacing-md);
+      font-size: 0.9rem;
+    }
+    
+    .venue-home,
+    .venue-away,
+    .status-scheduled {
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      min-width: 50px;
+    }
   }
 </style>

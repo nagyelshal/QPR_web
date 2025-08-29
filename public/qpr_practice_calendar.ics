@@ -78,9 +78,9 @@ BEGIN:VEVENT
 UID:first-game-weekend@qpr-u11b.com
 DTSTART:20250906T000000
 DTEND:20250907T235959
-SUMMARY:First Weekend of Games
-DESCRIPTION:First game weekend of the 2025-2026 season
-LOCATION:TBD
+SUMMARY:QPR vs PMSC Storm (Away)
+DESCRIPTION:First game of the 2025-2026 season against PMSC Storm
+LOCATION:Away - TBA by league
 END:VEVENT
 
 END:VCALENDAR

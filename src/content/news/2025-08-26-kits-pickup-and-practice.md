@@ -2,7 +2,7 @@
 title: "Kits pickup — two windows + practice details"
 date: 2025-08-26
 tags: ["kits", "practice"]
-summary: "Two pickup times at coach's place; practice Thursdays 5–6 at Mobilio West; first game Saturday Sept 6 (TBD)."
+summary: "Two pickup times at coach's place; practice Thursdays 5–6 at Mobilio West; first game Saturday Sept 6 vs PMSC Storm (Away)."
 ---
 
 Great news, QPR families! Kit pickup is confirmed for this weekend with two convenient windows.
@@ -34,7 +34,7 @@ Please arrive 10 minutes early for our first session so we can do introductions 
 
 ## First Game Update
 
-Our first game is scheduled for **Saturday, September 6**, but specific details (opponent, field location, kickoff time) are still pending from the league. We'll update the schedule page and send team notifications as soon as fixtures are confirmed.
+Our first game is confirmed for **Saturday, September 6** against **PMSC Storm** (Away). Kickoff time and field location are still TBA by the league. We'll update the schedule page and send team notifications as soon as these details are confirmed.
 
 ## What's Next
 

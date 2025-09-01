@@ -3,7 +3,7 @@
     {
       "id": "adam-k",
       "name": "Adam K",
-      "jersey": "TBD",
+  "jersey": "13",
       "photo": "/images/players/adam-k.jpg",
       "basic_info": {
         "fun_fact": "Can juggle the ball 25 times!",
@@ -25,7 +25,7 @@
     {
       "id": "alexander-v",
       "name": "Alexander V",
-      "jersey": "TBD",
+  "jersey": "8",
       "photo": "/images/players/alexander-v.jpg",
       "basic_info": {
         "fun_fact": "Loves nutmegs!",
@@ -73,7 +73,7 @@
     {
       "id": "andrew-n",
       "name": "Andrew N",
-      "jersey": "TBD",
+  "jersey": "5",
       "photo": "/images/players/andrew-n.jpg",
       "basic_info": {
         "fun_fact": "Fastest runner on the team!",
@@ -137,7 +137,7 @@
     {
       "id": "henry-k",
       "name": "Henry K",
-      "jersey": "TBD",
+  "jersey": "11",
       "photo": "/images/players/henry-k.jpg",
       "basic_info": {
         "fun_fact": "Can save penalties blindfolded!"
@@ -158,7 +158,7 @@
     {
       "id": "minh-an-d",
       "name": "Minh-An D",
-      "jersey": "TBD",
+  "jersey": "2",
       "photo": "/images/players/minh-an-d.jpg",
       "basic_info": {
         "fun_fact": "Speaks three languages!"
@@ -179,7 +179,7 @@
     {
       "id": "niko-d",
       "name": "Niko D",
-      "jersey": "TBD",
+  "jersey": "6",
       "photo": "/images/players/niko-d.jpg",
       "basic_info": {
         "favorite_team": "FC Barcelona",
@@ -225,7 +225,7 @@
     {
       "id": "rafael-h",
       "name": "Rafael H",
-      "jersey": "TBD",
+  "jersey": "12",
       "photo": "/images/players/rafael-h.jpg",
       "basic_info": {
         "fun_fact": "Best free kick taker on the team!",
@@ -247,7 +247,7 @@
     {
       "id": "rhodri-w",
       "name": "Rhodri W",
-      "jersey": "10",
+  "jersey": "10",
       "photo": "/images/players/rhodri-w.jpg",
       "basic_info": {
         "age": 10,
@@ -296,13 +296,35 @@
     {
       "id": "yejun-k",
       "name": "Yejun K",
-      "jersey": "TBD",
+  "jersey": "7",
       "photo": "/images/players/yejun-k.jpg",
       "basic_info": {
         "favorite_team": "Tottenham",
         "fun_fact": "Practices juggling every day!",
         "favorite_position": "Defender",
         "favorite_player": "Son Heung-Min"
+      },
+      "season_stats": {
+        "games_played": 0,
+        "goals": 0,
+        "assists": 0,
+        "clean_sheets": 0,
+        "minutes_played": 0,
+        "captain_games": 0,
+        "goalkeeper_games": 0,
+        "positions_played": []
+      },
+      "achievements": [],
+      "match_history": []
+    }
+    ,
+    {
+      "id": "eunjun-k",
+      "name": "Eunjun K",
+  "jersey": "16",
+      "photo": "/images/players/placeholder.jpg",
+      "basic_info": {
+        "fun_fact": "New to QPR — bio coming soon!"
       },
       "season_stats": {
         "games_played": 0,

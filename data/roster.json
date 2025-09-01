@@ -2,19 +2,20 @@
   "team": "Queens Park Rangers U11B",
   "season": "2025-2026",
   "players": [
-    {"name": "Adam K", "jersey": "TBD"},
-    {"name": "Alexander V", "jersey": "TBD"}, 
+  {"name": "Adam K", "jersey": "13"},
+  {"name": "Alexander V", "jersey": "8"}, 
     {"name": "Andrew E", "jersey": "4"},
-    {"name": "Andrew N", "jersey": "TBD"},
-    {"name": "David C", "jersey": "TBD"},
-    {"name": "Ethan G", "jersey": "TBD"},
-    {"name": "Henry K", "jersey": "TBD"},
-    {"name": "Minh-An D", "jersey": "TBD"},
-    {"name": "Niko D", "jersey": "TBD"},
+  {"name": "Andrew N", "jersey": "5"},
+  {"name": "David C", "jersey": "TBD"},
+  {"name": "Ethan G", "jersey": "TBD"},
+  {"name": "Henry K", "jersey": "11"},
+  {"name": "Minh-An D", "jersey": "2"},
+  {"name": "Niko D", "jersey": "6"},
     {"name": "Owen H", "jersey": "9"},
-    {"name": "Rafael H", "jersey": "TBD"},
+    {"name": "Rafael H", "jersey": "12"},
     {"name": "Rhodri W", "jersey": "10"},
     {"name": "Travis C", "jersey": "3"},
-    {"name": "Yejun K", "jersey": "TBD"}
+  {"name": "Yejun K", "jersey": "7"},
+    {"name": "Eunjun K", "jersey": "16"}
   ]
 }

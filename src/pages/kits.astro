@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL;
       <p>Information about team kit pickup, sizing, and the club's exchange policy.</p>
     </header>
 
-    <div class="grid grid-2">
+  <div class="grid grid-2">
       
       <!-- Pickup Information -->
       <div>
@@ -33,7 +33,7 @@ const base = import.meta.env.BASE_URL;
             [Address will be provided via TeamSnap]</p>
             
             <Notice type="info">
-              <p><strong>Note:</strong> Exact address and any special instructions will be sent directly to registered parents via email and TeamSnap.</p>
+              <p><strong>Note:</strong> The Sept 2nd window is for missed initial pickups only. <em>Exchanges will not be processed at that window.</em> We'll schedule exchanges after initial distribution is complete.</p>
             </Notice>
           </div>
         </div>
@@ -83,7 +83,7 @@ const base = import.meta.env.BASE_URL;
           </div>
           
           <Notice type="success" title="Exchange Process">
-            <p><strong>Contact coach within 7 days</strong> with photo and description of issue. Bring original item and receipt for all exchanges.</p>
+            <p><strong>Contact coach within 7 days</strong> with photo and description of issue. Bring original item and receipt for all exchanges. Please include your <strong>current sock size</strong> in your message so we can prepare the correct replacement.</p>
           </Notice>
         </div>
 
@@ -148,6 +148,7 @@ const base = import.meta.env.BASE_URL;
     <!-- Contact Information -->
     <Notice type="info" title="Questions?">
       <p>For kit-related questions, sizing concerns, or exchange requests, contact the coach directly. Response time is typically within 24 hours.</p>
+      <p><strong>Goalkeeper kits:</strong> Pickup will be coordinated separately and <em>not</em> at the Sept 2nd window.</p>
       <div style="margin-top: var(--spacing-md);">
         <a href={`${base}about/`} class="btn btn-small">Coach Contact Info</a>
       </div>

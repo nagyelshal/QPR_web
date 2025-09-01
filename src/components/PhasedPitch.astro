@@ -128,47 +128,115 @@ const getSlotPosition = (slot) => {
     <!-- Right side - Player pool -->
     <div class="player-pool-side">
       <h4>
-        {phase === 'initial' && 'All Players Available'}
-        {phase === 'captains' && 'Players Available'}
+        {phase === 'initial' && 'Squad for This Week'}
+        {phase === 'captains' && 'Available Players'}
         {phase === 'lineup' && 'Rotating Squad'}
       </h4>
       
-      <div class="player-list">
+      <div class="player-showcase">
         {phase === 'initial' && (
-          <div class="all-players">
-            {allPlayers.map((player) => (
-              <div class="player-chip available">
-                <span class="player-name">{player.name}</span>
-                <span class="player-jersey">#{player.jersey}</span>
+          <div class="squad-grid">
+            <div class="squad-stats">
+              <div class="stat-item">
+                <span class="stat-number">{allPlayers.length}</span>
+                <span class="stat-label">Players</span>
               </div>
-            ))}
+              <div class="stat-item">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Starting</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{allPlayers.length - 8}</span>
+                <span class="stat-label">Rotating</span>
+              </div>
+            </div>
+            
+            <div class="players-grid">
+              {allPlayers.map((player) => (
+                <div class="player-card squad">
+                  <div class="player-avatar">
+                    <span class="player-initial">{player.name.split(' ')[0].charAt(0)}</span>
+                  </div>
+                  <div class="player-info">
+                    <span class="player-name">{player.name.split(' ')[0]}</span>
+                    <span class="player-jersey">#{player.jersey || 'TBD'}</span>
+                  </div>
+                  <div class="player-status">
+                    <div class="status-dot available"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div class="squad-note">
+              <p>All players eligible for selection • Rotation ensures fair play time</p>
+            </div>
           </div>
         )}
         
-  {phase === 'captains' && (
-          <div class="available-players">
-            {allPlayers.filter(p => 
-              p.name !== captains.first_half && 
-              p.name !== captains.second_half && 
-              p.name !== goalkeepers.first_half && 
-              p.name !== goalkeepers.second_half
-            ).map((player) => (
-              <div class="player-chip available">
-                <span class="player-name">{player.name}</span>
-                <span class="player-jersey">#{player.jersey}</span>
+        {phase === 'captains' && (
+          <div class="captains-highlight">
+            <div class="leadership-panel">
+              <div class="leader-card captain">
+                <div class="leader-icon">🏅</div>
+                <div class="leader-info">
+                  <h5>Captains</h5>
+                  <p>{captains.first_half} (1st) • {captains.second_half} (2nd)</p>
+                </div>
               </div>
-            ))}
+              
+              <div class="leader-card goalkeeper">
+                <div class="leader-icon">🥅</div>
+                <div class="leader-info">
+                  <h5>Goalkeepers</h5>
+                  <p>{goalkeepers.first_half} (Goal) • {goalkeepers.second_half} (Field)</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="available-grid">
+              {allPlayers.filter(p => 
+                p.name !== captains.first_half && 
+                p.name !== captains.second_half && 
+                p.name !== goalkeepers.first_half && 
+                p.name !== goalkeepers.second_half
+              ).map((player) => (
+                <div class="player-card available">
+                  <div class="player-avatar">
+                    <span class="player-initial">{player.name.split(' ')[0].charAt(0)}</span>
+                  </div>
+                  <div class="player-info">
+                    <span class="player-name">{player.name.split(' ')[0]}</span>
+                    <span class="player-jersey">#{player.jersey || 'TBD'}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
         
         {phase === 'lineup' && (
-          <div class="rotating-players">
-            {rotatingPlayers.map((player) => (
-              <div class="player-chip rotating">
-                <span class="player-name">{player.name}</span>
-                <span class="player-jersey">#{player.jersey}</span>
-              </div>
-            ))}
+          <div class="lineup-revealed">
+            <div class="rotating-grid">
+              {rotatingPlayers.map((player) => (
+                <div class="player-card rotating">
+                  <div class="player-avatar">
+                    <span class="player-initial">{player.name.split(' ')[0].charAt(0)}</span>
+                  </div>
+                  <div class="player-info">
+                    <span class="player-name">{player.name.split(' ')[0]}</span>
+                    <span class="player-jersey">#{player.jersey || 'TBD'}</span>
+                  </div>
+                  <div class="rotation-indicator">
+                    <div class="rotation-arrow">↻</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div class="rotation-note">
+              <p>Rotating players will sub in throughout the match</p>
+            </div>
           </div>
         )}
       </div>
@@ -216,52 +284,223 @@ const getSlotPosition = (slot) => {
     padding: var(--spacing-sm) var(--spacing-md);
   }
 
-  .player-list {
+  .player-showcase {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  /* Squad Grid Layout (Initial Phase) */
+  .squad-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 8px;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .player-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .player-card.squad {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .player-card.available {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    border: 1px solid rgba(76,175,80,0.3);
+  }
+
+  .player-card.rotating {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 1px solid rgba(255,152,0,0.3);
+  }
+
+  .player-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .player-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1565c0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .player-initial {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .player-info {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    max-height: 400px;
-    overflow-y: auto;
-    padding: var(--spacing-md);
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .player-chip {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 6px;
-    font-size: var(--font-size-sm);
-    transition: all 0.2s ease;
-  }
-
-  .player-chip.available {
-    background: linear-gradient(135deg, #4caf50, #45a049);
-    color: white;
-    box-shadow: 0 2px 4px rgba(76,175,80,0.3);
-  }
-
-  .player-chip.rotating {
-    background: linear-gradient(135deg, #ff9800, #f57c00);
-    color: white;
-    box-shadow: 0 2px 4px rgba(255,152,0,0.3);
-  }
-
-  .player-chip:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    gap: 2px;
   }
 
   .player-name {
     font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
   }
 
   .player-jersey {
-    font-size: var(--font-size-xs);
-    opacity: 0.9;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  .player-status {
+    display: flex;
+    align-items: center;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .status-dot.available {
+    background: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76,175,80,0.3);
+  }
+
+  .squad-note {
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: rgba(25,118,210,0.08);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  /* Captains Phase Layout */
+  .leadership-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .leader-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 2px solid;
+  }
+
+  .leader-card.captain {
+    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+    border-color: #ff9800;
+  }
+
+  .leader-card.goalkeeper {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-color: #1976d2;
+  }
+
+  .leader-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .leader-info h5 {
+    margin: 0 0 4px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .leader-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  .available-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  /* Lineup Phase Layout */
+  .rotating-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .rotation-indicator {
+    display: flex;
+    align-items: center;
+  }
+
+  .rotation-arrow {
+    font-size: 1.2rem;
+    color: #ff9800;
+    animation: spin 3s linear infinite;
+  }
+
+  .rotation-note {
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: rgba(255,152,0,0.1);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   @media (max-width: 768px) {
@@ -270,8 +509,29 @@ const getSlotPosition = (slot) => {
       gap: var(--spacing-md);
     }
     
-    .player-list {
-      max-height: 250px;
+    .players-grid,
+    .available-grid,
+    .rotating-grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .leadership-panel {
+      grid-template-columns: 1fr;
+    }
+    
+    .squad-stats {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rotation-arrow {
+      animation: none;
+    }
+    
+    .player-card:hover {
+      transform: none;
     }
   }
 </style>

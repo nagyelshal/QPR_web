@@ -76,7 +76,27 @@ const config = await import('../../data/config.json');
     <!-- Quick Actions -->
     <section style="margin-top: var(--spacing-2xl);">
       <h2 class="soccer-icon">Quick Links</h2>
-      <div class="grid grid-2">
+      <div class="grid grid-3">
+        <a href={`${base}team-goals/`} class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>🎯 Team Goals</h3>
+          <p>Track our season achievements and progress</p>
+        </a>
+        
+        <a href={`${base}matches/`} class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>🏟️ Match Center</h3>
+          <p>View games, vote for player of the match</p>
+        </a>
+        
+        <a href={`${base}achievements/`} class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>🏆 Achievements</h3>
+          <p>Unlock badges and track your progress</p>
+        </a>
+        
+        <a href={`${base}trivia/`} class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>⚽ Soccer Quiz</h3>
+          <p>Test your football knowledge</p>
+        </a>
+        
         <a href={`${base}roster/`} class="card game-card" style="text-decoration: none; color: inherit;">
           <h3>👥 Team Roster</h3>
           <p>Meet the QPR U11B squad</p>

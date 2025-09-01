@@ -1,0 +1,60 @@
+{
+  "matches": [
+    {
+      "id": "match-001",
+      "date": "2025-09-06",
+      "opponent": "PMSC Storm",
+      "result": "pending",
+      "location": "Away",
+      "kickoff": "TBA",
+      "match_number": "2500544",
+      "week": 1,
+      "scorers": [],
+      "assists": [],
+      "player_of_match": {
+        "voting_open": true,
+        "votes": {},
+        "winner": null
+      },
+      "highlights": [],
+      "celebration_highlights": []
+    },
+    {
+      "id": "match-002", 
+      "date": "2025-09-13",
+      "opponent": "Richmond Raiders",
+      "result": "pending",
+      "location": "Home",
+      "kickoff": "TBA",
+      "match_number": "2500545",
+      "week": 2,
+      "scorers": [],
+      "assists": [],
+      "player_of_match": {
+        "voting_open": false,
+        "votes": {},
+        "winner": null
+      },
+      "highlights": [],
+      "celebration_highlights": []
+    }
+  ],
+  "celebrations": {
+    "submissions": [
+      {
+        "id": "cel-001",
+        "player": "Example Player",
+        "celebration_name": "The Robot",
+        "description": "Classic robot dance moves after scoring",
+        "votes": 0,
+        "submitted_date": "2025-09-01"
+      }
+    ],
+    "categories": [
+      "Most Creative",
+      "Funniest", 
+      "Best Team Celebration",
+      "Most Original"
+    ]
+  }
+}

@@ -1,0 +1,638 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import matchesData from '../../data/matches.json';
+
+const title = "Match Center";
+const description = "View match details, vote for player of the match, and see game highlights";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <div class="matches-header">
+      <h1>🏟️ Match Center</h1>
+      <p>View match details, vote for player of the match, and celebrate our goals!</p>
+    </div>
+
+    <div class="matches-grid">
+      {matchesData.matches.map(match => (
+        <div class="match-card" data-match-id={match.id}>
+          <div class="match-header">
+            <div class="match-date">
+              {new Date(match.date).toLocaleDateString('en-US', { 
+                weekday: 'short',
+                month: 'short', 
+                day: 'numeric'
+              })}
+            </div>
+            <div class="match-week">Week {match.week}</div>
+          </div>
+
+          <div class="match-teams">
+            <div class="team home">
+              <div class="team-name">QPR U11B</div>
+              <div class="team-score">{match.result === 'pending' ? '-' : '0'}</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team away">
+              <div class="team-name">{match.opponent}</div>
+              <div class="team-score">{match.result === 'pending' ? '-' : '0'}</div>
+            </div>
+          </div>
+
+          <div class="match-details">
+            <div class="detail-item">
+              <span class="label">🕐 Kickoff:</span>
+              <span class="value">{match.kickoff}</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">📍 Location:</span>
+              <span class="value">{match.location}</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">🎫 Match #:</span>
+              <span class="value">{match.match_number}</span>
+            </div>
+          </div>
+
+          {match.result === 'pending' ? (
+            <div class="match-status pending">
+              <span>⏳ Upcoming Match</span>
+            </div>
+          ) : (
+            <div class="match-completed">
+              {match.scorers.length > 0 && (
+                <div class="scorers-section">
+                  <h4>⚽ Goal Scorers</h4>
+                  <div class="scorers-list">
+                    {match.scorers.map(scorer => (
+                      <div class="scorer-item">
+                        <span class="scorer-name">{scorer.player}</span>
+                        <span class="scorer-time">{scorer.minute}'</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {match.player_of_match.voting_open ? (
+                <div class="voting-section">
+                  <h4>⭐ Vote for Player of the Match</h4>
+                  <div class="voting-grid">
+                    {/* Player voting buttons will be populated by JS */}
+                  </div>
+                  <button class="btn btn-primary vote-btn" data-match={match.id}>
+                    Cast Your Vote
+                  </button>
+                </div>
+              ) : match.player_of_match.winner ? (
+                <div class="player-of-match">
+                  <h4>⭐ Player of the Match</h4>
+                  <div class="potm-winner">
+                    <span class="potm-name">{match.player_of_match.winner}</span>
+                    <span class="potm-votes">{Object.values(match.player_of_match.votes).reduce((a, b) => a + b, 0)} votes</span>
+                  </div>
+                </div>
+              ) : null}
+
+              {match.celebration_highlights.length > 0 && (
+                <div class="celebrations-section">
+                  <h4>🎉 Best Celebrations</h4>
+                  <div class="celebrations-list">
+                    {match.celebration_highlights.map(celebration => (
+                      <div class="celebration-item">
+                        <span class="celebration-player">{celebration.player}</span>
+                        <span class="celebration-name">"{celebration.name}"</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          <a href={`/matches/${match.id}/`} class="match-link">
+            View Full Details →
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="celebration-corner">
+      <h2>🎊 Celebration Corner</h2>
+      <p>Submit your best goal celebration ideas!</p>
+      
+      <div class="celebration-submissions">
+        {matchesData.celebrations.submissions.map(celebration => (
+          <div class="celebration-card">
+            <h3>"{celebration.celebration_name}"</h3>
+            <p class="celebration-description">{celebration.description}</p>
+            <div class="celebration-meta">
+              <span class="celebration-player">by {celebration.player}</span>
+              <span class="celebration-votes">❤️ {celebration.votes}</span>
+            </div>
+            <button class="btn btn-small vote-celebration" data-celebration={celebration.id}>
+              Vote for This!
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <div class="submit-celebration">
+        <h3>Submit Your Celebration</h3>
+        <form class="celebration-form">
+          <input type="text" placeholder="Your name" id="celebration-player" required>
+          <input type="text" placeholder="Celebration name" id="celebration-name" required>
+          <textarea placeholder="Describe your celebration..." id="celebration-description" required></textarea>
+          <button type="submit" class="btn btn-primary">Submit Celebration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .matches-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .matches-header h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .matches-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .match-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+  }
+
+  .match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .match-date {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .match-week {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .team {
+    flex: 1;
+  }
+
+  .team-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .team-score {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+  }
+
+  .vs {
+    margin: 0 var(--spacing-lg);
+    font-weight: 700;
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+  }
+
+  .match-details {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+  }
+
+  .label {
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .value {
+    font-weight: 500;
+  }
+
+  .match-status.pending {
+    text-align: center;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    font-weight: 600;
+    color: #e65100;
+  }
+
+  .match-completed h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+  }
+
+  .scorers-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .scorers-list {
+    background: #e8f5e8;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+  }
+
+  .scorer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+  }
+
+  .scorer-name {
+    font-weight: 600;
+  }
+
+  .scorer-time {
+    background: #4caf50;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .voting-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .voting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .player-vote-btn {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .player-vote-btn:hover {
+    background: #e3f2fd;
+    border-color: var(--color-primary);
+  }
+
+  .player-vote-btn.selected {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .player-of-match {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .potm-winner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .potm-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e65100;
+  }
+
+  .potm-votes {
+    font-size: 0.9rem;
+    color: #e65100;
+    opacity: 0.8;
+  }
+
+  .celebrations-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .celebrations-list {
+    background: #f3e5f5;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+  }
+
+  .celebration-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+  }
+
+  .celebration-player {
+    font-weight: 600;
+  }
+
+  .celebration-name {
+    font-style: italic;
+    color: var(--color-primary);
+  }
+
+  .match-link {
+    display: block;
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-sm);
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .match-link:hover {
+    background: #1565c0;
+  }
+
+  .celebration-corner {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-radius: 16px;
+    padding: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+  }
+
+  .celebration-corner h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+  }
+
+  .celebration-submissions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .celebration-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.2);
+  }
+
+  .celebration-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .celebration-description {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+  }
+
+  .celebration-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+  }
+
+  .celebration-player {
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .celebration-votes {
+    color: #e91e63;
+    font-weight: 600;
+  }
+
+  .submit-celebration {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.2);
+  }
+
+  .submit-celebration h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+  }
+
+  .celebration-form {
+    display: grid;
+    gap: var(--spacing-md);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .celebration-form input,
+  .celebration-form textarea {
+    padding: var(--spacing-md);
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+
+  .celebration-form input:focus,
+  .celebration-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .celebration-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .matches-header h1 {
+      font-size: 2rem;
+    }
+
+    .match-teams {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .vs {
+      transform: rotate(90deg);
+      margin: var(--spacing-sm) 0;
+    }
+
+    .voting-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .celebration-submissions {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Mock roster data for voting - in a real app, this would come from your data
+  const rosterPlayers = [
+    'Adam K', 'Alexander V', 'David A', 'Ethan G', 'Eunjun P', 
+    'Minh-An D', 'Owen H', 'Rafael H', 'Romeo M'
+  ];
+
+  // Initialize voting sections
+  document.querySelectorAll('.voting-section').forEach(section => {
+    const votingGrid = section.querySelector('.voting-grid');
+    if (votingGrid) {
+      rosterPlayers.forEach(player => {
+        const btn = document.createElement('button');
+        btn.className = 'player-vote-btn';
+        btn.textContent = player;
+        btn.dataset.player = player;
+        btn.addEventListener('click', selectPlayer);
+        votingGrid.appendChild(btn);
+      });
+    }
+  });
+
+  let selectedPlayer = null;
+
+  function selectPlayer(e) {
+    // Remove previous selection
+    document.querySelectorAll('.player-vote-btn').forEach(btn => {
+      btn.classList.remove('selected');
+    });
+    
+    // Select current player
+    e.target.classList.add('selected');
+    selectedPlayer = e.target.dataset.player;
+  }
+
+  // Handle vote submission
+  document.querySelectorAll('.vote-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if (!selectedPlayer) {
+        alert('Please select a player first!');
+        return;
+      }
+      
+      const matchId = e.target.dataset.match;
+      
+      // In a real app, you would send this to your server
+      console.log('Voting for player:', selectedPlayer, 'in match:', matchId);
+      
+      // Show success message
+      e.target.textContent = 'Vote Submitted! ✅';
+      e.target.disabled = true;
+      e.target.style.background = '#4caf50';
+      
+      // Disable all voting buttons for this match
+      document.querySelectorAll('.player-vote-btn').forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = '0.6';
+      });
+    });
+  });
+
+  // Handle celebration voting
+  document.querySelectorAll('.vote-celebration').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const celebrationId = e.target.dataset.celebration;
+      
+      // In a real app, you would send this to your server
+      console.log('Voting for celebration:', celebrationId);
+      
+      // Update vote count visually
+      const voteSpan = e.target.parentElement.querySelector('.celebration-votes');
+      const currentVotes = parseInt(voteSpan.textContent.split(' ')[1]) || 0;
+      voteSpan.textContent = `❤️ ${currentVotes + 1}`;
+      
+      // Disable button
+      e.target.textContent = 'Voted! ✅';
+      e.target.disabled = true;
+      e.target.style.background = '#4caf50';
+    });
+  });
+
+  // Handle celebration submission
+  document.querySelector('.celebration-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const player = document.getElementById('celebration-player').value;
+    const name = document.getElementById('celebration-name').value;
+    const description = document.getElementById('celebration-description').value;
+    
+    if (!player || !name || !description) {
+      alert('Please fill in all fields!');
+      return;
+    }
+    
+    // In a real app, you would send this to your server
+    console.log('Submitting celebration:', { player, name, description });
+    
+    // Show success message
+    alert('Celebration submitted! Thanks for sharing your creativity! 🎉');
+    
+    // Reset form
+    e.target.reset();
+  });
+</script>
+</BaseLayout>

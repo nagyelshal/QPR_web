@@ -1,0 +1,810 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import matchesData from '../../../data/matches.json';
+import achievementsData from '../../../data/achievements.json';
+
+export async function getStaticPaths() {
+  return matchesData.matches.map(match => ({
+    params: { id: match.id },
+    props: { match }
+  }));
+}
+
+const { match } = Astro.props;
+const title = `Match vs ${match.opponent}`;
+const description = `Detailed match information for QPR U11B vs ${match.opponent}`;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <div class="match-detail-header">
+      <a href="/matches/" class="back-link">← Back to Matches</a>
+      <h1>QPR U11B vs {match.opponent}</h1>
+      <div class="match-meta">
+        <span class="match-date">
+          {new Date(match.date).toLocaleDateString('en-US', { 
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long', 
+            day: 'numeric'
+          })}
+        </span>
+        <span class="match-week">Week {match.week}</span>
+      </div>
+    </div>
+
+    <div class="match-detail-grid">
+      <!-- Match Info Card -->
+      <div class="info-card">
+        <h2>📋 Match Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">🏟️ Venue:</span>
+            <span class="info-value">{match.location}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🕐 Kickoff:</span>
+            <span class="info-value">{match.kickoff}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">🎫 Match #:</span>
+            <span class="info-value">{match.match_number}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">⚽ Formation:</span>
+            <span class="info-value">3-3-1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score Card -->
+      <div class="score-card">
+        <div class="teams-display">
+          <div class="team home-team">
+            <div class="team-logo">🛡️</div>
+            <div class="team-name">QPR U11B</div>
+            <div class="team-score">{match.result === 'pending' ? '-' : '2'}</div>
+          </div>
+          <div class="vs-divider">
+            <span>VS</span>
+          </div>
+          <div class="team away-team">
+            <div class="team-logo">⚡</div>
+            <div class="team-name">{match.opponent}</div>
+            <div class="team-score">{match.result === 'pending' ? '-' : '1'}</div>
+          </div>
+        </div>
+        
+        {match.result === 'pending' ? (
+          <div class="match-status">
+            <span class="status-badge pending">⏳ Upcoming</span>
+          </div>
+        ) : (
+          <div class="match-status">
+            <span class="status-badge completed">✅ Final</span>
+          </div>
+        )}
+      </div>
+
+      <!-- Goals & Events Card -->
+      {match.result !== 'pending' && (
+        <div class="events-card">
+          <h2>⚽ Match Events</h2>
+          <div class="events-timeline">
+            <div class="event-item goal">
+              <div class="event-time">12'</div>
+              <div class="event-content">
+                <span class="event-icon">⚽</span>
+                <span class="event-text"><strong>Minh-An D</strong> scores! Assist by Rafael H</span>
+              </div>
+            </div>
+            <div class="event-item goal">
+              <div class="event-time">34'</div>
+              <div class="event-content">
+                <span class="event-icon">⚽</span>
+                <span class="event-text"><strong>Ethan G</strong> with a brilliant strike!</span>
+              </div>
+            </div>
+            <div class="event-item opponent-goal">
+              <div class="event-time">67'</div>
+              <div class="event-content">
+                <span class="event-icon">🔴</span>
+                <span class="event-text">{match.opponent} scores</span>
+              </div>
+            </div>
+            <div class="event-item celebration">
+              <div class="event-time">34'</div>
+              <div class="event-content">
+                <span class="event-icon">🎉</span>
+                <span class="event-text"><strong>Ethan G</strong> celebrates with "The Robot"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Player of the Match -->
+      {match.result !== 'pending' && (
+        <div class="potm-card">
+          <h2>⭐ Player of the Match</h2>
+          {match.player_of_match.voting_open ? (
+            <div class="voting-section">
+              <p>Voting is now open! Cast your vote for the best performer:</p>
+              <div class="player-voting-grid" id="voting-grid">
+                <!-- Populated by JavaScript -->
+              </div>
+              <button class="btn btn-primary vote-submit" disabled id="vote-submit">
+                Cast Your Vote
+              </button>
+            </div>
+          ) : match.player_of_match.winner ? (
+            <div class="potm-winner">
+              <div class="winner-display">
+                <div class="winner-avatar">👑</div>
+                <div class="winner-info">
+                  <h3>{match.player_of_match.winner}</h3>
+                  <p>Outstanding performance! 
+                     {Object.values(match.player_of_match.votes || {}).reduce((a, b) => a + b, 0)} votes received</p>
+                </div>
+              </div>
+              <div class="achievement-earned">
+                <span class="achievement-badge">🏆 Achievement Unlocked: Player of the Match</span>
+              </div>
+            </div>
+          ) : (
+            <div class="no-winner">
+              <p>Player of the Match will be announced after voting closes.</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- Celebrations Showcase -->
+      {match.result !== 'pending' && (
+        <div class="celebrations-card">
+          <h2>🎊 Goal Celebrations</h2>
+          <div class="celebrations-showcase">
+            <div class="celebration-highlight">
+              <h3>"The Robot" by Ethan G</h3>
+              <p>Classic robotic moves after his stunning goal in the 34th minute!</p>
+              <div class="celebration-votes">
+                <button class="vote-btn">👍 Vote Best Celebration</button>
+                <span class="vote-count">12 votes</span>
+              </div>
+            </div>
+            <div class="celebration-highlight">
+              <h3>"Team Huddle" by Squad</h3>
+              <p>The whole team celebrated together after Minh-An's opener!</p>
+              <div class="celebration-votes">
+                <button class="vote-btn">👍 Vote Best Celebration</button>
+                <span class="vote-count">8 votes</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="submit-celebration">
+            <h4>Suggest a Celebration</h4>
+            <form class="celebration-form">
+              <input type="text" placeholder="Celebration name" required>
+              <textarea placeholder="Describe the celebration..." required></textarea>
+              <button type="submit" class="btn btn-secondary">Submit Idea</button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      <!-- Achievements Earned -->
+      {match.result !== 'pending' && (
+        <div class="achievements-card">
+          <h2>🏆 Achievements Unlocked</h2>
+          <div class="achievements-grid">
+            <div class="achievement-earned">
+              <span class="achievement-icon">⚽</span>
+              <div class="achievement-info">
+                <h4>First Goal</h4>
+                <p>Minh-An D scored his first goal!</p>
+              </div>
+            </div>
+            <div class="achievement-earned">
+              <span class="achievement-icon">🔥</span>
+              <div class="achievement-info">
+                <h4>Goal Machine</h4>
+                <p>Ethan G reached 5 goals this season!</p>
+              </div>
+            </div>
+            <div class="achievement-earned">
+              <span class="achievement-icon">⭐</span>
+              <div class="achievement-info">
+                <h4>Player of the Match</h4>
+                <p>Outstanding individual performance!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Match Stats -->
+      {match.result !== 'pending' && (
+        <div class="stats-card">
+          <h2>📊 Match Statistics</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Goals</span>
+              <span class="stat-value">2 - 1</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Shots on Target</span>
+              <span class="stat-value">4 - 2</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Possession</span>
+              <span class="stat-value">58% - 42%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Corners</span>
+              <span class="stat-value">3 - 1</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Fouls</span>
+              <span class="stat-value">2 - 4</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Yellow Cards</span>
+              <span class="stat-value">0 - 1</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .match-detail-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: #1565c0;
+  }
+
+  .match-detail-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .match-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  .match-date {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+  }
+
+  .match-week {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .match-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .info-card,
+  .score-card,
+  .events-card,
+  .potm-card,
+  .celebrations-card,
+  .achievements-card,
+  .stats-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .info-card:hover,
+  .score-card:hover,
+  .events-card:hover,
+  .potm-card:hover,
+  .celebrations-card:hover,
+  .achievements-card:hover,
+  .stats-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .info-card h2,
+  .events-card h2,
+  .potm-card h2,
+  .celebrations-card h2,
+  .achievements-card h2,
+  .stats-card h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.3rem;
+  }
+
+  .info-grid {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .info-item:last-child {
+    border-bottom: none;
+  }
+
+  .info-label {
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .info-value {
+    font-weight: 500;
+  }
+
+  .score-card {
+    grid-column: span 2;
+  }
+
+  .teams-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .team {
+    text-align: center;
+    flex: 1;
+  }
+
+  .team-logo {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .team-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .team-score {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-primary);
+  }
+
+  .vs-divider {
+    margin: 0 var(--spacing-lg);
+    font-weight: 700;
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+  }
+
+  .match-status {
+    text-align: center;
+  }
+
+  .status-badge {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .status-badge.pending {
+    background: #fff3e0;
+    color: #e65100;
+  }
+
+  .status-badge.completed {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+
+  .events-timeline {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .event-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border-left: 4px solid;
+  }
+
+  .event-item.goal {
+    background: #e8f5e8;
+    border-left-color: #4caf50;
+  }
+
+  .event-item.opponent-goal {
+    background: #ffebee;
+    border-left-color: #f44336;
+  }
+
+  .event-item.celebration {
+    background: #f3e5f5;
+    border-left-color: #9c27b0;
+  }
+
+  .event-time {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    min-width: 40px;
+  }
+
+  .event-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .event-icon {
+    font-size: 1.2rem;
+  }
+
+  .player-voting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .player-vote-option {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .player-vote-option:hover {
+    background: #e3f2fd;
+    border-color: var(--color-primary);
+  }
+
+  .player-vote-option.selected {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .potm-winner {
+    text-align: center;
+  }
+
+  .winner-display {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+  }
+
+  .winner-avatar {
+    font-size: 4rem;
+  }
+
+  .winner-info h3 {
+    font-size: 1.5rem;
+    margin: 0 0 var(--spacing-xs) 0;
+    color: #e65100;
+  }
+
+  .winner-info p {
+    margin: 0;
+    color: #e65100;
+    opacity: 0.8;
+  }
+
+  .achievement-earned {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .achievement-badge {
+    font-weight: 600;
+    color: #2e7d32;
+  }
+
+  .celebrations-showcase {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .celebration-highlight {
+    background: #f3e5f5;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+  }
+
+  .celebration-highlight h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .celebration-highlight p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .celebration-votes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .vote-btn {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .vote-btn:hover {
+    background: #1565c0;
+  }
+
+  .vote-count {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .submit-celebration {
+    background: #f8f9fa;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+  }
+
+  .submit-celebration h4 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+  }
+
+  .celebration-form {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .celebration-form input,
+  .celebration-form textarea {
+    padding: var(--spacing-md);
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: inherit;
+  }
+
+  .celebration-form input:focus,
+  .celebration-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .achievements-grid {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .achievement-earned {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+  }
+
+  .achievement-icon {
+    font-size: 2rem;
+  }
+
+  .achievement-info h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: #2e7d32;
+  }
+
+  .achievement-info p {
+    margin: 0;
+    color: #2e7d32;
+    opacity: 0.8;
+  }
+
+  .stats-grid {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .stat-label {
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .stat-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .match-detail-header h1 {
+      font-size: 1.8rem;
+    }
+
+    .match-meta {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .match-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .score-card {
+      grid-column: span 1;
+    }
+
+    .teams-display {
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .vs-divider {
+      transform: rotate(90deg);
+      margin: var(--spacing-sm) 0;
+    }
+
+    .winner-display {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .player-voting-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Mock roster data for voting
+  const rosterPlayers = [
+    'Adam K', 'Alexander V', 'David A', 'Ethan G', 'Eunjun P', 
+    'Minh-An D', 'Owen H', 'Rafael H', 'Romeo M'
+  ];
+
+  // Initialize voting grid
+  const votingGrid = document.getElementById('voting-grid');
+  const voteSubmit = document.getElementById('vote-submit');
+  let selectedPlayer = null;
+
+  if (votingGrid && voteSubmit) {
+    rosterPlayers.forEach(player => {
+      const option = document.createElement('div');
+      option.className = 'player-vote-option';
+      option.textContent = player;
+      option.dataset.player = player;
+      option.addEventListener('click', selectPlayer);
+      votingGrid.appendChild(option);
+    });
+
+    function selectPlayer(e) {
+      // Remove previous selection
+      document.querySelectorAll('.player-vote-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      
+      // Select current player
+      e.target.classList.add('selected');
+      selectedPlayer = e.target.dataset.player;
+      voteSubmit.disabled = false;
+      voteSubmit.textContent = `Vote for ${selectedPlayer}`;
+    }
+
+    voteSubmit.addEventListener('click', () => {
+      if (selectedPlayer) {
+        // In a real app, send vote to server
+        console.log('Voting for:', selectedPlayer);
+        
+        // Show success
+        voteSubmit.textContent = 'Vote Submitted! ✅';
+        voteSubmit.disabled = true;
+        voteSubmit.style.background = '#4caf50';
+        
+        // Disable all voting options
+        document.querySelectorAll('.player-vote-option').forEach(option => {
+          option.style.opacity = '0.6';
+          option.style.cursor = 'not-allowed';
+          option.removeEventListener('click', selectPlayer);
+        });
+      }
+    });
+  }
+
+  // Handle celebration voting
+  document.querySelectorAll('.vote-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const voteCountSpan = e.target.parentElement.querySelector('.vote-count');
+      const currentVotes = parseInt(voteCountSpan.textContent.split(' ')[0]);
+      
+      // Update vote count
+      voteCountSpan.textContent = `${currentVotes + 1} votes`;
+      
+      // Disable button
+      e.target.textContent = 'Voted! ✅';
+      e.target.disabled = true;
+      e.target.style.background = '#4caf50';
+    });
+  });
+
+  // Handle celebration form submission
+  document.querySelector('.celebration-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const name = formData.get('name') || e.target.querySelector('input').value;
+    const description = formData.get('description') || e.target.querySelector('textarea').value;
+    
+    if (name && description) {
+      alert('Celebration idea submitted! Thanks for your creativity! 🎉');
+      e.target.reset();
+    }
+  });
+</script>
+</BaseLayout>

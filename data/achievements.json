@@ -1,0 +1,126 @@
+{
+  "achievements": {
+    "scoring": [
+      {
+        "id": "first-goal",
+        "name": "First Goal",
+        "description": "Score your first goal of the season",
+        "icon": "⚽",
+        "rarity": "common",
+        "points": 10
+      },
+      {
+        "id": "hat-trick",
+        "name": "Hat-trick Hero",
+        "description": "Score 3 goals in a single match",
+        "icon": "🎩",
+        "rarity": "epic",
+        "points": 50
+      },
+      {
+        "id": "goal-machine",
+        "name": "Goal Machine",
+        "description": "Score 5 goals in the season",
+        "icon": "🔥",
+        "rarity": "rare",
+        "points": 30
+      }
+    ],
+    "defending": [
+      {
+        "id": "clean-sheet",
+        "name": "Clean Sheet",
+        "description": "Don't concede any goals in a match",
+        "icon": "🛡️",
+        "rarity": "rare",
+        "points": 25
+      },
+      {
+        "id": "tackle-master",
+        "name": "Tackle Master",
+        "description": "Make 5 successful tackles in a match",
+        "icon": "💪",
+        "rarity": "uncommon",
+        "points": 15
+      },
+      {
+        "id": "wall",
+        "name": "The Wall",
+        "description": "Block 3 shots on goal in a match",
+        "icon": "🧱",
+        "rarity": "rare",
+        "points": 20
+      }
+    ],
+    "teamwork": [
+      {
+        "id": "assist-king",
+        "name": "Assist King",
+        "description": "Get 3 assists in a single match",
+        "icon": "👑",
+        "rarity": "epic",
+        "points": 40
+      },
+      {
+        "id": "team-player",
+        "name": "Team Player",
+        "description": "Play every position in the season",
+        "icon": "🔄",
+        "rarity": "legendary",
+        "points": 75
+      },
+      {
+        "id": "captain-fantastic",
+        "name": "Captain Fantastic",
+        "description": "Be named captain 3 times",
+        "icon": "🎖️",
+        "rarity": "rare",
+        "points": 35
+      }
+    ],
+    "special": [
+      {
+        "id": "first-win",
+        "name": "First Victory",
+        "description": "Win your first match of the season",
+        "icon": "🏆",
+        "rarity": "common",
+        "points": 20
+      },
+      {
+        "id": "comeback-kid",
+        "name": "Comeback Kid",
+        "description": "Win a match after being behind",
+        "icon": "⚡",
+        "rarity": "epic",
+        "points": 60
+      },
+      {
+        "id": "perfect-season",
+        "name": "Perfect Season",
+        "description": "Win every match in the season",
+        "icon": "💎",
+        "rarity": "legendary", 
+        "points": 100
+      },
+      {
+        "id": "player-of-match",
+        "name": "Player of the Match",
+        "description": "Be voted player of the match",
+        "icon": "⭐",
+        "rarity": "uncommon",
+        "points": 25
+      }
+    ]
+  },
+  "player_achievements": {
+    "Adam K": {
+      "earned": ["first-goal", "clean-sheet"],
+      "total_points": 35
+    },
+    "Minh-An D": {
+      "earned": ["captain-fantastic", "first-goal"],
+      "total_points": 45
+    }
+  }
+}

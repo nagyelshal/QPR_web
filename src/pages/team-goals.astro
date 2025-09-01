@@ -1,0 +1,491 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import teamGoalsData from '../../data/team-goals.json';
+
+// Use the imported data
+const teamGoals = teamGoalsData;
+
+// Calculate progress
+const calculateProgress = (level) => {
+  const completed = level.goals.filter(goal => goal.completed).length;
+  const total = level.goals.length;
+  return { completed, total, percentage: Math.round((completed / total) * 100) };
+};
+
+const totalPoints = teamGoals.levels.flatMap(level => level.goals)
+  .filter(goal => goal.completed)
+  .reduce((sum, goal) => sum + goal.points, 0);
+
+const maxPoints = teamGoals.levels.flatMap(level => level.goals)
+  .reduce((sum, goal) => sum + goal.points, 0);
+---
+
+<BaseLayout title="Team Goals Roadmap - QPR U11B">
+  <div class="container">
+    <!-- Header Section -->
+    <section class="roadmap-header">
+      <h1>🎯 Team Goals Roadmap</h1>
+      <p class="season-info">Season {teamGoals.season} • Last Updated: {teamGoals.lastUpdated}</p>
+      
+      <div class="progress-overview">
+        <div class="total-points">
+          <div class="points-earned">{totalPoints}</div>
+          <div class="points-max">/ {maxPoints} XP</div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style={`width: ${Math.round((totalPoints / maxPoints) * 100)}%`}></div>
+        </div>
+        <div class="progress-percentage">{Math.round((totalPoints / maxPoints) * 100)}% Complete</div>
+      </div>
+    </section>
+
+    <!-- Levels Section -->
+    <section class="levels-container">
+      {teamGoals.levels.map((level) => {
+        const progress = calculateProgress(level);
+        const isUnlocked = level.level === 1 || teamGoals.levels[level.level - 2]?.goals.every(g => g.completed);
+        
+        return (
+          <div class={`level-section ${isUnlocked ? 'unlocked' : 'locked'}`}>
+            <!-- Level Header -->
+            <div class="level-header" style={`border-color: ${level.color}`}>
+              <div class="level-badge" style={`background: ${level.color}`}>
+                <span class="level-number">{level.level}</span>
+              </div>
+              <div class="level-info">
+                <h2 class="level-title">{level.title}</h2>
+                <p class="level-description">{level.description}</p>
+                <div class="level-progress">
+                  <span class="progress-text">{progress.completed}/{progress.total} completed ({progress.percentage}%)</span>
+                  <div class="mini-progress-bar">
+                    <div class="mini-progress-fill" style={`width: ${progress.percentage}%; background: ${level.color}`}></div>
+                  </div>
+                </div>
+              </div>
+              {!isUnlocked && <div class="lock-icon">🔒</div>}
+            </div>
+
+            <!-- Goals Grid -->
+            <div class="goals-grid">
+              {level.goals.map((goal) => (
+                <div class={`goal-card ${goal.completed ? 'completed' : 'pending'} ${!isUnlocked ? 'locked' : ''}`}>
+                  <div class="goal-status">
+                    {goal.completed ? '✅' : isUnlocked ? '⭕' : '🔒'}
+                  </div>
+                  <div class="goal-content">
+                    <h3 class="goal-title">{goal.title}</h3>
+                    <p class="goal-description">{goal.description}</p>
+                    <div class="goal-points">+{goal.points} XP</div>
+                  </div>
+                  {goal.completed && (
+                    <div class="completion-effect">
+                      <div class="sparkle">✨</div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </section>
+
+    <!-- Achievement Summary -->
+    <section class="achievement-summary">
+      <h2>🏆 Season Progress</h2>
+      <div class="summary-stats">
+        <div class="stat-card">
+          <div class="stat-number">{teamGoals.levels.flatMap(l => l.goals).filter(g => g.completed).length}</div>
+          <div class="stat-label">Goals Achieved</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{teamGoals.levels.filter(l => calculateProgress(l).percentage === 100).length}</div>
+          <div class="stat-label">Levels Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{totalPoints}</div>
+          <div class="stat-label">Total XP Earned</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{teamGoals.levels.flatMap(l => l.goals).length - teamGoals.levels.flatMap(l => l.goals).filter(g => g.completed).length}</div>
+          <div class="stat-label">Goals Remaining</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+  }
+
+  /* Header */
+  .roadmap-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 50%, #0d47a1 100%);
+    color: white;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .roadmap-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>') repeat;
+    background-size: 50px 50px;
+    animation: starfield 20s linear infinite;
+  }
+
+  @keyframes starfield {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+  }
+
+  .roadmap-header h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .season-info {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .progress-overview {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .total-points {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .points-earned {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .points-max {
+    font-size: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e);
+    border-radius: 6px;
+    transition: width 0.8s ease;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+
+  .progress-percentage {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  /* Levels */
+  .levels-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .level-section {
+    transition: all 0.3s ease;
+  }
+
+  .level-section.locked {
+    opacity: 0.6;
+    filter: grayscale(50%);
+  }
+
+  .level-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    border-left: 6px solid;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+  }
+
+  .level-badge {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+  }
+
+  .level-info {
+    flex: 1;
+  }
+
+  .level-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--color-text);
+  }
+
+  .level-description {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .level-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .progress-text {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .mini-progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .mini-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+
+  .lock-icon {
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+
+  /* Goals Grid */
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .goal-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .goal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  .goal-card.completed {
+    border-color: #4caf50;
+    background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+  }
+
+  .goal-card.locked {
+    background: #f5f5f5;
+    color: #999;
+  }
+
+  .goal-status {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .goal-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--color-primary);
+  }
+
+  .goal-description {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .goal-points {
+    font-weight: 700;
+    color: #ff9800;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: rgba(255, 152, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .completion-effect {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .sparkle {
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.7; }
+  }
+
+  /* Achievement Summary */
+  .achievement-summary {
+    margin-top: var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .achievement-summary h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-primary);
+  }
+
+  .summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .stat-label {
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .roadmap-header h1 {
+      font-size: 2rem;
+    }
+
+    .level-header {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-md);
+    }
+
+    .level-progress {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .goals-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .summary-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .points-earned {
+      font-size: 2rem;
+    }
+  }
+
+  /* Animation for newly completed goals */
+  @keyframes goalComplete {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); background: #4caf50; }
+    100% { transform: scale(1); }
+  }
+
+  .goal-card.just-completed {
+    animation: goalComplete 0.6s ease-out;
+  }
+</style>
+
+<script>
+  // Add some interactive effects
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animate progress bars on load
+    const progressBars = document.querySelectorAll('.progress-bar, .mini-progress-fill');
+    progressBars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0%';
+      setTimeout(() => {
+        bar.style.width = width;
+      }, 500);
+    });
+
+    // Add click effect to goal cards
+    const goalCards = document.querySelectorAll('.goal-card:not(.locked)');
+    goalCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          card.style.transform = '';
+        }, 150);
+      });
+    });
+  });
+</script>
+</BaseLayout>

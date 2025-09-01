@@ -1,0 +1,150 @@
+{
+  "season": "2025-2026",
+  "lastUpdated": "September 1, 2025",
+  "levels": [
+    {
+      "level": 1,
+      "title": "Foundation Builder",
+      "color": "#4caf50",
+      "description": "Master the basics and get your first wins",
+      "goals": [
+        {
+          "id": "first-goal",
+          "title": "Score First Goal",
+          "description": "Team scores their first goal of the season",
+          "completed": false,
+          "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "first-win",
+          "title": "First Victory",
+          "description": "Win your first match of the season",
+          "completed": false,
+          "points": 150,
+          "completedDate": null
+        },
+        {
+          "id": "score-3-goals",
+          "title": "Hat-trick Heroes",
+          "description": "Score 3 goals in a single match",
+          "completed": false,
+          "points": 200,
+          "completedDate": null
+        },
+        {
+          "id": "all-players-play",
+          "title": "Full Squad Power",
+          "description": "Every player gets playing time in a match",
+          "completed": false,
+          "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "comeback-victory",
+          "title": "Never Give Up",
+          "description": "Win a match after being behind",
+          "completed": false,
+          "points": 250,
+          "completedDate": null
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Team Builder",
+      "color": "#ff9800",
+      "description": "Develop teamwork and defensive skills",
+      "goals": [
+        {
+          "id": "clean-sheet",
+          "title": "Fortress Defense",
+          "description": "Keep a clean sheet (no goals conceded)",
+          "completed": false,
+          "points": 300,
+          "completedDate": null
+        },
+        {
+          "id": "win-by-3",
+          "title": "Dominant Victory",
+          "description": "Win a match by 3+ goals difference",
+          "completed": false,
+          "points": 350,
+          "completedDate": null
+        },
+        {
+          "id": "5-match-streak",
+          "title": "Consistent Performance",
+          "description": "Play 5 matches without losing",
+          "completed": false,
+          "points": 400,
+          "completedDate": null
+        },
+        {
+          "id": "team-assists",
+          "title": "Assist Masters",
+          "description": "Record 5 assists in a single match",
+          "completed": false,
+          "points": 300,
+          "completedDate": null
+        },
+        {
+          "id": "penalty-save",
+          "title": "Penalty Heroes",
+          "description": "Save a penalty or score from a penalty",
+          "completed": false,
+          "points": 250,
+          "completedDate": null
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "title": "Champions League",
+      "color": "#9c27b0",
+      "description": "Elite achievements for true champions",
+      "goals": [
+        {
+          "id": "tournament-win",
+          "title": "Tournament Champions",
+          "description": "Win a tournament or cup competition",
+          "completed": false,
+          "points": 500,
+          "completedDate": null
+        },
+        {
+          "id": "perfect-season",
+          "title": "Undefeated Season",
+          "description": "Go through the season without losing",
+          "completed": false,
+          "points": 1000,
+          "completedDate": null
+        },
+        {
+          "id": "top-scorer",
+          "title": "League Top Scorers",
+          "description": "Become the highest scoring team in league",
+          "completed": false,
+          "points": 600,
+          "completedDate": null
+        },
+        {
+          "id": "sportsmanship",
+          "title": "Fair Play Champions",
+          "description": "Win the league fair play award",
+          "completed": false,
+          "points": 400,
+          "completedDate": null
+        },
+        {
+          "id": "legendary-comeback",
+          "title": "Legendary Comeback",
+          "description": "Win after being 2+ goals behind",
+          "completed": false,
+          "points": 750,
+          "completedDate": null
+        }
+      ]
+    }
+  ]
+}

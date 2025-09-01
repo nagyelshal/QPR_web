@@ -255,11 +255,6 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
       <h2 class="section-title">🎉 Week Hype</h2>
       
       <div class="hype-grid">
-        <div class="hype-card">
-          <h3>📣 Chant of the Week</h3>
-          <p class="chant">{weekData.hype.chant}</p>
-        </div>
-        
         {weekData.hype.player_of_month && (
           <div class="hype-card">
             <h3>🏅 Player of the Month</h3>
@@ -277,6 +272,11 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
             <a href={`${base}awards/`} class="btn btn-small">See Awards →</a>
           </div>
         )}
+        
+        <div class="hype-card">
+          <h3>📣 Team Chant</h3>
+          <p class="chant">{weekData.hype.chant}</p>
+        </div>
       </div>
     </section>
 

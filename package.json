@@ -8,8 +8,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-lineup": "node scripts/generate-weekly-lineup.js",
-    "rotation-stats": "node scripts/rotation-manager.js stats"
+  "generate-lineup": "node scripts/generate-weekly-lineup.js",
+  "rotation-stats": "node scripts/rotation-manager.cjs stats",
+  "rotation-rehearse": "node scripts/rotation-manager.cjs rehearse",
+  "rotation-finalize": "node scripts/rotation-manager.cjs finalize"
   },
   "dependencies": {
     "astro": "^4.12.2"

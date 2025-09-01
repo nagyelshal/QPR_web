@@ -5,7 +5,7 @@
  * Simple script to generate fair lineups for each week
  */
 
-const RotationManager = require('./rotation-manager.js');
+const RotationManager = require('./rotation-manager.cjs');
 
 console.log('🏆 QPR U11B Weekly Lineup Generator');
 console.log('===================================\n');

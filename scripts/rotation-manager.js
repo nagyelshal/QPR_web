@@ -12,17 +12,43 @@ class RotationManager {
   constructor() {
     this.trackerPath = path.join(__dirname, '../data/player-tracker.json');
     this.weekDataPath = path.join(__dirname, '../data/current-week.json');
+    this.rosterPath = path.join(__dirname, '../data/roster.json');
     this.loadData();
   }
 
   loadData() {
     this.tracker = JSON.parse(fs.readFileSync(this.trackerPath, 'utf8'));
     this.weekData = JSON.parse(fs.readFileSync(this.weekDataPath, 'utf8'));
+    // Optional roster for jersey mapping and name normalization
+    try {
+      this.roster = JSON.parse(fs.readFileSync(this.rosterPath, 'utf8'));
+    } catch (e) {
+      this.roster = { players: [] };
+    }
+    // Build a quick lookup by normalized name
+    this.rosterMap = new Map(
+      (this.roster.players || []).map(p => [this.normalizeName(p.name), p])
+    );
   }
 
   saveData() {
     fs.writeFileSync(this.trackerPath, JSON.stringify(this.tracker, null, 2));
     fs.writeFileSync(this.weekDataPath, JSON.stringify(this.weekData, null, 2));
+  }
+
+  // Normalize names to align tracker and roster conventions
+  normalizeName(name) {
+    return String(name || '')
+      .replace(/\.$/, '') // remove trailing period
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  // Get jersey from roster by normalized name
+  getJersey(name) {
+    const norm = this.normalizeName(name);
+    const found = this.rosterMap.get(norm);
+    return found?.jersey || 'TBD';
   }
 
   /**
@@ -85,7 +111,7 @@ class RotationManager {
   selectStartingLineup(captains, goalkeepers) {
     const positions = ['GK', 'CB', 'CB', 'CB', 'LM', 'CM', 'RM', 'ST'];
     const assigned = {};
-    const remaining = [...this.tracker.players.filter(p => p.attendance_streak > 0)];
+  const remaining = [...this.tracker.players.filter(p => p.attendance_streak > 0)];
 
     // Assign captains to CB positions
     assigned[captains.first_half] = 'CB';
@@ -156,19 +182,19 @@ class RotationManager {
     const rotating = [];
 
     Object.entries(lineup).forEach(([name, position]) => {
-      const player = this.tracker.players.find(p => p.name === name);
+      const player = this.tracker.players.find(p => this.normalizeName(p.name) === this.normalizeName(name));
       if (position === 'BENCH') {
-        rotating.push({name, jersey: player.jersey});
+        rotating.push({name: this.normalizeName(name), jersey: this.getJersey(name)});
       } else {
-        starting.push({name, pos: position, jersey: player.jersey});
+        starting.push({name: this.normalizeName(name), pos: position, jersey: this.getJersey(name)});
       }
     });
 
     // Add remaining players to rotating squad
     this.tracker.players
-      .filter(p => p.attendance_streak > 0 && !Object.keys(lineup).includes(p.name))
+      .filter(p => p.attendance_streak > 0 && !Object.keys(lineup).map(n => this.normalizeName(n)).includes(this.normalizeName(p.name)))
       .forEach(player => {
-        rotating.push({name: player.name, jersey: player.jersey});
+        rotating.push({name: this.normalizeName(player.name), jersey: this.getJersey(player.name)});
       });
 
     return {
@@ -188,7 +214,7 @@ class RotationManager {
     // Update captain counts
     const captainNames = [assignments.captains.first_half, assignments.captains.second_half];
     captainNames.forEach(name => {
-      const player = this.tracker.players.find(p => p.name === name);
+      const player = this.tracker.players.find(p => this.normalizeName(p.name) === this.normalizeName(name));
       if (player) {
         player.captain_count++;
         player.captain_weeks.push(currentWeek);
@@ -198,7 +224,7 @@ class RotationManager {
     // Update goalkeeper counts
     const gkNames = [assignments.goalkeepers.first_half, assignments.goalkeepers.second_half];
     gkNames.forEach(name => {
-      const player = this.tracker.players.find(p => p.name === name);
+      const player = this.tracker.players.find(p => this.normalizeName(p.name) === this.normalizeName(name));
       if (player) {
         player.goalkeeper_halves_count++;
         player.goalkeeper_minutes += 30; // Half a game
@@ -208,7 +234,7 @@ class RotationManager {
 
     // Update starts count
     assignments.starting.forEach(starter => {
-      const player = this.tracker.players.find(p => p.name === starter.name);
+      const player = this.tracker.players.find(p => this.normalizeName(p.name) === this.normalizeName(starter.name));
       if (player) {
         player.starts_count++;
         player.last_week_position = starter.pos;
@@ -248,6 +274,7 @@ class RotationManager {
     this.weekData.goalkeepers.second_half = assignments.goalkeepers.second_half;
     this.weekData.lineup.starting = assignments.starting;
     this.weekData.lineup.rotating = assignments.rotating;
+  this.weekData.status = 'finalized';
 
     // Update player tracker
     this.updateTracker(assignments);
@@ -258,6 +285,50 @@ class RotationManager {
     console.log('✅ Lineup generated and saved to current-week.json');
     console.log('✅ Player tracker updated with new assignments');
     
+    return assignments;
+  }
+
+  /**
+   * Rehearsal: generate assignments but don't update tracker; save only to current-week.json
+   */
+  rehearseAndSave() {
+    const assignments = this.generateWeeklyLineup();
+
+    this.weekData.captains.first_half = assignments.captains.first_half;
+    this.weekData.captains.second_half = assignments.captains.second_half;
+    this.weekData.goalkeepers.first_half = assignments.goalkeepers.first_half;
+    this.weekData.goalkeepers.second_half = assignments.goalkeepers.second_half;
+    this.weekData.lineup.starting = assignments.starting;
+    this.weekData.lineup.rotating = assignments.rotating;
+    this.weekData.status = 'rehearsal';
+
+    fs.writeFileSync(this.weekDataPath, JSON.stringify(this.weekData, null, 2));
+    console.log('🧪 Rehearsal lineup generated and saved (tracker not updated).');
+    return assignments;
+  }
+
+  /**
+   * Finalize from the current-week.json selections to update tracker counts
+   */
+  finalizeFromCurrentWeek() {
+    const assignments = {
+      captains: {
+        first_half: this.weekData.captains.first_half,
+        second_half: this.weekData.captains.second_half
+      },
+      goalkeepers: {
+        first_half: this.weekData.goalkeepers.first_half,
+        second_half: this.weekData.goalkeepers.second_half
+      },
+      starting: this.weekData.lineup.starting || [],
+      rotating: this.weekData.lineup.rotating || []
+    };
+
+    this.updateTracker(assignments);
+    this.saveData();
+    this.weekData.status = 'finalized';
+    fs.writeFileSync(this.weekDataPath, JSON.stringify(this.weekData, null, 2));
+    console.log('✅ Finalized lineup applied to tracker.');
     return assignments;
   }
 
@@ -289,6 +360,14 @@ if (require.main === module) {
   switch(command) {
     case 'generate':
       manager.generateAndSave();
+      manager.showFairnessStats();
+      break;
+    case 'rehearse':
+      manager.rehearseAndSave();
+      manager.showFairnessStats();
+      break;
+    case 'finalize':
+      manager.finalizeFromCurrentWeek();
       manager.showFairnessStats();
       break;
     case 'stats':

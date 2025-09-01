@@ -21,18 +21,44 @@ const positionMap = {
   'ST': { x: 50, y: 25 }
 };
 
-// Adjust positions for 3-3-1 formation
-const getPositionForPlayer = (player, index) => {
+// Helper: slot coordinates for 3-3-1 formation
+const cbPositions = [
+  { x: 30, y: 65 }, // LCB
+  { x: 50, y: 65 }, // CCB
+  { x: 70, y: 65 }  // RCB
+];
+
+const getPositionForPlayer = (player) => {
   if (player.pos === 'CB') {
-    const cbPositions = [
-      { x: 30, y: 65 }, // Left CB
-      { x: 50, y: 65 }, // Center CB  
-      { x: 70, y: 65 }  // Right CB
-    ];
     const cbIndex = startingPlayers.filter(p => p.pos === 'CB').indexOf(player);
     return cbPositions[cbIndex] || { x: 50, y: 65 };
   }
   return positionMap[player.pos] || { x: 50, y: 50 };
+};
+
+// Build static formation slots when we are in 'captains' phase (no lineup reveal)
+const getFormationSlots = () => {
+  if (formation === '3-3-1') {
+    return [
+      { pos: 'GK' },
+      { pos: 'CB', idx: 0 },
+      { pos: 'CB', idx: 1 },
+      { pos: 'CB', idx: 2 },
+      { pos: 'LM' },
+      { pos: 'CM' },
+      { pos: 'RM' },
+      { pos: 'ST' }
+    ];
+  }
+  // default: single markers
+  return [{ pos: 'GK' }, { pos: 'CB' }, { pos: 'LM' }, { pos: 'CM' }, { pos: 'RM' }, { pos: 'ST' }];
+};
+
+const getSlotPosition = (slot) => {
+  if (slot.pos === 'CB') {
+    return cbPositions[slot.idx ?? 1] || { x: 50, y: 65 };
+  }
+  return positionMap[slot.pos] || { x: 50, y: 50 };
 };
 ---
 
@@ -41,7 +67,7 @@ const getPositionForPlayer = (player, index) => {
     <!-- Left side - Formation positions -->
     <div class="formation-side">
       <h4>Formation Positions</h4>
-      <svg viewBox="0 0 100 100" class="soccer-pitch" aria-label="Soccer field formation">
+  <svg viewBox="0 0 100 100" class="soccer-pitch" aria-label="Soccer field formation">
         <!-- Field background -->
         <rect x="5" y="5" width="90" height="90" fill="#4caf50" stroke="#ffffff" stroke-width="0.5" rx="2"/>
         
@@ -61,51 +87,42 @@ const getPositionForPlayer = (player, index) => {
         <line x1="5" y1="50" x2="95" y2="50" stroke="#ffffff" stroke-width="0.5"/>
 
         <!-- Position slots and players based on phase -->
-        {startingPlayers.map((player) => {
-          const pos = getPositionForPlayer(player);
-          const isRevealed = phase === 'lineup' || 
-            (phase === 'captains' && (
-              (player.pos === 'CB' && (player.name === captains.first_half || player.name === captains.second_half)) ||
-              (player.pos === 'GK' && (player.name === goalkeepers.first_half || player.name === goalkeepers.second_half))
-            ));
-          
-          return (
-            <g class="player-position">
-              <circle 
-                cx={pos.x} 
-                cy={pos.y} 
-                r="4" 
-                fill={isRevealed ? "#1976d2" : "#cccccc"}
-                stroke="#ffffff" 
-                stroke-width="1"
-              />
-              {isRevealed ? (
-                <text 
-                  x={pos.x} 
-                  y={pos.y + 1} 
-                  text-anchor="middle" 
-                  fill="white" 
-                  font-size="2" 
-                  font-weight="bold"
-                >
-                  {player.name.split(' ')[0]}
+        {phase === 'captains' && (
+          getFormationSlots().map((slot) => {
+            const pos = getSlotPosition(slot);
+            return (
+              <g class="player-position">
+                <circle cx={pos.x} cy={pos.y} r="4" fill="#cccccc" stroke="#ffffff" stroke-width="1" />
+                <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
+                  {slot.pos}
                 </text>
-              ) : (
-                <text 
-                  x={pos.x} 
-                  y={pos.y + 1} 
-                  text-anchor="middle" 
-                  fill="white" 
-                  font-size="2" 
-                  font-weight="bold"
-                >
-                  {player.pos}
+              </g>
+            );
+          })
+        )}
+
+        {phase !== 'captains' && (
+          startingPlayers.map((player) => {
+            const pos = getPositionForPlayer(player);
+            const isRevealed = phase === 'lineup';
+            return (
+              <g class="player-position">
+                <circle cx={pos.x} cy={pos.y} r="4" fill={isRevealed ? "#1976d2" : "#cccccc"} stroke="#ffffff" stroke-width="1" />
+                <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
+                  {isRevealed ? player.name.split(' ')[0] : player.pos}
                 </text>
-              )}
-            </g>
-          );
-        })}
+              </g>
+            );
+          })
+        )}
       </svg>
+
+      {phase === 'captains' && (
+        <div class="reveal-panel">
+          <div><strong>Captains:</strong> 1st — {captains.first_half} • 2nd — {captains.second_half}</div>
+          <div><strong>Goalkeepers:</strong> 1st — {goalkeepers.first_half} (in goal) • 2nd — {goalkeepers.second_half} (field)</div>
+        </div>
+      )}
     </div>
 
     <!-- Right side - Player pool -->
@@ -128,7 +145,7 @@ const getPositionForPlayer = (player, index) => {
           </div>
         )}
         
-        {phase === 'captains' && (
+  {phase === 'captains' && (
           <div class="available-players">
             {allPlayers.filter(p => 
               p.name !== captains.first_half && 
@@ -188,6 +205,15 @@ const getPositionForPlayer = (player, index) => {
     display: block;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .reveal-panel {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    background: rgba(25,118,210,0.08);
+    border: 1px solid rgba(25,118,210,0.2);
+    border-radius: 8px;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
   .player-list {

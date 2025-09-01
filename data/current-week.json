@@ -20,50 +20,142 @@
   },
   "captains": {
     "reveal_at": "2025-09-04T09:00:00-07:00",
-    "first_half": "TBD",
-    "second_half": "TBD",
+    "first_half": "Minh-An D",
+    "second_half": "Rafael H",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
   },
   "goalkeepers": {
-    "first_half": "TBD",
-    "second_half": "TBD",
+    "first_half": "Adam K",
+    "second_half": "Owen H",
     "duties": "One GK in goal, one GK plays field • Switch at half-time"
   },
   "lineup": {
     "reveal_at": "2025-09-05T19:00:00-07:00",
     "all_players": [
-      {"name": "Adam K", "jersey": "TBD"},
-      {"name": "Alexander V", "jersey": "TBD"}, 
-      {"name": "Andrew E", "jersey": "4"},
-      {"name": "Andrew N", "jersey": "TBD"},
-      {"name": "David C", "jersey": "TBD"},
-      {"name": "Ethan G", "jersey": "TBD"},
-      {"name": "Henry K", "jersey": "TBD"},
-      {"name": "Minh-An D", "jersey": "TBD"},
-      {"name": "Niko D", "jersey": "TBD"},
-      {"name": "Owen H", "jersey": "9"},
-      {"name": "Rafael H", "jersey": "TBD"},
-      {"name": "Rhodri W", "jersey": "10"},
-      {"name": "Travis C", "jersey": "3"},
-      {"name": "Yejun K", "jersey": "TBD"}
+      {
+        "name": "Adam K",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Alexander V",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Andrew E",
+        "jersey": "4"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "TBD"
+      },
+      {
+        "name": "David C",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Minh-An D",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Niko D",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Owen H",
+        "jersey": "9"
+      },
+      {
+        "name": "Rafael H",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Rhodri W",
+        "jersey": "10"
+      },
+      {
+        "name": "Travis C",
+        "jersey": "3"
+      },
+      {
+        "name": "Yejun K",
+        "jersey": "TBD"
+      }
     ],
     "starting": [
-      {"name": "TBD", "pos": "GK", "jersey": "TBD"},
-      {"name": "TBD", "pos": "CB", "jersey": "TBD"},
-      {"name": "TBD", "pos": "CB", "jersey": "TBD"},
-      {"name": "TBD", "pos": "CB", "jersey": "TBD"},
-      {"name": "TBD", "pos": "LM", "jersey": "TBD"},
-      {"name": "TBD", "pos": "CM", "jersey": "TBD"},
-      {"name": "TBD", "pos": "RM", "jersey": "TBD"},
-      {"name": "TBD", "pos": "ST", "jersey": "TBD"}
+      {
+        "name": "Minh-An D",
+        "pos": "CB",
+        "jersey": "2"
+      },
+      {
+        "name": "Adam K",
+        "pos": "GK",
+        "jersey": "13"
+      },
+      {
+        "name": "Owen H",
+        "pos": "CB",
+        "jersey": "9"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "CB",
+        "jersey": "10"
+      },
+      {
+        "name": "Niko D",
+        "pos": "LM",
+        "jersey": "6"
+      },
+      {
+        "name": "Alexander V",
+        "pos": "CM",
+        "jersey": "8"
+      },
+      {
+        "name": "Andrew E",
+        "pos": "RM",
+        "jersey": "4"
+      },
+      {
+        "name": "Ethan G",
+        "pos": "ST",
+        "jersey": "TBD"
+      }
     ],
     "rotating": [
-      {"name": "TBD", "jersey": "TBD"},
-      {"name": "TBD", "jersey": "TBD"},
-      {"name": "TBD", "jersey": "TBD"},
-      {"name": "TBD", "jersey": "TBD"},
-      {"name": "TBD", "jersey": "TBD"},
-      {"name": "TBD", "jersey": "TBD"}
+      {
+        "name": "Rafael H",
+        "jersey": "12"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "5"
+      },
+      {
+        "name": "David C",
+        "jersey": "TBD"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11"
+      },
+      {
+        "name": "Travis C",
+        "jersey": "3"
+      },
+      {
+        "name": "Yejun K",
+        "jersey": "7"
+      }
     ]
   },
   "hype": {
@@ -77,5 +169,6 @@
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "Blue shirts, white shorts, blue socks",
     "coach": "Focus on spacing and supporting teammates"
-  }
+  },
+  "status": "rehearsal"
 }

@@ -268,6 +268,15 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
             <a href={`${base}awards/`} class="btn btn-small">See Awards →</a>
           </div>
         )}
+        
+        {weekData.hype.captain_of_month && (
+          <div class="hype-card">
+            <h3>🎖️ Captain of the Month</h3>
+            <p><strong>{weekData.hype.captain_of_month.name}</strong></p>
+            <p>{weekData.hype.captain_of_month.month}</p>
+            <a href={`${base}awards/`} class="btn btn-small">See Awards →</a>
+          </div>
+        )}
       </div>
     </section>
 

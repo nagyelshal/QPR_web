@@ -118,33 +118,10 @@ const description = "View match details, vote for player of the match, and see g
     </div>
 
     <div class="celebration-corner">
-      <h2>🎊 Celebration Corner</h2>
-      <p>Submit your best goal celebration ideas!</p>
-      
-      <div class="celebration-submissions">
-        {matchesData.celebrations.submissions.map(celebration => (
-          <div class="celebration-card">
-            <h3>"{celebration.celebration_name}"</h3>
-            <p class="celebration-description">{celebration.description}</p>
-            <div class="celebration-meta">
-              <span class="celebration-player">by {celebration.player}</span>
-              <span class="celebration-votes">❤️ {celebration.votes}</span>
-            </div>
-            <button class="btn btn-small vote-celebration" data-celebration={celebration.id}>
-              Vote for This!
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <div class="submit-celebration">
-        <h3>Submit Your Celebration</h3>
-        <form class="celebration-form">
-          <input type="text" placeholder="Your name" id="celebration-player" required>
-          <input type="text" placeholder="Celebration name" id="celebration-name" required>
-          <textarea placeholder="Describe your celebration..." id="celebration-description" required></textarea>
-          <button type="submit" class="btn btn-primary">Submit Celebration</button>
-        </form>
+      <h2>� Goal Celebrations</h2>
+      <div class="celebration-announcement">
+        <p>Goal celebrations will be announced when performed during matches!</p>
+        <p class="celebration-note">Stay tuned for exciting celebration highlights after each game.</p>
       </div>
     </div>
   </div>
@@ -424,86 +401,25 @@ const description = "View match details, vote for player of the match, and see g
     color: var(--color-primary);
   }
 
-  .celebration-submissions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .celebration-card {
-    background: white;
-    border-radius: 12px;
-    padding: var(--spacing-lg);
-    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.2);
-  }
-
-  .celebration-card h3 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .celebration-description {
-    margin-bottom: var(--spacing-md);
-    line-height: 1.5;
-  }
-
-  .celebration-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-md);
-    font-size: 0.9rem;
-  }
-
-  .celebration-player {
-    font-weight: 600;
-    color: var(--color-text-light);
-  }
-
-  .celebration-votes {
-    color: #e91e63;
-    font-weight: 600;
-  }
-
-  .submit-celebration {
+  .celebration-announcement {
     background: white;
     border-radius: 12px;
     padding: var(--spacing-xl);
+    text-align: center;
     box-shadow: 0 4px 12px rgba(156, 39, 176, 0.2);
   }
 
-  .submit-celebration h3 {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-primary);
+  .celebration-announcement p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
   }
 
-  .celebration-form {
-    display: grid;
-    gap: var(--spacing-md);
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .celebration-form input,
-  .celebration-form textarea {
-    padding: var(--spacing-md);
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-  }
-
-  .celebration-form input:focus,
-  .celebration-form textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
-
-  .celebration-form textarea {
-    resize: vertical;
-    min-height: 100px;
+  .celebration-note {
+    font-style: italic;
+    color: var(--color-text-light);
+    font-size: 1rem;
+    margin-bottom: 0;
   }
 
   @media (max-width: 768px) {
@@ -524,10 +440,7 @@ const description = "View match details, vote for player of the match, and see g
     .voting-grid {
       grid-template-columns: 1fr;
     }
-
-    .celebration-submissions {
-      grid-template-columns: 1fr;
-    }
+  }
   }
 </style>
 
@@ -590,49 +503,6 @@ const description = "View match details, vote for player of the match, and see g
         btn.style.opacity = '0.6';
       });
     });
-  });
-
-  // Handle celebration voting
-  document.querySelectorAll('.vote-celebration').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const celebrationId = e.target.dataset.celebration;
-      
-      // In a real app, you would send this to your server
-      console.log('Voting for celebration:', celebrationId);
-      
-      // Update vote count visually
-      const voteSpan = e.target.parentElement.querySelector('.celebration-votes');
-      const currentVotes = parseInt(voteSpan.textContent.split(' ')[1]) || 0;
-      voteSpan.textContent = `❤️ ${currentVotes + 1}`;
-      
-      // Disable button
-      e.target.textContent = 'Voted! ✅';
-      e.target.disabled = true;
-      e.target.style.background = '#4caf50';
-    });
-  });
-
-  // Handle celebration submission
-  document.querySelector('.celebration-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const player = document.getElementById('celebration-player').value;
-    const name = document.getElementById('celebration-name').value;
-    const description = document.getElementById('celebration-description').value;
-    
-    if (!player || !name || !description) {
-      alert('Please fill in all fields!');
-      return;
-    }
-    
-    // In a real app, you would send this to your server
-    console.log('Submitting celebration:', { player, name, description });
-    
-    // Show success message
-    alert('Celebration submitted! Thanks for sharing your creativity! 🎉');
-    
-    // Reset form
-    e.target.reset();
   });
 </script>
 </BaseLayout>

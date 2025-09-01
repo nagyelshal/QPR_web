@@ -95,7 +95,7 @@
     {
       "id": "david-c",
       "name": "David C",
-      "jersey": "TBD",
+      "jersey": "14",
       "photo": "/images/players/david-c.jpg",
       "basic_info": {
         "fun_fact": "Knows all FIFA player ratings!"
@@ -116,7 +116,7 @@
     {
       "id": "ethan-g",
       "name": "Ethan G",
-      "jersey": "TBD",
+      "jersey": "15",
       "photo": "/images/players/ethan-g.jpg",
       "basic_info": {
         "fun_fact": "Dreams of playing for Brazil!"

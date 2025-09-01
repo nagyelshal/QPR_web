@@ -34,11 +34,11 @@
     "all_players": [
       {
         "name": "Adam K",
-        "jersey": "TBD"
+        "jersey": "13"
       },
       {
         "name": "Alexander V",
-        "jersey": "TBD"
+        "jersey": "8"
       },
       {
         "name": "Andrew E",
@@ -46,27 +46,27 @@
       },
       {
         "name": "Andrew N",
-        "jersey": "TBD"
+        "jersey": "5"
       },
       {
         "name": "David C",
-        "jersey": "TBD"
+        "jersey": "14"
       },
       {
         "name": "Ethan G",
-        "jersey": "TBD"
+        "jersey": "15"
       },
       {
         "name": "Henry K",
-        "jersey": "TBD"
+        "jersey": "11"
       },
       {
         "name": "Minh-An D",
-        "jersey": "TBD"
+        "jersey": "2"
       },
       {
         "name": "Niko D",
-        "jersey": "TBD"
+        "jersey": "6"
       },
       {
         "name": "Owen H",
@@ -74,7 +74,7 @@
       },
       {
         "name": "Rafael H",
-        "jersey": "TBD"
+        "jersey": "12"
       },
       {
         "name": "Rhodri W",
@@ -86,7 +86,11 @@
       },
       {
         "name": "Yejun K",
-        "jersey": "TBD"
+        "jersey": "7"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16"
       }
     ],
     "starting": [
@@ -128,7 +132,7 @@
       {
         "name": "Ethan G",
         "pos": "ST",
-        "jersey": "TBD"
+        "jersey": "15"
       }
     ],
     "rotating": [
@@ -142,7 +146,7 @@
       },
       {
         "name": "David C",
-        "jersey": "TBD"
+        "jersey": "14"
       },
       {
         "name": "Henry K",

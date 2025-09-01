@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const archives = await getCollection('archive');
+  return archives.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+const { slug } = Astro.params;
+const { entry } = Astro.props;
+
+if (!entry) {
+  throw new Error(`Archive entry not found: ${slug}`);
+}
+
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.title} - Archive - Queens Park Rangers U11B`}>
+  <div class="container">
+    <div class="archive-header">
+      <a href="/archive/" class="back-link">← Back to Archive</a>
+      <div class="archive-badge">ARCHIVED</div>
+    </div>
+    
+    <article class="archive-post">
+      <header class="post-header">
+        <h1>{entry.data.title}</h1>
+        <div class="meta">
+          {entry.data.date && (
+            <span>Originally published: {new Date(entry.data.date).toLocaleDateString()}</span>
+          )}
+          <span>Archived: {new Date(entry.data.archived_at).toLocaleDateString()}</span>
+          {entry.data.original_collection && (
+            <span>From: {entry.data.original_collection}</span>
+          )}
+        </div>
+        {entry.data.archive_reason && (
+          <div class="archive-reason">
+            <strong>Archive reason:</strong> {entry.data.archive_reason}
+          </div>
+        )}
+      </header>
+      
+      <div class="content">
+        <Content />
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .archive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .back-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .archive-badge {
+    background: #ff9800;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .archive-post {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .post-header {
+    margin-bottom: var(--spacing-xl);
+  }
+  .post-header h1 {
+    margin-bottom: var(--spacing-md);
+  }
+  .meta {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  .meta span {
+    margin-right: var(--spacing-md);
+  }
+  .archive-reason {
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 8px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text);
+    margin-top: var(--spacing-sm);
+  }
+  .content {
+    line-height: 1.6;
+  }
+</style>

@@ -11,7 +11,8 @@
   "generate-lineup": "node scripts/generate-weekly-lineup.js",
   "rotation-stats": "node scripts/rotation-manager.cjs stats",
   "rotation-rehearse": "node scripts/rotation-manager.cjs rehearse",
-  "rotation-finalize": "node scripts/rotation-manager.cjs finalize"
+  "rotation-finalize": "node scripts/rotation-manager.cjs finalize",
+  "archive": "node scripts/archive-content.cjs"
   },
   "dependencies": {
     "astro": "^4.12.2"

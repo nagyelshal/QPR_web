@@ -3,6 +3,11 @@ title: "Kits pickup — two windows + practice details"
 date: 2025-08-26
 tags: ["kits", "practice"]
 summary: "Two pickup times at coach's place; practice Thursdays 5–6 at Mobilio West; first game Saturday Sept 6 vs PMSC Storm (Away)."
+archived: true
+archived_at: 2025-09-01T21:37:19.557Z
+original_collection: news
+original_path: news/2025-08-26-kits-pickup-and-practice.md
+archive_reason: Testing archive workflow
 ---
 
 Great news, QPR families! Kit pickup is confirmed for this weekend with two convenient windows.

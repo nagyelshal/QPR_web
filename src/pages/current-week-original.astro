@@ -25,41 +25,6 @@ if (lineupRevealed) {
 } else if (captainsRevealed) {
   currentPhase = 'captains';
 }
-
-// Calculate time until next reveal
-function getTimeUntil(targetDate) {
-  const diff = targetDate.getTime() - now.getTime();
-  if (diff <= 0) return null;
-  
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  
-  if (days > 0) return `${days}d ${hours}h`;
-  if (hours > 0) return `${hours}h ${minutes}m`;
-  return `${minutes}m`;
-}
-
-const timeUntilCaptains = getTimeUntil(captainsRevealTime);
-const timeUntilLineup = getTimeUntil(lineupRevealTime);
-
-// Format training date nicely
-const trainingDate = new Date(weekData.training.date);
-const isTrainingToday = trainingDate.toDateString() === now.toDateString();
-const isTrainingTomorrow = trainingDate.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
-
-let trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-if (isTrainingToday) trainingLabel = `Today (${trainingLabel})`;
-else if (isTrainingTomorrow) trainingLabel = `Tomorrow (${trainingLabel})`;
-
-// Format match date nicely
-const matchDate = new Date(weekData.match.date);
-const isMatchToday = matchDate.toDateString() === now.toDateString();
-const isMatchTomorrow = matchDate.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
-
-let matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-if (isMatchToday) matchLabel = `Today (${matchLabel})`;
-else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
 ---
 
 <BaseLayout title="Current Week - Queens Park Rangers U11B">
@@ -72,90 +37,20 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
         <span class="week-dates">{weekData.week.date_range}</span>
       </div>
       <h1 class="week-title">{weekData.week.theme}</h1>
-      <div class="countdown-grid">
-        {!captainsRevealed && timeUntilCaptains && (
-          <div class="countdown-item">
-            <span class="countdown-label">Captains & Goalies</span>
-            <span class="countdown-time">{timeUntilCaptains}</span>
-          </div>
-        )}
-        {!lineupRevealed && timeUntilLineup && (
-          <div class="countdown-item">
-            <span class="countdown-label">Full Lineup</span>
-            <span class="countdown-time">{timeUntilLineup}</span>
-          </div>
-        )}
-        {weekData.match.kickoff !== "TBA" && (
-          <div class="countdown-item">
-            <span class="countdown-label">Kickoff</span>
-            <span class="countdown-time">{weekData.match.kickoff}</span>
-          </div>
-        )}
-      </div>
+      <p class="week-subtitle">
+        Rotation is on, everyone will experience all positions • Captains and positions will be revealed Wednesday • Lineup revealed Friday 7pm
+      </p>
     </header>
 
-    <!-- Quick Actions -->
-    <section class="quick-actions">
-      <div class="action-grid">
-        <a href="#training" class="action-card training">
-          <div class="action-icon">🏃‍♂️</div>
-          <div class="action-content">
-            <h3>Training</h3>
-            <p>{trainingLabel} at {weekData.training.time}</p>
-          </div>
-        </a>
-        <a href="#match" class="action-card match">
-          <div class="action-icon">⚽</div>
-          <div class="action-content">
-            <h3>Match</h3>
-            <p>{matchLabel} vs {weekData.match.opponent}</p>
-          </div>
-        </a>
-        <a href="#lineup" class="action-card lineup">
-          <div class="action-icon">📋</div>
-          <div class="action-content">
-            <h3>Team Lineup</h3>
-            <p>{currentPhase === 'lineup' ? 'Lineup Revealed' : currentPhase === 'captains' ? 'Captains Revealed' : 'Coming Soon'}</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
     <!-- Training Focus -->
-    <section class="section" id="training">
+    <section class="section">
       <h2 class="section-title">🏃‍♂️ This Week's Training</h2>
       <div class="training-card">
         <div class="training-info">
-          <h3>{trainingLabel} at {weekData.training.time}</h3>
+          <h3>Thursday, {new Date(weekData.training.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })} at {weekData.training.time}</h3>
           <p><strong>Focus:</strong> {weekData.training.focus}</p>
           {weekData.training.special_drill && <p><strong>Special Drill:</strong> {weekData.training.special_drill}</p>}
           <p><strong>Formation Practice:</strong> Team will practice {weekData.match.formation} formation</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Match Info -->
-    <section class="section" id="match">
-      <h2 class="section-title">⚽ This Week's Match</h2>
-      <div class="match-card">
-        <div class="match-teams">
-          <div class="team-info">
-            <div class="team-crest qpr">QPR</div>
-            <span class="team-name">Queens Park Rangers</span>
-          </div>
-          <div class="vs">VS</div>
-          <div class="team-info">
-            <div class="team-crest opponent">⚡</div>
-            <span class="team-name">{weekData.match.opponent}</span>
-          </div>
-        </div>
-        <div class="match-details">
-          <p><strong>{matchLabel}</strong></p>
-          <p>Kickoff: {weekData.match.kickoff}</p>
-          <p>{weekData.match.location}</p>
-          {weekData.match.match_number && (
-            <p class="match-number">Match #{weekData.match.match_number}</p>
-          )}
         </div>
       </div>
     </section>
@@ -186,9 +81,7 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
       ) : (
         <div class="captains-grid">
           <div class="captain-card placeholder">
-            <div class="reveal-ribbon">
-              {timeUntilCaptains ? `${timeUntilCaptains} left` : 'Reveals Wednesday'}
-            </div>
+            <div class="reveal-ribbon">Reveals Wednesday</div>
             <div class="captain-placeholder">
               <div class="shimmer-captain"></div>
               <p>First Half Captain</p>
@@ -196,9 +89,7 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
             </div>
           </div>
           <div class="captain-card placeholder">
-            <div class="reveal-ribbon">
-              {timeUntilCaptains ? `${timeUntilCaptains} left` : 'Reveals Wednesday'}
-            </div>
+            <div class="reveal-ribbon">Reveals Wednesday</div>
             <div class="captain-placeholder">
               <div class="shimmer-captain"></div>
               <p>Second Half Captain</p>
@@ -209,26 +100,44 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
       )}
     </section>
 
+    <!-- Match Info -->
+    <section class="section">
+      <h2 class="section-title">⚽ This Week's Match</h2>
+      <div class="match-card">
+        <div class="match-teams">
+          <div class="team-info">
+            <div class="team-crest qpr">QPR</div>
+            <span class="team-name">Queens Park Rangers</span>
+          </div>
+          <div class="vs">VS</div>
+          <div class="team-info">
+            <div class="team-crest opponent">⚡</div>
+            <span class="team-name">{weekData.match.opponent}</span>
+          </div>
+        </div>
+        <div class="match-details">
+          <p><strong>{new Date(weekData.match.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</strong></p>
+          <p>Kickoff: {weekData.match.kickoff}</p>
+          <p>{weekData.match.location}</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Starting Lineup -->
-    <section class="section" id="lineup">
+    <section class="section">
       <h2 class="section-title">📋 Team Lineup Phases</h2>
       
       <div class="phase-indicator">
         {currentPhase === 'initial' && (
           <div class="phase-banner initial">
             <h3>🏃‍♂️ All Players Available</h3>
-            <p>
-              {timeUntilCaptains && `Captains reveal in ${timeUntilCaptains} • `}
-              {timeUntilLineup && `Full lineup in ${timeUntilLineup}`}
-            </p>
+            <p>Captains and goalkeepers reveal Wed • Full lineup reveals Friday</p>
           </div>
         )}
         {currentPhase === 'captains' && (
           <div class="phase-banner captains">
             <h3>🏅 Captains & Goalkeepers Revealed!</h3>
-            <p>
-              {timeUntilLineup ? `Full lineup reveals in ${timeUntilLineup}` : 'Full lineup reveals Friday'}
-            </p>
+            <p>Full lineup reveals Friday</p>
           </div>
         )}
         {currentPhase === 'lineup' && (
@@ -337,7 +246,7 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
   .week-title {
     font-size: 2.5rem;
     font-weight: 700;
-    margin: 0 0 var(--spacing-lg) 0;
+    margin: 0;
     background: linear-gradient(45deg, #ffffff, #e3f2fd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -346,93 +255,12 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
     z-index: 1;
   }
 
-  .countdown-grid {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    flex-wrap: wrap;
+  .week-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: var(--spacing-sm);
     position: relative;
     z-index: 1;
-  }
-
-  .countdown-item {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: var(--spacing-sm) var(--spacing-md);
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .countdown-label {
-    display: block;
-    font-size: 0.8rem;
-    opacity: 0.9;
-    margin-bottom: 4px;
-  }
-
-  .countdown-time {
-    display: block;
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-
-  .quick-actions {
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .action-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  .action-card {
-    background: white;
-    border-radius: 16px;
-    padding: var(--spacing-lg);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-  }
-
-  .action-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-  }
-
-  .action-card.training:hover {
-    border-color: #4caf50;
-  }
-
-  .action-card.match:hover {
-    border-color: #ff9800;
-  }
-
-  .action-card.lineup:hover {
-    border-color: #1976d2;
-  }
-
-  .action-icon {
-    font-size: 2.5rem;
-    flex-shrink: 0;
-  }
-
-  .action-content h3 {
-    margin: 0 0 4px 0;
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
-  .action-content p {
-    margin: 0;
-    color: var(--color-text-light);
-    font-size: 0.9rem;
   }
 
   .section {
@@ -456,76 +284,6 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
   .training-info h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
-  }
-
-  .match-card {
-    background: white;
-    border-radius: 16px;
-    padding: var(--spacing-xl);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  .match-teams {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .team-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-  }
-
-  .team-crest {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: white;
-  }
-
-  .team-crest.qpr {
-    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
-  }
-
-  .team-crest.opponent {
-    background: linear-gradient(135deg, #757575 0%, #424242 100%);
-  }
-
-  .team-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .vs {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .match-details p {
-    margin: var(--spacing-xs) 0;
-    color: var(--color-text-light);
-  }
-
-  .match-details p:first-child {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-
-  .match-number {
-    font-size: 0.8rem;
-    opacity: 0.7;
   }
 
   .captains-grid {
@@ -618,6 +376,252 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
     animation: shimmer 2s infinite;
   }
 
+  .match-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .team-crest {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+  }
+
+  .team-crest.qpr {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  }
+
+  .team-crest.opponent {
+    background: linear-gradient(135deg, #757575 0%, #424242 100%);
+  }
+
+  .team-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .vs {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .match-details p {
+    margin: var(--spacing-xs) 0;
+    color: var(--color-text-light);
+  }
+
+  .match-details p:first-child {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .lineup-revealed {
+    text-align: center;
+  }
+
+  .confetti-message {
+    margin-top: var(--spacing-lg);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    animation: bounce 1s ease-out;
+  }
+
+  .confetti {
+    font-size: 1.5rem;
+    animation: spin 2s linear infinite;
+  }
+
+  .lineup-placeholder {
+    text-align: center;
+  }
+
+  .reveal-banner {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 2px dashed #ff9800;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .reveal-banner h3 {
+    color: #f57c00;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .rotating-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .rotation-note {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hype-section {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+  }
+
+  .hype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .hype-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(156, 39, 176, 0.2);
+  }
+
+  .chant {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: var(--spacing-md) 0;
+  }
+
+  @keyframes cardReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .captain-card.revealed,
+    .confetti-message,
+    .confetti {
+      animation: none;
+    }
+    
+    .shimmer-captain {
+      animation: none;
+      background: #e0e0e0;
+    }
+  }
+
+  .rotating-preview {
+    text-align: center;
+  }
+
+  .rotating-placeholders {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+  }
+
+  .sub-placeholder {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #bdbdbd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #9e9e9e;
+  }
+
+  @media (max-width: 768px) {
+    .week-title {
+      font-size: 2rem;
+    }
+    
+    .match-teams {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .vs {
+      transform: rotate(90deg);
+    }
+    
+    .captains-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .position-row {
+      gap: var(--spacing-sm);
+    }
+
+    .position-card {
+      min-width: 60px;
+      padding: var(--spacing-sm);
+    }
+
+    .rotating-placeholders {
+      gap: var(--spacing-sm);
+    }
+
+    .sub-placeholder {
+      width: 50px;
+      height: 50px;
+      font-size: 0.6rem;
+    }
+  }
+
+  /* Phase indicator styles */
   .phase-indicator {
     margin-bottom: var(--spacing-lg);
   }
@@ -665,150 +669,60 @@ else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
     background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
     opacity: 0.5;
   }
-
-  .hype-section {
-    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-    border-radius: 16px;
-    padding: var(--spacing-xl);
-    margin: var(--spacing-2xl) 0;
-  }
-
-  .hype-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  .hype-card {
-    background: white;
-    border-radius: 12px;
-    padding: var(--spacing-lg);
-    text-align: center;
-    box-shadow: 0 2px 12px rgba(156, 39, 176, 0.2);
-  }
-
-  .chant {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin: var(--spacing-md) 0;
-  }
-
-  @keyframes cardReveal {
-    0% {
-      opacity: 0;
-      transform: translateY(30px) scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes shimmer {
-    0% { background-position: -200px 0; }
-    100% { background-position: 200px 0; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .captain-card.revealed,
-    .confetti-message,
-    .confetti {
-      animation: none;
-    }
-    
-    .shimmer-captain {
-      animation: none;
-      background: #e0e0e0;
-    }
-
-    .action-card:hover {
-      transform: none;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .week-title {
-      font-size: 2rem;
-    }
-    
-    .match-teams {
-      flex-direction: column;
-      gap: var(--spacing-md);
-    }
-    
-    .vs {
-      transform: rotate(90deg);
-    }
-    
-    .captains-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .countdown-grid {
-      flex-direction: column;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
-
-    .action-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .action-card {
-      flex-direction: column;
-      text-align: center;
-      gap: var(--spacing-sm);
-    }
-  }
 </style>
 
 <script>
-  // Add smooth scrolling for internal links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
+  // Simple confetti effect when lineup is revealed
+  function showConfetti() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    
+    const confettiContainer = document.querySelector('.confetti-message');
+    if (!confettiContainer) return;
 
-  // Update countdown every minute
-  function updateCountdowns() {
-    const now = new Date();
-    const captainsTime = new Date('2025-09-04T09:00:00-07:00');
-    const lineupTime = new Date('2025-09-05T19:00:00-07:00');
+    // Simple confetti burst effect
+    const colors = ['#1565c0', '#ff9800', '#4caf50', '#f44336', '#9c27b0'];
     
-    function formatTimeUntil(target) {
-      const diff = target.getTime() - now.getTime();
-      if (diff <= 0) return null;
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
-      if (days > 0) return `${days}d ${hours}h`;
-      if (hours > 0) return `${hours}h ${minutes}m`;
-      return `${minutes}m`;
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        const confetti = document.createElement('div');
+        confetti.style.cssText = `
+          position: fixed;
+          width: 8px;
+          height: 8px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 1000;
+          left: ${Math.random() * 100}vw;
+          top: -10px;
+          animation: confettiFall 3s linear forwards;
+        `;
+        
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 3000);
+      }, i * 100);
     }
-    
-    // Update countdown displays if they exist
-    const countdownItems = document.querySelectorAll('.countdown-time');
-    countdownItems.forEach((item, index) => {
-      const target = index === 0 ? captainsTime : lineupTime;
-      const timeLeft = formatTimeUntil(target);
-      if (timeLeft) {
-        item.textContent = timeLeft;
-      }
-    });
   }
-  
-  // Update immediately and then every minute
-  updateCountdowns();
-  setInterval(updateCountdowns, 60000);
+
+  // Add confetti animation CSS
+  const confettiStyle = document.createElement('style');
+  confettiStyle.textContent = `
+    @keyframes confettiFall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(confettiStyle);
+
+  // Show confetti if lineup is revealed (check once on page load)
+  document.addEventListener('DOMContentLoaded', () => {
+    const lineupRevealed = document.querySelector('.lineup-revealed');
+    if (lineupRevealed && !sessionStorage.getItem('confetti-shown')) {
+      setTimeout(showConfetti, 500);
+      sessionStorage.setItem('confetti-shown', 'true');
+    }
+  });
 </script>

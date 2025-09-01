@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const archived = (await getCollection('archive'))
+  .sort((a, b) => new Date(b.data.archived_at).getTime() - new Date(a.data.archived_at).getTime());
+---
+
+<BaseLayout title="Archive - Queens Park Rangers U11B">
+  <div class="container">
+    <header class="archive-hero">
+      <h1>Archive</h1>
+      <p>Past news and content preserved for future reference and match detail extraction.</p>
+    </header>
+
+    {archived.length === 0 ? (
+      <div class="card" style="text-align:center">
+        <h3>No archived items yet</h3>
+        <p>When content is removed, it will appear here instead of being deleted.</p>
+      </div>
+    ) : (
+      <div class="archive-list">
+        {archived.map(item => (
+          <article class="archive-item">
+            <h3 class="title">{item.data.title}</h3>
+            <div class="meta">
+              <span>Archived: {new Date(item.data.archived_at).toLocaleString()}</span>
+              {item.data.original_collection && (<span>• From: {item.data.original_collection}</span>)}
+              {item.data.date && (<span>• Original Date: {new Date(item.data.date).toLocaleDateString()}</span>)}
+            </div>
+            {item.data.summary && (<p class="summary">{item.data.summary}</p>)}
+            {item.data.archive_reason && (<p class="reason"><strong>Reason:</strong> {item.data.archive_reason}</p>)}
+            <a href={`/archive/${item.slug}/`} class="btn btn-small">View</a>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .archive-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+  .archive-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .archive-item {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .archive-item .title { margin: 0 0 var(--spacing-xs) 0; }
+  .archive-item .meta { color: var(--color-text-light); font-size: 0.9rem; }
+  .archive-item .summary { margin-top: var(--spacing-sm); }
+  .archive-item .reason { margin-top: var(--spacing-sm); color: var(--color-text-light); }
+</style>

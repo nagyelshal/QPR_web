@@ -19,7 +19,7 @@
     "week": 1
   },
   "captains": {
-    "reveal_at": "2025-09-04T09:00:00-07:00",
+    "reveal_at": "2025-09-04T19:00:00-07:00",
     "first_half": "Minh-An D",
     "second_half": "Rafael H",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
@@ -28,6 +28,101 @@
     "first_half": "Adam K",
     "second_half": "Owen H",
     "duties": "One GK in goal, one GK plays field • Switch at half-time"
+  },
+  "positions": {
+    "reveal_at": "2025-09-04T19:00:00-07:00",
+    "all_positions": [
+      {
+        "name": "Adam K",
+        "pos": "Defence",
+        "tactical_pos": "LB",
+        "jersey": "13"
+      },
+      {
+        "name": "Owen H",
+        "pos": "Defence",
+        "tactical_pos": "RB",
+        "jersey": "9"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "2"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "10"
+      },
+      {
+        "name": "Travis C",
+        "pos": "Defence",
+        "tactical_pos": "LB",
+        "jersey": "3"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "Defence",
+        "tactical_pos": "RB",
+        "jersey": "5"
+      },
+      {
+        "name": "Alexander V",
+        "pos": "Midfield/Wingers",
+        "tactical_pos": "CM",
+        "jersey": "8"
+      },
+      {
+        "name": "Andrew E",
+        "pos": "Midfield/Wingers",
+        "tactical_pos": "RW",
+        "jersey": "4"
+      },
+      {
+        "name": "Henry K",
+        "pos": "Midfield/Wingers",
+        "tactical_pos": "LW",
+        "jersey": "11"
+      },
+      {
+        "name": "Niko D",
+        "pos": "Midfield/Wingers",
+        "tactical_pos": "LW",
+        "jersey": "6"
+      },
+      {
+        "name": "Rafael H",
+        "pos": "Midfield/Wingers",
+        "tactical_pos": "CM",
+        "jersey": "12"
+      },
+      {
+        "name": "Yejun K",
+        "pos": "Midfield/Wingers",
+        "tactical_pos": "RW",
+        "jersey": "7"
+      },
+      {
+        "name": "Ethan G",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "15"
+      },
+      {
+        "name": "David C",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "14"
+      },
+      {
+        "name": "Eunjun K",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "16"
+      }
+    ]
   },
   "lineup": {
     "reveal_at": "2025-09-05T19:00:00-07:00",

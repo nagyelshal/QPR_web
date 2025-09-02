@@ -114,13 +114,5 @@
     ]
   },
   "player_achievements": {
-    "Adam K": {
-      "earned": ["first-goal", "clean-sheet"],
-      "total_points": 35
-    },
-    "Minh-An D": {
-      "earned": ["captain-fantastic", "first-goal"],
-      "total_points": 45
-    }
   }
 }

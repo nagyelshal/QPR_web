@@ -40,16 +40,7 @@
     }
   ],
   "celebrations": {
-    "submissions": [
-      {
-        "id": "cel-001",
-        "player": "Example Player",
-        "celebration_name": "The Robot",
-        "description": "Classic robot dance moves after scoring",
-        "votes": 0,
-        "submitted_date": "2025-09-01"
-      }
-    ],
+    "submissions": [],
     "categories": [
       "Most Creative",
       "Funniest", 

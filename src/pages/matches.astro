@@ -2,7 +2,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import matchesData from '../../data/matches.json';
 
-const title = "Match Center";
+const tit    <div class="celebration-corner">
+      <h2>🏆 The Best Goal Celebration Fun Award</h2>
+      <div class="celebration-announcement">
+        <div class="award-description">
+          <p>🎊 Celebrating creativity, joy, and team spirit on the pitch!</p>
+          <p>This special award recognizes the most entertaining and spirited goal celebrations that bring smiles to everyone.</p>
+        </div>
+        <div class="announcement-box">
+          <h3>📢 Award Status</h3>
+          <p class="celebration-note">To be announced when amazing celebrations are performed during matches!</p>
+          <p class="stay-tuned">Stay tuned for exciting celebration highlights after each game.</p>
+        </div>
+      </div>
+    </div>atch Center";
 const description = "View match details, vote for player of the match, and see game highlights";
 ---
 
@@ -389,37 +402,101 @@ const description = "View match details, vote for player of the match, and see g
   }
 
   .celebration-corner {
-    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-    border-radius: 16px;
+    background: linear-gradient(135deg, #fff9c4 0%, #ffeaa7 50%, #fab1a0 100%);
+    border-radius: 20px;
     padding: var(--spacing-2xl);
     margin-top: var(--spacing-2xl);
+    border: 3px solid #fdcb6e;
+    box-shadow: 0 8px 32px rgba(253, 203, 110, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .celebration-corner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: sparkle 20s linear infinite;
+  }
+
+  @keyframes sparkle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
   .celebration-corner h2 {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    color: #d63031;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(214, 48, 49, 0.3);
+    position: relative;
+    z-index: 2;
   }
 
   .celebration-announcement {
-    background: white;
-    border-radius: 12px;
-    padding: var(--spacing-xl);
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.2);
+    position: relative;
+    z-index: 2;
   }
 
-  .celebration-announcement p {
-    font-size: 1.1rem;
+  .award-description {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    border: 2px solid #fdcb6e;
+    backdrop-filter: blur(5px);
+  }
+
+  .award-description p {
+    font-size: 1.2rem;
     color: var(--color-text);
     margin-bottom: var(--spacing-md);
+    font-weight: 600;
+  }
+
+  .award-description p:last-child {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: var(--color-text-light);
+  }
+
+  .announcement-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-radius: 15px;
+    padding: var(--spacing-xl);
+    border: 2px solid #00b894;
+    box-shadow: 0 4px 20px rgba(0, 184, 148, 0.2);
+  }
+
+  .announcement-box h3 {
+    color: #00b894;
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    font-weight: 700;
   }
 
   .celebration-note {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .stay-tuned {
     font-style: italic;
     color: var(--color-text-light);
     font-size: 1rem;
     margin-bottom: 0;
+    text-align: center;
   }
 
   @media (max-width: 768px) {

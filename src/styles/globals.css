@@ -364,6 +364,9 @@ a:hover, a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
 }
 
 .logo {
@@ -378,12 +381,23 @@ a:hover, a:focus {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.logo:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.2);
 }
 
 .logo::before {
   content: '⚽';
-  font-size: 1.2em;
-  animation: spin 6s linear infinite;
+  font-size: 1.3em;
+  animation: spin 8s linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 166, 81, 0.3));
 }
 
 @keyframes spin {
@@ -393,21 +407,30 @@ a:hover, a:focus {
 
 .nav {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xs);
   list-style: none;
   padding: 0;
   margin: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xs);
+  border: 1px solid rgba(0, 166, 81, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .nav a {
   color: var(--color-text);
   text-decoration: none;
   font-weight: 600;
+  font-size: var(--font-size-sm);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid transparent;
 }
 
 .nav a::before {
@@ -420,13 +443,16 @@ a:hover, a:focus {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   transition: left 0.3s ease;
   z-index: -1;
+  border-radius: var(--radius);
 }
 
 .nav a:hover,
 .nav a:focus {
   color: white;
   text-decoration: none;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.25);
 }
 
 .nav a:hover::before {
@@ -437,15 +463,24 @@ a:hover, a:focus {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: white;
   box-shadow: 0 2px 8px rgba(0, 166, 81, 0.3);
+  border-color: var(--color-primary);
 }
 
 /* Mobile menu */
 .menu-toggle {
   display: none;
-  background: none;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   border: none;
   cursor: pointer;
   padding: var(--spacing-sm);
+  border-radius: var(--radius);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -457,28 +492,54 @@ a:hover, a:focus {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--color-bg);
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--color-border);
-    border-top: none;
+    border-radius: var(--radius-lg);
     flex-direction: column;
     padding: var(--spacing-md);
-    gap: 0;
+    gap: var(--spacing-xs);
+    box-shadow: 0 8px 32px rgba(0, 166, 81, 0.15);
+    margin-top: var(--spacing-sm);
   }
   
   .nav.active {
     display: flex;
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .nav a {
     display: block;
     padding: var(--spacing-md);
-    border-bottom: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 166, 81, 0.1);
   }
   
-  .nav a:last-child {
-    border-bottom: none;
+  .nav a:hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+  }
+  
+  .header .container {
+    padding: 0 var(--spacing-md);
   }
 }
 

@@ -6,7 +6,7 @@
       "level": 1,
       "title": "Foundation Builder",
       "color": "#4caf50",
-      "description": "Master the basics and get your first wins",
+      "description": "Master the basics and build team spirit (Complete 6 of 11 goals to advance)",
       "goals": [
         {
           "id": "first-goal",
@@ -25,19 +25,99 @@
           "completedDate": null
         },
         {
-          "id": "score-3-goals",
-          "title": "Hat-trick Heroes",
-          "description": "Score 3 goals in a single match",
-          "completed": false,
-          "points": 200,
-          "completedDate": null
-        },
-        {
           "id": "all-players-play",
           "title": "Full Squad Power",
           "description": "Every player gets playing time in a match",
           "completed": false,
           "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "team-celebration",
+          "title": "Team Spirit",
+          "description": "Celebrate a goal with the whole team",
+          "completed": false,
+          "points": 75,
+          "completedDate": null
+        },
+        {
+          "id": "good-sportsmanship",
+          "title": "Good Sports",
+          "description": "Show excellent sportsmanship in a match",
+          "completed": false,
+          "points": 75,
+          "completedDate": null
+        },
+        {
+          "id": "corner-kick-goal",
+          "title": "Corner Kick Magic",
+          "description": "Score a goal from a corner kick",
+          "completed": false,
+          "points": 125,
+          "completedDate": null
+        },
+        {
+          "id": "header-goal",
+          "title": "Head Master",
+          "description": "Score a goal with a header",
+          "completed": false,
+          "points": 150,
+          "completedDate": null
+        },
+        {
+          "id": "far-shot-goal",
+          "title": "Long Range Rocket",
+          "description": "Score from outside the penalty area",
+          "completed": false,
+          "points": 175,
+          "completedDate": null
+        },
+        {
+          "id": "score-both-halves",
+          "title": "Two-Half Heroes",
+          "description": "Score in both halves of a match",
+          "completed": false,
+          "points": 150,
+          "completedDate": null
+        },
+        {
+          "id": "all-positions",
+          "title": "Position Explorers",
+          "description": "Have players try different positions",
+          "completed": false,
+          "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "first-assist",
+          "title": "Team Work Goal",
+          "description": "Score your first assisted goal",
+          "completed": false,
+          "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "first-corner-goal",
+          "title": "Corner Kick Master",
+          "description": "Score directly from a corner kick",
+          "completed": false,
+          "points": 125,
+          "completedDate": null
+        },
+        {
+          "id": "throw-in-goal",
+          "title": "Throw-In Trickster",
+          "description": "Create a goal from a long throw-in",
+          "completed": false,
+          "points": 125,
+          "completedDate": null
+        },
+        {
+          "id": "score-3-goals",
+          "title": "Hat-trick Heroes",
+          "description": "Score 3 goals in a single match",
+          "completed": false,
+          "points": 200,
           "completedDate": null
         },
         {
@@ -54,14 +134,126 @@
       "level": 2,
       "title": "Team Builder",
       "color": "#ff9800",
-      "description": "Develop teamwork and defensive skills",
+      "description": "Develop teamwork and tactical skills (Complete 8 of 12 goals to advance)",
       "goals": [
         {
           "id": "clean-sheet",
           "title": "Fortress Defense",
           "description": "Keep a clean sheet (no goals conceded)",
           "completed": false,
-          "points": 300,
+          "points": 200,
+          "completedDate": null
+        },
+        {
+          "id": "multiple-scorers",
+          "title": "Shared Glory",
+          "description": "Have 3+ different players score in one match",
+          "completed": false,
+          "points": 175,
+          "completedDate": null
+        },
+        {
+          "id": "defensive-wall",
+          "title": "Defensive Wall",
+          "description": "Make 5+ successful tackles in a match",
+          "completed": false,
+          "points": 150,
+          "completedDate": null
+        },
+        {
+          "id": "goalkeeper-save",
+          "title": "Super Save",
+          "description": "Goalkeeper makes an amazing save",
+          "completed": false,
+          "points": 125,
+          "completedDate": null
+        },
+        {
+          "id": "quick-counter",
+          "title": "Lightning Counter",
+          "description": "Score within 10 seconds of winning the ball",
+          "completed": false,
+          "points": 200,
+          "completedDate": null
+        },
+        {
+          "id": "team-assists",
+          "title": "Assist Masters",
+          "description": "Record 3+ assists in a single match",
+          "completed": false,
+          "points": 175,
+          "completedDate": null
+        },
+        {
+          "id": "free-kick-goal",
+          "title": "Free Kick Specialist",
+          "description": "Score a goal from a free kick",
+          "completed": false,
+          "points": 200,
+          "completedDate": null
+        },
+        {
+          "id": "volley-goal",
+          "title": "Perfect Volley",
+          "description": "Score a goal with a volley shot",
+          "completed": false,
+          "points": 225,
+          "completedDate": null
+        },
+        {
+          "id": "goalkeeper-goal",
+          "title": "Goalkeeper Surprise",
+          "description": "Goalkeeper scores or assists a goal",
+          "completed": false,
+          "points": 250,
+          "completedDate": null
+        },
+        {
+          "id": "chip-shot-goal",
+          "title": "Chip Shot Artist",
+          "description": "Score with a delicate chip over the keeper",
+          "completed": false,
+          "points": 200,
+          "completedDate": null
+        },
+        {
+          "id": "one-touch-goal",
+          "title": "One-Touch Finisher",
+          "description": "Score without controlling the ball first",
+          "completed": false,
+          "points": 175,
+          "completedDate": null
+        },
+        {
+          "id": "no-cards",
+          "title": "Fair Play Match",
+          "description": "Complete a match with no yellow cards",
+          "completed": false,
+          "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "win-by-2",
+          "title": "Comfortable Victory",
+          "description": "Win a match by 2+ goals difference",
+          "completed": false,
+          "points": 200,
+          "completedDate": null
+        },
+        {
+          "id": "captain-goal",
+          "title": "Captain's Goal",
+          "description": "Team captain scores a goal",
+          "completed": false,
+          "points": 150,
+          "completedDate": null
+        },
+        {
+          "id": "second-half-comeback",
+          "title": "Second Half Heroes",
+          "description": "Score 2+ goals in the second half",
+          "completed": false,
+          "points": 175,
           "completedDate": null
         },
         {
@@ -69,31 +261,15 @@
           "title": "Dominant Victory",
           "description": "Win a match by 3+ goals difference",
           "completed": false,
-          "points": 350,
-          "completedDate": null
-        },
-        {
-          "id": "5-match-streak",
-          "title": "Consistent Performance",
-          "description": "Play 5 matches without losing",
-          "completed": false,
-          "points": 400,
-          "completedDate": null
-        },
-        {
-          "id": "team-assists",
-          "title": "Assist Masters",
-          "description": "Record 5 assists in a single match",
-          "completed": false,
           "points": 300,
           "completedDate": null
         },
         {
-          "id": "penalty-save",
-          "title": "Penalty Heroes",
-          "description": "Save a penalty or score from a penalty",
+          "id": "3-match-streak",
+          "title": "Winning Momentum",
+          "description": "Win 3 matches in a row",
           "completed": false,
-          "points": 250,
+          "points": 350,
           "completedDate": null
         }
       ]
@@ -102,46 +278,126 @@
       "level": 3,
       "title": "Champions League",
       "color": "#9c27b0",
-      "description": "Elite achievements for true champions",
+      "description": "Elite achievements for true champions (Complete 10 of 12 goals for legendary status)",
       "goals": [
         {
-          "id": "tournament-win",
-          "title": "Tournament Champions",
-          "description": "Win a tournament or cup competition",
+          "id": "hat-trick-player",
+          "title": "Individual Hat-trick",
+          "description": "One player scores 3+ goals in a match",
           "completed": false,
-          "points": 500,
+          "points": 300,
           "completedDate": null
         },
         {
-          "id": "perfect-season",
-          "title": "Undefeated Season",
-          "description": "Go through the season without losing",
-          "completed": false,
-          "points": 1000,
-          "completedDate": null
-        },
-        {
-          "id": "top-scorer",
-          "title": "League Top Scorers",
-          "description": "Become the highest scoring team in league",
-          "completed": false,
-          "points": 600,
-          "completedDate": null
-        },
-        {
-          "id": "sportsmanship",
-          "title": "Fair Play Champions",
-          "description": "Win the league fair play award",
+          "id": "5-goal-match",
+          "title": "Goal Explosion",
+          "description": "Score 5+ goals in a single match",
           "completed": false,
           "points": 400,
           "completedDate": null
         },
         {
-          "id": "legendary-comeback",
-          "title": "Legendary Comeback",
+          "id": "unbeaten-5",
+          "title": "Unbeaten Run",
+          "description": "Go 5 matches without losing",
+          "completed": false,
+          "points": 450,
+          "completedDate": null
+        },
+        {
+          "id": "penalty-specialist",
+          "title": "Penalty Specialists",
+          "description": "Score 3 penalties in the season",
+          "completed": false,
+          "points": 250,
+          "completedDate": null
+        },
+        {
+          "id": "bicycle-kick-goal",
+          "title": "Bicycle Kick Spectacular",
+          "description": "Score an overhead/bicycle kick goal",
+          "completed": false,
+          "points": 400,
+          "completedDate": null
+        },
+        {
+          "id": "final-minute-goal",
+          "title": "Clutch Time Hero",
+          "description": "Score the winning goal in the final 5 minutes",
+          "completed": false,
+          "points": 350,
+          "completedDate": null
+        },
+        {
+          "id": "outside-box-goal",
+          "title": "Long Range Sniper",
+          "description": "Score from outside the penalty area",
+          "completed": false,
+          "points": 300,
+          "completedDate": null
+        },
+        {
+          "id": "team-captain-rotation",
+          "title": "Leadership Development",
+          "description": "Have 5+ different players captain matches",
+          "completed": false,
+          "points": 300,
+          "completedDate": null
+        },
+        {
+          "id": "formation-master",
+          "title": "Tactical Masters",
+          "description": "Win matches using 3 different formations",
+          "completed": false,
+          "points": 350,
+          "completedDate": null
+        },
+        {
+          "id": "comeback-from-2",
+          "title": "Miracle Comeback",
           "description": "Win after being 2+ goals behind",
           "completed": false,
-          "points": 750,
+          "points": 500,
+          "completedDate": null
+        },
+        {
+          "id": "season-top-scorer",
+          "title": "Top Scorers",
+          "description": "Finish as one of the highest scoring teams",
+          "completed": false,
+          "points": 400,
+          "completedDate": null
+        },
+        {
+          "id": "fair-play-award",
+          "title": "Sportsmanship Champions",
+          "description": "Win recognition for excellent sportsmanship",
+          "completed": false,
+          "points": 350,
+          "completedDate": null
+        },
+        {
+          "id": "double-clean-sheet",
+          "title": "Defensive Masters",
+          "description": "Keep clean sheets in 2 consecutive matches",
+          "completed": false,
+          "points": 400,
+          "completedDate": null
+        },
+        {
+          "id": "tournament-final",
+          "title": "Tournament Finalists",
+          "description": "Reach a tournament or cup final",
+          "completed": false,
+          "points": 600,
+          "completedDate": null
+        },
+        {
+          "id": "perfect-season",
+          "title": "Legendary Season",
+          "description": "Achieve 80%+ win rate for the season",
+          "completed": false,
+          "points": 1000,
           "completedDate": null
         }
       ]

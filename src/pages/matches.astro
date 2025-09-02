@@ -4,6 +4,23 @@ import matchesData from '../../data/matches.json';
 
 const title = "Match Center";
 const description = "View match details, vote for player of the match, and see game highlights";
+
+// Helper function to determine home/away status
+function getVenueInfo(match) {
+  // Check if QPR is home team (various indicators)
+  const isHome = match.location.toLowerCase().includes('home') || 
+                 (!match.location.toLowerCase().includes('away') && 
+                  !match.location.toLowerCase().includes('tba') &&
+                  match.location !== 'Away' &&
+                  match.location !== 'TBD');
+  
+  return {
+    isHome,
+    icon: isHome ? '🏠' : '✈️',
+    text: isHome ? 'Home' : 'Away',
+    class: isHome ? 'home' : 'away'
+  };
+}
 ---
 
 <BaseLayout title={title} description={description}>
@@ -14,7 +31,9 @@ const description = "View match details, vote for player of the match, and see g
     </div>
 
     <div class="matches-grid">
-      {matchesData.matches.map(match => (
+      {matchesData.matches.map(match => {
+        const venueInfo = getVenueInfo(match);
+        return (
         <div class="match-card" data-match-id={match.id}>
           <div class="match-header">
             <div class="match-date">
@@ -25,6 +44,10 @@ const description = "View match details, vote for player of the match, and see g
               })}
             </div>
             <div class="match-week">Week {match.week}</div>
+            <div class={`venue-badge ${venueInfo.class}`}>
+              <span class="venue-icon">{venueInfo.icon}</span>
+              <span class="venue-text">{venueInfo.text}</span>
+            </div>
           </div>
 
           <div class="match-teams">
@@ -114,7 +137,8 @@ const description = "View match details, vote for player of the match, and see g
             View Full Details →
           </a>
         </div>
-      ))}
+        );
+      })}
     </div>
 
     <div class="celebration-corner">
@@ -170,6 +194,8 @@ const description = "View match details, vote for player of the match, and see g
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
     border-bottom: 2px solid #f0f0f0;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
   }
 
   .match-date {
@@ -185,6 +211,34 @@ const description = "View match details, vote for player of the match, and see g
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+  .venue-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .venue-badge.home {
+    background: linear-gradient(135deg, #00a651 0%, #00d064 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 166, 81, 0.3);
+  }
+
+  .venue-badge.away {
+    background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.3);
+  }
+
+  .venue-icon {
+    font-size: 1em;
   }
 
   .match-teams {

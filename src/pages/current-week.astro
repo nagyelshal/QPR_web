@@ -7,8 +7,9 @@ import Notice from '../components/Notice.astro';
 
 const base = import.meta.env.BASE_URL;
 
-// Load current week data
+// Load current week data and season schedule
 const weekData = await import('../../data/current-week.json');
+const seasonSchedule = await import('../../data/season-schedule.json');
 
 // Check what should be revealed based on current time
 const now = new Date();
@@ -61,11 +62,17 @@ let matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month:
 if (isMatchToday) matchLabel = `Today (${matchLabel})`;
 else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
 
-// Determine if it's a home or away match
-const isHome = weekData.match.location.toLowerCase().includes('home') || 
-              !weekData.match.location.toLowerCase().includes('away') && 
-              !weekData.match.location.toLowerCase().includes('tba') &&
-              weekData.match.location !== 'Away';
+// Determine if it's a home or away match using season schedule
+const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === weekData.match.match_number);
+let isHome = false;
+if (scheduleMatch) {
+  isHome = scheduleMatch.home_team.includes('Queens Park Rangers') || scheduleMatch.home_team.includes('QPR');
+} else {
+  // Fallback logic
+  isHome = weekData.match.location.toLowerCase().includes('home') || 
+           weekData.match.location.toLowerCase() === 'tbd';
+}
+
 const homeAwayIcon = isHome ? '🏠' : '✈️';
 const homeAwayText = isHome ? 'Home' : 'Away';
 ---

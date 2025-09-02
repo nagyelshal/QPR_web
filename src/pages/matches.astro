@@ -1,18 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import matchesData from '../../data/matches.json';
+import seasonSchedule from '../../data/season-schedule.json';
 
 const title = "Match Center";
 const description = "View match details, vote for player of the match, and see game highlights";
 
 // Helper function to determine home/away status
 function getVenueInfo(match) {
-  // Check if QPR is home team (various indicators)
+  // First try to find the match in season schedule by match number
+  const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === match.match_number);
+  
+  if (scheduleMatch) {
+    // Use the definitive home/away info from season schedule
+    const isQPRHome = scheduleMatch.home_team.includes('Queens Park Rangers') || scheduleMatch.home_team.includes('QPR');
+    return {
+      isHome: isQPRHome,
+      icon: isQPRHome ? '🏠' : '✈️',
+      text: isQPRHome ? 'Home' : 'Away',
+      class: isQPRHome ? 'home' : 'away'
+    };
+  }
+  
+  // Fallback logic if not found in schedule
   const isHome = match.location.toLowerCase().includes('home') || 
-                 (!match.location.toLowerCase().includes('away') && 
-                  !match.location.toLowerCase().includes('tba') &&
-                  match.location !== 'Away' &&
-                  match.location !== 'TBD');
+                 match.location.toLowerCase() === 'tbd';
   
   return {
     isHome,

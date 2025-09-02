@@ -5,8 +5,8 @@
       "date": "2025-09-06",
       "opponent": "PMSC Storm",
       "result": "pending",
-      "location": "Away",
-      "kickoff": "TBA",
+      "location": "Trasolini Turf North",
+      "kickoff": "11:45am",
       "match_number": "2500544",
       "week": 1,
       "scorers": [],
@@ -20,14 +20,71 @@
       "celebration_highlights": []
     },
     {
-      "id": "match-002", 
-      "date": "2025-09-13",
-      "opponent": "Richmond Raiders",
+      "id": "match-002",
+      "date": "TBD",
+      "opponent": "CMFSC Millwall",
       "result": "pending",
-      "location": "Home",
-      "kickoff": "TBA",
-      "match_number": "2500545",
+      "location": "TBD",
+      "kickoff": "TBD",
+      "match_number": "2500560",
       "week": 2,
+      "scorers": [],
+      "assists": [],
+      "player_of_match": {
+        "voting_open": false,
+        "votes": {},
+        "winner": null
+      },
+      "highlights": [],
+      "celebration_highlights": []
+    },
+    {
+      "id": "match-003",
+      "date": "TBD",
+      "opponent": "PCFC Wolf Pack (McNeill)",
+      "result": "pending",
+      "location": "TBD",
+      "kickoff": "TBD",
+      "match_number": "2500567",
+      "week": 3,
+      "scorers": [],
+      "assists": [],
+      "player_of_match": {
+        "voting_open": false,
+        "votes": {},
+        "winner": null
+      },
+      "highlights": [],
+      "celebration_highlights": []
+    },
+    {
+      "id": "match-004",
+      "date": "TBD",
+      "opponent": "CMFSC Swansea",
+      "result": "pending",
+      "location": "TBD",
+      "kickoff": "TBD",
+      "match_number": "2500583",
+      "week": 4,
+      "scorers": [],
+      "assists": [],
+      "player_of_match": {
+        "voting_open": false,
+        "votes": {},
+        "winner": null
+      },
+      "highlights": [],
+      "celebration_highlights": []
+    },
+    {
+      "id": "match-005",
+      "date": "TBD",
+      "opponent": "RMSC U11B8D3 (Tones)",
+      "result": "pending",
+      "location": "TBD",
+      "kickoff": "TBD",
+      "match_number": "2500595",
+      "week": 5,
       "scorers": [],
       "assists": [],
       "player_of_match": {

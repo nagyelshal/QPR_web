@@ -19,7 +19,7 @@
     "week": 1
   },
   "captains": {
-    "reveal_at": "2025-09-04T19:00:00-07:00",
+  "reveal_at": "2025-09-03T19:00:00-07:00",
     "first_half": "Minh-An D",
     "second_half": "Rafael H",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
@@ -30,7 +30,7 @@
     "duties": "One GK in goal, one GK plays field • Switch at half-time"
   },
   "positions": {
-    "reveal_at": "2025-09-04T19:00:00-07:00",
+  "reveal_at": "2025-09-03T19:00:00-07:00",
     "all_positions": [
       {
         "name": "Adam K",

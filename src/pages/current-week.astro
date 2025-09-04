@@ -291,68 +291,72 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     </section>
 
     <!-- Off-Pitch Zones Section -->
-    {positionsRevealed && weekData.off_pitch && (
+    {positionsRevealed && (
       <section class="section off-pitch-section">
         <h2 class="section-title">📍 Off-Pitch Zones</h2>
         <p class="section-subtitle">When you're not playing, stand in your designated zone</p>
         
-        <div class="zones-grid">
-          <div class="zone-card goalkeepers">
-            <h3>🥅 Goalkeepers</h3>
-            <div class="zone-players">
-              {weekData.off_pitch.zones.goalkeepers.map(player => (
-                <div class="zone-player">
-                  <span class="player-name">{player.name}</span>
-                  <span class="player-jersey">#{player.jersey}</span>
-                </div>
-              ))}
+        {weekData.off_pitch && weekData.off_pitch.zones && (
+          <div class="zones-grid">
+            <div class="zone-card goalkeepers">
+              <h3>🥅 Goalkeepers</h3>
+              <div class="zone-players">
+                {weekData.off_pitch.zones.goalkeepers.map(player => (
+                  <div class="zone-player">
+                    <span class="player-name">{player.name}</span>
+                    <span class="player-jersey">#{player.jersey}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div class="zone-card defence">
+              <h3>🛡️ Defence</h3>
+              <div class="zone-players">
+                {weekData.off_pitch.zones.defence.map(player => (
+                  <div class="zone-player">
+                    <span class="player-name">{player.name}</span>
+                    <span class="player-jersey">#{player.jersey}</span>
+                    <span class="player-position">{player.tactical_pos}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div class="zone-card midfield">
+              <h3>⚡ Midfield/Wingers</h3>
+              <div class="zone-players">
+                {weekData.off_pitch.zones.midfield_wingers.map(player => (
+                  <div class="zone-player">
+                    <span class="player-name">{player.name}</span>
+                    <span class="player-jersey">#{player.jersey}</span>
+                    <span class="player-position">{player.tactical_pos}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div class="zone-card strikers">
+              <h3>⚽ Strikers</h3>
+              <div class="zone-players">
+                {weekData.off_pitch.zones.strikers.map(player => (
+                  <div class="zone-player">
+                    <span class="player-name">{player.name}</span>
+                    <span class="player-jersey">#{player.jersey}</span>
+                    <span class="player-position">{player.tactical_pos}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          
-          <div class="zone-card defence">
-            <h3>🛡️ Defence</h3>
-            <div class="zone-players">
-              {weekData.off_pitch.zones.defence.map(player => (
-                <div class="zone-player">
-                  <span class="player-name">{player.name}</span>
-                  <span class="player-jersey">#{player.jersey}</span>
-                  <span class="player-position">{player.tactical_pos}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div class="zone-card midfield">
-            <h3>⚡ Midfield/Wingers</h3>
-            <div class="zone-players">
-              {weekData.off_pitch.zones.midfield_wingers.map(player => (
-                <div class="zone-player">
-                  <span class="player-name">{player.name}</span>
-                  <span class="player-jersey">#{player.jersey}</span>
-                  <span class="player-position">{player.tactical_pos}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div class="zone-card strikers">
-            <h3>⚽ Strikers</h3>
-            <div class="zone-players">
-              {weekData.off_pitch.zones.strikers.map(player => (
-                <div class="zone-player">
-                  <span class="player-name">{player.name}</span>
-                  <span class="player-jersey">#{player.jersey}</span>
-                  <span class="player-position">{player.tactical_pos}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        )}
         
-        <div class="zone-instructions">
-          <h4>📋 Instructions:</h4>
-          <p>{weekData.off_pitch.instructions}</p>
-        </div>
+        {weekData.off_pitch && weekData.off_pitch.instructions && (
+          <div class="zone-instructions">
+            <h4>📋 Instructions:</h4>
+            <p>{weekData.off_pitch.instructions}</p>
+          </div>
+        )}
       </section>
     )}
 

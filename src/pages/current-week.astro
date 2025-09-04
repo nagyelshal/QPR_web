@@ -67,6 +67,10 @@ let matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month:
 if (isMatchToday) matchLabel = `Today (${matchLabel})`;
 else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
 
+// Create full match datetime for countdown calculation
+const matchDateTime = new Date(`${weekData.match.date} ${weekData.match.kickoff}`);
+const timeUntilKickoff = getTimeUntil(matchDateTime);
+
 // Determine if it's a home or away match using season schedule
 const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === weekData.match.match_number);
 let isHome = false;
@@ -111,10 +115,10 @@ const homeAwayText = isHome ? 'Home' : 'Away';
             <span class="countdown-time">{timeUntilLineup}</span>
           </div>
         )}
-        {weekData.match.kickoff !== "TBA" && (
+        {weekData.match.kickoff !== "TBA" && timeUntilKickoff && (
           <div class="countdown-item">
             <span class="countdown-label">Kickoff</span>
-            <span class="countdown-time">{weekData.match.kickoff}</span>
+            <span class="countdown-time">{timeUntilKickoff}</span>
           </div>
         )}
       </div>

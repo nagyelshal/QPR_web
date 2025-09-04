@@ -135,9 +135,7 @@
         { "name": "Minh-An D", "jersey": "2", "tactical_pos": "CB" },
         { "name": "Rhodri W", "jersey": "10", "tactical_pos": "CB" },
         { "name": "Travis C", "jersey": "3", "tactical_pos": "LB" },
-        { "name": "Andrew N", "jersey": "5", "tactical_pos": "RB" },
-        { "name": "Adam K", "jersey": "13", "tactical_pos": "LB" },
-        { "name": "Owen H", "jersey": "9", "tactical_pos": "RB" }
+        { "name": "Andrew N", "jersey": "5", "tactical_pos": "RB" }
       ],
       "midfield_wingers": [
         { "name": "Alexander V", "jersey": "8", "tactical_pos": "CM" },

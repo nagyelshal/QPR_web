@@ -75,7 +75,7 @@
         "jersey": "8"
       },
       {
-        "name": "Andrew E",
+        "name": "Andy E",
         "pos": "Midfield/Wingers",
         "tactical_pos": "RW",
         "jersey": "4"
@@ -139,7 +139,7 @@
       ],
       "midfield_wingers": [
         { "name": "Alexander V", "jersey": "8", "tactical_pos": "CM" },
-        { "name": "Andrew E", "jersey": "4", "tactical_pos": "RW" },
+        { "name": "Andy E", "jersey": "4", "tactical_pos": "RW" },
         { "name": "Henry K", "jersey": "11", "tactical_pos": "LW" },
         { "name": "Niko D", "jersey": "6", "tactical_pos": "LW" },
         { "name": "Rafael H", "jersey": "12", "tactical_pos": "CM" },
@@ -169,7 +169,7 @@
         "jersey": "8"
       },
       {
-        "name": "Andrew E",
+        "name": "Andy E",
         "jersey": "4"
       },
       {
@@ -253,7 +253,7 @@
         "jersey": "8"
       },
       {
-        "name": "Andrew E",
+        "name": "Andy E",
         "pos": "RM",
         "jersey": "4"
       },

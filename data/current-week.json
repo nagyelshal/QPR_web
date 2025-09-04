@@ -19,7 +19,7 @@
     "week": 1
   },
   "captains": {
-  "reveal_at": "2025-09-03T19:00:00-07:00",
+  "reveal_at": "2025-09-03T00:00:00-07:00",
     "first_half": "Minh-An D",
     "second_half": "Rafael H",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
@@ -30,7 +30,7 @@
     "duties": "One GK in goal, one GK plays field • Switch at half-time"
   },
   "positions": {
-  "reveal_at": "2025-09-03T19:00:00-07:00",
+  "reveal_at": "2025-09-03T00:00:00-07:00",
     "all_positions": [
       {
         "name": "Adam K",
@@ -123,6 +123,41 @@
         "jersey": "16"
       }
     ]
+  },
+  "off_pitch": {
+    "reveal_at": "2025-09-03T00:00:00-07:00",
+    "zones": {
+      "goalkeepers": [
+        { "name": "Adam K", "jersey": "13" },
+        { "name": "Owen H", "jersey": "9" }
+      ],
+      "defence": [
+        { "name": "Minh-An D", "jersey": "2", "tactical_pos": "CB" },
+        { "name": "Rhodri W", "jersey": "10", "tactical_pos": "CB" },
+        { "name": "Travis C", "jersey": "3", "tactical_pos": "LB" },
+        { "name": "Andrew N", "jersey": "5", "tactical_pos": "RB" },
+        { "name": "Adam K", "jersey": "13", "tactical_pos": "LB" },
+        { "name": "Owen H", "jersey": "9", "tactical_pos": "RB" }
+      ],
+      "midfield_wingers": [
+        { "name": "Alexander V", "jersey": "8", "tactical_pos": "CM" },
+        { "name": "Andrew E", "jersey": "4", "tactical_pos": "RW" },
+        { "name": "Henry K", "jersey": "11", "tactical_pos": "LW" },
+        { "name": "Niko D", "jersey": "6", "tactical_pos": "LW" },
+        { "name": "Rafael H", "jersey": "12", "tactical_pos": "CM" },
+        { "name": "Yejun K", "jersey": "7", "tactical_pos": "RW" }
+      ],
+      "strikers": [
+        { "name": "Ethan G", "jersey": "15", "tactical_pos": "ST" },
+        { "name": "David C", "jersey": "14", "tactical_pos": "ST" },
+        { "name": "Eunjun K", "jersey": "16", "tactical_pos": "ST" }
+      ]
+    },
+    "sideline_layout": {
+      "left_to_right": ["Defence", "Midfield/Wingers", "Strikers"],
+      "keeper_spot": "Near coach for quick switch at half"
+    },
+    "instructions": "When you're off the pitch, stand in your zone by the colored cones. Keep shin guards on, water ready, and listen for your name. Adam/Owen: stand with GK zone when about to play GK; otherwise join Defence."
   },
   "lineup": {
     "reveal_at": "2025-09-05T19:00:00-07:00",

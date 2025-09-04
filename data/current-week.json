@@ -234,13 +234,13 @@
       },
       {
         "name": "Owen H",
-        "pos": "CB",
+        "pos": "RB",
         "jersey": "9"
       },
       {
-        "name": "Rhodri W",
-        "pos": "CB",
-        "jersey": "10"
+        "name": "Travis C",
+        "pos": "LB",
+        "jersey": "3"
       },
       {
         "name": "Niko D",
@@ -253,9 +253,9 @@
         "jersey": "8"
       },
       {
-        "name": "Yejun K",
+        "name": "Andy E",
         "pos": "RM",
-        "jersey": "7"
+        "jersey": "4"
       },
       {
         "name": "Ethan G",
@@ -281,12 +281,12 @@
         "jersey": "11"
       },
       {
-        "name": "Travis C",
-        "jersey": "3"
+        "name": "Rhodri W",
+        "jersey": "10"
       },
       {
-        "name": "Andy E",
-        "jersey": "4"
+        "name": "Yejun K",
+        "jersey": "7"
       },
       {
         "name": "Eunjun K",

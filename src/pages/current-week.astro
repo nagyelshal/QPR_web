@@ -297,53 +297,53 @@ const homeAwayText = isHome ? 'Home' : 'Away';
         <p class="section-subtitle">When you're not playing, stand in your designated zone</p>
         
         {weekData.off_pitch && weekData.off_pitch.zones && (
-          <div class="zones-grid">
-            <div class="zone-card goalkeepers">
-              <h3>🥅 Goalkeepers</h3>
-              <div class="zone-players">
+          <div class="zones-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+            <div class="zone-card goalkeepers" style="background: linear-gradient(135deg, #e3f2fd 0%, #f8fbff 100%); border-radius: 12px; padding: 1.5rem; border: 2px solid #2196f3; transition: all 0.3s ease;">
+              <h3 style="margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">🥅 Goalkeepers</h3>
+              <div class="zone-players" style="display: flex; flex-direction: column; gap: 0.75rem;">
                 {weekData.off_pitch.zones.goalkeepers.map(player => (
-                  <div class="zone-player">
-                    <span class="player-name">{player.name}</span>
-                    <span class="player-jersey">#{player.jersey}</span>
+                  <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.7); border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                    <span class="player-name" style="font-weight: 600;">{player.name}</span>
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #666; font-weight: 500;">#{player.jersey}</span>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div class="zone-card defence">
-              <h3>🛡️ Defence</h3>
-              <div class="zone-players">
+            <div class="zone-card defence" style="background: linear-gradient(135deg, #ffebee 0%, #fff8f8 100%); border-radius: 12px; padding: 1.5rem; border: 2px solid #f44336; transition: all 0.3s ease;">
+              <h3 style="margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">🛡️ Defence</h3>
+              <div class="zone-players" style="display: flex; flex-direction: column; gap: 0.75rem;">
                 {weekData.off_pitch.zones.defence.map(player => (
-                  <div class="zone-player">
-                    <span class="player-name">{player.name}</span>
-                    <span class="player-jersey">#{player.jersey}</span>
-                    <span class="player-position">{player.tactical_pos}</span>
+                  <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.7); border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                    <span class="player-name" style="font-weight: 600;">{player.name}</span>
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #666; font-weight: 500;">#{player.jersey}</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #1976d2; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">{player.tactical_pos}</span>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div class="zone-card midfield">
-              <h3>⚡ Midfield/Wingers</h3>
-              <div class="zone-players">
+            <div class="zone-card midfield" style="background: linear-gradient(135deg, #e8f5e8 0%, #f8fff8 100%); border-radius: 12px; padding: 1.5rem; border: 2px solid #4caf50; transition: all 0.3s ease;">
+              <h3 style="margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">⚡ Midfield/Wingers</h3>
+              <div class="zone-players" style="display: flex; flex-direction: column; gap: 0.75rem;">
                 {weekData.off_pitch.zones.midfield_wingers.map(player => (
-                  <div class="zone-player">
-                    <span class="player-name">{player.name}</span>
-                    <span class="player-jersey">#{player.jersey}</span>
-                    <span class="player-position">{player.tactical_pos}</span>
+                  <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.7); border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                    <span class="player-name" style="font-weight: 600;">{player.name}</span>
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #666; font-weight: 500;">#{player.jersey}</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #1976d2; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">{player.tactical_pos}</span>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div class="zone-card strikers">
-              <h3>⚽ Strikers</h3>
-              <div class="zone-players">
+            <div class="zone-card strikers" style="background: linear-gradient(135deg, #fff3e0 0%, #fffbf5 100%); border-radius: 12px; padding: 1.5rem; border: 2px solid #ff9800; transition: all 0.3s ease;">
+              <h3 style="margin: 0 0 1rem 0; font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">⚽ Strikers</h3>
+              <div class="zone-players" style="display: flex; flex-direction: column; gap: 0.75rem;">
                 {weekData.off_pitch.zones.strikers.map(player => (
-                  <div class="zone-player">
-                    <span class="player-name">{player.name}</span>
-                    <span class="player-jersey">#{player.jersey}</span>
-                    <span class="player-position">{player.tactical_pos}</span>
+                  <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.7); border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                    <span class="player-name" style="font-weight: 600;">{player.name}</span>
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #666; font-weight: 500;">#{player.jersey}</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #1976d2; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">{player.tactical_pos}</span>
                   </div>
                 ))}
               </div>

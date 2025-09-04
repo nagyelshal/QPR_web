@@ -68,7 +68,20 @@ if (isMatchToday) matchLabel = `Today (${matchLabel})`;
 else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
 
 // Create full match datetime for countdown calculation
-const matchDateTime = new Date(`${weekData.match.date} ${weekData.match.kickoff}`);
+const matchDateTime = new Date(weekData.match.date);
+// Parse the kickoff time (e.g., "11:45am")
+const timeMatch = weekData.match.kickoff.match(/(\d+):(\d+)(am|pm)/i);
+if (timeMatch) {
+  let hours = parseInt(timeMatch[1]);
+  const minutes = parseInt(timeMatch[2]);
+  const ampm = timeMatch[3].toLowerCase();
+  
+  // Convert to 24-hour format
+  if (ampm === 'pm' && hours !== 12) hours += 12;
+  if (ampm === 'am' && hours === 12) hours = 0;
+  
+  matchDateTime.setHours(hours, minutes, 0, 0);
+}
 const timeUntilKickoff = getTimeUntil(matchDateTime);
 
 // Determine if it's a home or away match using season schedule

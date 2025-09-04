@@ -49,23 +49,13 @@ const timeUntilCaptains = getTimeUntil(captainsRevealTime);
 const timeUntilPositions = getTimeUntil(positionsRevealTime);
 const timeUntilLineup = getTimeUntil(lineupRevealTime);
 
-// Format training date nicely
-const trainingDate = new Date(weekData.training.date);
-const isTrainingToday = trainingDate.toDateString() === now.toDateString();
-const isTrainingTomorrow = trainingDate.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
-
+// Format training date nicely - will be updated by client-side JavaScript
+const trainingDate = new Date(weekData.training.date + 'T00:00:00-07:00');
 let trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-if (isTrainingToday) trainingLabel = `Today (${trainingLabel})`;
-else if (isTrainingTomorrow) trainingLabel = `Tomorrow (${trainingLabel})`;
 
-// Format match date nicely
-const matchDate = new Date(weekData.match.date);
-const isMatchToday = matchDate.toDateString() === now.toDateString();
-const isMatchTomorrow = matchDate.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
-
+// Format match date nicely - will be updated by client-side JavaScript
+const matchDate = new Date(weekData.match.date + 'T00:00:00-07:00');
 let matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-if (isMatchToday) matchLabel = `Today (${matchLabel})`;
-else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
 
 // Create full match datetime for countdown calculation
 // Convert match date to Pacific timezone to match other reveal times
@@ -145,14 +135,14 @@ const homeAwayText = isHome ? 'Home' : 'Away';
           <div class="action-icon">🏃‍♂️</div>
           <div class="action-content">
             <h3>Training</h3>
-            <p>{trainingLabel} at {weekData.training.time}</p>
+            <p><span id="training-label-short">{trainingLabel}</span> at {weekData.training.time}</p>
           </div>
         </a>
         <a href="#match" class="action-card match">
           <div class="action-icon">⚽</div>
           <div class="action-content">
             <h3>Match</h3>
-            <p>{matchLabel} vs {weekData.match.opponent}</p>
+            <p><span id="match-label-short">{matchLabel}</span> vs {weekData.match.opponent}</p>
           </div>
         </a>
         <a href="#lineup" class="action-card lineup">
@@ -170,7 +160,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
       <h2 class="section-title">🏃‍♂️ This Week's Training</h2>
       <div class="training-card">
         <div class="training-info">
-          <h3>{trainingLabel} at {weekData.training.time}</h3>
+          <h3><span id="training-label-long">{trainingLabel}</span> at {weekData.training.time}</h3>
           <p><strong>Focus:</strong> {weekData.training.focus}</p>
           {weekData.training.special_drill && <p><strong>Special Drill:</strong> {weekData.training.special_drill}</p>}
           <p><strong>Formation Practice:</strong> Team will practice {weekData.match.formation} formation</p>
@@ -1107,6 +1097,33 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     const lineupTime = new Date('2025-09-05T19:00:00-07:00');
     const matchTime = new Date('2025-09-06T00:00:00-07:00');
     matchTime.setHours(11, 45, 0, 0);
+    
+    // Update training and match date labels
+    const trainingDate = new Date('2025-09-04T00:00:00-07:00');
+    const matchDate = new Date('2025-09-06T00:00:00-07:00');
+    
+    function formatDateLabel(date) {
+      const isToday = date.toDateString() === now.toDateString();
+      const isTomorrow = date.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
+      
+      const baseLabel = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      
+      if (isToday) return `Today (${baseLabel})`;
+      if (isTomorrow) return `Tomorrow (${baseLabel})`;
+      return baseLabel;
+    }
+    
+    // Update date labels
+    const trainingLabel = formatDateLabel(trainingDate);
+    const matchLabel = formatDateLabel(matchDate);
+    
+    const trainingLabelShort = document.getElementById('training-label-short');
+    const trainingLabelLong = document.getElementById('training-label-long');
+    const matchLabelShort = document.getElementById('match-label-short');
+    
+    if (trainingLabelShort) trainingLabelShort.textContent = trainingLabel;
+    if (trainingLabelLong) trainingLabelLong.textContent = trainingLabel;
+    if (matchLabelShort) matchLabelShort.textContent = matchLabel;
     
     function formatTimeUntil(target) {
       const diff = target.getTime() - now.getTime();

@@ -1102,8 +1102,11 @@ const homeAwayText = isHome ? 'Home' : 'Away';
   // Update countdown every minute
   function updateCountdowns() {
     const now = new Date();
-    const captainsTime = new Date('2025-09-04T09:00:00-07:00');
+    const captainsTime = new Date('2025-09-03T00:00:00-07:00');
+    const positionsTime = new Date('2025-09-03T00:00:00-07:00');
     const lineupTime = new Date('2025-09-05T19:00:00-07:00');
+    const matchTime = new Date('2025-09-06T00:00:00-07:00');
+    matchTime.setHours(11, 45, 0, 0);
     
     function formatTimeUntil(target) {
       const diff = target.getTime() - now.getTime();
@@ -1120,11 +1123,20 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     
     // Update countdown displays if they exist
     const countdownItems = document.querySelectorAll('.countdown-time');
+    const targets = [captainsTime, positionsTime, lineupTime, matchTime];
+    
     countdownItems.forEach((item, index) => {
-      const target = index === 0 ? captainsTime : lineupTime;
-      const timeLeft = formatTimeUntil(target);
-      if (timeLeft) {
-        item.textContent = timeLeft;
+      if (targets[index]) {
+        const timeLeft = formatTimeUntil(targets[index]);
+        if (timeLeft) {
+          item.textContent = timeLeft;
+        } else {
+          // Hide countdown item if time has passed
+          const countdownItem = item.closest('.countdown-item');
+          if (countdownItem) {
+            countdownItem.style.display = 'none';
+          }
+        }
       }
     });
   }

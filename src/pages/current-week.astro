@@ -68,7 +68,8 @@ if (isMatchToday) matchLabel = `Today (${matchLabel})`;
 else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
 
 // Create full match datetime for countdown calculation
-const matchDateTime = new Date(weekData.match.date);
+// Convert match date to Pacific timezone to match other reveal times
+const matchDateTime = new Date(weekData.match.date + 'T00:00:00-07:00');
 // Parse the kickoff time (e.g., "11:45am")
 const timeMatch = weekData.match.kickoff.match(/(\d+):(\d+)(am|pm)/i);
 if (timeMatch) {

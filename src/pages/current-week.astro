@@ -323,13 +323,17 @@ const homeAwayText = isHome ? 'Home' : 'Away';
                 {/* Goalkeepers in alternate positions */}
                 <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(33, 150, 243, 0.1); border-radius: 8px; border: 1px solid rgba(33, 150, 243, 0.3);">
                   <span class="player-name" style="font-weight: 600; color: #1976d2;">Adam K</span>
-                  <span class="player-jersey" style="font-size: 0.875rem; color: #1976d2; font-weight: 500;">#13</span>
-                  <span class="player-position" style="font-size: 0.75rem; background: #2196f3; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">LB (when not GK)</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #1976d2; font-weight: 500;">#13</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #2196f3; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">LB*</span>
+                  </div>
                 </div>
                 <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(33, 150, 243, 0.1); border-radius: 8px; border: 1px solid rgba(33, 150, 243, 0.3);">
                   <span class="player-name" style="font-weight: 600; color: #1976d2;">Owen H</span>
-                  <span class="player-jersey" style="font-size: 0.875rem; color: #1976d2; font-weight: 500;">#9</span>
-                  <span class="player-position" style="font-size: 0.75rem; background: #2196f3; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">RB (when not GK)</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #1976d2; font-weight: 500;">#9</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #2196f3; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">RB*</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -366,6 +370,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
           <div class="zone-instructions">
             <h4>📋 Instructions:</h4>
             <p>{weekData.off_pitch.instructions}</p>
+            <p style="margin-top: 0.75rem; font-size: 0.875rem; color: #1976d2; font-style: italic;">* Goalkeepers play these positions when not keeping goal</p>
           </div>
         )}
       </section>

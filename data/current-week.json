@@ -6,8 +6,15 @@
   "training": {
     "date": "2025-09-04",
     "time": "5:00 PM",
+    "status": "completed",
     "focus": "Corner kicks tactics",
-    "special_drill": ""
+    "special_drill": "Defensive positioning practice",
+    "highlights": [
+      "Minh-An D and Travis C demonstrated excellent captain leadership",
+      "Corner kick tactics practiced extensively - attacking and defending",
+      "Defensive positioning drills completed successfully",
+      "Team spacing and support work improved significantly"
+    ]
   },
   "match": {
     "opponent": "PMSC Storm",
@@ -21,8 +28,9 @@
   "captains": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
     "first_half": "Minh-An D",
-    "second_half": "Rafael H",
-    "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half"
+    "second_half": "Travis C",
+    "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half",
+    "training_update": "Both captains showed excellent leadership during yesterday's practice"
   },
   "goalkeepers": {
     "first_half": "Adam K",
@@ -308,7 +316,8 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "White shirts, black shorts, black socks (Away kit)",
-    "coach": "Focus on spacing and supporting teammates"
+    "coach": "Focus on spacing and supporting teammates",
+    "training_recap": "Excellent practice yesterday! Corner kick tactics and defensive positioning work complete. Both captains ready to lead the team."
   },
-  "status": "rehearsal"
+  "status": "pre-match"
 }

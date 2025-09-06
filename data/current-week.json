@@ -1,7 +1,8 @@
 {
   "week": {
     "date_range": "Sept 2-8, 2025",
-    "theme": "Season Second Week - Home Opener Prep"
+    "theme": "Season Second Week - Home Opener Prep",
+    "last_updated": "2025-09-06T18:52:00-07:00"
   },
   "training": {
     "date": "2025-09-10",
@@ -26,7 +27,7 @@
     }
   },
   "match": {
-    "opponent": "PMSC Storm",
+    "opponent": "CMFSC Millwall",
     "date": "2025-09-13",
     "kickoff": "9:30am",
     "location": "Miller Park",

@@ -5,25 +5,16 @@
     "last_updated": "2025-09-06T18:52:00-07:00"
   },
   "training": {
-    "date": "2025-09-10",
-    "time": "5:00 PM",
-    "status": "scheduled",
-    "focus": "Position-specific training",
-    "special_drill": "Match preparation and tactical awareness",
-    "previous_completed": {
+    "date": "2025-09-11",
+    "day": "Thursday",
+    "time": "6:00pm",
+    "location": "Miller Park",
+    "focus": "Position-based drills and small-sided games",
+    "attendance_required": true,
+    "last_session": {
       "date": "2025-09-04",
-      "highlights": [
-        "Minh-An D and Travis C demonstrated excellent captain leadership",
-        "Corner kick tactics practiced extensively - attacking and defending",
-        "Defensive positioning drills completed successfully",
-        "Team spacing and support work improved significantly"
-      ]
-    },
-    "additional_practice": {
-      "scheduled": true,
-      "reason": "Saturday match cancelled due to air quality concerns",
-      "focus": "Position mastery and individual role development",
-      "benefit": "Extra preparation time before home opener on Sept 13"
+      "highlights": ["Captain performances evaluated", "Formation work with 4-3-2-1", "Minh-An and Travis showed excellent leadership"],
+      "attendance": 12
     }
   },
   "match": {

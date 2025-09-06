@@ -18,12 +18,15 @@ if (!entry) {
 }
 
 const { Content } = await entry.render();
+
+// Get the base path from the config
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={`${entry.data.title} - Archive - Queens Park Rangers U11B`}>
   <div class="container">
     <div class="archive-header">
-      <a href="/archive/" class="back-link">← Back to Archive</a>
+      <a href={`${base}archive/`} class="back-link">← Back to Archive</a>
       <div class="archive-badge">ARCHIVED</div>
     </div>
     

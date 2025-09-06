@@ -5,17 +5,30 @@
   "league": "NFYSA",
   "matches": [
     {
-      "week": 1,
+      "week": 0,
       "match_number": "2500544",
+      "date": "2025-09-06",
+      "home_team": "PMSC Storm",
+      "away_team": "CMFSC Queens Park Rangers",
+      "venue": "Away",
+      "kickoff": "11:45am",
+      "field": "Trasolini Turf North",
+      "status": "cancelled",
+      "cancellation_reason": "Air quality concerns due to forest wildfires",
+      "rescheduled_to": "2025-09-13"
+    },
+    {
+      "week": 1,
+      "match_number": "2500560",
       "date": "2025-09-13",
       "home_team": "CMFSC Queens Park Rangers",
       "away_team": "CMFSC Millwall",
       "venue": "Miller Park",
       "kickoff": "9:30am",
-      "field": "Miller Park",
+      "field": "Miller Park North",
       "status": "rescheduled",
       "original_date": "2025-09-06",
-      "reschedule_reason": "Air quality concerns from forest wildfires"
+      "reschedule_reason": "Air quality concerns - original match vs PMSC Storm cancelled"
     },
     {
       "week": 2,
@@ -23,7 +36,7 @@
       "date": "2025-09-20",
       "home_team": "PMSC Storm",
       "away_team": "CMFSC Queens Park Rangers",
-      "venue": "Trasolini Turf North",
+      "venue": "Away",
       "kickoff": "10:00am",
       "field": "Trasolini Turf North",
       "status": "scheduled"
@@ -63,9 +76,10 @@
     }
   ],
   "season_summary": {
-    "total_matches": 5,
+    "total_matches": 6,
     "home_matches": 2,
-    "away_matches": 3,
+    "away_matches": 4,
+    "cancelled_matches": 1,
     "season_start": "2025-09-06",
     "season_end": "TBD"
   }

@@ -1,0 +1,488 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import triviaData from '../../data/trivia-questions.json';
+
+const title = "Soccer Trivia Quiz";
+const description = "Test your football knowledge with our fun quiz!";
+
+// Get the base path from the config
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <div class="quiz-header">
+      <h1>⚽ Soccer Trivia Quiz</h1>
+      <p>Test your football knowledge! Choose a category to start:</p>
+    </div>
+
+    <div class="category-grid">
+      {Object.entries(triviaData.categories).map(([key, category]) => (
+        <div class="category-card" data-category={key}>
+          <h3>{category.name}</h3>
+          <p>{category.questions.length} questions</p>
+          <button class="btn btn-primary start-quiz" data-category={key}>
+            Start Quiz
+          </button>
+        </div>
+      ))}
+    </div>
+
+    <!-- Quiz Container (Hidden initially) -->
+    <div id="quiz-container" class="quiz-container hidden">
+      <div class="quiz-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-text">Question 1 of 4</span>
+      </div>
+
+      <div class="question-card">
+        <h2 id="question-text">Question will appear here</h2>
+        <div class="options-container" id="options-container">
+          <!-- Options will be inserted here -->
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+        <button id="next-btn" class="btn btn-primary hidden">Next Question</button>
+        <button id="finish-btn" class="btn btn-success hidden">Finish Quiz</button>
+      </div>
+    </div>
+
+    <!-- Results Container (Hidden initially) -->
+    <div id="results-container" class="results-container hidden">
+      <div class="results-header">
+        <h2>🎉 Quiz Complete!</h2>
+        <div class="score-display">
+          <span class="score-number" id="final-score">0</span>
+          <span class="score-total">/ <span id="total-questions">0</span></span>
+        </div>
+        <div class="score-percentage" id="score-percentage">0%</div>
+      </div>
+
+      <div class="score-message" id="score-message">
+        <!-- Dynamic message based on score -->
+      </div>
+
+      <div class="quiz-summary" id="quiz-summary">
+        <!-- Summary of answers will appear here -->
+      </div>
+
+      <div class="quiz-actions">
+        <button id="restart-btn" class="btn btn-primary">Try Another Quiz</button>
+        <a href={`${base}roster/`} class="btn btn-secondary">View Team Roster</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .quiz-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .quiz-header h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .category-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+  }
+
+  .category-card h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .category-card p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .quiz-progress {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .progress-bar {
+    background: #e0e0e0;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .progress-fill {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .question-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-2xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .question-card h2 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.4;
+  }
+
+  .options-container {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .option-btn {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .option-btn:hover {
+    background: #e3f2fd;
+    border-color: var(--color-primary);
+    transform: translateX(8px);
+  }
+
+  .option-btn.selected {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .option-btn.correct {
+    background: #4caf50;
+    color: white;
+    border-color: #4caf50;
+  }
+
+  .option-btn.incorrect {
+    background: #f44336;
+    color: white;
+    border-color: #f44336;
+  }
+
+  .option-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .quiz-actions {
+    text-align: center;
+  }
+
+  .results-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .results-header {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .score-display {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: var(--spacing-lg) 0;
+  }
+
+  .score-percentage {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .score-message {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .quiz-summary {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .summary-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .summary-item:last-child {
+    border-bottom: none;
+  }
+
+  .summary-question {
+    flex: 1;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .summary-result {
+    font-size: 1.2rem;
+    margin-left: var(--spacing-md);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .quiz-header h1 {
+      font-size: 2rem;
+    }
+
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .question-card {
+      padding: var(--spacing-lg);
+    }
+
+    .score-display {
+      font-size: 3rem;
+    }
+  }
+</style>
+
+<script define:vars={{ triviaData }}>
+  let currentCategory = null;
+  let currentQuestions = [];
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let answers = [];
+
+  // DOM elements
+  const categoryGrid = document.querySelector('.category-grid');
+  const quizContainer = document.getElementById('quiz-container');
+  const resultsContainer = document.getElementById('results-container');
+  const questionText = document.getElementById('question-text');
+  const optionsContainer = document.getElementById('options-container');
+  const progressFill = document.getElementById('progress-fill');
+  const progressText = document.getElementById('progress-text');
+  const nextBtn = document.getElementById('next-btn');
+  const finishBtn = document.getElementById('finish-btn');
+  const restartBtn = document.getElementById('restart-btn');
+
+  // Start quiz
+  document.querySelectorAll('.start-quiz').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      currentCategory = e.target.dataset.category;
+      currentQuestions = [...triviaData.categories[currentCategory].questions];
+      // Shuffle questions
+      currentQuestions = currentQuestions.sort(() => Math.random() - 0.5);
+      currentQuestionIndex = 0;
+      score = 0;
+      answers = [];
+      
+      categoryGrid.style.display = 'none';
+      quizContainer.classList.remove('hidden');
+      showQuestion();
+    });
+  });
+
+  // Show current question
+  function showQuestion() {
+    const question = currentQuestions[currentQuestionIndex];
+    questionText.textContent = question.question;
+    
+    // Update progress
+    const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+    progressFill.style.width = progress + '%';
+    progressText.textContent = `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
+    
+    // Create options
+    optionsContainer.innerHTML = '';
+    question.options.forEach((option, index) => {
+      const optionBtn = document.createElement('button');
+      optionBtn.className = 'option-btn';
+      optionBtn.textContent = option;
+      optionBtn.dataset.index = index;
+      optionBtn.addEventListener('click', selectOption);
+      optionsContainer.appendChild(optionBtn);
+    });
+    
+    // Hide action buttons
+    nextBtn.classList.add('hidden');
+    finishBtn.classList.add('hidden');
+  }
+
+  // Select option
+  function selectOption(e) {
+    const selectedIndex = parseInt(e.target.dataset.index);
+    const question = currentQuestions[currentQuestionIndex];
+    const isCorrect = selectedIndex === question.correct;
+    
+    // Disable all options
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.classList.add('disabled');
+      btn.removeEventListener('click', selectOption);
+      
+      const btnIndex = parseInt(btn.dataset.index);
+      if (btnIndex === question.correct) {
+        btn.classList.add('correct');
+      } else if (btnIndex === selectedIndex && !isCorrect) {
+        btn.classList.add('incorrect');
+      }
+    });
+    
+    // Record answer
+    answers.push({
+      question: question.question,
+      selectedIndex,
+      correct: question.correct,
+      isCorrect,
+      explanation: question.explanation
+    });
+    
+    if (isCorrect) {
+      score++;
+    }
+    
+    // Show explanation
+    setTimeout(() => {
+      const explanation = document.createElement('div');
+      explanation.className = 'explanation';
+      explanation.style.cssText = 'margin-top: var(--spacing-lg); padding: var(--spacing-md); background: #e3f2fd; border-radius: 8px; color: var(--color-primary); font-weight: 500;';
+      explanation.textContent = question.explanation;
+      optionsContainer.appendChild(explanation);
+      
+      // Show appropriate button
+      if (currentQuestionIndex < currentQuestions.length - 1) {
+        nextBtn.classList.remove('hidden');
+      } else {
+        finishBtn.classList.remove('hidden');
+      }
+    }, 1000);
+  }
+
+  // Next question
+  nextBtn.addEventListener('click', () => {
+    currentQuestionIndex++;
+    showQuestion();
+  });
+
+  // Finish quiz
+  finishBtn.addEventListener('click', showResults);
+
+  // Show results
+  function showResults() {
+    quizContainer.classList.add('hidden');
+    resultsContainer.classList.remove('hidden');
+    
+    const percentage = Math.round((score / currentQuestions.length) * 100);
+    
+    document.getElementById('final-score').textContent = score;
+    document.getElementById('total-questions').textContent = currentQuestions.length;
+    document.getElementById('score-percentage').textContent = percentage + '%';
+    
+    // Score message
+    const messageEl = document.getElementById('score-message');
+    let message = '';
+    if (percentage === 100) {
+      message = '🏆 Perfect! You\'re a football genius!';
+      messageEl.style.background = 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)';
+    } else if (percentage >= 80) {
+      message = '⚽ Excellent! You know your football!';
+      messageEl.style.background = 'linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%)';
+    } else if (percentage >= 60) {
+      message = '👍 Good job! Keep learning!';
+      messageEl.style.background = 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)';
+    } else {
+      message = '📚 Keep practicing! You\'ll get better!';
+      messageEl.style.background = 'linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%)';
+    }
+    messageEl.textContent = message;
+    
+    // Quiz summary
+    const summaryEl = document.getElementById('quiz-summary');
+    summaryEl.innerHTML = '<h3 style="margin-bottom: var(--spacing-lg);">Review Your Answers</h3>';
+    
+    answers.forEach((answer, index) => {
+      const item = document.createElement('div');
+      item.className = 'summary-item';
+      item.innerHTML = `
+        <div class="summary-question">${answer.question}</div>
+        <div class="summary-result">${answer.isCorrect ? '✅' : '❌'}</div>
+      `;
+      summaryEl.appendChild(item);
+    });
+  }
+
+  // Restart quiz
+  restartBtn.addEventListener('click', () => {
+    resultsContainer.classList.add('hidden');
+    categoryGrid.style.display = 'grid';
+  });
+</script>
+</BaseLayout>

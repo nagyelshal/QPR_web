@@ -13,12 +13,15 @@ export async function getStaticPaths() {
 const { match } = Astro.props;
 const title = `Match vs ${match.opponent}`;
 const description = `Detailed match information for QPR U11B vs ${match.opponent}`;
+
+// Get the base path from the config
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="container">
     <div class="match-detail-header">
-      <a href="/matches/" class="back-link">← Back to Matches</a>
+      <a href={`${base}matches/`} class="back-link">← Back to Matches</a>
       <h1>QPR U11B vs {match.opponent}</h1>
       <div class="match-meta">
         <span class="match-date">

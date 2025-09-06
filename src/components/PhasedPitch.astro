@@ -102,14 +102,14 @@ const getSlotPosition = (slot) => {
         )}
 
         {phase !== 'initial' && phase !== 'captains' && (
-          startingPlayers.map((player) => {
-            const pos = getPositionForPlayer(player);
+          getFormationSlots().map((slot) => {
+            const pos = getSlotPosition(slot);
             const isLineupRevealed = phase === 'lineup';
             return (
               <g class="player-position">
                 <circle cx={pos.x} cy={pos.y} r="4" fill={isLineupRevealed ? "#1976d2" : "#9c27b0"} stroke="#ffffff" stroke-width="1" />
                 <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
-                  {player.name.split(' ')[0]}
+                  {slot.pos}
                 </text>
               </g>
             );
@@ -267,7 +267,7 @@ const getSlotPosition = (slot) => {
 
   .soccer-pitch {
     width: 100%;
-    max-width: 300px;
+    max-width: 450px;
     height: auto;
     margin: 0 auto;
     display: block;

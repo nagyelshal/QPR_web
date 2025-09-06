@@ -101,15 +101,15 @@ const getSlotPosition = (slot) => {
           })
         )}
 
-        {phase !== 'captains' && (
+        {phase !== 'initial' && phase !== 'captains' && (
           startingPlayers.map((player) => {
             const pos = getPositionForPlayer(player);
-            const isRevealed = phase === 'lineup';
+            const isLineupRevealed = phase === 'lineup';
             return (
               <g class="player-position">
-                <circle cx={pos.x} cy={pos.y} r="4" fill={isRevealed ? "#1976d2" : "#cccccc"} stroke="#ffffff" stroke-width="1" />
+                <circle cx={pos.x} cy={pos.y} r="4" fill={isLineupRevealed ? "#1976d2" : "#9c27b0"} stroke="#ffffff" stroke-width="1" />
                 <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
-                  {isRevealed ? player.name.split(' ')[0] : player.pos}
+                  {player.name.split(' ')[0]}
                 </text>
               </g>
             );

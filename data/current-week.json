@@ -1,7 +1,7 @@
 {
   "week": {
     "date_range": "Sept 2-8, 2025",
-    "theme": "Season Opener Week"
+    "theme": "Season Prep Week - Extra Training"
   },
   "training": {
     "date": "2025-09-04",
@@ -14,16 +14,24 @@
       "Corner kick tactics practiced extensively - attacking and defending",
       "Defensive positioning drills completed successfully",
       "Team spacing and support work improved significantly"
-    ]
+    ],
+    "additional_practice": {
+      "scheduled": true,
+      "reason": "Saturday match cancelled due to air quality concerns",
+      "focus": "Position-specific training and match preparation",
+      "benefit": "Extra preparation time before rescheduled home opener"
+    }
   },
   "match": {
     "opponent": "PMSC Storm",
-    "date": "2025-09-06",
+    "date": "2025-09-13",
     "kickoff": "11:45am",
-    "location": "Trasolini Turf North",
+    "location": "Miller Park (Home)",
     "formation": "3-3-1",
     "match_number": "2500544",
-    "week": 1
+    "week": 1,
+    "status": "rescheduled",
+    "reason": "Original Sept 6 match cancelled due to air quality concerns from forest wildfires"
   },
   "captains": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
@@ -315,9 +323,10 @@
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
-    "kit": "White shirts, black shorts, black socks (Away kit)",
+    "kit": "Blue shirts, black shorts, blue socks (Home kit)",
     "coach": "Focus on spacing and supporting teammates",
-    "training_recap": "Excellent practice yesterday! Corner kick tactics and defensive positioning work complete. Both captains ready to lead the team."
+    "training_recap": "Excellent practice completed! Match rescheduled to Sept 13 at Miller Park (home) due to air quality concerns. Additional practice time will focus on positions.",
+    "match_update": "Original Sept 6 away match cancelled due to wildfire air quality. Rescheduled as home match at Miller Park on Sept 13."
   },
-  "status": "pre-match"
+  "status": "match-rescheduled"
 }

@@ -187,7 +187,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
           </div>
         </div>
         <div class="match-details">
-          <p><strong>{matchLabel}</strong></p>
+          <p><strong><span id="match-label-long">{matchLabel}</span></strong></p>
           <p>Kickoff: {weekData.match.kickoff}</p>
           <div class="location-info">
             <span class="venue-badge {homeAwayText.toLowerCase()}">
@@ -1123,10 +1123,12 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     const trainingLabelShort = document.getElementById('training-label-short');
     const trainingLabelLong = document.getElementById('training-label-long');
     const matchLabelShort = document.getElementById('match-label-short');
+    const matchLabelLong = document.getElementById('match-label-long');
     
     if (trainingLabelShort) trainingLabelShort.textContent = trainingLabel;
     if (trainingLabelLong) trainingLabelLong.textContent = trainingLabel;
     if (matchLabelShort) matchLabelShort.textContent = matchLabel;
+    if (matchLabelLong) matchLabelLong.textContent = matchLabel;
     
     function formatTimeUntil(target) {
       const diff = target.getTime() - now.getTime();

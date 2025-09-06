@@ -75,10 +75,13 @@ if (timeMatch) {
 }
 const timeUntilKickoff = getTimeUntil(matchDateTime);
 
-// Determine if it's a home or away match using season schedule
+// Determine if it's a home or away match
 const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === weekData.match.match_number);
 let isHome = false;
-if (scheduleMatch) {
+if (weekData.match.venue_type) {
+  // Use explicit venue_type if provided (for rescheduled matches)
+  isHome = weekData.match.venue_type === 'home';
+} else if (scheduleMatch) {
   isHome = scheduleMatch.home_team.includes('Queens Park Rangers') || scheduleMatch.home_team.includes('QPR');
 } else {
   // Fallback logic

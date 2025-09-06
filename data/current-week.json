@@ -1,32 +1,36 @@
 {
   "week": {
     "date_range": "Sept 2-8, 2025",
-    "theme": "Season Prep Week - Extra Training"
+    "theme": "Season Second Week - Home Opener Prep"
   },
   "training": {
-    "date": "2025-09-04",
+    "date": "2025-09-10",
     "time": "5:00 PM",
-    "status": "completed",
-    "focus": "Corner kicks tactics",
-    "special_drill": "Defensive positioning practice",
-    "highlights": [
-      "Minh-An D and Travis C demonstrated excellent captain leadership",
-      "Corner kick tactics practiced extensively - attacking and defending",
-      "Defensive positioning drills completed successfully",
-      "Team spacing and support work improved significantly"
-    ],
+    "status": "scheduled",
+    "focus": "Position-specific training",
+    "special_drill": "Match preparation and tactical awareness",
+    "previous_completed": {
+      "date": "2025-09-04",
+      "highlights": [
+        "Minh-An D and Travis C demonstrated excellent captain leadership",
+        "Corner kick tactics practiced extensively - attacking and defending",
+        "Defensive positioning drills completed successfully",
+        "Team spacing and support work improved significantly"
+      ]
+    },
     "additional_practice": {
       "scheduled": true,
       "reason": "Saturday match cancelled due to air quality concerns",
-      "focus": "Position-specific training and match preparation",
-      "benefit": "Extra preparation time before rescheduled home opener"
+      "focus": "Position mastery and individual role development",
+      "benefit": "Extra preparation time before home opener on Sept 13"
     }
   },
   "match": {
     "opponent": "PMSC Storm",
     "date": "2025-09-13",
-    "kickoff": "11:45am",
-    "location": "Miller Park (Home)",
+    "kickoff": "9:30am",
+    "location": "Miller Park",
+    "venue_type": "home",
     "formation": "3-3-1",
     "match_number": "2500544",
     "week": 1,
@@ -324,9 +328,10 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "Blue shirts, black shorts, blue socks (Home kit)",
-    "coach": "Focus on spacing and supporting teammates",
-    "training_recap": "Excellent practice completed! Match rescheduled to Sept 13 at Miller Park (home) due to air quality concerns. Additional practice time will focus on positions.",
-    "match_update": "Original Sept 6 away match cancelled due to wildfire air quality. Rescheduled as home match at Miller Park on Sept 13."
+    "coach": "Focus on individual positions and tactical awareness",
+    "training_recap": "Excellent Sept 4 practice completed! Upcoming training will focus on position-specific skills for home opener.",
+    "match_update": "Original Sept 6 away match cancelled due to wildfire air quality. Rescheduled as home match at Miller Park on Sept 13 at 9:30am.",
+    "this_week": "Additional practice time available - focus on position mastery and match preparation"
   },
   "status": "match-rescheduled"
 }

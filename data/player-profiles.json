@@ -276,8 +276,9 @@
       "jersey": "3",
       "photo": "/images/players/travis-c.jpg",
       "basic_info": {
-        "favorite_position": "Center Back",
-        "favorite_player": "Virgil van Dijk",
+        "favorite_position": "Winger",
+        "favorite_player": "Lamine Yamal",
+        "favorite_team": "Barcelona",
         "fun_fact": "Reads soccer tactics books!"
       },
       "season_stats": {

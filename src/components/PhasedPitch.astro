@@ -188,12 +188,7 @@ const getSlotPosition = (slot) => {
         )}
       </svg>
 
-      {phase === 'captains' && (
-        <div class="reveal-panel">
-          <div><strong>Captains:</strong> 1st — {captains.first_half} • 2nd — {captains.second_half}</div>
-          <div><strong>Goalkeepers:</strong> 1st — {goalkeepers.first_half} (in goal) • 2nd — {goalkeepers.second_half} (field)</div>
-        </div>
-      )}
+      {/* Captain info now displayed below in the right panel for better visual hierarchy */}
 
       {/* Player Details Popup */}
       <div id="playerPopup" class="player-popup" style="display: none;">

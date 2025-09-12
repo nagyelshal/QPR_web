@@ -11,21 +11,21 @@ interface Props {
 
 const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, goalkeepers, phase } = Astro.props;
 
-// Position mapping for 3-3-1 formation
+// Position mapping for 3-3-1 formation (adjusted for better visual spacing)
 const positionMap = {
   'GK': { x: 50, y: 85 },
   'CB': { x: 50, y: 65 }, // We'll adjust for 3 CBs
-  'LM': { x: 25, y: 45 },
-  'CM': { x: 50, y: 45 },
-  'RM': { x: 75, y: 45 },
-  'ST': { x: 50, y: 25 }
+  'LM': { x: 20, y: 40 },
+  'CM': { x: 50, y: 40 },
+  'RM': { x: 80, y: 40 },
+  'ST': { x: 50, y: 20 }
 };
 
-// Helper: slot coordinates for 3-3-1 formation
+// Helper: slot coordinates for 3-3-1 formation (improved spacing)
 const cbPositions = [
-  { x: 30, y: 65 }, // LCB
-  { x: 50, y: 65 }, // CCB
-  { x: 70, y: 65 }  // RCB
+  { x: 25, y: 65 }, // LB
+  { x: 50, y: 65 }, // CB  
+  { x: 75, y: 65 }  // RB
 ];
 
 const getPositionForPlayer = (player) => {
@@ -68,23 +68,50 @@ const getSlotPosition = (slot) => {
     <div class="formation-side">
       <h4>Formation Positions</h4>
   <svg viewBox="0 0 100 100" class="soccer-pitch" aria-label="Soccer field formation">
-        <!-- Field background -->
-        <rect x="5" y="5" width="90" height="90" fill="#4caf50" stroke="#ffffff" stroke-width="0.5" rx="2"/>
+        <!-- Field background with gradient -->
+        <defs>
+          <radialGradient id="fieldGradient" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#4caf50;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#388e3c;stop-opacity:1" />
+          </radialGradient>
+          <filter id="fieldShadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+          </filter>
+          <pattern id="grass" patternUnits="userSpaceOnUse" width="4" height="4">
+            <rect width="4" height="4" fill="#4caf50"/>
+            <rect width="2" height="4" fill="#66bb6a" opacity="0.3"/>
+          </pattern>
+        </defs>
         
+        <!-- Main field -->
+        <rect x="3" y="3" width="94" height="94" fill="url(#fieldGradient)" stroke="#ffffff" stroke-width="0.8" rx="3" filter="url(#fieldShadow)"/>
+        
+        <!-- Field lines -->
         <!-- Center circle -->
-        <circle cx="50" cy="50" r="8" fill="none" stroke="#ffffff" stroke-width="0.5"/>
-        <circle cx="50" cy="50" r="1" fill="#ffffff"/>
+        <circle cx="50" cy="50" r="10" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9"/>
+        <circle cx="50" cy="50" r="1.5" fill="#ffffff" opacity="0.9"/>
         
-        <!-- Penalty boxes -->
-        <rect x="5" y="75" width="90" height="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
-        <rect x="5" y="5" width="90" height="20" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        <!-- Penalty boxes (larger and more realistic) -->
+        <rect x="3" y="75" width="94" height="22" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9"/>
+        <rect x="3" y="3" width="94" height="22" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9"/>
         
         <!-- Goal boxes -->
-        <rect x="35" y="85" width="30" height="10" fill="none" stroke="#ffffff" stroke-width="0.5"/>
-        <rect x="35" y="5" width="30" height="10" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+        <rect x="33" y="85" width="34" height="12" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9"/>
+        <rect x="33" y="3" width="34" height="12" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.9"/>
+        
+        <!-- Goals -->
+        <rect x="43" y="95" width="14" height="5" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.8"/>
+        <rect x="43" y="0" width="14" height="5" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.8"/>
         
         <!-- Center line -->
-        <line x1="5" y1="50" x2="95" y2="50" stroke="#ffffff" stroke-width="0.5"/>
+        <line x1="3" y1="50" x2="97" y2="50" stroke="#ffffff" stroke-width="0.8" opacity="0.9"/>
+        
+        <!-- Corner arcs -->
+        <path d="M 3 3 A 3 3 0 0 1 6 3 A 3 3 0 0 1 3 6" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.7"/>
+        <path d="M 97 3 A 3 3 0 0 0 94 3 A 3 3 0 0 0 97 6" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.7"/>
+        <path d="M 3 97 A 3 3 0 0 0 6 97 A 3 3 0 0 0 3 94" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.7"/>
+        <path d="M 97 97 A 3 3 0 0 1 94 97 A 3 3 0 0 1 97 94" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.7"/>
 
         <!-- Position slots and players based on phase -->
         {phase === 'captains' && (
@@ -92,8 +119,9 @@ const getSlotPosition = (slot) => {
             const pos = getSlotPosition(slot);
             return (
               <g class="player-position">
-                <circle cx={pos.x} cy={pos.y} r="4" fill="#cccccc" stroke="#ffffff" stroke-width="1" />
-                <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
+                <circle cx={pos.x} cy={pos.y} r="5.5" fill="#e0e0e0" stroke="#ffffff" stroke-width="1.2" />
+                <circle cx={pos.x} cy={pos.y} r="4.5" fill="#f5f5f5" stroke="#bdbdbd" stroke-width="0.8" />
+                <text x={pos.x} y={pos.y + 1.2} text-anchor="middle" fill="#424242" font-size="2.4" font-weight="bold">
                   {slot.pos}
                 </text>
               </g>
@@ -101,15 +129,33 @@ const getSlotPosition = (slot) => {
           })
         )}
 
-        {phase !== 'initial' && phase !== 'captains' && (
-          getFormationSlots().map((slot) => {
-            const pos = getSlotPosition(slot);
-            const isLineupRevealed = phase === 'lineup';
+        {phase === 'lineup' && (
+          startingPlayers.map((player) => {
+            const pos = getPositionForPlayer(player);
+            const isCaptain = player.name === captains.first_half || player.name === captains.second_half;
+            const isGK = player.pos === 'GK';
             return (
-              <g class="player-position">
-                <circle cx={pos.x} cy={pos.y} r="4" fill={isLineupRevealed ? "#1976d2" : "#9c27b0"} stroke="#ffffff" stroke-width="1" />
-                <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
-                  {slot.pos}
+              <g class="player-position lineup-revealed">
+                {/* Player circle with position-based colors */}
+                <circle cx={pos.x} cy={pos.y} r="6" fill={isGK ? "#ff5722" : "#1976d2"} stroke="#ffffff" stroke-width="1.5" />
+                <circle cx={pos.x} cy={pos.y} r="4.8" fill={isGK ? "#ff7043" : "#1e88e5"} stroke="#ffffff" stroke-width="0.5" />
+                
+                {/* Captain armband */}
+                {isCaptain && (
+                  <rect x={pos.x - 2.5} y={pos.y - 6.5} width="5" height="2" fill="#ffd700" stroke="#ff8f00" stroke-width="0.3" rx="0.3"/>
+                )}
+                
+                {/* Jersey number */}
+                <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2.2" font-weight="bold">
+                  #{player.jersey}
+                </text>
+                
+                {/* Player name below */}
+                <text x={pos.x} y={pos.y + 9} text-anchor="middle" fill="#1565c0" font-size="1.8" font-weight="600" class="player-name-text">
+                  {player.name.split(' ')[0]}
+                </text>
+                <text x={pos.x} y={pos.y + 11} text-anchor="middle" fill="#757575" font-size="1.4" font-weight="500" class="player-pos-text">
+                  {player.pos}
                 </text>
               </g>
             );
@@ -248,12 +294,15 @@ const getSlotPosition = (slot) => {
   .phased-pitch-container {
     width: 100%;
     margin: var(--spacing-lg) 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .pitch-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-xl);
     align-items: start;
   }
 
@@ -263,25 +312,58 @@ const getSlotPosition = (slot) => {
     margin-bottom: var(--spacing-md);
     color: var(--color-primary);
     font-weight: 600;
+    font-size: 1.1rem;
   }
 
   .soccer-pitch {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     height: auto;
     margin: 0 auto;
     display: block;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .soccer-pitch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  }
+
+  .player-name-text {
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+  }
+
+  .player-pos-text {
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+  }
+
+  .lineup-revealed {
+    animation: playerAppear 0.6s ease-out;
+  }
+
+  @keyframes playerAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .reveal-panel {
     margin-top: var(--spacing-md);
-    font-size: 0.9rem;
-    background: rgba(25,118,210,0.08);
-    border: 1px solid rgba(25,118,210,0.2);
-    border-radius: 8px;
-    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.95rem;
+    background: linear-gradient(135deg, rgba(25,118,210,0.08) 0%, rgba(25,118,210,0.12) 100%);
+    border: 2px solid rgba(25,118,210,0.2);
+    border-radius: 12px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(25,118,210,0.1);
   }
 
   .player-showcase {
@@ -506,22 +588,93 @@ const getSlotPosition = (slot) => {
   @media (max-width: 768px) {
     .pitch-section {
       grid-template-columns: 1fr;
-      gap: var(--spacing-md);
+      gap: var(--spacing-lg);
+    }
+    
+    .soccer-pitch {
+      max-width: 100%;
+      margin-bottom: var(--spacing-md);
     }
     
     .players-grid,
     .available-grid,
     .rotating-grid {
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: var(--spacing-xs);
     }
     
     .leadership-panel {
       grid-template-columns: 1fr;
+      gap: var(--spacing-sm);
+    }
+    
+    .squad-stats {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: var(--spacing-sm);
+    }
+    
+    .stat-number {
+      font-size: 1.5rem;
+    }
+    
+    .player-card {
+      padding: var(--spacing-xs);
+      gap: var(--spacing-xs);
+    }
+    
+    .player-avatar {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .player-initial {
+      font-size: 0.8rem;
+    }
+    
+    .player-name {
+      font-size: 0.85rem;
+    }
+    
+    .player-jersey {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .phased-pitch-container {
+      margin: var(--spacing-md) 0;
+    }
+    
+    .pitch-section {
+      gap: var(--spacing-md);
+    }
+    
+    .formation-side h4,
+    .player-pool-side h4 {
+      font-size: 1rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .player-showcase {
+      padding: var(--spacing-md);
+    }
+    
+    .players-grid,
+    .available-grid,
+    .rotating-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
     
     .squad-stats {
       flex-direction: column;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-xs);
+      text-align: center;
+    }
+    
+    .reveal-panel {
+      padding: var(--spacing-sm);
+      font-size: 0.85rem;
     }
   }
 
@@ -530,8 +683,36 @@ const getSlotPosition = (slot) => {
       animation: none;
     }
     
-    .player-card:hover {
+    .player-card:hover,
+    .soccer-pitch:hover {
       transform: none;
+    }
+    
+    .lineup-revealed {
+      animation: none;
+    }
+  }
+
+  /* Enhanced accessibility */
+  @media (prefers-contrast: high) {
+    .soccer-pitch {
+      filter: contrast(1.2);
+    }
+    
+    .player-card {
+      border-width: 2px;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .soccer-pitch {
+      break-inside: avoid;
+      box-shadow: none;
+    }
+    
+    .phased-pitch-container {
+      page-break-inside: avoid;
     }
   }
 </style>

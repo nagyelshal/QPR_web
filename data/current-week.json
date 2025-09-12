@@ -8,7 +8,7 @@
     "date": "2025-09-11",
     "day": "Thursday",
     "time": "6:00pm",
-    "location": "Miller Park",
+    "location": "Town Centre Park - Mobilio Field",
     "focus": "Attack and defense positioning",
     "attendance_required": true,
     "completed": true,
@@ -34,13 +34,13 @@
   "reveal_at": "2025-09-03T00:00:00-07:00",
     "first_half": "Minh-An D",
     "second_half": "Travis C",
-    "duties": "Lead warm-ups • Take set pieces • Guide positions • One captain per half",
+    "duties": "Lead warm-ups • Take set pieces • Guide positions • Travis C (1st half captain), Minh-An D (2nd half captain)",
     "training_update": "Both captains showed excellent leadership during yesterday's practice"
   },
   "goalkeepers": {
     "first_half": "Adam K",
     "second_half": "Owen H",
-    "duties": "One GK in goal, one GK plays field • Switch at half-time"
+    "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time"
   },
   "positions": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
@@ -171,7 +171,7 @@
     "instructions": "When you're off the pitch, stand in your zone by the colored cones. Keep shin guards on, water ready, and listen for your name. Adam/Owen: stand with GK zone when about to play GK; otherwise join Defence."
   },
   "lineup": {
-    "reveal_at": "2025-09-12T08:00:00-07:00",
+    "reveal_at": "2025-09-12T16:00:00-07:00",
     "all_players": [
       {
         "name": "Adam K",
@@ -236,18 +236,8 @@
     ],
     "starting": [
       {
-        "name": "Minh-An D",
-        "pos": "CB",
-        "jersey": "2"
-      },
-      {
-        "name": "Adam K",
-        "pos": "GK",
-        "jersey": "13"
-      },
-      {
         "name": "Owen H",
-        "pos": "RB",
+        "pos": "GK",
         "jersey": "9"
       },
       {
@@ -256,50 +246,60 @@
         "jersey": "3"
       },
       {
-        "name": "Niko D",
-        "pos": "LM",
-        "jersey": "6"
+        "name": "Andrew N",
+        "pos": "CB",
+        "jersey": "5"
       },
       {
         "name": "Alexander V",
-        "pos": "CM",
+        "pos": "RB",
         "jersey": "8"
       },
       {
+        "name": "Henry K",
+        "pos": "LM",
+        "jersey": "11"
+      },
+      {
         "name": "Andy E",
-        "pos": "RM",
+        "pos": "CM",
         "jersey": "4"
       },
       {
-        "name": "Ethan G",
+        "name": "Yejun K",
+        "pos": "RM",
+        "jersey": "7"
+      },
+      {
+        "name": "Rafael H",
         "pos": "ST",
-        "jersey": "15"
+        "jersey": "12"
       }
     ],
     "rotating": [
       {
-        "name": "Rafael H",
-        "jersey": "12"
+        "name": "Minh-An D",
+        "jersey": "2"
       },
       {
-        "name": "Andrew N",
-        "jersey": "5"
-      },
-      {
-        "name": "David C",
-        "jersey": "14"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11"
+        "name": "Adam K",
+        "jersey": "13"
       },
       {
         "name": "Rhodri W",
         "jersey": "10"
       },
       {
-        "name": "Yejun K",
-        "jersey": "7"
+        "name": "David C",
+        "jersey": "14"
+      },
+      {
+        "name": "Niko D",
+        "jersey": "6"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "15"
       },
       {
         "name": "Eunjun K",

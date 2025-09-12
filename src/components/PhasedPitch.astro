@@ -324,6 +324,27 @@ const getSlotPosition = (slot) => {
             <div class="rotation-note">
               <p>Rotating players will sub in throughout the match</p>
             </div>
+
+            {/* Captain and GK info for lineup phase */}
+            <div class="captains-lineup-info">
+              <div class="leadership-panel-compact">
+                <div class="leader-card-compact captain">
+                  <div class="leader-icon">🏅</div>
+                  <div class="leader-info-compact">
+                    <h5>Match Captains</h5>
+                    <p><strong>1st Half:</strong> {captains.first_half}<br><strong>2nd Half:</strong> {captains.second_half}</p>
+                  </div>
+                </div>
+                
+                <div class="leader-card-compact goalkeeper">
+                  <div class="leader-icon">🥅</div>
+                  <div class="leader-info-compact">
+                    <h5>Goalkeeper Rotation</h5>
+                    <p><strong>1st Half:</strong> {goalkeepers.first_half} (goal)<br><strong>2nd Half:</strong> {goalkeepers.second_half} (goal)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -755,6 +776,53 @@ const getSlotPosition = (slot) => {
     border-radius: 6px;
     font-size: 0.85rem;
     color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Compact captain info for lineup phase */
+  .captains-lineup-info {
+    margin-top: var(--spacing-lg);
+  }
+
+  .leadership-panel-compact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .leader-card-compact {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 10px;
+    border: 2px solid;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+  }
+
+  .leader-card-compact.captain {
+    border-color: #ff9800;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.9) 0%, rgba(255, 236, 179, 0.9) 100%);
+  }
+
+  .leader-card-compact.goalkeeper {
+    border-color: #1976d2;
+    background: linear-gradient(135deg, rgba(227, 242, 253, 0.9) 0%, rgba(187, 222, 251, 0.9) 100%);
+  }
+
+  .leader-info-compact h5 {
+    margin: 0 0 4px 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .leader-info-compact p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+    line-height: 1.3;
   }
 
   @keyframes spin {
@@ -782,6 +850,10 @@ const getSlotPosition = (slot) => {
     
     .leadership-panel {
       grid-template-columns: 1fr;
+      gap: var(--spacing-sm);
+    }
+
+    .leadership-panel-compact {
       gap: var(--spacing-sm);
     }
     

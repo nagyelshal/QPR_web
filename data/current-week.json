@@ -279,31 +279,38 @@
     "rotating": [
       {
         "name": "Minh-An D",
-        "jersey": "2"
+        "jersey": "2",
+        "pos": "CB"
       },
       {
         "name": "Rafael H",
-        "jersey": "12"
+        "jersey": "12",
+        "pos": "ST"
       },
       {
         "name": "Andrew N",
-        "jersey": "5"
+        "jersey": "5",
+        "pos": "CB"
       },
       {
         "name": "David C",
-        "jersey": "14"
+        "jersey": "14",
+        "pos": "CM"
       },
       {
         "name": "Henry K",
-        "jersey": "11"
+        "jersey": "11",
+        "pos": "LM"
       },
       {
         "name": "Yejun K",
-        "jersey": "7"
+        "jersey": "7",
+        "pos": "RM"
       },
       {
         "name": "Eunjun K",
-        "jersey": "16"
+        "jersey": "16",
+        "pos": "ST"
       }
     ]
   },

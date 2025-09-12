@@ -203,7 +203,8 @@ const homeAwayText = isHome ? 'Home' : 'Away';
       </div>
     </section>
 
-    <!-- Captains Section -->
+    <!-- Captains Section - Only show when lineup not revealed -->
+    {!lineupRevealed && (
     <section class="section">
       <h2 class="section-title">🏅 Captains of the Week</h2>
       
@@ -251,6 +252,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
         </div>
       )}
     </section>
+    )}
 
     <!-- Starting Lineup -->
     <section class="section" id="lineup">

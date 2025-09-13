@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QPR U11 vs CMFSC Millwall - Game Day Sheet</title>
+    <style>
+        @media print {
+            body { margin: 0.5in; }
+            .no-print { display: none; }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.4;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1a472a;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .team-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #1a472a;
+        }
+        
+        .match-subtitle {
+            font-size: 16px;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border: 2px solid #1a472a;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        
+        .game-info div {
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .game-detail {
+            font-size: 16px;
+            color: #1a472a;
+        }
+        
+        .formation-section {
+            background: #f5f5f5;
+            border: 2px solid #1a472a;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .formation-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+            background: #1a472a;
+            color: white;
+            padding: 8px;
+            margin: -20px -20px 20px -20px;
+        }
+        
+        .pitch {
+            position: relative;
+            height: 350px;
+            background: linear-gradient(90deg, #90EE90 0%, #98FB98 100%);
+            border: 3px solid #1a472a;
+            margin: 0 auto;
+            width: 450px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .pitch::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: white;
+            transform: translateY(-50%);
+        }
+        
+        .position-box {
+            position: absolute;
+            background: white;
+            border: 2px solid #1a472a;
+            width: 90px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .position-label {
+            font-size: 10px;
+            color: #1a472a;
+            font-weight: bold;
+        }
+        
+        .player-name {
+            font-size: 11px;
+            color: #333;
+            margin-top: 2px;
+        }
+        
+        /* 3-3-1 Formation Positions (7v7) */
+        .gk { bottom: 15px; left: 50%; transform: translateX(-50%); background: #ffeb3b; }
+        .lb { bottom: 90px; left: 30px; }
+        .cb { bottom: 90px; left: 50%; transform: translateX(-50%); }
+        .rb { bottom: 90px; right: 30px; }
+        .lw { bottom: 180px; left: 50px; }
+        .cm { bottom: 180px; left: 50%; transform: translateX(-50%); }
+        .rw { bottom: 180px; right: 50px; }
+        .st { bottom: 270px; left: 50%; transform: translateX(-50%); background: #ffcdd2; }
+        
+        .captain-indicator {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffd700;
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #1a472a;
+        }
+        
+        .rotation-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            background: #1a472a;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        
+        .rotation-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #1a472a;
+        }
+        
+        .rotation-table th {
+            background: #2e5d3e;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #1a472a;
+            font-size: 12px;
+        }
+        
+        .rotation-table td {
+            border: 1px solid #1a472a;
+            height: 35px;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+            font-size: 11px;
+        }
+        
+        .time-cell {
+            background: #f0f0f0;
+            font-weight: bold;
+            width: 60px;
+        }
+        
+        .notes-cell {
+            width: 120px;
+        }
+        
+        .bench-section {
+            background: #fff8dc;
+            border: 2px solid #1a472a;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .bench-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #1a472a;
+        }
+        
+        .bench-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .bench-player {
+            border: 1px solid #1a472a;
+            padding: 8px;
+            background: white;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .tracker-section {
+            margin-top: 20px;
+        }
+        
+        .tracker-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #1a472a;
+        }
+        
+        .tracker-table th {
+            background: #2e5d3e;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #1a472a;
+        }
+        
+        .tracker-table td {
+            border: 1px solid #1a472a;
+            height: 30px;
+            padding: 4px;
+            vertical-align: middle;
+            font-size: 11px;
+        }
+        
+        .player-name-cell {
+            width: 25%;
+            font-weight: bold;
+        }
+        
+        .played-cell {
+            width: 15%;
+            text-align: center;
+        }
+        
+        .position-cell {
+            width: 15%;
+            text-align: center;
+        }
+        
+        .notes-tracker-cell {
+            width: 45%;
+        }
+        
+        .captain-info {
+            background: #e8f5e8;
+            border: 2px solid #1a472a;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+        
+        .captain-info strong {
+            color: #1a472a;
+        }
+        
+        .kit-info {
+            background: #f0f8ff;
+            border: 2px solid #1a472a;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #1a472a;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="team-name">QPR U11 METRO-FORD - GAME DAY SHEET</div>
+        <div class="match-subtitle">HOME OPENER vs CMFSC Millwall</div>
+    </div>
+
+    <div class="game-info">
+        <div>
+            <div>OPPONENT</div>
+            <div class="game-detail">CMFSC Millwall</div>
+        </div>
+        <div>
+            <div>DATE</div>
+            <div class="game-detail">Sept 13, 2025</div>
+        </div>
+        <div>
+            <div>KICKOFF</div>
+            <div class="game-detail">9:30 AM</div>
+        </div>
+        <div>
+            <div>VENUE</div>
+            <div class="game-detail">Miller Park</div>
+        </div>
+    </div>
+
+    <div class="kit-info">
+        KIT: White Shirts • Black Shorts • White Socks (Away Kit - Metro-Ford Club Rule)
+    </div>
+
+    <div class="captain-info">
+        <strong>CAPTAINS:</strong> 1st Half - Travis C (duties: lead warm-ups, set pieces, guide positions) | 2nd Half - Minh-An D<br>
+        <strong>GOALKEEPERS:</strong> 1st Half - Adam K | 2nd Half - Owen H
+    </div>
+
+    <div class="formation-section">
+        <div class="formation-title">STARTING FORMATION - 3-3-1 (7v7)</div>
+        <div class="pitch">
+            <div class="position-box st">
+                <div class="captain-indicator">C</div>
+                <div class="position-label">ST</div>
+                <div class="player-name">Ethan G #15</div>
+            </div>
+            <div class="position-box lw">
+                <div class="position-label">LW</div>
+                <div class="player-name">Niko D #6</div>
+            </div>
+            <div class="position-box cm">
+                <div class="captain-indicator">C</div>
+                <div class="position-label">CM</div>
+                <div class="player-name">Alexander V #8</div>
+            </div>
+            <div class="position-box rw">
+                <div class="position-label">RW</div>
+                <div class="player-name">Andy E #4</div>
+            </div>
+            <div class="position-box lb">
+                <div class="captain-indicator">C</div>
+                <div class="position-label">LB</div>
+                <div class="player-name">Travis C #3</div>
+            </div>
+            <div class="position-box cb">
+                <div class="position-label">CB</div>
+                <div class="player-name">Rhodri W #10</div>
+            </div>
+            <div class="position-box rb">
+                <div class="position-label">RB</div>
+                <div class="player-name">Owen H #9</div>
+            </div>
+            <div class="position-box gk">
+                <div class="position-label">GK</div>
+                <div class="player-name">Adam K #13</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rotation-section">
+        <div class="section-title">ROTATION PLAN (10-minute intervals)</div>
+        <table class="rotation-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>GK</th>
+                    <th>LB</th>
+                    <th>CB</th>
+                    <th>RB</th>
+                    <th>LW</th>
+                    <th>CM</th>
+                    <th>RW</th>
+                    <th>ST</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-cell">0-10</td>
+                    <td>Adam K</td>
+                    <td>Travis C</td>
+                    <td>Rhodri W</td>
+                    <td>Owen H</td>
+                    <td>Niko D</td>
+                    <td>Alexander V</td>
+                    <td>Andy E</td>
+                    <td>Ethan G</td>
+                    <td class="notes-cell">Starting XI</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10-20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="notes-cell"></td>
+                </tr>
+                <tr>
+                    <td class="time-cell">20-30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="notes-cell">1st Half Captain: Travis C</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">30-40</td>
+                    <td>Owen H</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="notes-cell">2nd Half - GK Switch</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">40-50</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="notes-cell">2nd Half Captain: Minh-An D</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">50-60</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="notes-cell"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bench-section">
+        <div class="bench-title">ROTATING SQUAD PLAYERS</div>
+        <div class="bench-grid">
+            <div class="bench-player">Minh-An D #2<br><small>CB</small></div>
+            <div class="bench-player">Rafael H #12<br><small>CM</small></div>
+            <div class="bench-player">Andrew N #5<br><small>RB</small></div>
+            <div class="bench-player">David C #14<br><small>ST</small></div>
+            <div class="bench-player">Henry K #11<br><small>LW</small></div>
+            <div class="bench-player">Yejun K #7<br><small>RW</small></div>
+            <div class="bench-player">Eunjun K #16<br><small>ST</small></div>
+            <div class="bench-player">___________<br><small>___</small></div>
+        </div>
+    </div>
+
+    <div class="tracker-section">
+        <div class="section-title">PARTICIPATION TRACKER (All 15 Players)</div>
+        <table class="tracker-table">
+            <thead>
+                <tr>
+                    <th>Player Name & Jersey</th>
+                    <th>Minutes</th>
+                    <th>Position(s)</th>
+                    <th>Performance Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="player-name-cell">Adam K #13</td><td class="played-cell">___/60</td><td class="position-cell">GK</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Alexander V #8</td><td class="played-cell">___/60</td><td class="position-cell">CM</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Andy E #4</td><td class="played-cell">___/60</td><td class="position-cell">RW</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Andrew N #5</td><td class="played-cell">___/60</td><td class="position-cell">RB</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">David C #14</td><td class="played-cell">___/60</td><td class="position-cell">ST</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Ethan G #15</td><td class="played-cell">___/60</td><td class="position-cell">ST</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Henry K #11</td><td class="played-cell">___/60</td><td class="position-cell">LW</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Minh-An D #2</td><td class="played-cell">___/60</td><td class="position-cell">CB</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Niko D #6</td><td class="played-cell">___/60</td><td class="position-cell">LW</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Owen H #9</td><td class="played-cell">___/60</td><td class="position-cell">RB/GK</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Rafael H #12</td><td class="played-cell">___/60</td><td class="position-cell">CM</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Rhodri W #10</td><td class="played-cell">___/60</td><td class="position-cell">CB</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Travis C #3</td><td class="played-cell">___/60</td><td class="position-cell">LB</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Yejun K #7</td><td class="played-cell">___/60</td><td class="position-cell">RW</td><td class="notes-tracker-cell">________________________________</td></tr>
+                <tr><td class="player-name-cell">Eunjun K #16</td><td class="played-cell">___/60</td><td class="position-cell">ST</td><td class="notes-tracker-cell">________________________________</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 20px; border: 2px solid #1a472a; padding: 15px; background: #f8f9fa;">
+        <div style="font-weight: bold; margin-bottom: 10px; color: #1a472a;">GAME DAY REMINDERS:</div>
+        <ul style="margin: 0; padding-left: 20px; font-size: 12px;">
+            <li><strong>Arrive:</strong> 30 minutes early for warm-up</li>
+            <li><strong>Equal playing time:</strong> Ensure all players get fair minutes</li>
+            <li><strong>Captain duties:</strong> Travis C leads 1st half, Minh-An D leads 2nd half</li>
+            <li><strong>GK rotation:</strong> Adam K (1st half) → Owen H (2nd half)</li>
+            <li><strong>Team chant:</strong> "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪"</li>
+        </ul>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-top: 30px; padding: 20px; background: #f0f0f0; border: 1px solid #ccc;">
+        <strong>Print Instructions:</strong> Use Ctrl+P (or Cmd+P on Mac) to print. This sheet is optimized for standard 8.5"×11" paper in portrait orientation.
+        <br><br>
+        <strong>Today's Match:</strong> QPR U11 vs CMFSC Millwall • September 13, 2025 • 9:30 AM • Miller Park
+    </div>
+</body>
+</html>

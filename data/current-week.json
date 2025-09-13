@@ -27,19 +27,8 @@
     "formation": "3-3-1",
     "match_number": "2500544",
     "week": 1,
-    "status": "completed",
-    "result": {
-      "score": "2-6",
-      "outcome": "loss",
-      "qpr_goals": 2,
-      "opponent_goals": 6,
-      "half_time": "2-1",
-      "goal_scorers": ["Niko D", "Ethan G"],
-      "assists": ["Travis C"],
-      "defensive_stars": ["Rhodri W", "Owen H"],
-      "absent_players": ["David C"]
-    },
-    "match_report": "Strong first half leading 2-1 with goals from Niko D (assisted by Travis C) and Ethan G. Rhodri W and Owen H had outstanding defensive performances with multiple blocks and saves. David C was absent. Second half challenges led to 2-6 final result. Key learning areas: throw-ins and 1-on-1 finishing."
+    "status": "rescheduled",
+    "reason": "Original Sept 6 match cancelled due to air quality concerns from forest wildfires"
   },
   "captains": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
@@ -182,7 +171,7 @@
     "instructions": "When you're off the pitch, stand in your zone by the colored cones. Keep shin guards on, water ready, and listen for your name. Adam/Owen: stand with GK zone when about to play GK; otherwise join Defence."
   },
   "lineup": {
-    "reveal_at": "2025-09-11T08:00:00-07:00",
+    "reveal_at": "2025-09-12T08:00:00-07:00",
     "all_players": [
       {
         "name": "Adam K",
@@ -247,9 +236,9 @@
     ],
     "starting": [
       {
-        "name": "Adam K",
+        "name": "Owen H",
         "pos": "GK",
-        "jersey": "13"
+        "jersey": "9"
       },
       {
         "name": "Travis C",
@@ -257,71 +246,64 @@
         "jersey": "3"
       },
       {
-        "name": "Rhodri W",
+        "name": "Andrew N",
         "pos": "CB",
-        "jersey": "10"
-      },
-      {
-        "name": "Owen H",
-        "pos": "RB",
-        "jersey": "9"
-      },
-      {
-        "name": "Niko D",
-        "pos": "LW",
-        "jersey": "6"
+        "jersey": "5"
       },
       {
         "name": "Alexander V",
-        "pos": "CM",
+        "pos": "RB",
         "jersey": "8"
       },
       {
+        "name": "Henry K",
+        "pos": "LM",
+        "jersey": "11"
+      },
+      {
         "name": "Andy E",
-        "pos": "RW",
+        "pos": "CM",
         "jersey": "4"
       },
       {
-        "name": "Ethan G",
+        "name": "Yejun K",
+        "pos": "RM",
+        "jersey": "7"
+      },
+      {
+        "name": "Rafael H",
         "pos": "ST",
-        "jersey": "15"
+        "jersey": "12"
       }
     ],
     "rotating": [
       {
         "name": "Minh-An D",
-        "jersey": "2",
-        "pos": "CB"
+        "jersey": "2"
       },
       {
-        "name": "Rafael H",
-        "jersey": "12",
-        "pos": "CM"
+        "name": "Adam K",
+        "jersey": "13"
       },
       {
-        "name": "Andrew N",
-        "jersey": "5",
-        "pos": "RB"
+        "name": "Rhodri W",
+        "jersey": "10"
       },
       {
         "name": "David C",
-        "jersey": "14",
-        "pos": "ST"
+        "jersey": "14"
       },
       {
-        "name": "Henry K",
-        "jersey": "11",
-        "pos": "LW"
+        "name": "Niko D",
+        "jersey": "6"
       },
       {
-        "name": "Yejun K",
-        "jersey": "7",
-        "pos": "RW"
+        "name": "Ethan G",
+        "jersey": "15"
       },
       {
         "name": "Eunjun K",
-        "jersey": "16",
-        "pos": "ST"
+        "jersey": "16"
       }
     ]
   },
@@ -339,16 +321,10 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "White shirts, black shorts, white socks (Away kit - Metro-Ford club rule)",
-    "coach": "Home opener complete: 2-6 loss to CMFSC Millwall. Strong first half (2-1 lead), but second half challenges. Key training focus: throw-ins and 1-on-1 finishing.",
+    "coach": "Excellent training today! Team showed quick improvement in positioning",
     "training_recap": "Outstanding Sept 11 training completed! Full squad attendance, attack/defense positioning focus, and celebrated Ethan's birthday. Team is 100% ready for Saturday!",
-    "match_update": "HOME OPENER COMPLETE: QPR 2-6 CMFSC Millwall. Excellent first half performance (2-1 lead) but second half struggles. Clear development areas identified for next training.",
-    "this_week": "Match complete - valuable learning experience for the team. Next training will focus on throw-in situations and 1-on-1 goalkeeper scenarios.",
-    "training_priorities": [
-      "Throw-in situations (both defensive positioning and attacking options)",
-      "1-on-1 with goalkeeper finishing practice",
-      "Maintaining concentration for full 60 minutes",
-      "Set piece defensive organization"
-    ]
+    "match_update": "Home opener vs CMFSC Millwall at Miller Park on Sept 13 at 9:30am. Starting lineup announcement coming very soon!",
+    "this_week": "Training complete - exceptional preparation shown by entire squad"
   },
-  "status": "match-completed"
+  "status": "match-rescheduled"
 }

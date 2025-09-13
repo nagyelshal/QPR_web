@@ -27,8 +27,23 @@
     "formation": "3-3-1",
     "match_number": "2500544",
     "week": 1,
-    "status": "rescheduled",
-    "reason": "Original Sept 6 match cancelled due to air quality concerns from forest wildfires"
+    "status": "completed",
+    "result": {
+      "score": "2-6",
+      "outcome": "loss",
+      "qpr_goals": 2,
+      "opponent_goals": 6,
+      "half_time": "2-1",
+      "goal_scorers": ["Niko D", "Ethan G"],
+      "assists": ["Travis C"],
+      "defensive_stars": ["Rhodri W", "Owen H"],
+      "absent_players": ["David C"]
+    },
+    "achievements": [
+      "Score First Goal",
+      "Team Work Goal"
+    ],
+    "match_report": "Strong first half leading 2-1 with goals from Niko D (assisted by Travis C) and Ethan G. Rhodri W and Owen H had outstanding defensive performances. Second half challenges led to 2-6 final result. Achieved team goals: scored first and demonstrated excellent teamwork."
   },
   "captains": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
@@ -321,10 +336,16 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "White shirts, black shorts, white socks (Away kit - Metro-Ford club rule)",
-    "coach": "Excellent training today! Team showed quick improvement in positioning",
+    "coach": "Home opener complete: 2-6 loss to CMFSC Millwall. Strong first half (2-1 lead), achieved both team goals: Score First Goal and Team Work Goal. Key training focus: throw-ins and 1-on-1 finishing.",
     "training_recap": "Outstanding Sept 11 training completed! Full squad attendance, attack/defense positioning focus, and celebrated Ethan's birthday. Team is 100% ready for Saturday!",
-    "match_update": "Home opener vs CMFSC Millwall at Miller Park on Sept 13 at 9:30am. Starting lineup announcement coming very soon!",
-    "this_week": "Training complete - exceptional preparation shown by entire squad"
+    "match_update": "HOME OPENER COMPLETE: QPR 2-6 CMFSC Millwall. Excellent first half performance (2-1 lead) and achieved team goals: Score First Goal & Team Work Goal. Next training will focus on maintaining performance for full match duration.",
+    "this_week": "Match complete - valuable learning experience. Achieved both season goals: Score First Goal ✅ and Team Work Goal ✅. Building on first half excellence for next match.",
+    "achievements": [
+      "✅ Score First Goal - Niko D opened scoring with assist from Travis C",
+      "✅ Team Work Goal - Excellent teamwork demonstrated throughout match",
+      "🏠 First match at Miller Park home ground",
+      "🛡️ Outstanding defensive performances from Rhodri W and Owen H"
+    ]
   },
-  "status": "match-rescheduled"
+  "status": "match-completed"
 }

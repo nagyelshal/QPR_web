@@ -4,30 +4,12 @@
       "id": "match-001",
       "date": "2025-09-06",
       "opponent": "PMSC Storm",
-      "result": "pending",
+      "result": "cancelled",
       "location": "Trasolini Turf North",
       "kickoff": "11:45am",
       "match_number": "2500544",
       "week": 1,
-      "scorers": [],
-      "assists": [],
-      "player_of_match": {
-        "voting_open": true,
-        "votes": {},
-        "winner": null
-      },
-      "highlights": [],
-      "celebration_highlights": []
-    },
-    {
-      "id": "match-002",
-      "date": "TBD",
-      "opponent": "CMFSC Millwall",
-      "result": "pending",
-      "location": "TBD",
-      "kickoff": "TBD",
-      "match_number": "2500560",
-      "week": 2,
+      "reason": "Cancelled due to air quality concerns from forest wildfires",
       "scorers": [],
       "assists": [],
       "player_of_match": {
@@ -35,8 +17,49 @@
         "votes": {},
         "winner": null
       },
-      "highlights": [],
+      "highlights": ["Match postponed for player safety"],
       "celebration_highlights": []
+    },
+    {
+      "id": "match-002",
+      "date": "2025-09-13",
+      "opponent": "CMFSC Millwall",
+      "result": "2-6 loss",
+      "location": "Miller Park",
+      "kickoff": "9:30am",
+      "match_number": "2500560",
+      "week": 2,
+      "final_score": {
+        "qpr": 2,
+        "opponent": 6,
+        "half_time": "2-1"
+      },
+      "achievements": [
+        "Score First Goal",
+        "Team Work Goal"
+      ],
+      "scorers": ["Niko D", "Ethan G"],
+      "assists": ["Travis C"],
+      "defensive_stars": ["Rhodri W", "Owen H"],
+      "absent_players": ["David C"],
+      "player_of_match": {
+        "voting_open": true,
+        "votes": {},
+        "winner": null
+      },
+      "highlights": [
+        "Excellent first half performance - 2-1 lead",
+        "Niko D opened scoring with assist from Travis C",
+        "Ethan G scored second goal",
+        "Outstanding defensive play from Rhodri W and Owen H",
+        "Home opener at Miller Park",
+        "Achieved both team goals: Score First Goal and Team Work Goal"
+      ],
+      "celebration_highlights": [
+        "First goals at Miller Park home ground",
+        "Strong team work and support throughout match",
+        "Excellent first half display of tactical discipline"
+      ]
     },
     {
       "id": "match-003",

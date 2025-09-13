@@ -31,7 +31,12 @@ const base = import.meta.env.BASE_URL;
       gtag('config', 'G-14R3RPES8W');
     </script>
   </head>
-  <body>
+  <body data-captains={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).captains.reveal_at : undefined}
+        data-positions={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).positions.reveal_at : undefined}
+        data-lineup={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).lineup?.reveal_at ?? '' : undefined}
+        data-training-date={Astro.url.pathname.includes('current-week') ? ((await import('../../data/current-week.json')).training.date + 'T00:00:00-07:00') : undefined}
+        data-match-date={Astro.url.pathname.includes('current-week') ? (((await import('../../data/current-week.json')).match.date && (await import('../../data/current-week.json')).match.date !== 'TBD') ? ((await import('../../data/current-week.json')).match.date + 'T00:00:00-07:00') : 'TBD') : undefined}
+        data-match-kickoff={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).match.kickoff : undefined}>
     <a href="#main" class="skip-link">Skip to main content</a>
     
     <header class="header">

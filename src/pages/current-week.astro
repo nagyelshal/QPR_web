@@ -94,10 +94,10 @@ const homeAwayText = isHome ? 'Home' : 'Away';
 ---
 
 <BaseLayout title="Current Week - Queens Park Rangers U11B">
-  <div class="container current-week-page">
+  <div class="container current-week-page" data-init>
     
     <!-- Hero Section -->
-    <header class="week-hero">
+  <header class="week-hero">
       <div class="week-badge">
         <span class="week-text">Current Week</span>
         <span class="week-dates">{weekData.week.date_range}</span>
@@ -116,13 +116,13 @@ const homeAwayText = isHome ? 'Home' : 'Away';
             <span class="countdown-time">{timeUntilPositions}</span>
           </div>
         )}
-        {!lineupRevealed && timeUntilLineup && (
+  {!lineupRevealed && timeUntilLineup && (
           <div class="countdown-item">
             <span class="countdown-label">Full Lineup</span>
             <span class="countdown-time">{timeUntilLineup}</span>
           </div>
         )}
-        {weekData.match.kickoff !== "TBA" && timeUntilKickoff && (
+  {weekData.match.kickoff !== "TBA" && weekData.match.kickoff !== 'TBD' && timeUntilKickoff && (
           <div class="countdown-item">
             <span class="countdown-label">Kickoff</span>
             <span class="countdown-time">{timeUntilKickoff}</span>
@@ -1386,15 +1386,29 @@ const homeAwayText = isHome ? 'Home' : 'Away';
   // Update countdown every minute
   function updateCountdowns() {
     const now = new Date();
-    const captainsTime = new Date('2025-09-03T00:00:00-07:00');
-    const positionsTime = new Date('2025-09-03T00:00:00-07:00');
-    const lineupTime = new Date('2025-09-12T08:00:00-07:00');
-    const matchTime = new Date('2025-09-13T00:00:00-07:00');
-    matchTime.setHours(9, 30, 0, 0);
+    // Pull reveal/match/training times from data attributes on body set server-side
+    const root = document.body;
+    const captainsAt = root.getAttribute('data-captains');
+    const positionsAt = root.getAttribute('data-positions');
+    const lineupAt = root.getAttribute('data-lineup');
+    const matchDateStr = root.getAttribute('data-match-date');
+    const matchKickoff = root.getAttribute('data-match-kickoff');
+    const trainingDateStr = root.getAttribute('data-training-date');
     
-    // Update training and match date labels
-    const trainingDate = new Date('2025-09-11T00:00:00-07:00');
-    const matchDate = new Date('2025-09-13T00:00:00-07:00');
+    const captainsTime = captainsAt ? new Date(captainsAt) : null;
+    const positionsTime = positionsAt ? new Date(positionsAt) : null;
+    const lineupTime = lineupAt ? new Date(lineupAt) : null;
+    let matchTime = matchDateStr && matchDateStr !== 'TBD' ? new Date(matchDateStr) : null;
+    if (matchTime && matchKickoff && /^(\d+):(\d+)(am|pm)$/i.test(matchKickoff)) {
+      const [, hh, mm, ap] = matchKickoff.match(/(\d+):(\d+)(am|pm)/i);
+      let h = parseInt(hh, 10);
+      const m = parseInt(mm, 10);
+      const isPm = ap.toLowerCase() === 'pm';
+      if (isPm && h !== 12) h += 12;
+      if (!isPm && h === 12) h = 0;
+      matchTime.setHours(h, m, 0, 0);
+    }
+    const trainingDate = trainingDateStr ? new Date(trainingDateStr) : null;
     
     function formatDateLabel(date) {
       const isToday = date.toDateString() === now.toDateString();
@@ -1408,8 +1422,8 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     }
     
     // Update date labels
-    const trainingLabel = formatDateLabel(trainingDate);
-    const matchLabel = formatDateLabel(matchDate);
+  const trainingLabel = trainingDate ? formatDateLabel(trainingDate) : 'TBD';
+  const matchLabel = matchTime ? formatDateLabel(matchTime) : 'TBD';
     
     const trainingLabelShort = document.getElementById('training-label-short');
     const trainingLabelLong = document.getElementById('training-label-long');
@@ -1435,8 +1449,8 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     }
     
     // Update countdown displays if they exist
-    const countdownItems = document.querySelectorAll('.countdown-time');
-    const targets = [captainsTime, positionsTime, lineupTime, matchTime];
+  const countdownItems = document.querySelectorAll('.countdown-time');
+  const targets = [captainsTime, positionsTime, lineupTime, matchTime].filter(Boolean);
     
     countdownItems.forEach((item, index) => {
       if (targets[index]) {

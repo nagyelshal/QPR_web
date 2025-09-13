@@ -98,60 +98,42 @@
     },
     {
       "id": "match-003",
-      "date": "TBD",
+      "date": "2025-09-27",
       "opponent": "PCFC Wolf Pack (McNeill)",
       "result": "pending",
-      "location": "TBD",
-      "kickoff": "TBD",
+      "location": "McNeill Field",
+      "kickoff": "11:00am",
       "match_number": "2500567",
       "week": 3,
       "scorers": [],
       "assists": [],
-      "player_of_match": {
-        "voting_open": false,
-        "votes": {},
-        "winner": null
-      },
-      "highlights": [],
-      "celebration_highlights": []
+      "highlights": []
     },
     {
       "id": "match-004",
-      "date": "TBD",
+      "date": "2025-10-04",
       "opponent": "CMFSC Swansea",
       "result": "pending",
-      "location": "TBD",
-      "kickoff": "TBD",
+      "location": "Miller Park",
+      "kickoff": "10:30am",
       "match_number": "2500583",
       "week": 4,
       "scorers": [],
       "assists": [],
-      "player_of_match": {
-        "voting_open": false,
-        "votes": {},
-        "winner": null
-      },
-      "highlights": [],
-      "celebration_highlights": []
+      "highlights": []
     },
     {
       "id": "match-005",
-      "date": "TBD",
+      "date": "2025-10-11",
       "opponent": "RMSC U11B8D3 (Tones)",
       "result": "pending",
-      "location": "TBD",
-      "kickoff": "TBD",
+      "location": "Minoru Park",
+      "kickoff": "10:00am",
       "match_number": "2500595",
       "week": 5,
       "scorers": [],
       "assists": [],
-      "player_of_match": {
-        "voting_open": false,
-        "votes": {},
-        "winner": null
-      },
-      "highlights": [],
-      "celebration_highlights": []
+      "highlights": []
     }
   ],
   "celebrations": {

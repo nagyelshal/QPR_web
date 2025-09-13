@@ -4,7 +4,10 @@ import matchesData from '../../data/matches.json';
 import seasonSchedule from '../../data/season-schedule.json';
 
 const title = "Match Center";
-const description = "View match details, vote for player of the match, and see game highlights";
+const description = "View match details, scores, and highlights";
+
+// Use site base path for links
+const base = import.meta.env.BASE_URL;
 
 // Helper function to determine home/away status
 function getVenueInfo(match) {
@@ -39,12 +42,28 @@ function getVenueInfo(match) {
   <div class="container">
     <div class="matches-header">
       <h1>🏟️ Match Center</h1>
-      <p>View match details, vote for player of the match, and celebrate our goals!</p>
+      <p>View match details, scores, and highlights.</p>
     </div>
 
     <div class="matches-grid">
       {matchesData.matches.map(match => {
         const venueInfo = getVenueInfo(match);
+        // derive scores
+        let qprScore = '-';
+        let oppScore = '-';
+        let isCancelled = match.result === 'cancelled';
+        if (!isCancelled) {
+          if (match.final_score && typeof match.final_score.qpr !== 'undefined') {
+            qprScore = match.final_score.qpr;
+            oppScore = match.final_score.opponent;
+          } else if (typeof match.result === 'string') {
+            const m = match.result.match(/^(\d+)-(\d+)/);
+            if (m) {
+              qprScore = m[1];
+              oppScore = m[2];
+            }
+          }
+        }
         return (
         <div class="match-card" data-match-id={match.id}>
           <div class="match-header">
@@ -65,12 +84,12 @@ function getVenueInfo(match) {
           <div class="match-teams">
             <div class="team home">
               <div class="team-name">QPR U11B</div>
-              <div class="team-score">{match.result === 'pending' ? '-' : '0'}</div>
+              <div class="team-score">{isCancelled ? 'X' : (match.result === 'pending' ? '-' : qprScore)}</div>
             </div>
             <div class="vs">VS</div>
             <div class="team away">
               <div class="team-name">{match.opponent}</div>
-              <div class="team-score">{match.result === 'pending' ? '-' : '0'}</div>
+              <div class="team-score">{isCancelled ? 'X' : (match.result === 'pending' ? '-' : oppScore)}</div>
             </div>
           </div>
 
@@ -95,48 +114,13 @@ function getVenueInfo(match) {
             </div>
           ) : (
             <div class="match-completed">
-              {match.scorers.length > 0 && (
+              {match.scorers && match.scorers.length > 0 && (
                 <div class="scorers-section">
                   <h4>⚽ Goal Scorers</h4>
                   <div class="scorers-list">
-                    {match.scorers.map(scorer => (
+                    {match.scorers.map(name => (
                       <div class="scorer-item">
-                        <span class="scorer-name">{scorer.player}</span>
-                        <span class="scorer-time">{scorer.minute}'</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {match.player_of_match.voting_open ? (
-                <div class="voting-section">
-                  <h4>⭐ Vote for Player of the Match</h4>
-                  <div class="voting-grid">
-                    {/* Player voting buttons will be populated by JS */}
-                  </div>
-                  <button class="btn btn-primary vote-btn" data-match={match.id}>
-                    Cast Your Vote
-                  </button>
-                </div>
-              ) : match.player_of_match.winner ? (
-                <div class="player-of-match">
-                  <h4>⭐ Player of the Match</h4>
-                  <div class="potm-winner">
-                    <span class="potm-name">{match.player_of_match.winner}</span>
-                    <span class="potm-votes">{Object.values(match.player_of_match.votes).reduce((a, b) => a + b, 0)} votes</span>
-                  </div>
-                </div>
-              ) : null}
-
-              {match.celebration_highlights.length > 0 && (
-                <div class="celebrations-section">
-                  <h4>🎉 Best Celebrations</h4>
-                  <div class="celebrations-list">
-                    {match.celebration_highlights.map(celebration => (
-                      <div class="celebration-item">
-                        <span class="celebration-player">{celebration.player}</span>
-                        <span class="celebration-name">"{celebration.name}"</span>
+                        <span class="scorer-name">{name}</span>
                       </div>
                     ))}
                   </div>
@@ -145,20 +129,12 @@ function getVenueInfo(match) {
             </div>
           )}
 
-          <a href={`/matches/${match.id}/`} class="match-link">
+          <a href={`${base}matches/${match.id}/`} class="match-link">
             View Full Details →
           </a>
         </div>
         );
       })}
-    </div>
-
-    <div class="celebration-corner">
-      <h2>� Goal Celebrations</h2>
-      <div class="celebration-announcement">
-        <p>Goal celebrations will be announced when performed during matches!</p>
-        <p class="celebration-note">Stay tuned for exciting celebration highlights after each game.</p>
-      </div>
     </div>
   </div>
 </BaseLayout>
@@ -352,90 +328,6 @@ function getVenueInfo(match) {
     font-weight: 600;
   }
 
-  .voting-section {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .voting-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .player-vote-btn {
-    background: #f8f9fa;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: var(--spacing-sm);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  .player-vote-btn:hover {
-    background: #e3f2fd;
-    border-color: var(--color-primary);
-  }
-
-  .player-vote-btn.selected {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-  }
-
-  .player-of-match {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    border-radius: 12px;
-    padding: var(--spacing-lg);
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .potm-winner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .potm-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #e65100;
-  }
-
-  .potm-votes {
-    font-size: 0.9rem;
-    color: #e65100;
-    opacity: 0.8;
-  }
-
-  .celebrations-section {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .celebrations-list {
-    background: #f3e5f5;
-    border-radius: 8px;
-    padding: var(--spacing-md);
-  }
-
-  .celebration-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-  }
-
-  .celebration-player {
-    font-weight: 600;
-  }
-
-  .celebration-name {
-    font-style: italic;
-    color: var(--color-primary);
-  }
 
   .match-link {
     display: block;
@@ -454,103 +346,6 @@ function getVenueInfo(match) {
     background: #1565c0;
   }
 
-  .celebration-corner {
-    background: linear-gradient(135deg, #fff9c4 0%, #ffeaa7 50%, #fab1a0 100%);
-    border-radius: 20px;
-    padding: var(--spacing-2xl);
-    margin-top: var(--spacing-2xl);
-    border: 3px solid #fdcb6e;
-    box-shadow: 0 8px 32px rgba(253, 203, 110, 0.3);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .celebration-corner::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    animation: sparkle 20s linear infinite;
-  }
-
-  @keyframes sparkle {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  .celebration-corner h2 {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    color: #d63031;
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(214, 48, 49, 0.3);
-    position: relative;
-    z-index: 2;
-  }
-
-  .celebration-announcement {
-    position: relative;
-    z-index: 2;
-  }
-
-  .award-description {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: var(--spacing-xl);
-    margin-bottom: var(--spacing-lg);
-    border: 2px solid #fdcb6e;
-    backdrop-filter: blur(5px);
-  }
-
-  .award-description p {
-    font-size: 1.2rem;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-md);
-    font-weight: 600;
-  }
-
-  .award-description p:last-child {
-    margin-bottom: 0;
-    font-weight: 500;
-    color: var(--color-text-light);
-  }
-
-  .announcement-box {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-    border-radius: 15px;
-    padding: var(--spacing-xl);
-    border: 2px solid #00b894;
-    box-shadow: 0 4px 20px rgba(0, 184, 148, 0.2);
-  }
-
-  .announcement-box h3 {
-    color: #00b894;
-    font-size: 1.4rem;
-    margin-bottom: var(--spacing-md);
-    text-align: center;
-    font-weight: 700;
-  }
-
-  .celebration-note {
-    font-size: 1.1rem;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-md);
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .stay-tuned {
-    font-style: italic;
-    color: var(--color-text-light);
-    font-size: 1rem;
-    margin-bottom: 0;
-    text-align: center;
-  }
 
   @media (max-width: 768px) {
     .matches-header h1 {
@@ -567,72 +362,8 @@ function getVenueInfo(match) {
       margin: var(--spacing-sm) 0;
     }
 
-    .voting-grid {
-      grid-template-columns: 1fr;
-    }
   }
   }
 </style>
 
-<script>
-  // Mock roster data for voting - in a real app, this would come from your data
-  const rosterPlayers = [
-    'Adam K', 'Alexander V', 'David A', 'Ethan G', 'Eunjun P', 
-    'Minh-An D', 'Owen H', 'Rafael H', 'Romeo M'
-  ];
-
-  // Initialize voting sections
-  document.querySelectorAll('.voting-section').forEach(section => {
-    const votingGrid = section.querySelector('.voting-grid');
-    if (votingGrid) {
-      rosterPlayers.forEach(player => {
-        const btn = document.createElement('button');
-        btn.className = 'player-vote-btn';
-        btn.textContent = player;
-        btn.dataset.player = player;
-        btn.addEventListener('click', selectPlayer);
-        votingGrid.appendChild(btn);
-      });
-    }
-  });
-
-  let selectedPlayer = null;
-
-  function selectPlayer(e) {
-    // Remove previous selection
-    document.querySelectorAll('.player-vote-btn').forEach(btn => {
-      btn.classList.remove('selected');
-    });
-    
-    // Select current player
-    e.target.classList.add('selected');
-    selectedPlayer = e.target.dataset.player;
-  }
-
-  // Handle vote submission
-  document.querySelectorAll('.vote-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (!selectedPlayer) {
-        alert('Please select a player first!');
-        return;
-      }
-      
-      const matchId = e.target.dataset.match;
-      
-      // In a real app, you would send this to your server
-      console.log('Voting for player:', selectedPlayer, 'in match:', matchId);
-      
-      // Show success message
-      e.target.textContent = 'Vote Submitted! ✅';
-      e.target.disabled = true;
-      e.target.style.background = '#4caf50';
-      
-      // Disable all voting buttons for this match
-      document.querySelectorAll('.player-vote-btn').forEach(btn => {
-        btn.disabled = true;
-        btn.style.opacity = '0.6';
-      });
-    });
-  });
-</script>
 </BaseLayout>

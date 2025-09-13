@@ -12,15 +12,15 @@ interface Props {
 const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, goalkeepers, phase } = Astro.props;
 
 // Position mapping for 3-3-1 formation (corrected positioning)
-const positionMap = {
-  'GK': { x: 50, y: 85 },
-  'LB': { x: 25, y: 65 }, // Left Back
-  'CB': { x: 50, y: 65 }, // Center Back  
-  'RB': { x: 75, y: 65 }, // Right Back
-  'LM': { x: 20, y: 40 }, // Left Mid
-  'CM': { x: 50, y: 40 }, // Center Mid
-  'RM': { x: 80, y: 40 }, // Right Mid
-  'ST': { x: 50, y: 20 }  // Striker
+const positionCoords = {
+  'GK': { x: 50, y: 90 }, // Goalkeeper
+  'LB': { x: 15, y: 70 }, // Left Back 
+  'CB': { x: 50, y: 70 }, // Centre Back
+  'RB': { x: 85, y: 70 }, // Right Back
+  'LW': { x: 20, y: 40 }, // Left Wing
+  'CM': { x: 50, y: 40 }, // Central Mid
+  'RW': { x: 80, y: 40 }, // Right Wing
+  'ST': { x: 50, y: 15 }  // Striker
 };
 
 // Helper: get position for any player based on their actual position
@@ -32,18 +32,15 @@ const getPositionForPlayer = (player) => {
 const getFormationSlots = () => {
   if (formation === '3-3-1') {
     return [
-      { pos: 'GK' },
-      { pos: 'LB' }, // Left Back
-      { pos: 'CB' }, // Center Back
-      { pos: 'RB' }, // Right Back
-      { pos: 'LM' }, // Left Mid
-      { pos: 'CM' }, // Center Mid
-      { pos: 'RM' }, // Right Mid
+      { pos: 'GK' }, // Goalkeeper
+      { pos: 'LB' }, { pos: 'CB' }, { pos: 'RB' }, // Defence
+      { pos: 'LW' }, // Left Wing
+      { pos: 'CM' }, // Central Mid  
+      { pos: 'RW' }, // Right Wing
       { pos: 'ST' }  // Striker
     ];
   }
-  // default: single markers
-  return [{ pos: 'GK' }, { pos: 'CB' }, { pos: 'LM' }, { pos: 'CM' }, { pos: 'RM' }, { pos: 'ST' }];
+  return [{ pos: 'GK' }, { pos: 'CB' }, { pos: 'LW' }, { pos: 'CM' }, { pos: 'RW' }, { pos: 'ST' }];
 };
 
 const getSlotPosition = (slot) => {

@@ -257,7 +257,7 @@
       },
       {
         "name": "Niko D",
-        "pos": "LM",
+        "pos": "LW",
         "jersey": "6"
       },
       {
@@ -267,7 +267,7 @@
       },
       {
         "name": "Andy E",
-        "pos": "RM",
+        "pos": "RW",
         "jersey": "4"
       },
       {
@@ -300,12 +300,12 @@
       {
         "name": "Henry K",
         "jersey": "11",
-        "pos": "LM"
+        "pos": "LW"
       },
       {
         "name": "Yejun K",
         "jersey": "7",
-        "pos": "RM"
+        "pos": "RW"
       },
       {
         "name": "Eunjun K",

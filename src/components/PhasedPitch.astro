@@ -25,7 +25,7 @@ const positionCoords = {
 
 // Helper: get position for any player based on their actual position
 const getPositionForPlayer = (player) => {
-  return positionMap[player.pos] || { x: 50, y: 50 };
+  return positionCoords[player.pos] || { x: 50, y: 50 };
 };
 
 // Build static formation slots when we are in 'captains' phase (no lineup reveal)
@@ -44,7 +44,7 @@ const getFormationSlots = () => {
 };
 
 const getSlotPosition = (slot) => {
-  return positionMap[slot.pos] || { x: 50, y: 50 };
+  return positionCoords[slot.pos] || { x: 50, y: 50 };
 };
 ---
 

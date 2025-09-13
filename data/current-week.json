@@ -18,7 +18,7 @@
       "attendance": 15
     }
   },
-  "match": {
+  "previous_match": {
     "opponent": "CMFSC Millwall",
     "date": "2025-09-13",
     "kickoff": "9:30am",
@@ -43,14 +43,77 @@
       "Score First Goal",
       "Team Work Goal"
     ],
-    "match_report": "Strong first half leading 2-1 with goals from Niko D (assisted by Travis C) and Ethan G. Rhodri W and Owen H had outstanding defensive performances. Second half challenges led to 2-6 final result. Achieved team goals: scored first and demonstrated excellent teamwork."
+    "match_report": "Strong first half leading 2-1 with goals from Niko D (assisted by Travis C) and Ethan G. Rhodri W and Owen H had outstanding defensive performances. Second half challenges led to 2-6 final result. Achieved team goals: scored first and demonstrated excellent teamwork.",
+    "lineup_used": {
+      "starting": [
+        {
+          "name": "Owen H",
+          "pos": "GK",
+          "jersey": "9"
+        },
+        {
+          "name": "Travis C",
+          "pos": "LB",
+          "jersey": "3"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB",
+          "jersey": "5"
+        },
+        {
+          "name": "Alexander V",
+          "pos": "RB",
+          "jersey": "8"
+        },
+        {
+          "name": "Henry K",
+          "pos": "LM",
+          "jersey": "11"
+        },
+        {
+          "name": "Andy E",
+          "pos": "CM",
+          "jersey": "4"
+        },
+        {
+          "name": "Yejun K",
+          "pos": "RM",
+          "jersey": "7"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "ST",
+          "jersey": "12"
+        }
+      ],
+      "captains": {
+        "first_half": "Travis C",
+        "second_half": "Minh-An D"
+      },
+      "goalkeepers": {
+        "first_half": "Owen H",
+        "second_half": "Adam K"
+      }
+    }
+  },
+  "match": {
+    "opponent": "TBD",
+    "date": "TBD",
+    "kickoff": "TBD",
+    "location": "TBD",
+    "venue_type": "TBD",
+    "formation": "3-3-1",
+    "match_number": "TBD",
+    "week": "TBD",
+    "status": "pending"
   },
   "captains": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
-    "first_half": "Travis C",
-    "second_half": "Minh-An D",
-    "duties": "Lead warm-ups • Take set pieces • Guide positions • Travis C (1st half captain), Minh-An D (2nd half captain)",
-    "training_update": "Both captains showed excellent leadership during yesterday's practice"
+    "first_half": "Minh-An D",
+    "second_half": "Travis C",
+    "duties": "Lead warm-ups • Take set pieces • Guide positions",
+    "training_update": "Ready for next week's assignments"
   },
   "goalkeepers": {
     "first_half": "Adam K",
@@ -251,9 +314,9 @@
     ],
     "starting": [
       {
-        "name": "Owen H",
+        "name": "Adam K",
         "pos": "GK",
-        "jersey": "9"
+        "jersey": "13"
       },
       {
         "name": "Travis C",
@@ -261,60 +324,60 @@
         "jersey": "3"
       },
       {
-        "name": "Andrew N",
+        "name": "Minh-An D",
         "pos": "CB",
-        "jersey": "5"
+        "jersey": "2"
+      },
+      {
+        "name": "Owen H",
+        "pos": "RB",
+        "jersey": "9"
+      },
+      {
+        "name": "Niko D",
+        "pos": "LM",
+        "jersey": "6"
       },
       {
         "name": "Alexander V",
-        "pos": "RB",
+        "pos": "CM",
         "jersey": "8"
       },
       {
-        "name": "Henry K",
-        "pos": "LM",
-        "jersey": "11"
-      },
-      {
         "name": "Andy E",
-        "pos": "CM",
+        "pos": "RM",
         "jersey": "4"
       },
       {
-        "name": "Yejun K",
-        "pos": "RM",
-        "jersey": "7"
-      },
-      {
-        "name": "Rafael H",
+        "name": "Ethan G",
         "pos": "ST",
-        "jersey": "12"
+        "jersey": "15"
       }
     ],
     "rotating": [
       {
-        "name": "Minh-An D",
-        "jersey": "2"
-      },
-      {
-        "name": "Adam K",
-        "jersey": "13"
-      },
-      {
         "name": "Rhodri W",
         "jersey": "10"
+      },
+      {
+        "name": "Rafael H",
+        "jersey": "12"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "5"
       },
       {
         "name": "David C",
         "jersey": "14"
       },
       {
-        "name": "Niko D",
-        "jersey": "6"
+        "name": "Henry K",
+        "jersey": "11"
       },
       {
-        "name": "Ethan G",
-        "jersey": "15"
+        "name": "Yejun K",
+        "jersey": "7"
       },
       {
         "name": "Eunjun K",

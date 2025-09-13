@@ -228,59 +228,76 @@ const homeAwayText = isHome ? 'Home' : 'Away';
       </div>
     </section>
 
-    <!-- Match Results Section (shown when match is completed) -->
-    {weekData.match.status === 'completed' && weekData.match.result && (
+    <!-- Match Results Section (shown when previous match is completed) -->
+    {weekData.previous_match && weekData.previous_match.status === 'completed' && weekData.previous_match.result && (
       <section class="section" id="match-result">
-        <h2 class="section-title">🏆 Match Result</h2>
+        <h2 class="section-title">🏆 Previous Match Result</h2>
         <div class="result-card">
           <div class="score-display">
             <div class="team-score">
               <span class="team-name">QPR</span>
-              <span class="score">{weekData.match.result.qpr_goals}</span>
+              <span class="score">{weekData.previous_match.result.qpr_goals}</span>
             </div>
             <div class="score-separator">-</div>
             <div class="team-score">
-              <span class="score">{weekData.match.result.opponent_goals}</span>
-              <span class="team-name">{weekData.match.opponent}</span>
+              <span class="score">{weekData.previous_match.result.opponent_goals}</span>
+              <span class="team-name">{weekData.previous_match.opponent}</span>
             </div>
           </div>
           
-          {weekData.match.result.half_time && (
-            <p class="half-time">Half-time: {weekData.match.result.half_time}</p>
+          {weekData.previous_match.result.half_time && (
+            <p class="half-time">Half-time: {weekData.previous_match.result.half_time}</p>
           )}
           
-          {weekData.match.achievements && weekData.match.achievements.length > 0 && (
+          {weekData.previous_match.achievements && weekData.previous_match.achievements.length > 0 && (
             <div class="achievements">
               <h3>🎯 Team Goals Achieved!</h3>
               <div class="achievement-list">
-                {weekData.match.achievements.map(achievement => (
+                {weekData.previous_match.achievements.map(achievement => (
                   <span class="achievement-badge">✅ {achievement}</span>
                 ))}
               </div>
             </div>
           )}
           
-          {weekData.match.result.goal_scorers && weekData.match.result.goal_scorers.length > 0 && (
+          {weekData.previous_match.result.goal_scorers && weekData.previous_match.result.goal_scorers.length > 0 && (
             <div class="goal-info">
               <h4>⚽ Goal Scorers</h4>
-              <p>{weekData.match.result.goal_scorers.join(', ')}</p>
-              {weekData.match.result.assists && weekData.match.result.assists.length > 0 && (
-                <p><strong>Assists:</strong> {weekData.match.result.assists.join(', ')}</p>
+              <p>{weekData.previous_match.result.goal_scorers.join(', ')}</p>
+              {weekData.previous_match.result.assists && weekData.previous_match.result.assists.length > 0 && (
+                <p><strong>Assists:</strong> {weekData.previous_match.result.assists.join(', ')}</p>
               )}
             </div>
           )}
           
-          {weekData.match.result.defensive_stars && weekData.match.result.defensive_stars.length > 0 && (
+          {weekData.previous_match.result.defensive_stars && weekData.previous_match.result.defensive_stars.length > 0 && (
             <div class="defensive-stars">
               <h4>🛡️ Defensive Stars</h4>
-              <p>{weekData.match.result.defensive_stars.join(', ')}</p>
+              <p>{weekData.previous_match.result.defensive_stars.join(', ')}</p>
             </div>
           )}
           
-          {weekData.match.match_report && (
+          {weekData.previous_match.match_report && (
             <div class="match-summary">
               <h4>📝 Match Summary</h4>
-              <p>{weekData.match.match_report}</p>
+              <p>{weekData.previous_match.match_report}</p>
+            </div>
+          )}
+
+          {weekData.previous_match.lineup_used && (
+            <div class="lineup-used">
+              <h4>⚽ Lineup That Played</h4>
+              <div class="lineup-grid">
+                {weekData.previous_match.lineup_used.starting.map(player => (
+                  <span class="lineup-player">{player.name} ({player.pos})</span>
+                ))}
+              </div>
+              <p class="captain-info">
+                <strong>Captains:</strong> {weekData.previous_match.lineup_used.captains.first_half} (1st half), {weekData.previous_match.lineup_used.captains.second_half} (2nd half)
+              </p>
+              <p class="gk-info">
+                <strong>Goalkeepers:</strong> {weekData.previous_match.lineup_used.goalkeepers.first_half} (1st half), {weekData.previous_match.lineup_used.goalkeepers.second_half} (2nd half)
+              </p>
             </div>
           )}
         </div>
@@ -1314,6 +1331,41 @@ const homeAwayText = isHome ? 'Home' : 'Away';
 
   .match-summary p {
     line-height: 1.6;
+  }
+
+  .lineup-used {
+    background: #fff3e0;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    margin-top: var(--spacing-md);
+  }
+
+  .lineup-used h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .lineup-player {
+    background: white;
+    padding: var(--spacing-xs);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .captain-info, .gk-info {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
   }
 }
 </style><script>

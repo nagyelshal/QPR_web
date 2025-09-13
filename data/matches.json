@@ -42,6 +42,57 @@
       "assists": ["Travis C"],
       "defensive_stars": ["Rhodri W", "Owen H"],
       "absent_players": ["David C"],
+      "formation": "3-3-1",
+      "starting_lineup": [
+        {
+          "name": "Owen H",
+          "pos": "GK",
+          "jersey": "9"
+        },
+        {
+          "name": "Travis C",
+          "pos": "LB",
+          "jersey": "3"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB",
+          "jersey": "5"
+        },
+        {
+          "name": "Alexander V",
+          "pos": "RB",
+          "jersey": "8"
+        },
+        {
+          "name": "Henry K",
+          "pos": "LM",
+          "jersey": "11"
+        },
+        {
+          "name": "Andy E",
+          "pos": "CM",
+          "jersey": "4"
+        },
+        {
+          "name": "Yejun K",
+          "pos": "RM",
+          "jersey": "7"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "ST",
+          "jersey": "12"
+        }
+      ],
+      "captains": {
+        "first_half": "Travis C",
+        "second_half": "Minh-An D"
+      },
+      "goalkeepers": {
+        "first_half": "Owen H",
+        "second_half": "Adam K"
+      },
       "player_of_match": {
         "voting_open": true,
         "votes": {},

@@ -20,9 +20,9 @@ Our home opener was a tale of two halves. The boys started brilliantly, taking a
 ## Key Moments
 
 **First Half (2-1 lead):**
-- Strong start with clinical finishing from Niko D and Nathan
+- Strong start with clinical finishing from Niko D and Ethan G
 - **GOAL 1:** Niko D scores with excellent assist from Travis C
-- **GOAL 2:** Nathan finds the net with composed finishing
+- **GOAL 2:** Ethan G finds the net with composed finishing
 - Excellent application of attack and defense positioning from Thursday's training
 - Captain Travis C led well in the first 30 minutes with leadership and key assist
 - Solid defensive shape with our 3-3-1 formation
@@ -48,7 +48,8 @@ Based on today's performance, our upcoming training sessions will focus on:
 ## Positives to Build On
 
 - Excellent first-half performance showing our tactical work is paying off
-- All players got good playing time and experience
+- Strong squad attendance with 14 out of 15 players present (David C was absent)
+- All available players got good playing time and experience
 - Strong team spirit despite the challenging result
 - Clear areas identified for improvement
 
@@ -56,7 +57,7 @@ Based on today's performance, our upcoming training sessions will focus on:
 
 **⚽ Goal Scorers:**
 - **Niko D** - Clinical finish for opening goal
-- **Nathan** - Composed second goal to give us the 2-1 lead
+- **Ethan G** - Composed second goal to give us the 2-1 lead
 
 **🅰️ Assists:**
 - **Travis C** - Perfect setup for Niko's goal, showing excellent captain leadership

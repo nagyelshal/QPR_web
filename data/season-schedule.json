@@ -26,19 +26,6 @@
       "venue": "Miller Park",
       "kickoff": "9:30am",
       "field": "Miller Park North",
-      "status": "rescheduled",
-      "original_date": "2025-09-06",
-      "reschedule_reason": "Air quality concerns - original match vs PMSC Storm cancelled"
-    },
-    {
-      "week": 2,
-      "match_number": "2500560",
-      "date": "2025-09-20",
-      "home_team": "PMSC Storm",
-      "away_team": "CMFSC Queens Park Rangers",
-      "venue": "Away",
-      "kickoff": "10:00am",
-      "field": "Trasolini Turf North",
       "status": "scheduled"
     },
     {
@@ -48,8 +35,8 @@
       "home_team": "PCFC Wolf Pack (McNeill)",
       "away_team": "CMFSC Queens Park Rangers",
       "venue": "Away",
-      "kickoff": "11:00am",
-      "field": "McNeill Field",
+      "kickoff": "10:00am",
+      "field": "Mclean Park North",
       "status": "scheduled"
     },
     {
@@ -59,8 +46,8 @@
       "home_team": "CMFSC Queens Park Rangers",
       "away_team": "CMFSC Swansea",
       "venue": "Miller Park",
-      "kickoff": "10:30am",
-      "field": "Miller Park",
+      "kickoff": "1:00pm",
+      "field": "Miller Park East",
       "status": "scheduled"
     },
     {
@@ -70,17 +57,17 @@
       "home_team": "RMSC U11B8D3 (Tones)",
       "away_team": "CMFSC Queens Park Rangers",
       "venue": "Away",
-      "kickoff": "10:00am",
-      "field": "Minoru Park",
+      "kickoff": "2:00pm",
+      "field": "Pitt Meadows Athletic Park U11-U13 East grass",
       "status": "scheduled"
     }
   ],
   "season_summary": {
-    "total_matches": 6,
+    "total_matches": 5,
     "home_matches": 2,
-    "away_matches": 4,
+    "away_matches": 3,
     "cancelled_matches": 1,
     "season_start": "2025-09-06",
-    "season_end": "TBD"
+    "season_end": "2025-10-11"
   }
 }

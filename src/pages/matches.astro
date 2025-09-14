@@ -112,8 +112,16 @@ function getVenueInfo(match) {
             <div class="match-status pending">
               <span>⏳ Upcoming Match</span>
             </div>
+          ) : match.result === 'cancelled' ? (
+            <div class="match-status cancelled">
+              <span>❌ Cancelled</span>
+              {match.reason && <div class="cancel-reason">{match.reason}</div>}
+            </div>
           ) : (
             <div class="match-completed">
+              {match.final_score && match.final_score.half_time && (
+                <div class="half-time">Half-time: {match.final_score.half_time}</div>
+              )}
               {match.scorers && match.scorers.length > 0 && (
                 <div class="scorers-section">
                   <h4>⚽ Goal Scorers</h4>
@@ -143,6 +151,11 @@ function getVenueInfo(match) {
   .matches-header {
     text-align: center;
     margin-bottom: var(--spacing-2xl);
+  }
+  .half-time {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+    font-style: italic;
   }
 
   .matches-header h1 {
@@ -292,6 +305,21 @@ function getVenueInfo(match) {
     color: #e65100;
   }
 
+  .match-status.cancelled {
+    text-align: center;
+    background: #ffebee;
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    font-weight: 700;
+    color: #c62828;
+  }
+
+  .match-status.cancelled .cancel-reason {
+    margin-top: var(--spacing-xs);
+    font-weight: 500;
+    color: #b71c1c;
+  }
+
   .match-completed h4 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
@@ -363,7 +391,7 @@ function getVenueInfo(match) {
     }
 
   }
-  }
+ 
 </style>
 
 </BaseLayout>

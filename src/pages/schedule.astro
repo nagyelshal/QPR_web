@@ -20,7 +20,8 @@ function getMatchInfo(match) {
     opponent,
     icon: isHome ? '🏠' : '✈️',
     text: isHome ? 'Home' : 'Away',
-    venue: match.venue || match.field || (isHome ? 'Home TBA' : 'Away TBA')
+    // Prefer specific field name if available; fall back to generic venue label
+    venue: match.field || match.venue || (isHome ? 'Home TBA' : 'Away TBA')
   };
 }
 ---
@@ -107,7 +108,7 @@ function getMatchInfo(match) {
           <strong>First Game:</strong> September 6, 2025</p>
           
           <Notice type="success" title="Fixtures Confirmed">
-            <p>Our complete game schedule is now available! All games are scheduled for Saturdays with kickoff times and venues TBA.</p>
+            <p>Our game schedule is posted by NFYSA. Kickoff times and field locations for the first weeks are confirmed below.</p>
           </Notice>
         </div>
       </div>

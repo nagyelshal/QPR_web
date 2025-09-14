@@ -11,27 +11,23 @@ const base = import.meta.env.BASE_URL;
 const weekData = await import('../../data/current-week.json');
 const seasonSchedule = await import('../../data/season-schedule.json');
 
-// Check what should be revealed based on current time
+// Determine week timeline windows and page state
 const now = new Date();
-const captainsRevealTime = new Date(weekData.captains.reveal_at);
-const positionsRevealTime = new Date(weekData.positions.reveal_at);
-const lineupRevealTime = new Date(weekData.lineup.reveal_at);
+const weekday = now.getDay(); // 0 Sun .. 6 Sat
+// Windows:
+// - Sun..Wed (0..3): last match details focus (initial)
+// - Thu (4): captains & positions
+// - Fri..Sat (5..6): full lineup visible until match completes
+let currentPhase: 'initial' | 'captains' | 'positions' | 'lineup' = 'initial';
+if (weekday === 4) currentPhase = 'positions';
+if (weekday === 5 || weekday === 6) currentPhase = 'lineup';
 
-const captainsRevealed = now >= captainsRevealTime;
-const positionsRevealed = now >= positionsRevealTime;
-const lineupRevealed = now >= lineupRevealTime;
+// Derived reveal booleans used by sections
+const captainsRevealed = currentPhase !== 'initial';
+const positionsRevealed = currentPhase === 'positions' || currentPhase === 'lineup';
+const lineupRevealed = currentPhase === 'lineup';
 
-// Determine current phase for lineup display
-let currentPhase = 'initial';
-if (lineupRevealed) {
-  currentPhase = 'lineup';
-} else if (positionsRevealed) {
-  currentPhase = 'positions';
-} else if (captainsRevealed) {
-  currentPhase = 'captains';
-}
-
-// Calculate time until next reveal
+// Calculate time until a future date
 function getTimeUntil(targetDate) {
   const diff = targetDate.getTime() - now.getTime();
   if (diff <= 0) return null;
@@ -45,35 +41,52 @@ function getTimeUntil(targetDate) {
   return `${minutes}m`;
 }
 
-const timeUntilCaptains = getTimeUntil(captainsRevealTime);
-const timeUntilPositions = getTimeUntil(positionsRevealTime);
-const timeUntilLineup = getTimeUntil(lineupRevealTime);
+// Compute this week's reveal boundary times (local time)
+function thisWeekAt(targetWeekday, hour = 8, minute = 0) {
+  const d = new Date(now);
+  const diff = targetWeekday - d.getDay();
+  const t = new Date(d);
+  t.setDate(d.getDate() + diff);
+  t.setHours(hour, minute, 0, 0);
+  return t;
+}
+
+// Captains/positions: Thursday 08:00 (weekday 4)
+const captainsPositionsAt = thisWeekAt(4, 8, 0);
+// Lineup: Friday 08:00 (weekday 5)
+const lineupAt = thisWeekAt(5, 8, 0);
+
+const timeUntilCaptains = now < captainsPositionsAt ? getTimeUntil(captainsPositionsAt) : null;
+const timeUntilPositions = now < captainsPositionsAt ? getTimeUntil(captainsPositionsAt) : null;
+const timeUntilLineup = now < lineupAt ? getTimeUntil(lineupAt) : null;
 
 // Format training date nicely - will be updated by client-side JavaScript
 const trainingDate = new Date(weekData.training.date + 'T00:00:00-07:00');
 let trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
-// Format match date nicely - will be updated by client-side JavaScript
-const matchDate = new Date(weekData.match.date + 'T00:00:00-07:00');
-let matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-
-// Create full match datetime for countdown calculation
-// Convert match date to Pacific timezone to match other reveal times
-const matchDateTime = new Date(weekData.match.date + 'T00:00:00-07:00');
-// Parse the kickoff time (e.g., "11:45am")
-const timeMatch = weekData.match.kickoff.match(/(\d+):(\d+)(am|pm)/i);
-if (timeMatch) {
-  let hours = parseInt(timeMatch[1]);
-  const minutes = parseInt(timeMatch[2]);
-  const ampm = timeMatch[3].toLowerCase();
-  
-  // Convert to 24-hour format
-  if (ampm === 'pm' && hours !== 12) hours += 12;
-  if (ampm === 'am' && hours === 12) hours = 0;
-  
-  matchDateTime.setHours(hours, minutes, 0, 0);
+// Format match date nicely (TBD-safe)
+let matchDate: Date | null = null;
+let matchLabel = 'TBD';
+if (weekData.match.date && weekData.match.date !== 'TBD') {
+  matchDate = new Date(weekData.match.date + 'T00:00:00-07:00');
+  matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 }
-const timeUntilKickoff = getTimeUntil(matchDateTime);
+
+// Create full match datetime for countdown calculation (TBD-safe)
+let timeUntilKickoff: string | null = null;
+if (matchDate && weekData.match.kickoff && weekData.match.kickoff !== 'TBD' && weekData.match.kickoff !== 'TBA') {
+  const matchDateTime = new Date(matchDate);
+  const timeMatch = weekData.match.kickoff.match(/(\d+):(\d+)(am|pm)/i);
+  if (timeMatch) {
+    let hours = parseInt(timeMatch[1]);
+    const minutes = parseInt(timeMatch[2]);
+    const ampm = timeMatch[3].toLowerCase();
+    if (ampm === 'pm' && hours !== 12) hours += 12;
+    if (ampm === 'am' && hours === 12) hours = 0;
+    matchDateTime.setHours(hours, minutes, 0, 0);
+    timeUntilKickoff = getTimeUntil(matchDateTime);
+  }
+}
 
 // Determine if it's a home or away match
 const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === weekData.match.match_number);
@@ -223,6 +236,9 @@ const homeAwayText = isHome ? 'Home' : 'Away';
           </div>
           {weekData.match.match_number && (
             <p class="match-number">Match #{weekData.match.match_number}</p>
+          )}
+          {(!weekData.match.date || weekData.match.date === 'TBD') && (
+            <p class="no-match-note">No match scheduled this week. Check back Thursday morning for captains and positions.</p>
           )}
         </div>
       </div>
@@ -1367,7 +1383,12 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     color: var(--color-text);
     margin-bottom: var(--spacing-xs);
   }
-}
+  .no-match-note {
+    margin-top: var(--spacing-sm);
+    color: var(--color-text-light);
+    font-style: italic;
+  }
+</style>
 </style><script>
   // Add smooth scrolling for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

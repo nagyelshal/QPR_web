@@ -8,7 +8,7 @@
       "location": "Trasolini Turf North",
       "kickoff": "11:45am",
       "match_number": "2500544",
-      "week": 1,
+  "week": 0,
       "reason": "Cancelled due to air quality concerns from forest wildfires",
       "scorers": [],
       "assists": [],
@@ -22,7 +22,7 @@
   "location": "Miller Park North",
       "kickoff": "9:30am",
       "match_number": "2500560",
-      "week": 2,
+  "week": 1,
       "final_score": {
         "qpr": 2,
         "opponent": 6,

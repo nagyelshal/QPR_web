@@ -1,33 +1,31 @@
 {
   "week": {
-    "date_range": "Sept 9-15, 2025",
-    "theme": "Home Opener Week - vs CMFSC Millwall",
-    "last_updated": "2025-09-06T21:00:00-07:00"
+    "date_range": "Sept 23-29, 2025",
+    "theme": "Away Match Week - vs PCFC Wolf Pack",
+    "last_updated": "2025-09-16T17:30:00-07:00"
   },
   "training": {
-    "date": "2025-09-11",
-    "day": "Thursday",
+    "date": "2025-09-18",
+    "day": "Thursday", 
     "time": "6:00pm",
     "location": "Town Centre Park - Mobilio Field",
-    "focus": "Attack and defense positioning",
+    "focus": "Away match preparation and zone rotation",
     "attendance_required": true,
-    "completed": true,
-    "last_session": {
-      "date": "2025-09-11",
-      "highlights": ["Full squad attendance", "Quick improvement in positioning", "Attack and defense focus", "Celebrated Ethan G's birthday", "Team ready for Saturday"],
-      "attendance": 15
+    "completed": false,
+    "upcoming_session": {
+      "date": "2025-09-18",
+      "focus_areas": ["Away game preparation", "2-3-2 zone rotation practice", "Building confidence from previous match", "Set piece organization"],
+      "preparation_for": "Sept 27 vs PCFC Wolf Pack"
     }
   },
   "previous_match": {
     "opponent": "CMFSC Millwall",
-    "date": "2025-09-13",
-    "kickoff": "9:30am",
-    "location": "Miller Park",
+    "opponent_coach": "Cody Marsh",
+    "date": "Sep 14, 2025",
+    "time": "11:15 AM",
+    "venue": "Minoru #1",
     "venue_type": "home",
-    "formation": "3-3-1",
-    "match_number": "2500544",
-    "week": 1,
-    "status": "completed",
+    "referee_assignment": "TBD",
     "result": {
       "score": "2-6",
       "outcome": "loss",
@@ -98,15 +96,15 @@
     }
   },
   "match": {
-    "opponent": "TBD",
-    "date": "TBD",
-    "kickoff": "TBD",
-    "location": "TBD",
-    "venue_type": "TBD",
+    "opponent": "PCFC Wolf Pack (McNeill)",
+    "date": "Sep 27, 2025",
+    "kickoff": "10:00 AM",
+    "location": "Mclean Park North",
+    "venue_type": "away",
     "formation": "2-3-2",
-    "match_number": "TBD",
-    "week": "TBD",
-    "status": "pending"
+    "match_number": "2500567",
+    "week": "Week 3",
+    "status": "upcoming"
   },
   "captains": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
@@ -404,16 +402,16 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "White shirts, black shorts, white socks (Away kit - Metro-Ford club rule)",
-    "coach": "Home opener complete: 2-6 loss to CMFSC Millwall. Strong first half (2-1 lead), achieved both team goals: Score First Goal and Team Work Goal. Key training focus: throw-ins and 1-on-1 finishing.",
-    "training_recap": "Outstanding Sept 11 training completed! Full squad attendance, attack/defense positioning focus, and celebrated Ethan's birthday. Team is 100% ready for Saturday!",
-    "match_update": "HOME OPENER COMPLETE: QPR 2-6 CMFSC Millwall. Excellent first half performance (2-1 lead) and achieved team goals: Score First Goal & Team Work Goal. Next training will focus on maintaining performance for full match duration.",
-    "this_week": "Match complete - valuable learning experience. Achieved both season goals: Score First Goal ✅ and Team Work Goal ✅. Building on first half excellence for next match.",
+    "coach": "Preparing for Week 3 away match vs PCFC Wolf Pack (McNeill) at Mclean Park North. Building confidence from home opener performance, focus on maintaining our 2-3-2 zone system.",
+    "training_recap": "Training this week will focus on away match preparation and building on our excellent first half performance vs Millwall.",
+    "match_update": "WEEK 3 PREPARATION: Away match vs PCFC Wolf Pack (McNeill) on Sept 27 at 10:00 AM, Mclean Park North. Continuing 2-3-2 formation with zone-based rotation.",
+    "this_week": "Away match preparation week. Building on achieved season goals and first half excellence from Millwall match.",
     "achievements": [
-      "✅ Score First Goal - Niko D opened scoring with assist from Travis C",
-      "✅ Team Work Goal - Excellent teamwork demonstrated throughout match",
-      "🏠 First match at Miller Park home ground",
-      "🛡️ Outstanding defensive performances from Rhodri W and Owen H"
+      "🎯 Previous match: Score First Goal ✅ and Team Work Goal ✅ achieved vs Millwall", 
+      "🔄 Formation transition to simplified 2-3-2 zone system complete",
+      "�‍♂️ Continuous rotation philosophy implemented successfully",
+      "� Building confidence for first away match of season"
     ]
   },
-  "status": "match-completed"
+  "status": "match-preparation"
 }

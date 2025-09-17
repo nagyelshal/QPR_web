@@ -1,19 +1,103 @@
 {
   "season": "2025-2026",
-  "lastUpdated": "September 1, 2025",
+  "lastUpdated": "September 16, 2025",
   "levels": [
     {
       "level": 1,
       "title": "Foundation Builder",
-      "color": "#4caf50",
-      "description": "Master the basics and build team spirit (Complete 6 of 11 goals to advance)",
+      "color": "#4caf50", 
+      "description": "Build team spirit and basic skills (Complete 8 of 12 goals to advance)",
       "goals": [
         {
           "id": "first-goal",
           "title": "Score First Goal",
           "description": "Team scores their first goal of the season",
+          "completed": true,
+          "points": 100,
+          "completedDate": "September 14, 2025",
+          "completedBy": "Niko D",
+          "completedMatch": "vs CMFSC Millwall (Home Opener)"
+        },
+        {
+          "id": "all-players-play",
+          "title": "Full Squad Power",
+          "description": "Every player gets playing time in a match",
+          "completed": true,
+          "points": 50,
+          "completedDate": "September 14, 2025",
+          "completedBy": "All Squad Members",
+          "completedMatch": "vs CMFSC Millwall (Home Opener)"
+        },
+        {
+          "id": "team-celebration",
+          "title": "Team Spirit",
+          "description": "Celebrate a goal with the whole team",
+          "completed": true,
+          "points": 50,
+          "completedDate": "September 14, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs CMFSC Millwall (Home Opener)"
+        },
+        {
+          "id": "good-sportsmanship",
+          "title": "Good Sports",
+          "description": "Show excellent sportsmanship in a match",
+          "completed": true,
+          "points": 50,
+          "completedDate": "September 14, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs CMFSC Millwall (Home Opener)"
+        },
+        {
+          "id": "first-assist",
+          "title": "Team Work Goal",
+          "description": "Score your first assisted goal",
+          "completed": true,
+          "points": 75,
+          "completedDate": "September 14, 2025",
+          "completedBy": "Ethan G (goal), Travis C (assist)",
+          "completedMatch": "vs CMFSC Millwall (Home Opener)"
+        },
+        {
+          "id": "all-positions",
+          "title": "Position Explorers",
+          "description": "Have players try different positions",
+          "completed": true,
+          "points": 75,
+          "completedDate": "September 14, 2025",
+          "completedBy": "All Squad Members",
+          "completedMatch": "vs CMFSC Millwall (Home Opener)"
+        },
+        {
+          "id": "perfect-attendance",
+          "title": "Perfect Attendance",
+          "description": "Have full squad attendance at a training session",
+          "completed": false,
+          "points": 50,
+          "completedDate": null
+        },
+        {
+          "id": "high-five-goals",
+          "title": "High Five!",
+          "description": "Score 5 goals in a single match (team total)",
           "completed": false,
           "points": 100,
+          "completedDate": null
+        },
+        {
+          "id": "every-player-touches-ball",
+          "title": "Touch Master",
+          "description": "Every player touches the ball in the first 10 minutes",
+          "completed": false,
+          "points": 75,
+          "completedDate": null
+        },
+        {
+          "id": "captain-leadership",
+          "title": "Captain's Call",
+          "description": "Team captain successfully leads a team talk",
+          "completed": false,
+          "points": 50,
           "completedDate": null
         },
         {
@@ -25,123 +109,27 @@
           "completedDate": null
         },
         {
-          "id": "all-players-play",
-          "title": "Full Squad Power",
-          "description": "Every player gets playing time in a match",
-          "completed": false,
-          "points": 100,
-          "completedDate": null
-        },
-        {
-          "id": "team-celebration",
-          "title": "Team Spirit",
-          "description": "Celebrate a goal with the whole team",
+          "id": "goalkeeper-clean-hands",
+          "title": "Clean Hands",
+          "description": "Goalkeeper doesn't drop the ball for a full half",
           "completed": false,
           "points": 75,
-          "completedDate": null
-        },
-        {
-          "id": "good-sportsmanship",
-          "title": "Good Sports",
-          "description": "Show excellent sportsmanship in a match",
-          "completed": false,
-          "points": 75,
-          "completedDate": null
-        },
-        {
-          "id": "corner-kick-goal",
-          "title": "Corner Kick Magic",
-          "description": "Score a goal from a corner kick",
-          "completed": false,
-          "points": 125,
-          "completedDate": null
-        },
-        {
-          "id": "header-goal",
-          "title": "Head Master",
-          "description": "Score a goal with a header",
-          "completed": false,
-          "points": 150,
-          "completedDate": null
-        },
-        {
-          "id": "far-shot-goal",
-          "title": "Long Range Rocket",
-          "description": "Score from outside the penalty area",
-          "completed": false,
-          "points": 175,
-          "completedDate": null
-        },
-        {
-          "id": "score-both-halves",
-          "title": "Two-Half Heroes",
-          "description": "Score in both halves of a match",
-          "completed": false,
-          "points": 150,
-          "completedDate": null
-        },
-        {
-          "id": "all-positions",
-          "title": "Position Explorers",
-          "description": "Have players try different positions",
-          "completed": false,
-          "points": 100,
-          "completedDate": null
-        },
-        {
-          "id": "first-assist",
-          "title": "Team Work Goal",
-          "description": "Score your first assisted goal",
-          "completed": false,
-          "points": 100,
-          "completedDate": null
-        },
-        {
-          "id": "first-corner-goal",
-          "title": "Corner Kick Master",
-          "description": "Score directly from a corner kick",
-          "completed": false,
-          "points": 125,
-          "completedDate": null
-        },
-        {
-          "id": "throw-in-goal",
-          "title": "Throw-In Trickster",
-          "description": "Create a goal from a long throw-in",
-          "completed": false,
-          "points": 125,
-          "completedDate": null
-        },
-        {
-          "id": "score-3-goals",
-          "title": "Hat-trick Heroes",
-          "description": "Score 3 goals in a single match",
-          "completed": false,
-          "points": 200,
-          "completedDate": null
-        },
-        {
-          "id": "comeback-victory",
-          "title": "Never Give Up",
-          "description": "Win a match after being behind",
-          "completed": false,
-          "points": 250,
           "completedDate": null
         }
       ]
     },
     {
       "level": 2,
-      "title": "Team Builder",
+      "title": "Team Builder", 
       "color": "#ff9800",
-      "description": "Develop teamwork and tactical skills (Complete 8 of 12 goals to advance)",
+      "description": "Develop teamwork and match skills (Complete 6 of 10 goals to advance)",
       "goals": [
         {
-          "id": "clean-sheet",
-          "title": "Fortress Defense",
-          "description": "Keep a clean sheet (no goals conceded)",
+          "id": "score-both-halves", 
+          "title": "Two-Half Heroes",
+          "description": "Score in both halves of a match",
           "completed": false,
-          "points": 200,
+          "points": 100,
           "completedDate": null
         },
         {
@@ -149,7 +137,7 @@
           "title": "Shared Glory",
           "description": "Have 3+ different players score in one match",
           "completed": false,
-          "points": 175,
+          "points": 125,
           "completedDate": null
         },
         {

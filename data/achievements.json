@@ -70,13 +70,29 @@
         "points": 75
       },
       {
-        "id": "captain-fantastic",
-        "name": "Captain Fantastic",
-        "description": "Be named captain 3 times",
-        "icon": "🎖️",
-        "rarity": "rare",
-        "points": 35
-      }
+          "id": "captain-fantastic",
+          "name": "Captain Fantastic",
+          "description": "Be named captain 3 times",
+          "icon": "🎖️",
+          "rarity": "rare",
+          "points": 35
+        },
+        {
+          "id": "first-assist",
+          "name": "First Assist", 
+          "description": "Provide your first assist of the season",
+          "icon": "🤝",
+          "rarity": "common",
+          "points": 10
+        },
+        {
+          "id": "defensive-star",
+          "name": "Defensive Star",
+          "description": "Outstanding defensive performance in a match",
+          "icon": "🌟",
+          "rarity": "uncommon", 
+          "points": 15
+        }
     ],
     "special": [
       {
@@ -114,5 +130,45 @@
     ]
   },
   "player_achievements": {
+    "niko-d": [
+      {
+        "achievement_id": "first-goal",
+        "earned_date": "2025-09-14",
+        "match": "vs CMFSC Millwall",
+        "details": "Scored the team's first goal of the season with assist from Travis C"
+      }
+    ],
+    "ethan-g": [
+      {
+        "achievement_id": "first-goal", 
+        "earned_date": "2025-09-14",
+        "match": "vs CMFSC Millwall",
+        "details": "Scored team's second goal in home opener"
+      }
+    ],
+    "travis-c": [
+      {
+        "achievement_id": "first-assist",
+        "earned_date": "2025-09-14", 
+        "match": "vs CMFSC Millwall",
+        "details": "First assist of the season on Niko D's opening goal"
+      }
+    ],
+    "rhodri-w": [
+      {
+        "achievement_id": "defensive-star",
+        "earned_date": "2025-09-14",
+        "match": "vs CMFSC Millwall", 
+        "details": "Outstanding defensive performance in home opener"
+      }
+    ],
+    "owen-h": [
+      {
+        "achievement_id": "defensive-star",
+        "earned_date": "2025-09-14",
+        "match": "vs CMFSC Millwall",
+        "details": "Outstanding defensive performance in home opener"
+      }
+    ]
   }
 }

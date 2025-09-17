@@ -22,11 +22,11 @@
     "opponent": "CMFSC Millwall",
     "date": "2025-09-13",
     "kickoff": "9:30am",
-  "location": "Miller Park North",
+    "location": "Miller Park",
     "venue_type": "home",
     "formation": "3-3-1",
-  "match_number": "2500560",
-  "week": 1,
+    "match_number": "2500544",
+    "week": 1,
     "status": "completed",
     "result": {
       "score": "2-6",
@@ -103,7 +103,7 @@
     "kickoff": "TBD",
     "location": "TBD",
     "venue_type": "TBD",
-    "formation": "3-3-1",
+    "formation": "2-3-2",
     "match_number": "TBD",
     "week": "TBD",
     "status": "pending"
@@ -126,13 +126,13 @@
       {
         "name": "Adam K",
         "pos": "Defence",
-        "tactical_pos": "LB",
+        "tactical_pos": "CB",
         "jersey": "13"
       },
       {
         "name": "Owen H",
         "pos": "Defence",
-        "tactical_pos": "RB",
+        "tactical_pos": "CB",
         "jersey": "9"
       },
       {
@@ -150,49 +150,49 @@
       {
         "name": "Travis C",
         "pos": "Defence",
-        "tactical_pos": "LB",
+        "tactical_pos": "CB",
         "jersey": "3"
       },
       {
         "name": "Andrew N",
         "pos": "Defence",
-        "tactical_pos": "RB",
+        "tactical_pos": "CB",
         "jersey": "5"
       },
       {
         "name": "Alexander V",
-        "pos": "Midfield/Wingers",
+        "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "8"
       },
       {
         "name": "Andy E",
-        "pos": "Midfield/Wingers",
-        "tactical_pos": "RW",
+        "pos": "Midfield",
+        "tactical_pos": "RM",
         "jersey": "4"
       },
       {
         "name": "Henry K",
-        "pos": "Midfield/Wingers",
-        "tactical_pos": "LW",
+        "pos": "Midfield",
+        "tactical_pos": "LM",
         "jersey": "11"
       },
       {
         "name": "Niko D",
-        "pos": "Midfield/Wingers",
-        "tactical_pos": "LW",
+        "pos": "Midfield",
+        "tactical_pos": "LM",
         "jersey": "6"
       },
       {
         "name": "Rafael H",
-        "pos": "Midfield/Wingers",
+        "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "12"
       },
       {
         "name": "Yejun K",
-        "pos": "Midfield/Wingers",
-        "tactical_pos": "RW",
+        "pos": "Midfield",
+        "tactical_pos": "RM",
         "jersey": "7"
       },
       {
@@ -223,30 +223,30 @@
         { "name": "Owen H", "jersey": "9" }
       ],
       "defence": [
-        { "name": "Minh-An D", "jersey": "2", "tactical_pos": "CB" },
-        { "name": "Rhodri W", "jersey": "10", "tactical_pos": "CB" },
-        { "name": "Travis C", "jersey": "3", "tactical_pos": "LB" },
-        { "name": "Andrew N", "jersey": "5", "tactical_pos": "RB" }
+        { "name": "Minh-An D", "jersey": "2" },
+        { "name": "Rhodri W", "jersey": "10" },
+        { "name": "Travis C", "jersey": "3" },
+        { "name": "Andrew N", "jersey": "5" }
       ],
-      "midfield_wingers": [
-        { "name": "Alexander V", "jersey": "8", "tactical_pos": "CM" },
-        { "name": "Andy E", "jersey": "4", "tactical_pos": "RW" },
-        { "name": "Henry K", "jersey": "11", "tactical_pos": "LW" },
-        { "name": "Niko D", "jersey": "6", "tactical_pos": "LW" },
-        { "name": "Rafael H", "jersey": "12", "tactical_pos": "CM" },
-        { "name": "Yejun K", "jersey": "7", "tactical_pos": "RW" }
+      "midfield": [
+        { "name": "Alexander V", "jersey": "8" },
+        { "name": "Andy E", "jersey": "4" },
+        { "name": "Henry K", "jersey": "11" },
+        { "name": "Niko D", "jersey": "6" },
+        { "name": "Rafael H", "jersey": "12" },
+        { "name": "Yejun K", "jersey": "7" }
       ],
       "strikers": [
-        { "name": "Ethan G", "jersey": "15", "tactical_pos": "ST" },
-        { "name": "David C", "jersey": "14", "tactical_pos": "ST" },
-        { "name": "Eunjun K", "jersey": "16", "tactical_pos": "ST" }
+        { "name": "Ethan G", "jersey": "15" },
+        { "name": "David C", "jersey": "14" },
+        { "name": "Eunjun K", "jersey": "16" }
       ]
     },
     "sideline_layout": {
-      "left_to_right": ["Defence", "Midfield/Wingers", "Strikers"],
+      "left_to_right": ["Defence", "Midfield", "Strikers"],
       "keeper_spot": "Near coach for quick switch at half"
     },
-    "instructions": "When you're off the pitch, stand in your zone by the colored cones. Keep shin guards on, water ready, and listen for your name. Adam/Owen: stand with GK zone when about to play GK; otherwise join Defence."
+    "instructions": "When you're off the pitch, stand in your zone by the colored cones. Any defender can play either CB spot, any midfielder can play LM/CM/RM, any striker can play either ST position. Keep shin guards on, water ready, and listen for your name. Adam/Owen: stand with GK zone when about to play GK; otherwise join Defence."
   },
   "lineup": {
     "reveal_at": "2025-09-12T08:00:00-07:00",
@@ -320,17 +320,17 @@
       },
       {
         "name": "Travis C",
-        "pos": "LB",
+        "pos": "CB",
         "jersey": "3"
       },
       {
         "name": "Minh-An D",
-        "pos": "CB",
+        "pos": "CB2",
         "jersey": "2"
       },
       {
         "name": "Owen H",
-        "pos": "RB",
+        "pos": "CB2",
         "jersey": "9"
       },
       {
@@ -352,6 +352,11 @@
         "name": "Ethan G",
         "pos": "ST",
         "jersey": "15"
+      },
+      {
+        "name": "David C",
+        "pos": "ST2", 
+        "jersey": "14"
       }
     ],
     "rotating": [

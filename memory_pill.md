@@ -1,16 +1,21 @@
 # Memory Pill - QPR U11B Team Rules & Guidelines
 
-## 🏗️ Formation Rules
+## 🏗️ Formation Rules - UPDATED Sept 2025
 
-### Defensive Positions
-- **LB** (Left Back) - Left side defender
-- **CB** (Center Back) - Central defender  
-- **RB** (Right Back) - Right side defender
+### Ultra-Simplified Formation for U11 Rotation
+- **2-3-2 Formation**: 2 defenders (CB-CB), 3 midfielders (LM-CM-RM), 2 strikers (ST-ST)
+- **Three zones only**: Defence, Midfield, Strikers
+- **NO positional specialization** - all players in each zone are interchangeable
 
-### Formation Structure
-- **3-3-1 Formation**: 3 defenders (LB-CB-RB), 3 midfielders, 1 striker
-- **NOT randomized before weekend games** - positions are strategic assignments
-- Formation positions should reflect actual tactical setup
+### Rotation Philosophy
+- **Defence Zone**: Any defender can play either CB position
+- **Midfield Zone**: Any midfielder can play LM, CM, or RM positions  
+- **Striker Zone**: Any striker can play either ST position
+- **Maximum simplicity** for continuous rotation and mixed skill levels
+
+### Historical Formation
+- **3-3-1 Formation** preserved for historical matches (e.g., vs CMFSC Millwall)
+- Component supports both formations for display purposes
 
 ## 👨‍✈️ Captain Rules
 - **One captain per half** (not both halves)
@@ -35,11 +40,18 @@
 - **White kit**: White shirts, black shorts, white socks
 - **Blue kit**: Blue shirts, black shorts, blue socks
 
-## 📋 Lineup Generation Rules
-- **DO NOT randomize positions before weekend games**
-- Use strategic positioning based on player strengths
-- Maintain formation integrity (3-3-1 structure)
-- Consider player development and rotation
+## 📋 Lineup Generation Rules - UPDATED Sept 2025
+- **Zone-based rotation**: Players rotate within their zone (Defence/Midfield/Strikers)
+- **No fixed positions**: Any CB can play either defender slot, any midfielder can play LM/CM/RM
+- **Simple substitutions**: Just swap players within the same zone
+- Formation maintains 2-3-2 structure but positions are flexible
+
+## 🧠 Coaching Philosophy - Sept 2025 Update
+- **U11 with continuous rotation**: Simplicity over tactical complexity
+- **Zone-based thinking**: Kids understand "Defence", "Midfield", "Strikers"  
+- **No positional confusion**: Eliminates LB/CB/RB specialization during subs
+- **Easier mental model**: 2 back, 3 middle, 2 front vs isolated lone striker
+- **Rotation-friendly**: Any player can slot into any position within their zone
 
 ## 🏃‍♂️ Training Rules
 - **Location**: Town Centre Park - Mobilio Field (all training sessions)

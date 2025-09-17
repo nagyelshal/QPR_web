@@ -11,33 +11,60 @@ interface Props {
 
 const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, goalkeepers, phase } = Astro.props;
 
-// Position mapping for 3-3-1 formation
+// Position mapping supporting both formations
 const positionMap = {
   'GK': { x: 50, y: 85 },
-  'LB': { x: 25, y: 65 }, // Left Back
-  'CB': { x: 50, y: 65 }, // Center Back  
-  'RB': { x: 75, y: 65 }, // Right Back
-  'LM': { x: 25, y: 45 }, // Left Midfielder (for compatibility)
-  'CM': { x: 50, y: 45 }, // Center Midfielder
-  'RM': { x: 75, y: 45 }, // Right Midfielder (for compatibility)
-  'ST': { x: 50, y: 25 }  // Striker
+  // 2-3-2 formation (simplified zones for U11 rotation)
+  'CB': { x: 30, y: 65 },  // Center Back (left side)
+  'CB2': { x: 70, y: 65 }, // Center Back (right side)
+  'LM': { x: 20, y: 45 },  // Left Midfielder
+  'CM': { x: 50, y: 45 },  // Center Midfielder
+  'RM': { x: 80, y: 45 },  // Right Midfielder
+  'ST': { x: 35, y: 25 },  // Striker (left side)
+  'ST2': { x: 65, y: 25 }, // Striker (right side)
+  // 3-3-1 formation (for historical matches)
+  'LB': { x: 25, y: 65 },  // Left Back
+  'RB': { x: 75, y: 65 },  // Right Back
+  'ST_SINGLE': { x: 50, y: 25 } // Single Striker for 3-3-1
 };
 
-// Helper: slot coordinates for 3-3-1 formation defense
-const defensePositions = [
-  { x: 25, y: 65 }, // LB (Left Back)
-  { x: 50, y: 65 }, // CB (Center Back)
-  { x: 75, y: 65 }  // RB (Right Back)
+// Helper: slot coordinates for 2-3-2 formation zones
+const backTwoPositions = [
+  { x: 30, y: 65 }, // LD (Left Defender)
+  { x: 70, y: 65 }  // RD (Right Defender)
+];
+
+const middleThreePositions = [
+  { x: 20, y: 45 }, // LM (Left Midfielder)
+  { x: 50, y: 45 }, // CM (Center Midfielder)
+  { x: 80, y: 45 }  // RM (Right Midfielder)
+];
+
+const frontTwoPositions = [
+  { x: 35, y: 25 }, // LS (Left Striker)
+  { x: 65, y: 25 }  // RS (Right Striker)
 ];
 
 const getPositionForPlayer = (player) => {
-  // For 3-3-1 formation, we directly use the position mapping
+  // Support both 2-3-2 and 3-3-1 positioning
   return positionMap[player.pos] || { x: 50, y: 50 };
 };
 
-// Build static formation slots when we are in 'captains' phase (no lineup reveal)
+// Build static formation slots based on formation type
 const getFormationSlots = () => {
-  if (formation === '3-3-1') {
+  if (formation === '2-3-2') {
+    return [
+      { pos: 'GK' },
+      { pos: 'CB' },   // Center Back 1
+      { pos: 'CB2' },  // Center Back 2
+      { pos: 'LM' },   // Left Midfielder
+      { pos: 'CM' },   // Center Midfielder
+      { pos: 'RM' },   // Right Midfielder
+      { pos: 'ST' },   // Striker 1
+      { pos: 'ST2' }   // Striker 2
+    ];
+  } else if (formation === '3-3-1') {
+    // For historical 3-3-1 matches
     return [
       { pos: 'GK' },
       { pos: 'LB' },  // Left Back
@@ -46,11 +73,15 @@ const getFormationSlots = () => {
       { pos: 'LM' },  // Left Midfielder
       { pos: 'CM' },  // Center Midfielder
       { pos: 'RM' },  // Right Midfielder
-      { pos: 'ST' }   // Striker
+      { pos: 'ST_SINGLE' } // Single Striker
     ];
   }
-  // default: single markers
-  return [{ pos: 'GK' }, { pos: 'LB' }, { pos: 'CB' }, { pos: 'RB' }, { pos: 'LM' }, { pos: 'CM' }, { pos: 'RM' }, { pos: 'ST' }];
+  // Default to 2-3-2 for any other formation
+  return [
+    { pos: 'GK' }, { pos: 'CB' }, { pos: 'CB2' }, 
+    { pos: 'LM' }, { pos: 'CM' }, { pos: 'RM' }, 
+    { pos: 'ST' }, { pos: 'ST2' }
+  ];
 };
 
 const getSlotPosition = (slot) => {

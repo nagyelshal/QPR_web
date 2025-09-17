@@ -141,27 +141,27 @@
           "completedDate": null
         },
         {
-          "id": "defensive-wall",
-          "title": "Defensive Wall",
-          "description": "Make 5+ successful tackles in a match",
+          "id": "corner-kick-goal",
+          "title": "Corner Kick Magic",
+          "description": "Score a goal from a corner kick",
           "completed": false,
-          "points": 150,
+          "points": 100,
           "completedDate": null
         },
         {
           "id": "goalkeeper-save",
           "title": "Super Save",
-          "description": "Goalkeeper makes an amazing save",
+          "description": "Goalkeeper makes a great save to keep us in the game",
           "completed": false,
-          "points": 125,
+          "points": 75,
           "completedDate": null
         },
         {
-          "id": "quick-counter",
-          "title": "Lightning Counter",
-          "description": "Score within 10 seconds of winning the ball",
+          "id": "throw-in-goal",
+          "title": "Throw-In Trickster", 
+          "description": "Create a scoring opportunity from a throw-in",
           "completed": false,
-          "points": 200,
+          "points": 75,
           "completedDate": null
         },
         {

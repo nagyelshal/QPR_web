@@ -107,16 +107,17 @@
     "status": "upcoming"
   },
   "captains": {
-  "reveal_at": "2025-09-03T00:00:00-07:00",
-    "first_half": "Minh-An D",
-    "second_half": "Travis C",
-    "duties": "Lead warm-ups • Take set pieces • Guide positions",
-    "training_update": "Ready for next week's assignments"
+    "reveal_at": "2025-09-18T00:00:00-07:00",
+    "first_half": "Rhodri W",
+    "second_half": "Alexander V",
+    "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
+    "training_update": "New captains will be announced at Thursday training"
   },
   "goalkeepers": {
-    "first_half": "Adam K",
-    "second_half": "Owen H",
-    "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time"
+    "first_half": "Henry K",
+    "second_half": "Rafael H", 
+    "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
+    "rotation_note": "New goalkeeper rotation - Henry K and Rafael H get their turn!"
   },
   "positions": {
   "reveal_at": "2025-09-03T00:00:00-07:00",
@@ -214,27 +215,27 @@
     ]
   },
   "off_pitch": {
-    "reveal_at": "2025-09-03T00:00:00-07:00",
+    "reveal_at": "2025-09-18T00:00:00-07:00",
     "zones": {
       "goalkeepers": [
-        { "name": "Adam K", "jersey": "13" },
-        { "name": "Owen H", "jersey": "9" }
+        { "name": "Henry K", "jersey": "11" },
+        { "name": "Rafael H", "jersey": "12" }
       ],
       "defence": [
-        { "name": "Minh-An D", "jersey": "2" },
+        { "name": "Andy E", "jersey": "4" },
+        { "name": "Andrew N", "jersey": "5" },
         { "name": "Rhodri W", "jersey": "10" },
-        { "name": "Travis C", "jersey": "3" },
-        { "name": "Andrew N", "jersey": "5" }
+        { "name": "Owen H", "jersey": "9" },
+        { "name": "Adam K", "jersey": "13" }
       ],
       "midfield": [
         { "name": "Alexander V", "jersey": "8" },
-        { "name": "Andy E", "jersey": "4" },
-        { "name": "Henry K", "jersey": "11" },
-        { "name": "Niko D", "jersey": "6" },
-        { "name": "Rafael H", "jersey": "12" },
+        { "name": "Minh-An D", "jersey": "2" },
+        { "name": "Travis C", "jersey": "3" },
         { "name": "Yejun K", "jersey": "7" }
       ],
       "strikers": [
+        { "name": "Niko D", "jersey": "6" },
         { "name": "Ethan G", "jersey": "15" },
         { "name": "David C", "jersey": "14" },
         { "name": "Eunjun K", "jersey": "16" }
@@ -244,7 +245,7 @@
       "left_to_right": ["Defence", "Midfield", "Strikers"],
       "keeper_spot": "Near coach for quick switch at half"
     },
-    "instructions": "When you're off the pitch, stand in your zone by the colored cones. Any defender can play either CB spot, any midfielder can play LM/CM/RM, any striker can play either ST position. Keep shin guards on, water ready, and listen for your name. Adam/Owen: stand with GK zone when about to play GK; otherwise join Defence."
+    "instructions": "NEW ZONE ASSIGNMENTS! When off pitch, stand in your assigned zone. Defence: Andy E, Andrew N, Rhodri W, Owen H, Adam K. Midfield: Alexander V, Minh-An D, Travis C, Yejun K. Strikers: Niko D, Ethan G, David C, Eunjun K. Henry K & Rafael H are this week's goalkeepers."
   },
   "lineup": {
     "reveal_at": "2025-09-12T08:00:00-07:00",
@@ -312,49 +313,44 @@
     ],
     "starting": [
       {
-        "name": "Adam K",
+        "name": "Henry K",
         "pos": "GK",
-        "jersey": "13"
-      },
-      {
-        "name": "Travis C",
-        "pos": "CB",
-        "jersey": "3"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "CB2",
-        "jersey": "2"
-      },
-      {
-        "name": "Owen H",
-        "pos": "CB2",
-        "jersey": "9"
-      },
-      {
-        "name": "Niko D",
-        "pos": "LM",
-        "jersey": "6"
-      },
-      {
-        "name": "Alexander V",
-        "pos": "CM",
-        "jersey": "8"
+        "jersey": "11"
       },
       {
         "name": "Andy E",
-        "pos": "RM",
+        "pos": "CB",
         "jersey": "4"
       },
       {
-        "name": "Ethan G",
-        "pos": "ST",
-        "jersey": "15"
+        "name": "Andrew N",
+        "pos": "CB2", 
+        "jersey": "5"
       },
       {
-        "name": "David C",
-        "pos": "ST2", 
-        "jersey": "14"
+        "name": "Alexander V",
+        "pos": "LM",
+        "jersey": "8"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "CM",
+        "jersey": "2"
+      },
+      {
+        "name": "Travis C",
+        "pos": "RM",
+        "jersey": "3"
+      },
+      {
+        "name": "Niko D",
+        "pos": "ST",
+        "jersey": "6"
+      },
+      {
+        "name": "Ethan G",
+        "pos": "ST2",
+        "jersey": "15"
       }
     ],
     "rotating": [

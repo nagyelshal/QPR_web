@@ -1,0 +1,58 @@
+{
+  "position_history": {
+    "Adam K": [
+      "defence"
+    ],
+    "Owen H": [
+      "defence"
+    ],
+    "Minh-An D": [
+      "defence"
+    ],
+    "Rhodri W": [
+      "defence"
+    ],
+    "Travis C": [
+      "defence"
+    ],
+    "Andrew N": [
+      "defence"
+    ],
+    "Alexander V": [
+      "midfield"
+    ],
+    "Andy E": [
+      "midfield"
+    ],
+    "Henry K": [
+      "midfield"
+    ],
+    "Niko D": [
+      "midfield"
+    ],
+    "Rafael H": [
+      "midfield"
+    ],
+    "Yejun K": [
+      "midfield"
+    ],
+    "Ethan G": [
+      "striker"
+    ],
+    "David C": [
+      "striker"
+    ],
+    "Eunjun K": [
+      "striker"
+    ]
+  },
+  "captain_history": [
+    "Travis C",
+    "Minh-An D"
+  ],
+  "gk_history": [
+    "Owen H",
+    "Adam K"
+  ],
+  "last_updated": "2025-09-16T22:50:07.701847"
+}

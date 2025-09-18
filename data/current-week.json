@@ -112,11 +112,11 @@
   },
   "match": {
     "opponent": "PCFC Wolf Pack (McNeill)",
-    "date": "Sep 27, 2025",
+    "date": "2025-09-27",
     "kickoff": "10:00 AM",
     "location": "Mclean Park North",
     "venue_type": "away",
-    "formation": "2-3-2",
+    "formation": "5-6-4",
     "match_number": "2500567",
     "week": "Week 3",
     "status": "upcoming"
@@ -372,9 +372,9 @@
         "jersey": "8"
       },
       {
-        "name": "Adam K",
+        "name": "Andy E",
         "pos": "CB",
-        "jersey": "13"
+        "jersey": "4"
       },
       {
         "name": "David C",
@@ -383,8 +383,18 @@
       },
       {
         "name": "Ethan G",
-        "pos": "LM",
+        "pos": "CB3",
         "jersey": "15"
+      },
+      {
+        "name": "Henry K",
+        "pos": "CB4",
+        "jersey": "11"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "CB5",
+        "jersey": "2"
       },
       {
         "name": "Travis C",
@@ -392,9 +402,19 @@
         "jersey": "3"
       },
       {
-        "name": "Andrew N",
-        "pos": "RM",
-        "jersey": "5"
+        "name": "Eunjun K",
+        "pos": "CM2",
+        "jersey": "16"
+      },
+      {
+        "name": "Adam K",
+        "pos": "CM3",
+        "jersey": "13"
+      },
+      {
+        "name": "Owen H",
+        "pos": "CM4",
+        "jersey": "9"
       },
       {
         "name": "Rafael H",
@@ -405,36 +425,22 @@
         "name": "Niko D",
         "pos": "ST2",
         "jersey": "6"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "ST3",
+        "jersey": "10"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "ST4",
+        "jersey": "5"
       }
     ],
     "rotating": [
       {
-        "name": "Eunjun K",
-        "jersey": "16"
-      },
-      {
-        "name": "Minh-An D",
-        "jersey": "2"
-      },
-      {
-        "name": "Owen H",
-        "jersey": "9"
-      },
-      {
-        "name": "Rhodri W",
-        "jersey": "10"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11"
-      },
-      {
         "name": "Yejun K",
         "jersey": "7"
-      },
-      {
-        "name": "Andy E",
-        "jersey": "4"
       }
     ]
   },

@@ -448,6 +448,21 @@ const homeAwayText = isHome ? 'Home' : 'Away';
                     <span class="player-position" style="font-size: 0.75rem; background: #1976d2; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">{player.tactical_pos}</span>
                   </div>
                 ))}
+                {/* Goalkeepers in alternate positions when not goalkeeping */}
+                <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(33, 150, 243, 0.1); border-radius: 8px; border: 1px solid rgba(33, 150, 243, 0.3);">
+                  <span class="player-name" style="font-weight: 600; color: #1976d2;">Alexander V</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #1976d2; font-weight: 500;">#8</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #2196f3; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">GK/MF*</span>
+                  </div>
+                </div>
+                <div class="zone-player" style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; background: rgba(33, 150, 243, 0.1); border-radius: 8px; border: 1px solid rgba(33, 150, 243, 0.3);">
+                  <span class="player-name" style="font-weight: 600; color: #1976d2;">Yejun K</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="player-jersey" style="font-size: 0.875rem; color: #1976d2; font-weight: 500;">#7</span>
+                    <span class="player-position" style="font-size: 0.75rem; background: #2196f3; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600;">GK/MF*</span>
+                  </div>
+                </div>
               </div>
             </div>
             

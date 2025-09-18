@@ -2,11 +2,11 @@
   "week": {
     "date_range": "Sept 23-29, 2025",
     "theme": "Away Match Week - vs PCFC Wolf Pack",
-    "last_updated": "2025-09-16T17:30:00-07:00"
+    "last_updated": "2025-09-17T18:00:00-07:00"
   },
   "training": {
     "date": "2025-09-18",
-    "day": "Thursday", 
+    "day": "Thursday",
     "time": "6:00pm",
     "location": "Town Centre Park - Mobilio Field",
     "focus": "Away match preparation and zone rotation",
@@ -14,7 +14,12 @@
     "completed": false,
     "upcoming_session": {
       "date": "2025-09-18",
-      "focus_areas": ["Away game preparation", "2-3-2 zone rotation practice", "Building confidence from previous match", "Set piece organization"],
+      "focus_areas": [
+        "Away game preparation",
+        "2-3-2 zone rotation practice",
+        "Building confidence from previous match",
+        "Set piece organization"
+      ],
       "preparation_for": "Sept 27 vs PCFC Wolf Pack"
     }
   },
@@ -32,10 +37,20 @@
       "qpr_goals": 2,
       "opponent_goals": 6,
       "half_time": "2-1",
-      "goal_scorers": ["Niko D", "Ethan G"],
-      "assists": ["Travis C"],
-      "defensive_stars": ["Rhodri W", "Owen H"],
-      "absent_players": ["David C"]
+      "goal_scorers": [
+        "Niko D",
+        "Ethan G"
+      ],
+      "assists": [
+        "Travis C"
+      ],
+      "defensive_stars": [
+        "Rhodri W",
+        "Owen H"
+      ],
+      "absent_players": [
+        "David C"
+      ]
     },
     "achievements": [
       "Score First Goal",
@@ -108,109 +123,97 @@
   },
   "captains": {
     "reveal_at": "2025-09-18T00:00:00-07:00",
-    "first_half": "Rhodri W",
-    "second_half": "Alexander V",
+    "first_half": "Ethan G",
+    "second_half": "Niko D",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "New captains will be announced at Thursday training"
   },
   "goalkeepers": {
-    "first_half": "Henry K",
-    "second_half": "Rafael H", 
+    "first_half": "Alexander V",
+    "second_half": "Yejun K",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "New goalkeeper rotation - Henry K and Rafael H get their turn!"
+    "rotation_note": "New goalkeeper rotation - Alexander V (alternate: Midfield) and Yejun K (alternate: Midfield)!"
   },
   "positions": {
-  "reveal_at": "2025-09-03T00:00:00-07:00",
+    "reveal_at": "2025-09-18T00:00:00-07:00",
     "all_positions": [
       {
-        "name": "Adam K",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "13"
-      },
-      {
-        "name": "Owen H",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "9"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "2"
-      },
-      {
-        "name": "Rhodri W",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "10"
-      },
-      {
-        "name": "Travis C",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "3"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "5"
-      },
-      {
-        "name": "Alexander V",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "8"
-      },
-      {
-        "name": "Andy E",
-        "pos": "Midfield",
-        "tactical_pos": "RM",
-        "jersey": "4"
-      },
-      {
-        "name": "Henry K",
-        "pos": "Midfield",
-        "tactical_pos": "LM",
-        "jersey": "11"
-      },
-      {
-        "name": "Niko D",
-        "pos": "Midfield",
-        "tactical_pos": "LM",
-        "jersey": "6"
-      },
-      {
-        "name": "Rafael H",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "12"
-      },
-      {
-        "name": "Yejun K",
-        "pos": "Midfield",
-        "tactical_pos": "RM",
-        "jersey": "7"
-      },
-      {
         "name": "Ethan G",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
+        "pos": "Defence",
+        "tactical_pos": "CB",
         "jersey": "15"
       },
       {
         "name": "David C",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
+        "pos": "Defence", 
+        "tactical_pos": "CB",
         "jersey": "14"
       },
       {
+        "name": "Andy E",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "4"
+      },
+      {
+        "name": "Adam K",
+        "pos": "Midfield",
+        "tactical_pos": "Midfield",
+        "jersey": "13"
+      },
+      {
+        "name": "Travis C",
+        "pos": "Midfield",
+        "tactical_pos": "Midfield",
+        "jersey": "3"
+      },
+      {
         "name": "Eunjun K",
+        "pos": "Midfield",
+        "tactical_pos": "Midfield",
+        "jersey": "16"
+      },
+      {
+        "name": "Owen H",
+        "pos": "Midfield",
+        "tactical_pos": "Midfield",
+        "jersey": "9"
+      },
+      {
+        "name": "Henry K",
+        "pos": "Midfield",
+        "tactical_pos": "Midfield",
+        "jersey": "11"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "Midfield",
+        "tactical_pos": "Midfield",
+        "jersey": "2"
+      },
+      {
+        "name": "Niko D",
         "pos": "Strikers",
         "tactical_pos": "ST",
-        "jersey": "16"
+        "jersey": "6"
+      },
+      {
+        "name": "Rafael H",
+        "pos": "Strikers",
+        "tactical_pos": "ST", 
+        "jersey": "12"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "10"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "5"
       }
     ]
   },
@@ -218,37 +221,88 @@
     "reveal_at": "2025-09-18T00:00:00-07:00",
     "zones": {
       "goalkeepers": [
-        { "name": "Henry K", "jersey": "11" },
-        { "name": "Rafael H", "jersey": "12" }
+        {
+          "name": "Alexander V",
+          "jersey": "8",
+          "alternate_pos": "Midfield"
+        },
+        {
+          "name": "Yejun K",
+          "jersey": "7",
+          "alternate_pos": "Midfield"
+        }
       ],
       "defence": [
-        { "name": "Andy E", "jersey": "4" },
-        { "name": "Andrew N", "jersey": "5" },
-        { "name": "Rhodri W", "jersey": "10" },
-        { "name": "Owen H", "jersey": "9" },
-        { "name": "Adam K", "jersey": "13" }
+        {
+          "name": "Ethan G",
+          "jersey": "15"
+        },
+        {
+          "name": "David C",
+          "jersey": "14"
+        },
+        {
+          "name": "Andy E",
+          "jersey": "4"
+        }
       ],
       "midfield": [
-        { "name": "Alexander V", "jersey": "8" },
-        { "name": "Minh-An D", "jersey": "2" },
-        { "name": "Travis C", "jersey": "3" },
-        { "name": "Yejun K", "jersey": "7" }
+        {
+          "name": "Adam K",
+          "jersey": "13"
+        },
+        {
+          "name": "Travis C",
+          "jersey": "3"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "Owen H",
+          "jersey": "9"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
+        },
+        {
+          "name": "Minh-An D",
+          "jersey": "2"
+        }
       ],
       "strikers": [
-        { "name": "Niko D", "jersey": "6" },
-        { "name": "Ethan G", "jersey": "15" },
-        { "name": "David C", "jersey": "14" },
-        { "name": "Eunjun K", "jersey": "16" }
+        {
+          "name": "Niko D",
+          "jersey": "6"
+        },
+        {
+          "name": "Rafael H",
+          "jersey": "12"
+        },
+        {
+          "name": "Rhodri W",
+          "jersey": "10"
+        },
+        {
+          "name": "Andrew N",
+          "jersey": "5"
+        }
       ]
     },
     "sideline_layout": {
-      "left_to_right": ["Defence", "Midfield", "Strikers"],
+      "left_to_right": [
+        "Defence",
+        "Midfield",
+        "Strikers"
+      ],
       "keeper_spot": "Near coach for quick switch at half"
     },
-    "instructions": "NEW ZONE ASSIGNMENTS! When off pitch, stand in your assigned zone. Defence: Andy E, Andrew N, Rhodri W, Owen H, Adam K. Midfield: Alexander V, Minh-An D, Travis C, Yejun K. Strikers: Niko D, Ethan G, David C, Eunjun K. Henry K & Rafael H are this week's goalkeepers."
+    "instructions": "ZONE ASSIGNMENTS! When off pitch, stand in your assigned zone. Defence: Ethan G, David C, Andy E. Midfield: Adam K, Travis C, Eunjun K, Owen H, Henry K, Minh-An D. Strikers: Niko D, Rafael H, Rhodri W, Andrew N. Alexander V & Yejun K are this week's goalkeepers."
   },
   "lineup": {
-    "reveal_at": "2025-09-12T08:00:00-07:00",
+    "reveal_at": "2025-09-18T08:00:00-07:00",
     "all_players": [
       {
         "name": "Adam K",
@@ -313,62 +367,62 @@
     ],
     "starting": [
       {
-        "name": "Henry K",
-        "pos": "GK",
-        "jersey": "11"
-      },
-      {
-        "name": "Andy E",
-        "pos": "CB",
-        "jersey": "4"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "CB2", 
-        "jersey": "5"
-      },
-      {
         "name": "Alexander V",
-        "pos": "LM",
+        "pos": "GK",
         "jersey": "8"
       },
       {
-        "name": "Minh-An D",
-        "pos": "CM",
-        "jersey": "2"
+        "name": "Adam K",
+        "pos": "CB",
+        "jersey": "13"
       },
       {
-        "name": "Travis C",
-        "pos": "RM",
-        "jersey": "3"
-      },
-      {
-        "name": "Niko D",
-        "pos": "ST",
-        "jersey": "6"
+        "name": "David C",
+        "pos": "CB2",
+        "jersey": "14"
       },
       {
         "name": "Ethan G",
-        "pos": "ST2",
+        "pos": "LM",
         "jersey": "15"
+      },
+      {
+        "name": "Travis C",
+        "pos": "CM",
+        "jersey": "3"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "RM",
+        "jersey": "5"
+      },
+      {
+        "name": "Rafael H",
+        "pos": "ST",
+        "jersey": "12"
+      },
+      {
+        "name": "Niko D",
+        "pos": "ST2",
+        "jersey": "6"
       }
     ],
     "rotating": [
       {
+        "name": "Eunjun K",
+        "jersey": "16"
+      },
+      {
+        "name": "Minh-An D",
+        "jersey": "2"
+      },
+      {
+        "name": "Owen H",
+        "jersey": "9"
+      },
+      {
         "name": "Rhodri W",
         "jersey": "10"
-      },
-      {
-        "name": "Rafael H",
-        "jersey": "12"
-      },
-      {
-        "name": "Andrew N",
-        "jersey": "5"
-      },
-      {
-        "name": "David C",
-        "jersey": "14"
       },
       {
         "name": "Henry K",
@@ -379,8 +433,8 @@
         "jersey": "7"
       },
       {
-        "name": "Eunjun K",
-        "jersey": "16"
+        "name": "Andy E",
+        "jersey": "4"
       }
     ]
   },
@@ -403,10 +457,10 @@
     "match_update": "WEEK 3 PREPARATION: Away match vs PCFC Wolf Pack (McNeill) on Sept 27 at 10:00 AM, Mclean Park North. Continuing 2-3-2 formation with zone-based rotation.",
     "this_week": "Away match preparation week. Building on achieved season goals and first half excellence from Millwall match.",
     "achievements": [
-      "🎯 Previous match: Score First Goal ✅ and Team Work Goal ✅ achieved vs Millwall", 
+      "🎯 Previous match: Score First Goal ✅ and Team Work Goal ✅ achieved vs Millwall",
       "🔄 Formation transition to simplified 2-3-2 zone system complete",
-      "�‍♂️ Continuous rotation philosophy implemented successfully",
-      "� Building confidence for first away match of season"
+      "👨‍⚽️ Continuous rotation philosophy implemented successfully",
+      "🏃 Building confidence for first away match of season"
     ]
   },
   "status": "match-preparation"

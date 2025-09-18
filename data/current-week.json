@@ -116,7 +116,7 @@
     "kickoff": "10:00 AM",
     "location": "Mclean Park North",
     "venue_type": "away",
-    "formation": "5-6-4",
+    "formation": "2-3-2",
     "match_number": "2500567",
     "week": "Week 3",
     "status": "upcoming"
@@ -382,21 +382,6 @@
         "jersey": "14"
       },
       {
-        "name": "Ethan G",
-        "pos": "CB3",
-        "jersey": "15"
-      },
-      {
-        "name": "Henry K",
-        "pos": "CB4",
-        "jersey": "11"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "CB5",
-        "jersey": "2"
-      },
-      {
         "name": "Travis C",
         "pos": "CM",
         "jersey": "3"
@@ -407,14 +392,9 @@
         "jersey": "16"
       },
       {
-        "name": "Adam K",
+        "name": "Ethan G",
         "pos": "CM3",
-        "jersey": "13"
-      },
-      {
-        "name": "Owen H",
-        "pos": "CM4",
-        "jersey": "9"
+        "jersey": "15"
       },
       {
         "name": "Rafael H",
@@ -425,22 +405,36 @@
         "name": "Niko D",
         "pos": "ST2",
         "jersey": "6"
-      },
-      {
-        "name": "Rhodri W",
-        "pos": "ST3",
-        "jersey": "10"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "ST4",
-        "jersey": "5"
       }
     ],
     "rotating": [
       {
         "name": "Yejun K",
         "jersey": "7"
+      },
+      {
+        "name": "Adam K",
+        "jersey": "13"
+      },
+      {
+        "name": "Owen H",
+        "jersey": "9"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11"
+      },
+      {
+        "name": "Minh-An D",
+        "jersey": "2"
+      },
+      {
+        "name": "Rhodri W",
+        "jersey": "10"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "5"
       }
     ]
   },

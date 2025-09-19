@@ -414,7 +414,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
         rotatingPlayers={weekData.lineup.rotating}
         captains={weekData.captains}
         goalkeepers={weekData.goalkeepers}
-        phase={currentPhase}
+        phase={lineupRevealed ? 'lineup' : currentPhase}
       />
     </section>
 

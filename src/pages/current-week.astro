@@ -25,7 +25,7 @@ if (weekday === 5 || weekday === 6) currentPhase = 'lineup';
 // Derived reveal booleans used by sections
 const captainsRevealed = currentPhase !== 'initial';
 const positionsRevealed = currentPhase === 'positions' || currentPhase === 'lineup';
-const lineupRevealed = currentPhase === 'lineup';
+const lineupRevealed = true; // One-time override - force lineup to be revealed
 
 // Calculate time until a future date
 function getTimeUntil(targetDate) {

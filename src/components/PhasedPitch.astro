@@ -132,11 +132,17 @@ const getSlotPosition = (slot) => {
           getFormationSlots().map((slot) => {
             const pos = getSlotPosition(slot);
             const isLineupRevealed = phase === 'lineup';
+            
+            // Find the player for this position when lineup is revealed
+            const playerForPosition = isLineupRevealed 
+              ? startingPlayers.find(player => player.pos === slot.pos)
+              : null;
+            
             return (
               <g class="player-position">
                 <circle cx={pos.x} cy={pos.y} r="4" fill={isLineupRevealed ? "#1976d2" : "#9c27b0"} stroke="#ffffff" stroke-width="1" />
                 <text x={pos.x} y={pos.y + 1} text-anchor="middle" fill="white" font-size="2" font-weight="bold">
-                  {slot.pos}
+                  {playerForPosition ? playerForPosition.name.split(' ')[0] : slot.pos}
                 </text>
               </g>
             );

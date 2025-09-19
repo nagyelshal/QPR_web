@@ -367,34 +367,34 @@
     ],
     "starting": [
       {
-        "name": "Alexander V",
+        "name": "Yejun K",
         "pos": "GK",
-        "jersey": "8"
-      },
-      {
-        "name": "Andy E",
-        "pos": "CB",
-        "jersey": "4"
+        "jersey": "7"
       },
       {
         "name": "David C",
-        "pos": "CB2",
+        "pos": "CB",
         "jersey": "14"
       },
       {
-        "name": "Travis C",
+        "name": "Alexander V",
+        "pos": "CB2",
+        "jersey": "8"
+      },
+      {
+        "name": "Owen H",
         "pos": "CM",
-        "jersey": "3"
+        "jersey": "9"
       },
       {
-        "name": "Eunjun K",
+        "name": "Henry K",
         "pos": "CM2",
-        "jersey": "16"
+        "jersey": "11"
       },
       {
-        "name": "Ethan G",
+        "name": "Minh-An D",
         "pos": "CM3",
-        "jersey": "15"
+        "jersey": "2"
       },
       {
         "name": "Rafael H",
@@ -402,39 +402,39 @@
         "jersey": "12"
       },
       {
-        "name": "Niko D",
+        "name": "Andrew N",
         "pos": "ST2",
-        "jersey": "6"
+        "jersey": "5"
       }
     ],
     "rotating": [
       {
-        "name": "Yejun K",
-        "jersey": "7"
+        "name": "Andy E",
+        "jersey": "4"
+      },
+      {
+        "name": "Travis C",
+        "jersey": "3"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "15"
+      },
+      {
+        "name": "Niko D",
+        "jersey": "6"
       },
       {
         "name": "Adam K",
         "jersey": "13"
       },
       {
-        "name": "Owen H",
-        "jersey": "9"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11"
-      },
-      {
-        "name": "Minh-An D",
-        "jersey": "2"
-      },
-      {
         "name": "Rhodri W",
         "jersey": "10"
-      },
-      {
-        "name": "Andrew N",
-        "jersey": "5"
       }
     ]
   },

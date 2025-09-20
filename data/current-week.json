@@ -298,8 +298,7 @@
         "Strikers"
       ],
       "keeper_spot": "Near coach for quick switch at half"
-    },
-    "instructions": "ZONE ASSIGNMENTS! When off pitch, stand in your assigned zone. Defence: Ethan G, David C, Andy E. Midfield: Adam K, Travis C, Eunjun K, Owen H, Henry K, Minh-An D. Strikers: Niko D, Rafael H, Rhodri W, Andrew N. Alexander V & Yejun K are this week's goalkeepers."
+    }
   },
   "lineup": {
     "reveal_at": "2025-09-18T08:00:00-07:00",
@@ -397,9 +396,9 @@
         "jersey": "2"
       },
       {
-        "name": "Rafael H",
+        "name": "Niko D",
         "pos": "ST",
-        "jersey": "12"
+        "jersey": "6"
       },
       {
         "name": "Andrew N",
@@ -425,16 +424,19 @@
         "jersey": "15"
       },
       {
-        "name": "Niko D",
-        "jersey": "6"
-      },
-      {
         "name": "Adam K",
         "jersey": "13"
       },
       {
         "name": "Rhodri W",
         "jersey": "10"
+      }
+    ],
+    "unavailable": [
+      {
+        "name": "Rafael H",
+        "jersey": "12",
+        "reason": "Not available for today's match"
       }
     ]
   },

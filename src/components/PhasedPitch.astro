@@ -4,12 +4,13 @@ interface Props {
   allPlayers: Array<{name: string; jersey?: string}>;
   startingPlayers: Array<{name: string; pos: string; jersey?: string}>;
   rotatingPlayers: Array<{name: string; jersey?: string}>;
+  unavailablePlayers?: Array<{name: string; jersey?: string; reason?: string}>;
   captains: {first_half: string; second_half: string};
   goalkeepers: {first_half: string; second_half: string};
   phase: 'initial' | 'captains' | 'lineup';
 }
 
-const { formation, allPlayers, startingPlayers, rotatingPlayers, captains, goalkeepers, phase } = Astro.props;
+const { formation, allPlayers, startingPlayers, rotatingPlayers, unavailablePlayers = [], captains, goalkeepers, phase } = Astro.props;
 
 // Position mapping supporting both formations
 const positionMap = {
@@ -270,6 +271,30 @@ const getSlotPosition = (slot) => {
             <div class="rotation-note">
               <p>Rotating players will sub in throughout the match</p>
             </div>
+            
+            {unavailablePlayers.length > 0 && (
+              <div class="unavailable-section">
+                <h5>Unavailable Today</h5>
+                <div class="unavailable-grid">
+                  {unavailablePlayers.map((player) => (
+                    <div class="player-card unavailable">
+                      <div class="player-avatar unavailable-avatar">
+                        <span class="player-initial">{player.name.split(' ')[0].charAt(0)}</span>
+                      </div>
+                      <div class="player-info">
+                        <span class="player-name">{player.name.split(' ')[0]}</span>
+                        <span class="player-jersey">#{player.jersey || 'TBD'}</span>
+                      </div>
+                      {player.reason && (
+                        <div class="unavailable-reason">
+                          <span>{player.reason}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -383,6 +408,43 @@ const getSlotPosition = (slot) => {
   .player-card.rotating {
     background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
     border: 1px solid rgba(255,152,0,0.3);
+  }
+
+  .player-card.unavailable {
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    border: 1px solid rgba(158,158,158,0.3);
+    opacity: 0.7;
+  }
+
+  .unavailable-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .unavailable-section h5 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+  }
+
+  .unavailable-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .unavailable-avatar {
+    background: linear-gradient(135deg, #9e9e9e 0%, #757575 100%) !important;
+  }
+
+  .unavailable-reason {
+    margin-top: 4px;
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+    font-style: italic;
   }
 
   .player-card:hover {

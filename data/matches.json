@@ -134,6 +134,106 @@
       "scorers": [],
       "assists": [],
       "highlights": []
+    },
+    {
+      "id": "match-003",
+      "date": "2025-09-20",
+      "opponent": "PCFC Wolf Pack (McNeill)",
+      "result": "3-7 loss",
+      "location": "Mclean Park North", 
+      "kickoff": "10:00am",
+      "match_number": "2500567",
+      "week": 3,
+      "final_score": {
+        "qpr": 3,
+        "opponent": 7
+      },
+      "scorers": ["Minh-An D", "Travis C", "Niko D (penalty)"],
+      "assists": [],
+      "formation": "2-3-2",
+      "performance_notes": "Very good attacking performance, missed easy chances and got unlucky. Overall team work improved significantly.",
+      "highlights": [
+        "Best attacking display of the season",
+        "Excellent teamwork throughout", 
+        "Niko D scored penalty under pressure",
+        "Multiple good chances created",
+        "Significant improvement in offensive play"
+      ],
+      "starting_lineup": [
+        {
+          "name": "Yejun K",
+          "pos": "GK", 
+          "jersey": "7"
+        },
+        {
+          "name": "David C",
+          "pos": "CB",
+          "jersey": "14"
+        },
+        {
+          "name": "Alexander V",
+          "pos": "CB2",
+          "jersey": "8"
+        },
+        {
+          "name": "Owen H", 
+          "pos": "LM",
+          "jersey": "9"
+        },
+        {
+          "name": "Henry K",
+          "pos": "CM", 
+          "jersey": "11"
+        },
+        {
+          "name": "Minh-An D",
+          "pos": "RM",
+          "jersey": "2"
+        },
+        {
+          "name": "Niko D",
+          "pos": "ST",
+          "jersey": "6"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "ST2",
+          "jersey": "5"
+        }
+      ],
+      "rotating_players": [
+        {
+          "name": "Andy E",
+          "jersey": "4"
+        },
+        {
+          "name": "Travis C", 
+          "jersey": "3"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "Ethan G",
+          "jersey": "15"
+        },
+        {
+          "name": "Adam K",
+          "jersey": "13"
+        },
+        {
+          "name": "Rhodri W",
+          "jersey": "10"
+        }
+      ],
+      "unavailable_players": [
+        {
+          "name": "Rafael H",
+          "jersey": "12",
+          "reason": "Not available for today's match"
+        }
+      ]
     }
   ],
   "celebrations": {

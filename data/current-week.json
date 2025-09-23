@@ -7,7 +7,7 @@
   "training": {
     "date": "2025-09-26",
     "day": "Thursday",
-    "time": "6:00pm",
+    "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
     "focus": "Building on second half improvements and team chemistry",
     "attendance_required": true,
@@ -148,17 +148,17 @@
     "preparation_focus": "Building on second half performance vs PCFC Wolf Pack - ball control and team chemistry"
   },
   "captains": {
-    "reveal_at": "2025-09-18T00:00:00-07:00",
-    "first_half": "Ethan G",
-    "second_half": "Alexander V",
+    "reveal_at": "2025-09-26T00:00:00-07:00",
+    "first_half": "David C",
+    "second_half": "Henry K",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "New captains will be announced at Thursday training"
+    "training_update": "New captains announced: David C (1st half) and Henry K (2nd half) for Oct 4 vs Swansea"
   },
   "goalkeepers": {
-    "first_half": "Alexander V",
-    "second_half": "Yejun K",
+    "first_half": "Owen H",
+    "second_half": "David C",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "New goalkeeper rotation - Alexander V (alternate: Midfield) and Yejun K (alternate: Midfield)!"
+    "rotation_note": "New goalkeeper rotation - Owen H (alternate: Midfield) and David C (alternate: Defence)!"
   },
   "positions": {
     "reveal_at": "2025-09-18T00:00:00-07:00",
@@ -480,7 +480,7 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "Blue shirts, black shorts, blue socks",
-    "coach": "Recovery week after excellent second half performance vs PCFC Wolf Pack. Focus on building team chemistry and ball control that showed in second half. Preparing for Oct 4 vs CMFSC Swansea.",
+    "coach": "Recovery week after excellent second half performance vs PCFC Wolf Pack. Focus on building team chemistry and ball control that showed in second half. New captains David C & Henry K will lead vs Swansea. Preparing for Oct 4 match.",
     "training_recap": "Thursday training will build on second half improvements - ball control exercises and team chemistry work to replicate that performance for full matches.",
     "match_update": "NEXT MATCH: Oct 4 vs CMFSC Swansea at 1:00 PM, Miller Park East. Building confidence from second half performance - better ball control and teamwork shown vs PCFC Wolf Pack.",
     "this_week": "Recovery and building week. Focus on replicating second half excellence throughout full matches.",

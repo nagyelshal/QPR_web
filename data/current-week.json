@@ -2,10 +2,10 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-23T20:30:00-07:00"
+    "last_updated": "2025-09-23T00:00:00-07:00"
   },
   "training": {
-    "date": "2025-09-26",
+    "date": "2025-09-26", 
     "day": "Thursday",
     "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
@@ -148,13 +148,14 @@
     "preparation_focus": "Building on second half performance vs PCFC Wolf Pack - ball control and team chemistry"
   },
   "captains": {
-    "reveal_at": "2025-09-26T00:00:00-07:00",
+    "reveal_at": "2025-09-23T00:00:00-07:00",
     "first_half": "David C",
     "second_half": "Henry K",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "New captains announced: David C (1st half) and Henry K (2nd half) for Oct 4 vs Swansea"
   },
   "goalkeepers": {
+    "reveal_at": "2025-09-23T00:00:00-07:00",
     "first_half": "Owen H",
     "second_half": "David C",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
@@ -256,7 +257,7 @@
     ]
   },
   "off_pitch": {
-    "reveal_at": "2025-09-18T00:00:00-07:00",
+    "reveal_at": "2025-09-23T00:00:00-07:00",
     "zones": {
       "goalkeepers": [
         {
@@ -339,7 +340,7 @@
     }
   },
   "lineup": {
-    "reveal_at": "2025-09-18T08:00:00-07:00",
+    "reveal_at": "2025-09-23T00:00:00-07:00",
     "all_players": [
       {
         "name": "Adam K",

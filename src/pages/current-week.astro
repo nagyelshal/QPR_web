@@ -18,14 +18,14 @@ const weekday = now.getDay(); // 0 Sun .. 6 Sat
 // - Sun..Wed (0..3): last match details focus (initial)
 // - Thu (4): captains & positions
 // - Fri..Sat (5..6): full lineup visible until match completes
-let currentPhase: 'initial' | 'captains' | 'positions' | 'lineup' = 'initial';
-if (weekday === 4) currentPhase = 'positions';
-if (weekday === 5 || weekday === 6) currentPhase = 'lineup';
+let currentPhase: 'initial' | 'captains' | 'positions' | 'lineup' = 'lineup'; // OVERRIDE: Force lineup phase
+// if (weekday === 4) currentPhase = 'positions';
+// if (weekday === 5 || weekday === 6) currentPhase = 'lineup';
 
-// Derived reveal booleans used by sections
-const captainsRevealed = currentPhase !== 'initial';
-const positionsRevealed = currentPhase === 'positions' || currentPhase === 'lineup';
-const lineupRevealed = true; // One-time override - force lineup to be revealed
+// Derived reveal booleans used by sections - OVERRIDE ALL
+const captainsRevealed = true; // Force captains revealed
+const positionsRevealed = true; // Force positions revealed
+const lineupRevealed = true; // Force lineup revealed
 
 // Calculate time until a future date
 function getTimeUntil(targetDate) {

@@ -161,85 +161,97 @@
     "rotation_note": "New goalkeeper rotation - Owen H (alternate: Midfield) and David C (alternate: Defence)!"
   },
   "positions": {
-    "reveal_at": "2025-09-18T00:00:00-07:00",
+    "reveal_at": "2025-09-23T00:00:00-07:00",
     "all_positions": [
       {
-        "name": "Ethan G",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "15"
-      },
-      {
-        "name": "David C",
-        "pos": "Defence", 
-        "tactical_pos": "CB",
-        "jersey": "14"
-      },
-      {
-        "name": "Andy E",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "4"
-      },
-      {
-        "name": "Adam K",
-        "pos": "Midfield",
-        "tactical_pos": "Midfield",
-        "jersey": "13"
-      },
-      {
-        "name": "Travis C",
-        "pos": "Midfield",
-        "tactical_pos": "Midfield",
-        "jersey": "3"
-      },
-      {
-        "name": "Eunjun K",
-        "pos": "Midfield",
-        "tactical_pos": "Midfield",
-        "jersey": "16"
-      },
-      {
-        "name": "Owen H",
-        "pos": "Midfield",
-        "tactical_pos": "Midfield",
-        "jersey": "9"
-      },
-      {
-        "name": "Henry K",
-        "pos": "Midfield",
-        "tactical_pos": "Midfield",
-        "jersey": "11"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "Midfield",
-        "tactical_pos": "Midfield",
-        "jersey": "2"
-      },
-      {
-        "name": "Niko D",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "6"
-      },
-      {
-        "name": "Rafael H",
-        "pos": "Strikers",
-        "tactical_pos": "ST", 
-        "jersey": "12"
-      },
-      {
         "name": "Rhodri W",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
+        "pos": "Defence",
+        "tactical_pos": "CB",
         "jersey": "10"
       },
       {
         "name": "Andrew N",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "5"
+      },
+      {
+        "name": "Yejun K",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "7"
+      },
+      {
+        "name": "Alexander V",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "8"
+      },
+      {
+        "name": "Owen H",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "9"
+      },
+      {
+        "name": "Rafael H",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "12"
+      },
+      {
+        "name": "Adam K",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "13"
+      },
+      {
+        "name": "Eunjun K",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "16"
+      },
+      {
+        "name": "David C",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "14"
+      },
+      {
+        "name": "Niko D",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "6"
+      },
+      {
+        "name": "Henry K",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "11"
+      },
+      {
+        "name": "Ethan G",
         "pos": "Strikers",
         "tactical_pos": "ST",
-        "jersey": "5"
+        "jersey": "15"
+      },
+      {
+        "name": "Andy E",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "4"
+      },
+      {
+        "name": "Travis C",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "3"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "2"
       }
     ]
   },

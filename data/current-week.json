@@ -24,93 +24,6 @@
     }
   },
   "previous_match": {
-    "opponent": "CMFSC Millwall",
-    "opponent_coach": "Cody Marsh",
-    "date": "Sep 14, 2025",
-    "time": "11:15 AM",
-    "venue": "Minoru #1",
-    "venue_type": "home",
-    "referee_assignment": "TBD",
-    "result": {
-      "score": "2-6",
-      "outcome": "loss",
-      "qpr_goals": 2,
-      "opponent_goals": 6,
-      "half_time": "2-1",
-      "goal_scorers": [
-        "Niko D",
-        "Ethan G"
-      ],
-      "assists": [
-        "Travis C"
-      ],
-      "defensive_stars": [
-        "Rhodri W",
-        "Owen H"
-      ],
-      "absent_players": [
-        "David C"
-      ]
-    },
-    "achievements": [
-      "Score First Goal",
-      "Team Work Goal"
-    ],
-    "match_report": "Strong first half leading 2-1 with goals from Niko D (assisted by Travis C) and Ethan G. Rhodri W and Owen H had outstanding defensive performances. Second half challenges led to 2-6 final result. Achieved team goals: scored first and demonstrated excellent teamwork.",
-    "lineup_used": {
-      "starting": [
-        {
-          "name": "Owen H",
-          "pos": "GK",
-          "jersey": "9"
-        },
-        {
-          "name": "Travis C",
-          "pos": "LB",
-          "jersey": "3"
-        },
-        {
-          "name": "Andrew N",
-          "pos": "CB",
-          "jersey": "5"
-        },
-        {
-          "name": "Alexander V",
-          "pos": "RB",
-          "jersey": "8"
-        },
-        {
-          "name": "Henry K",
-          "pos": "LM",
-          "jersey": "11"
-        },
-        {
-          "name": "Andy E",
-          "pos": "CM",
-          "jersey": "4"
-        },
-        {
-          "name": "Yejun K",
-          "pos": "RM",
-          "jersey": "7"
-        },
-        {
-          "name": "Rafael H",
-          "pos": "ST",
-          "jersey": "12"
-        }
-      ],
-      "captains": {
-        "first_half": "Travis C",
-        "second_half": "Minh-An D"
-      },
-      "goalkeepers": {
-        "first_half": "Owen H",
-        "second_half": "Adam K"
-      }
-    }
-  },
-  "match": {
     "opponent": "PCFC Wolf Pack (McNeill)",
     "date": "2025-09-20",
     "kickoff": "10:00 AM",
@@ -133,9 +46,13 @@
       "half_time": "1-5",
       "performance_notes": "Difficult first half down 5-1, but excellent second half with better ball control and teamwork. Very good attacking performance overall, missed easy chances and faced significant bad luck.",
       "match_report": "Challenging first half saw QPR down 5-1, but the team showed tremendous character in the second half. Much better ball control and playing as a cohesive unit led to 2 goals in the second period. Goals from Minh-An D, Travis C, and Niko D (penalty). Despite facing considerable bad luck and missing several easy chances, the team's second-half performance demonstrated real progress in teamwork and attacking play."
-    }
+    },
+    "achievements": [
+      "Excellent second half comeback",
+      "Better ball control and teamwork"
+    ]
   },
-  "next_match": {
+  "match": {
     "opponent": "CMFSC Swansea",
     "date": "2025-10-04",
     "kickoff": "1:00 PM",

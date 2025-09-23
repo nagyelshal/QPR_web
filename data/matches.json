@@ -146,18 +146,20 @@
       "week": 3,
       "final_score": {
         "qpr": 3,
-        "opponent": 7
+        "opponent": 7,
+        "half_time": "1-5"
       },
       "scorers": ["Minh-An D", "Travis C", "Niko D (penalty)"],
       "assists": [],
       "formation": "2-3-2",
-      "performance_notes": "Very good attacking performance, missed easy chances and got unlucky. Overall team work improved significantly.",
+      "performance_notes": "Difficult first half down 5-1, but excellent second half with better ball control and teamwork. Faced significant bad luck throughout.",
       "highlights": [
-        "Best attacking display of the season",
-        "Excellent teamwork throughout", 
+        "Resilient second half comeback (outscored 2-2 after being down 5-1)",
+        "Much better ball control in second period",
+        "Excellent teamwork and playing as a unit after half-time", 
         "Niko D scored penalty under pressure",
-        "Multiple good chances created",
-        "Significant improvement in offensive play"
+        "Team showed tremendous character and fight",
+        "Faced significant bad luck with missed easy chances"
       ],
       "starting_lineup": [
         {

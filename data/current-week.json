@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-24T08:15:00-07:00"
+    "last_updated": "2025-09-24T09:05:00-07:00"
   },
   "training": {
     "date": "2025-09-25", 
@@ -46,8 +46,8 @@
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "first_half": "Owen H",
     "second_half": "David C",
-    "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "New goalkeeper rotation - Owen H (alternate: Midfield) and David C (alternate: Defence)!"
+  "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
+  "rotation_note": "Goalkeeper rotation: Owen H (alternate: Defence) and David C (alternate: Midfield)."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",

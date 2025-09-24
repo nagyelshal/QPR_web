@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-23T21:10:00-07:00"
+    "last_updated": "2025-09-24T08:15:00-07:00"
   },
   "training": {
     "date": "2025-09-25", 
@@ -184,7 +184,8 @@
         },
         {
           "name": "Owen H",
-          "jersey": "9"
+          "jersey": "9",
+          "alternate_pos": "GK"
         }
       ],
       "midfield_wingers": [
@@ -202,7 +203,8 @@
         },
         {
           "name": "David C",
-          "jersey": "14"
+          "jersey": "14",
+          "alternate_pos": "GK"
         },
         {
           "name": "Niko D",

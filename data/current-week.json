@@ -149,65 +149,17 @@
     "zones": {
       "goalkeepers": [
         {
-          "name": "Alexander V",
-          "jersey": "8",
-          "alternate_pos": "Midfield"
+          "name": "Owen H",
+          "jersey": "9",
+          "alternate_pos": "Defence"
         },
         {
-          "name": "Yejun K",
-          "jersey": "7",
+          "name": "David C",
+          "jersey": "14",
           "alternate_pos": "Midfield"
         }
       ],
       "defence": [
-        {
-          "name": "Ethan G",
-          "jersey": "15"
-        },
-        {
-          "name": "David C",
-          "jersey": "14"
-        },
-        {
-          "name": "Andy E",
-          "jersey": "4"
-        }
-      ],
-      "midfield_wingers": [
-        {
-          "name": "Adam K",
-          "jersey": "13"
-        },
-        {
-          "name": "Travis C",
-          "jersey": "3"
-        },
-        {
-          "name": "Eunjun K",
-          "jersey": "16"
-        },
-        {
-          "name": "Owen H",
-          "jersey": "9"
-        },
-        {
-          "name": "Henry K",
-          "jersey": "11"
-        },
-        {
-          "name": "Minh-An D",
-          "jersey": "2"
-        }
-      ],
-      "strikers": [
-        {
-          "name": "Niko D",
-          "jersey": "6"
-        },
-        {
-          "name": "Rafael H",
-          "jersey": "12"
-        },
         {
           "name": "Rhodri W",
           "jersey": "10"
@@ -215,6 +167,62 @@
         {
           "name": "Andrew N",
           "jersey": "5"
+        },
+        {
+          "name": "Yejun K",
+          "jersey": "7"
+        },
+        {
+          "name": "Alexander V",
+          "jersey": "8"
+        },
+        {
+          "name": "Owen H",
+          "jersey": "9"
+        }
+      ],
+      "midfield_wingers": [
+        {
+          "name": "Rafael H",
+          "jersey": "12"
+        },
+        {
+          "name": "Adam K",
+          "jersey": "13"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "David C",
+          "jersey": "14"
+        },
+        {
+          "name": "Niko D",
+          "jersey": "6"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
+        }
+      ],
+      "strikers": [
+        {
+          "name": "Ethan G",
+          "jersey": "15"
+        },
+        {
+          "name": "Andy E",
+          "jersey": "4"
+        },
+        {
+          "name": "Travis C",
+          "jersey": "3"
+        },
+        {
+          "name": "Minh-An D",
+          "jersey": "2"
         }
       ]
     },

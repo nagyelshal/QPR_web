@@ -153,7 +153,18 @@
   "off_pitch": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "zones": {
-      "goalkeepers": [],
+      "goalkeepers": [
+        {
+          "name": "Owen H",
+          "jersey": "9",
+          "alternate_pos": "Defence"
+        },
+        {
+          "name": "David C",
+          "jersey": "14",
+          "alternate_pos": "Midfield"
+        }
+      ],
       "defence": [
         {
           "name": "Rhodri W",
@@ -172,26 +183,28 @@
           "jersey": "8"
         },
         {
-          "name": "Adam K",
-          "jersey": "13"
+          "name": "Owen H",
+          "jersey": "9",
+          "alternate_pos": "GK"
+        },
+        {
+          "name": "David C",
+          "jersey": "14",
+          "alternate_pos": "GK"
         }
       ],
       "midfield_wingers": [
-        {
-          "name": "Owen H",
-          "jersey": "9"
-        },
         {
           "name": "Rafael H",
           "jersey": "12"
         },
         {
-          "name": "Eunjun K",
-          "jersey": "16"
+          "name": "Adam K",
+          "jersey": "13"
         },
         {
-          "name": "David C",
-          "jersey": "14"
+          "name": "Eunjun K",
+          "jersey": "16"
         },
         {
           "name": "Niko D",

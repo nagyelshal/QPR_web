@@ -186,11 +186,6 @@
           "name": "Owen H",
           "jersey": "9",
           "alternate_pos": "GK"
-        },
-        {
-          "name": "David C",
-          "jersey": "14",
-          "alternate_pos": "GK"
         }
       ],
       "midfield_wingers": [
@@ -205,6 +200,11 @@
         {
           "name": "Eunjun K",
           "jersey": "16"
+        },
+        {
+          "name": "David C",
+          "jersey": "14",
+          "alternate_pos": "GK"
         },
         {
           "name": "Niko D",

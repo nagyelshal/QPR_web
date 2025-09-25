@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-24T09:05:00-07:00"
+    "last_updated": "2025-09-24T09:30:00-07:00"
   },
   "training": {
     "date": "2025-09-25", 
@@ -37,17 +37,17 @@
   },
   "captains": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
-    "first_half": "David C",
-    "second_half": "Henry K",
+    "first_half": "Andrew N",
+    "second_half": "Niko D",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "New captains announced: David C (1st half) and Henry K (2nd half) for Sep 27 vs Swansea (HOME)"
+    "training_update": "New captains announced: Andrew N (1st half) and Niko D (2nd half) for Sep 27 vs Swansea (HOME)"
   },
   "goalkeepers": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
-    "first_half": "Owen H",
-    "second_half": "David C",
+    "first_half": "Alexander V",
+    "second_half": "Rafael H",
   "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-  "rotation_note": "Goalkeeper rotation: Owen H (alternate: Defence) and David C (alternate: Midfield)."
+  "rotation_note": "Goalkeeper rotation: Alexander V (alternate: Defence) and Rafael H (alternate: Midfield)."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -155,13 +155,13 @@
     "zones": {
       "goalkeepers": [
         {
-          "name": "Owen H",
-          "jersey": "9",
+          "name": "Alexander V",
+          "jersey": "8",
           "alternate_pos": "Defence"
         },
         {
-          "name": "David C",
-          "jersey": "14",
+          "name": "Rafael H",
+          "jersey": "12",
           "alternate_pos": "Midfield"
         }
       ],
@@ -180,18 +180,19 @@
         },
         {
           "name": "Alexander V",
-          "jersey": "8"
+          "jersey": "8",
+          "alternate_pos": "GK"
         },
         {
           "name": "Owen H",
-          "jersey": "9",
-          "alternate_pos": "GK"
+          "jersey": "9"
         }
       ],
       "midfield_wingers": [
         {
           "name": "Rafael H",
-          "jersey": "12"
+          "jersey": "12",
+          "alternate_pos": "GK"
         },
         {
           "name": "Adam K",
@@ -203,8 +204,7 @@
         },
         {
           "name": "David C",
-          "jersey": "14",
-          "alternate_pos": "GK"
+          "jersey": "14"
         },
         {
           "name": "Niko D",

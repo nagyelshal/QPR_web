@@ -1,11 +1,11 @@
 {
   "week": {
-    "date_range": "Sept 23-29, 2025", 
+    "date_range": "Sept 23-29, 2025",
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-24T09:30:00-07:00"
+    "last_updated": "2025-09-25T21:06:38.555-07:00"
   },
   "training": {
-    "date": "2025-09-25", 
+    "date": "2025-09-25",
     "day": "Thursday",
     "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
@@ -16,7 +16,7 @@
       "date": "2025-09-25",
       "focus_areas": [
         "Ball control exercises - replicating second half performance",
-        "Team chemistry and communication drills", 
+        "Team chemistry and communication drills",
         "Finishing practice - converting chances",
         "Building confidence and momentum"
       ],
@@ -37,17 +37,17 @@
   },
   "captains": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
-    "first_half": "Andrew N",
-    "second_half": "Niko D",
+    "first_half": "Adam K",
+    "second_half": "Alexander V",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "New captains announced: Andrew N (1st half) and Niko D (2nd half) for Sep 27 vs Swansea (HOME)"
+    "training_update": "New captains announced: Adam K (1st half) and Alexander V (2nd half) for Sep 27 vs Swansea (HOME)"
   },
   "goalkeepers": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "first_half": "Alexander V",
-    "second_half": "Rafael H",
-  "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-  "rotation_note": "Goalkeeper rotation: Alexander V (alternate: Defence) and Rafael H (alternate: Midfield)."
+    "second_half": "Andy E",
+    "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
+    "rotation_note": "Goalkeeper rotation: Alexander V (alternate: Defence) and Andy E (alternate: Midfield)."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -160,8 +160,8 @@
           "alternate_pos": "Defence"
         },
         {
-          "name": "Rafael H",
-          "jersey": "12",
+          "name": "Andy E",
+          "jersey": "4",
           "alternate_pos": "Midfield"
         }
       ],
@@ -191,8 +191,7 @@
       "midfield_wingers": [
         {
           "name": "Rafael H",
-          "jersey": "12",
-          "alternate_pos": "GK"
+          "jersey": "12"
         },
         {
           "name": "Adam K",

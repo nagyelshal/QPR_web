@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-25T10:30:00-07:00"
+    "last_updated": "2025-09-25T10:45:00-07:00"
   },
   "training": {
     "date": "2025-09-25",
@@ -47,7 +47,7 @@
     "first_half": "David C",
     "second_half": "Henry K",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Goalkeeper rotation: David C (alternate: Defence) and Henry K (alternate: Midfield)."
+    "rotation_note": "Goalkeeper rotation: David C (alternate: Midfield) and Henry K (alternate: Midfield)."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -69,12 +69,6 @@
         "pos": "Defence",
         "tactical_pos": "CB",
         "jersey": "7"
-      },
-      {
-        "name": "Alexander V",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "8"
       },
       {
         "name": "Adam K",
@@ -125,6 +119,12 @@
         "jersey": "11"
       },
       {
+        "name": "Alexander V",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "8"
+      },
+      {
         "name": "Ethan G",
         "pos": "Strikers",
         "tactical_pos": "ST",
@@ -157,7 +157,7 @@
         {
           "name": "David C",
           "jersey": "14",
-          "alternate_pos": "Defence"
+          "alternate_pos": "Midfield"
         },
         {
           "name": "Henry K",
@@ -179,17 +179,8 @@
           "jersey": "7"
         },
         {
-          "name": "Alexander V",
-          "jersey": "8"
-        },
-        {
           "name": "Owen H",
           "jersey": "9"
-        },
-        {
-          "name": "David C",
-          "jersey": "14",
-          "alternate_pos": "GK"
         }
       ],
       "midfield_wingers": [
@@ -213,6 +204,15 @@
           "name": "Henry K",
           "jersey": "11",
           "alternate_pos": "GK"
+        },
+        {
+          "name": "David C",
+          "jersey": "14",
+          "alternate_pos": "GK"
+        },
+        {
+          "name": "Alexander V",
+          "jersey": "8"
         }
       ],
       "strikers": [

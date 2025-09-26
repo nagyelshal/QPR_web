@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-25T11:00:00-07:00"
+    "last_updated": "2025-09-26T09:15:00-07:00"
   },
   "training": {
     "date": "2025-09-25",
@@ -340,7 +340,32 @@
         "pos": "ST"
       }
     ],
-    "rotating": [],
+    "rotating": [
+      {
+        "name": "Alexander V",
+        "jersey": "8"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "15"
+      },
+      {
+        "name": "Minh-An D",
+        "jersey": "2"
+      },
+      {
+        "name": "Niko D",
+        "jersey": "6"
+      },
+      {
+        "name": "Yejun K",
+        "jersey": "7"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16"
+      }
+    ],
     "unavailable": [
       {
         "name": "Rhodri W",

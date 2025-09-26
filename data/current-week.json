@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-25T10:45:00-07:00"
+    "last_updated": "2025-09-25T11:00:00-07:00"
   },
   "training": {
     "date": "2025-09-25",
@@ -37,10 +37,10 @@
   },
   "captains": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
-    "first_half": "Adam K",
-    "second_half": "Alexander V",
+    "first_half": "Niko D",
+    "second_half": "Owen H",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "New captains announced: Adam K (1st half) and Alexander V (2nd half) for Sep 27 vs Swansea (HOME)"
+    "training_update": "New captains announced: Niko D (1st half) and Owen H (2nd half) for Sep 27 vs Swansea (HOME)"
   },
   "goalkeepers": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -52,12 +52,7 @@
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "all_positions": [
-      {
-        "name": "Rhodri W",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "10"
-      },
+
       {
         "name": "Andrew N",
         "pos": "Defence",
@@ -166,10 +161,6 @@
         }
       ],
       "defence": [
-        {
-          "name": "Rhodri W",
-          "jersey": "10"
-        },
         {
           "name": "Andrew N",
           "jersey": "5"
@@ -307,9 +298,56 @@
         "jersey": "16"
       }
     ],
-    "starting": [],
+    "starting": [
+      {
+        "name": "David C",
+        "jersey": "14",
+        "pos": "GK"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "5",
+        "pos": "CB"
+      },
+      {
+        "name": "Owen H",
+        "jersey": "9",
+        "pos": "CB"
+      },
+      {
+        "name": "Adam K",
+        "jersey": "13",
+        "pos": "CM"
+      },
+      {
+        "name": "Rafael H",
+        "jersey": "12",
+        "pos": "CM"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11",
+        "pos": "CM"
+      },
+      {
+        "name": "Andy E",
+        "jersey": "4",
+        "pos": "ST"
+      },
+      {
+        "name": "Travis C",
+        "jersey": "3",
+        "pos": "ST"
+      }
+    ],
     "rotating": [],
-    "unavailable": []
+    "unavailable": [
+      {
+        "name": "Rhodri W",
+        "jersey": "10",
+        "reason": "Not available this week"
+      }
+    ]
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
@@ -325,7 +363,7 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "White shirts, black shorts, white socks",
-    "coach": "Recovery week after excellent second half performance vs PCFC Wolf Pack. Focus on building team chemistry and ball control that showed in second half. New captains David C & Henry K will lead vs Swansea. Preparing for Sep 27 HOME match.",
+    "coach": "Recovery week after excellent second half performance vs PCFC Wolf Pack. Focus on building team chemistry and ball control that showed in second half. New captains Niko D & Owen H will lead vs Swansea. Preparing for Sep 27 HOME match.",
     "training_recap": "Thursday training will build on second half improvements - ball control exercises and team chemistry work to replicate that performance for full matches.",
     "match_update": "NEXT MATCH: Sep 27 vs CMFSC Swansea at 1:00 PM, Town Centre Park - Mobilio Field (HOME). Building confidence from second half performance - better ball control and teamwork shown vs PCFC Wolf Pack.",
     "this_week": "Recovery and building week. Focus on replicating second half excellence throughout full matches.",

@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Sept 23-29, 2025", 
     "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-26T09:25:00-07:00"
+    "last_updated": "2025-09-27T08:00:00-07:00"
   },
   "training": {
     "date": "2025-09-25",
@@ -11,7 +11,19 @@
     "location": "Town Centre Park - Mobilio Field",
     "focus": "Building on second half improvements and team chemistry",
     "attendance_required": true,
-    "completed": false,
+    "completed": true,
+    "last_session": {
+      "date": "2025-09-26",
+      "attendance": 14,
+      "highlights": [
+        "Excellent midfield work from Rafael H and Adam K",
+        "Great defensive partnership between Owen H and Andrew N",
+        "Rhodri W showed usual defensive excellence (will be missed in match)",
+        "Andy E and Ethan G scored brilliant shots during scrimmage",
+        "Team improved defensive shape and early finishing",
+        "New position assignments working well"
+      ]
+    },
     "upcoming_session": {
       "date": "2025-09-25",
       "focus_areas": [

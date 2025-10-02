@@ -171,7 +171,8 @@
       "midfield_wingers": [
         {
           "name": "Rafael H",
-          "jersey": "12"
+          "jersey": "12",
+          "alternate_pos": "GK"
         },
         {
           "name": "Owen H",
@@ -187,13 +188,11 @@
         },
         {
           "name": "Henry K",
-          "jersey": "11",
-          "alternate_pos": "GK"
+          "jersey": "11"
         },
         {
           "name": "David C",
-          "jersey": "14",
-          "alternate_pos": "GK"
+          "jersey": "14"
         },
         {
           "name": "Alexander V",
@@ -203,7 +202,8 @@
       "strikers": [
         {
           "name": "Ethan G",
-          "jersey": "15"
+          "jersey": "15",
+          "alternate_pos": "GK"
         },
         {
           "name": "Andy E",

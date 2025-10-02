@@ -13,7 +13,7 @@ Queens Park Rangers put in an **improved overall performance** at home against C
 ### Match Summary
 
 **Final Score: QPR 3 - 6 CMFSC Swansea**  
-**Half-time: QPR 1 - 3 CMFSC Swansea**  
+**Half-time: QPR 2 - 3 CMFSC Swansea**  
 **Venue:** Town Centre Park - Mobilio Field (HOME)  
 **Date:** Saturday, September 27, 2025
 

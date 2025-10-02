@@ -5,7 +5,7 @@
     "last_updated": "2025-10-01T10:00:00-07:00"
   },
   "training": {
-    "date": "2025-10-03",
+    "date": "2025-10-02",
     "day": "Thursday",
     "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
@@ -13,37 +13,37 @@
     "attendance_required": true,
     "completed": false,
     "upcoming_session": {
-      "date": "2025-10-03",
+      "date": "2025-10-02",
       "focus_areas": [
         "Set piece practice - building on Travis C's free kick success",
         "Defensive positioning - continuing Adam K, Owen H, Andrew N's strong work",
         "Finishing drills - encouraging more goals like Andy E and Travis C",
         "Team coordination exercises"
       ],
-      "preparation_for": "Oct 11 vs RMSC U11B8D3 (Tones) - Away"
+      "preparation_for": "Oct 4 vs RMSC U11B8D3 (Tones) - Away"
     }
   },
   "match": {
     "opponent": "RMSC U11B8D3 (Tones)",
-    "date": "2025-10-11",
+    "date": "2025-10-04",
     "kickoff": "2:00pm",
     "location": "Pitt Meadows Athletic Park U11-U13 East grass",
     "venue_type": "away",
     "formation": "2-3-2",
     "match_number": "2500595",
-    "week": "Week 6",
+    "week": "Week 5",
     "status": "upcoming",
     "preparation_focus": "Building on improved performance vs Swansea - better coordination, clinical finishing, and strong defensive work"
   },
   "captains": {
-    "reveal_at": "2025-10-03T00:00:00-07:00",
+    "reveal_at": "2025-10-02T00:00:00-07:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced at Thursday training"
   },
   "goalkeepers": {
-    "reveal_at": "2025-10-03T00:00:00-07:00",
+    "reveal_at": "2025-10-02T00:00:00-07:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
@@ -70,6 +70,12 @@
         "pos": "Defence",
         "tactical_pos": "CB",
         "jersey": "13"
+      },
+      {
+        "name": "Niko D",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "6"
       },
       {
         "name": "Rafael H",
@@ -100,12 +106,6 @@
         "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "14"
-      },
-      {
-        "name": "Niko D",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "6"
       },
       {
         "name": "Henry K",
@@ -159,8 +159,12 @@
           "jersey": "7"
         },
         {
-          "name": "Owen H",
-          "jersey": "9"
+          "name": "Adam K",
+          "jersey": "13"
+        },
+        {
+          "name": "Niko D",
+          "jersey": "6"
         }
       ],
       "midfield_wingers": [
@@ -169,16 +173,12 @@
           "jersey": "12"
         },
         {
-          "name": "Adam K",
-          "jersey": "13"
+          "name": "Owen H",
+          "jersey": "9"
         },
         {
           "name": "Eunjun K",
           "jersey": "16"
-        },
-        {
-          "name": "Niko D",
-          "jersey": "6"
         },
         {
           "name": "Henry K",
@@ -294,27 +294,28 @@
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
     "player_of_month": {
-      "name": "To be announced",
+      "name": "Niko D",
       "month": "September"
     },
     "captain_of_month": {
-      "name": "To be announced",
+      "name": "Owen H",
       "month": "September"
     }
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "Great progress shown vs Swansea! Improved overall performance with better team coordination. Strong defensive work from Adam K, Owen H, and Andrew N. Travis C's two goals (including beautiful free kick) and Andy E's first goal show our attacking potential. Focus on maintaining this momentum for Oct 11 AWAY match.",
-    "training_recap": "Next training: Thursday Oct 3. Focus on set pieces (building on Travis C's free kick), defensive positioning (continuing strong work from Adam K, Owen H, Andrew N), and finishing drills.",
-    "match_update": "NEXT MATCH: Oct 11 vs RMSC U11B8D3 (Tones) at 2:00pm, Pitt Meadows Athletic Park U11-U13 East grass (AWAY). Captains and goalkeepers TBD at Thursday training.",
+    "coach": "Great progress shown vs Swansea! Improved overall performance with better team coordination. Strong defensive work from Adam K, Owen H, and Andrew N. Travis C's two goals (including beautiful free kick) and Andy E's first goal show our attacking potential. Focus on maintaining this momentum for Oct 4 AWAY match.",
+    "training_recap": "Next training: Thursday Oct 2. Focus on set pieces (building on Travis C's free kick), defensive positioning (continuing strong work from Adam K, Owen H, Andrew N), and finishing drills.",
+    "match_update": "NEXT MATCH: Oct 4 vs RMSC U11B8D3 (Tones) at 2:00pm, Pitt Meadows Athletic Park U11-U13 East grass (AWAY). Captains and goalkeepers TBD at Thursday training.",
     "this_week": "Building on improved performance. Continue developing team coordination and capitalizing on scoring chances.",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
       "⚽ Sept 27 vs Swansea: Andy E first goal! Travis C 2 goals (beautiful free kick!)",
       "🛡️ Strong defensive performances from Adam K, Owen H, Andrew N",
-      "📈 Continued improvement in team coordination and performance"
+      "📈 Continued improvement in team coordination and performance",
+      "🏆 Sept Player of Month: Niko D | Captain of Month: Owen H"
     ]
   },
   "status": "building-momentum"

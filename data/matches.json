@@ -111,25 +111,136 @@
     },
     {
       "id": "match-004",
-      "date": "2025-10-04",
+      "date": "2025-09-27",
       "opponent": "CMFSC Swansea",
-      "result": "pending",
-      "location": "Miller Park East",
+      "result": "3-6 loss",
+      "location": "Town Centre Park - Mobilio Field",
       "kickoff": "1:00pm",
       "match_number": "2500583",
       "week": 4,
-      "scorers": [],
+      "venue_type": "home",
+      "final_score": {
+        "qpr": 3,
+        "opponent": 6,
+        "half_time": "1-3"
+      },
+      "captains": {
+        "first_half": "Niko D",
+        "second_half": "Owen H"
+      },
+      "goalkeepers": {
+        "first_half": "David C",
+        "second_half": "Henry K"
+      },
+      "scorers": ["Andy E", "Travis C", "Travis C"],
+      "goal_details": [
+        {
+          "player": "Andy E",
+          "goals": 1,
+          "notes": "First goal for Andy!"
+        },
+        {
+          "player": "Travis C",
+          "goals": 2,
+          "notes": "Including a beautiful free kick"
+        }
+      ],
       "assists": [],
-      "highlights": []
+      "formation": "2-3-2",
+      "performance_notes": "Improved overall performance with better team coordination throughout the match. Strong defensive work from Adam K, Owen H, and Andrew N. Travis C's free kick was a highlight moment. Andy E scored his first goal for QPR!",
+      "highlights": [
+        "Andy E scored his first goal for QPR!",
+        "Travis C netted two goals including a beautiful free kick",
+        "Impressive defensive performance from Adam K",
+        "Owen H showed strong defensive partnership",
+        "Andrew N provided solid defensive work",
+        "Better team coordination than previous matches",
+        "Improved overall performance despite result"
+      ],
+      "starting_lineup": [
+        {
+          "name": "David C",
+          "pos": "GK",
+          "jersey": "14"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB",
+          "jersey": "5"
+        },
+        {
+          "name": "Owen H",
+          "pos": "CB2",
+          "jersey": "9"
+        },
+        {
+          "name": "Adam K",
+          "pos": "LM",
+          "jersey": "13"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "CM",
+          "jersey": "12"
+        },
+        {
+          "name": "Henry K",
+          "pos": "RM",
+          "jersey": "11"
+        },
+        {
+          "name": "Andy E",
+          "pos": "ST",
+          "jersey": "4"
+        },
+        {
+          "name": "Travis C",
+          "pos": "ST2",
+          "jersey": "3"
+        }
+      ],
+      "rotating_players": [
+        {
+          "name": "Alexander V",
+          "jersey": "8"
+        },
+        {
+          "name": "Ethan G",
+          "jersey": "15"
+        },
+        {
+          "name": "Minh-An D",
+          "jersey": "2"
+        },
+        {
+          "name": "Niko D",
+          "jersey": "6"
+        },
+        {
+          "name": "Yejun K",
+          "jersey": "7"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        }
+      ],
+      "unavailable_players": [
+        {
+          "name": "Rhodri W",
+          "jersey": "10",
+          "reason": "Not available this week"
+        }
+      ]
     },
     {
       "id": "match-005",
-      "date": "2025-10-11",
-      "opponent": "RMSC U11B8D3 (Tones)",
+      "date": "2025-10-04",
+      "opponent": "TBD",
       "result": "pending",
-      "location": "Pitt Meadows Athletic Park U11-U13 East grass",
-      "kickoff": "2:00pm",
-      "match_number": "2500595",
+      "location": "TBD",
+      "kickoff": "TBD",
+      "match_number": "TBD",
       "week": 5,
       "scorers": [],
       "assists": [],

@@ -1,65 +1,53 @@
 {
   "week": {
-    "date_range": "Sept 23-29, 2025", 
-    "theme": "Recovery Week - Building on Second Half Performance",
-    "last_updated": "2025-09-27T08:30:00-07:00"
+    "date_range": "Sept 30 - Oct 6, 2025", 
+    "theme": "Building Momentum - Continued Improvement",
+    "last_updated": "2025-10-01T10:00:00-07:00"
   },
   "training": {
-    "date": "2025-09-25",
+    "date": "2025-10-03",
     "day": "Thursday",
     "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
-    "focus": "Building on second half improvements and team chemistry",
+    "focus": "Building on improved performance and capitalizing on scoring chances",
     "attendance_required": true,
-    "completed": true,
-    "last_session": {
-      "date": "2025-09-26",
-      "attendance": 14,
-      "highlights": [
-        "Excellent midfield work from Rafael H and Adam K",
-        "Great defensive partnership between Owen H and Andrew N",
-        "Rhodri W showed usual defensive excellence (will be missed in match)",
-        "Andy E and Ethan G scored brilliant shots during scrimmage",
-        "Team improved defensive shape and early finishing",
-        "New position assignments working well"
-      ]
-    },
+    "completed": false,
     "upcoming_session": {
-      "date": "2025-09-25",
+      "date": "2025-10-03",
       "focus_areas": [
-        "Ball control exercises - replicating second half performance",
-        "Team chemistry and communication drills",
-        "Finishing practice - converting chances",
-        "Building confidence and momentum"
+        "Set piece practice - building on Travis C's free kick success",
+        "Defensive positioning - continuing Adam K, Owen H, Andrew N's strong work",
+        "Finishing drills - encouraging more goals like Andy E and Travis C",
+        "Team coordination exercises"
       ],
-      "preparation_for": "Sep 27 vs CMFSC Swansea (HOME)"
+      "preparation_for": "Oct 11 vs RMSC U11B8D3 (Tones) - Away"
     }
   },
   "match": {
-    "opponent": "CMFSC Swansea",
-    "date": "2025-09-27",
-    "kickoff": "1:00 PM",
-    "location": "Town Centre Park - Mobilio Field",
-    "venue_type": "home",
+    "opponent": "RMSC U11B8D3 (Tones)",
+    "date": "2025-10-11",
+    "kickoff": "2:00pm",
+    "location": "Pitt Meadows Athletic Park U11-U13 East grass",
+    "venue_type": "away",
     "formation": "2-3-2",
-    "match_number": "2500583",
-    "week": "Week 4",
+    "match_number": "2500595",
+    "week": "Week 6",
     "status": "upcoming",
-    "preparation_focus": "Building on second half performance vs PCFC Wolf Pack - ball control and team chemistry"
+    "preparation_focus": "Building on improved performance vs Swansea - better coordination, clinical finishing, and strong defensive work"
   },
   "captains": {
-    "reveal_at": "2025-09-23T00:00:00-07:00",
-    "first_half": "Niko D",
-    "second_half": "Owen H",
+    "reveal_at": "2025-10-03T00:00:00-07:00",
+    "first_half": "TBD",
+    "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "New captains announced: Niko D (1st half) and Owen H (2nd half) for Sep 27 vs Swansea (HOME)"
+    "training_update": "Captains will be announced at Thursday training"
   },
   "goalkeepers": {
-    "reveal_at": "2025-09-23T00:00:00-07:00",
-    "first_half": "David C",
-    "second_half": "Henry K",
+    "reveal_at": "2025-10-03T00:00:00-07:00",
+    "first_half": "TBD",
+    "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Goalkeeper rotation: David C (alternate: Midfield) and Henry K (alternate: Midfield)."
+    "rotation_note": "Goalkeepers will be announced at Thursday training."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -160,18 +148,7 @@
   "off_pitch": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "zones": {
-      "goalkeepers": [
-        {
-          "name": "David C",
-          "jersey": "14",
-          "alternate_pos": "Midfield"
-        },
-        {
-          "name": "Henry K",
-          "jersey": "11",
-          "alternate_pos": "Midfield"
-        }
-      ],
+      "goalkeepers": [],
       "defence": [
         {
           "name": "Andrew N",
@@ -310,81 +287,9 @@
         "jersey": "16"
       }
     ],
-    "starting": [
-      {
-        "name": "David C",
-        "jersey": "14",
-        "pos": "GK"
-      },
-      {
-        "name": "Andrew N",
-        "jersey": "5",
-        "pos": "CB"
-      },
-      {
-        "name": "Owen H",
-        "jersey": "9",
-        "pos": "CB2"
-      },
-      {
-        "name": "Adam K",
-        "jersey": "13",
-        "pos": "LM"
-      },
-      {
-        "name": "Rafael H",
-        "jersey": "12",
-        "pos": "CM"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11",
-        "pos": "RM"
-      },
-      {
-        "name": "Andy E",
-        "jersey": "4",
-        "pos": "ST"
-      },
-      {
-        "name": "Travis C",
-        "jersey": "3",
-        "pos": "ST2"
-      }
-    ],
-    "rotating": [
-      {
-        "name": "Alexander V",
-        "jersey": "8"
-      },
-      {
-        "name": "Ethan G",
-        "jersey": "15"
-      },
-      {
-        "name": "Minh-An D",
-        "jersey": "2"
-      },
-      {
-        "name": "Niko D",
-        "jersey": "6"
-      },
-      {
-        "name": "Yejun K",
-        "jersey": "7"
-      },
-      {
-        "name": "Eunjun K",
-        "jersey": "16"
-      }
-    ],
-    "unavailable": [
-      {
-        "name": "Rhodri W",
-        "jersey": "10",
-        "reason": "Not available this week"
-      }
-    ]
+    "starting": [],
+    "rotating": [],
+    "unavailable": []
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
@@ -399,17 +304,18 @@
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
-    "kit": "White shirts, black shorts, black socks",
-    "coach": "Recovery week after excellent second half performance vs PCFC Wolf Pack. Focus on building team chemistry and ball control that showed in second half. New captains Niko D & Owen H will lead vs Swansea. Preparing for Sep 27 HOME match.",
-    "training_recap": "✅ Thursday training COMPLETED with excellent results! Outstanding midfield work from Rafael H and Adam K. Great defensive partnerships from Owen H and Andrew N. Rhodri W showed his usual excellence (will be missed in match). Andy E and Ethan G scored brilliant shots during scrimmage. Team improved defensive shape and early finishing - ready for match day!",
-    "match_update": "NEXT MATCH: Sep 27 vs CMFSC Swansea at 1:00 PM, Town Centre Park - Mobilio Field (HOME). Building confidence from second half performance - better ball control and teamwork shown vs PCFC Wolf Pack.",
-    "this_week": "Recovery and building week. Focus on replicating second half excellence throughout full matches.",
+    "kit": "TBD - Will be announced based on opponent kit",
+    "coach": "Great progress shown vs Swansea! Improved overall performance with better team coordination. Strong defensive work from Adam K, Owen H, and Andrew N. Travis C's two goals (including beautiful free kick) and Andy E's first goal show our attacking potential. Focus on maintaining this momentum for Oct 11 AWAY match.",
+    "training_recap": "Next training: Thursday Oct 3. Focus on set pieces (building on Travis C's free kick), defensive positioning (continuing strong work from Adam K, Owen H, Andrew N), and finishing drills.",
+    "match_update": "NEXT MATCH: Oct 11 vs RMSC U11B8D3 (Tones) at 2:00pm, Pitt Meadows Athletic Park U11-U13 East grass (AWAY). Captains and goalkeepers TBD at Thursday training.",
+    "this_week": "Building on improved performance. Continue developing team coordination and capitalizing on scoring chances.",
     "achievements": [
-      "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅ achieved",
-      "� Sept 20 vs PCFC Wolf Pack: Excellent second half comeback - better ball control & teamwork",
-      "� 2-3-2 formation system working well with zone rotation",
-      "⚽ Goal scorers: Minh-An D, Travis C, Niko D (penalty) showing attacking progress"
+      "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
+      "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
+      "⚽ Sept 27 vs Swansea: Andy E first goal! Travis C 2 goals (beautiful free kick!)",
+      "🛡️ Strong defensive performances from Adam K, Owen H, Andrew N",
+      "📈 Continued improvement in team coordination and performance"
     ]
   },
-  "status": "recovery-and-building"
+  "status": "building-momentum"
 }

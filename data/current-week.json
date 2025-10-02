@@ -44,10 +44,10 @@
   },
   "goalkeepers": {
     "reveal_at": "2025-10-02T00:00:00-07:00",
-    "first_half": "TBD",
-    "second_half": "TBD",
+    "first_half": "Andy E",
+    "second_half": "Andrew N",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Goalkeepers will be announced at Thursday training."
+    "rotation_note": "Andy E (Striker) and Andrew N (Defence) selected for goalkeeper duties this week."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -148,7 +148,18 @@
   "off_pitch": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "zones": {
-      "goalkeepers": [],
+      "goalkeepers": [
+        {
+          "name": "Andy E",
+          "jersey": "4",
+          "alternate_pos": "GK"
+        },
+        {
+          "name": "Andrew N",
+          "jersey": "5",
+          "alternate_pos": "GK"
+        }
+      ],
       "defence": [
         {
           "name": "Andrew N",
@@ -289,7 +300,12 @@
     ],
     "starting": [],
     "rotating": [],
-    "unavailable": []
+    "unavailable": [
+      {
+        "name": "Rhodri W",
+        "jersey": "10"
+      }
+    ]
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",

@@ -44,10 +44,10 @@
   },
   "goalkeepers": {
     "reveal_at": "2025-10-02T00:00:00-07:00",
-    "first_half": "Andy E",
-    "second_half": "Andrew N",
+    "first_half": "Rafael H",
+    "second_half": "Ethan G",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Andy E (Striker) and Andrew N (Defence) selected for goalkeeper duties this week."
+    "rotation_note": "Rafael H (Midfield) and Ethan G (Striker) selected for goalkeeper duties this week."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -150,13 +150,13 @@
     "zones": {
       "goalkeepers": [
         {
-          "name": "Andy E",
-          "jersey": "4",
+          "name": "Rafael H",
+          "jersey": "12",
           "alternate_pos": "GK"
         },
         {
-          "name": "Andrew N",
-          "jersey": "5",
+          "name": "Ethan G",
+          "jersey": "15",
           "alternate_pos": "GK"
         }
       ],

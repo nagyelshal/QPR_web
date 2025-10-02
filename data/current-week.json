@@ -66,12 +66,6 @@
         "jersey": "7"
       },
       {
-        "name": "Adam K",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "13"
-      },
-      {
         "name": "Niko D",
         "pos": "Defence",
         "tactical_pos": "CB",
@@ -170,10 +164,6 @@
           "jersey": "7"
         },
         {
-          "name": "Adam K",
-          "jersey": "13"
-        },
-        {
           "name": "Niko D",
           "jersey": "6"
         }
@@ -186,6 +176,10 @@
         {
           "name": "Owen H",
           "jersey": "9"
+        },
+        {
+          "name": "Adam K",
+          "jersey": "13"
         },
         {
           "name": "Eunjun K",
@@ -298,8 +292,74 @@
         "jersey": "16"
       }
     ],
-    "starting": [],
-    "rotating": [],
+    "starting": [
+      {
+        "name": "Rafael H",
+        "pos": "GK",
+        "jersey": "12"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "CB",
+        "jersey": "5"
+      },
+      {
+        "name": "Niko D",
+        "pos": "CB2",
+        "jersey": "6"
+      },
+      {
+        "name": "Owen H",
+        "pos": "LM",
+        "jersey": "9"
+      },
+      {
+        "name": "Adam K",
+        "pos": "CM",
+        "jersey": "13"
+      },
+      {
+        "name": "Alexander V",
+        "pos": "RM",
+        "jersey": "8"
+      },
+      {
+        "name": "Ethan G",
+        "pos": "ST",
+        "jersey": "15"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "ST2",
+        "jersey": "2"
+      }
+    ],
+    "rotating": [
+      {
+        "name": "Yejun K",
+        "jersey": "7"
+      },
+      {
+        "name": "David C",
+        "jersey": "14"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16"
+      },
+      {
+        "name": "Andy E",
+        "jersey": "4"
+      },
+      {
+        "name": "Travis C",
+        "jersey": "3"
+      }
+    ],
     "unavailable": [
       {
         "name": "Rhodri W",

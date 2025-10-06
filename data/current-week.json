@@ -45,10 +45,10 @@
   },
   "goalkeepers": {
     "reveal_at": "2025-10-16T00:00:00-07:00",
-    "first_half": "TBD",
-    "second_half": "TBD",
+    "first_half": "Minh-An D",
+    "second_half": "Rhodri W",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Goalkeepers will be announced at Thursday training."
+    "rotation_note": "Minh-An D (Striker) and Rhodri W (Defence) selected for goalkeeper duties this week."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -149,7 +149,18 @@
   "off_pitch": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "zones": {
-      "goalkeepers": [],
+      "goalkeepers": [
+        {
+          "name": "Minh-An D",
+          "jersey": "2",
+          "alternate_pos": "GK"
+        },
+        {
+          "name": "Rhodri W",
+          "jersey": "10",
+          "alternate_pos": "GK"
+        }
+      ],
       "defence": [
         {
           "name": "Andrew N",
@@ -290,8 +301,78 @@
         "jersey": "16"
       }
     ],
-    "starting": [],
-    "rotating": [],
+    "starting": [
+      {
+        "name": "Minh-An D",
+        "pos": "GK",
+        "jersey": "2"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "CB",
+        "jersey": "10"
+      },
+      {
+        "name": "Niko D",
+        "pos": "CB2",
+        "jersey": "6"
+      },
+      {
+        "name": "Rafael H",
+        "pos": "LM",
+        "jersey": "12"
+      },
+      {
+        "name": "Owen H",
+        "pos": "CM",
+        "jersey": "9"
+      },
+      {
+        "name": "Alexander V",
+        "pos": "RM",
+        "jersey": "8"
+      },
+      {
+        "name": "Travis C",
+        "pos": "ST",
+        "jersey": "3"
+      },
+      {
+        "name": "Andy E",
+        "pos": "ST2",
+        "jersey": "4"
+      }
+    ],
+    "rotating": [
+      {
+        "name": "Yejun K",
+        "jersey": "7"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "5"
+      },
+      {
+        "name": "Adam K",
+        "jersey": "13"
+      },
+      {
+        "name": "David C",
+        "jersey": "14"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "15"
+      }
+    ],
     "unavailable": []
   },
   "hype": {

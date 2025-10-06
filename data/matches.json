@@ -8,7 +8,7 @@
       "location": "Trasolini Turf North",
       "kickoff": "11:45am",
       "match_number": "2500544",
-  "week": 0,
+      "week": 0,
       "reason": "Cancelled due to air quality concerns from forest wildfires",
       "scorers": [],
       "assists": [],
@@ -19,10 +19,11 @@
       "date": "2025-09-13",
       "opponent": "CMFSC Millwall",
       "result": "2-6 loss",
-  "location": "Miller Park North",
+      "location": "Miller Park North",
       "kickoff": "9:30am",
       "match_number": "2500560",
-  "week": 1,
+      "week": 1,
+      "venue_type": "home",
       "final_score": {
         "qpr": 2,
         "opponent": 6,
@@ -98,16 +99,114 @@
     },
     {
       "id": "match-003",
-      "date": "2025-09-27",
+      "date": "2025-09-20",
       "opponent": "PCFC Wolf Pack (McNeill)",
-      "result": "pending",
+      "result": "3-7 loss",
       "location": "Mclean Park North",
       "kickoff": "10:00am",
       "match_number": "2500567",
       "week": 3,
-      "scorers": [],
+      "venue_type": "away",
+      "final_score": {
+        "qpr": 3,
+        "opponent": 7,
+        "half_time": "1-5"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Yejun K",
+        "second_half": "Alexander V"
+      },
+      "scorers": ["Minh-An D", "Travis C", "Niko D (penalty)"],
       "assists": [],
-      "highlights": []
+      "formation": "2-3-2",
+      "performance_notes": "Difficult first half down 5-1, but excellent second half with better ball control and teamwork. Faced significant bad luck throughout.",
+      "highlights": [
+        "Resilient second half comeback (outscored 2-2 after being down 5-1)",
+        "Much better ball control in second period",
+        "Excellent teamwork and playing as a unit after half-time",
+        "Niko D scored penalty under pressure",
+        "Team showed tremendous character and fight",
+        "Faced significant bad luck with missed easy chances"
+      ],
+      "starting_lineup": [
+        {
+          "name": "Yejun K",
+          "pos": "GK",
+          "jersey": "7"
+        },
+        {
+          "name": "David C",
+          "pos": "CB",
+          "jersey": "14"
+        },
+        {
+          "name": "Alexander V",
+          "pos": "CB2",
+          "jersey": "8"
+        },
+        {
+          "name": "Owen H",
+          "pos": "LM",
+          "jersey": "9"
+        },
+        {
+          "name": "Henry K",
+          "pos": "CM",
+          "jersey": "11"
+        },
+        {
+          "name": "Minh-An D",
+          "pos": "RM",
+          "jersey": "2"
+        },
+        {
+          "name": "Niko D",
+          "pos": "ST",
+          "jersey": "6"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "ST2",
+          "jersey": "5"
+        }
+      ],
+      "rotating_players": [
+        {
+          "name": "Andy E",
+          "jersey": "4"
+        },
+        {
+          "name": "Travis C",
+          "jersey": "3"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "Ethan G",
+          "jersey": "15"
+        },
+        {
+          "name": "Adam K",
+          "jersey": "13"
+        },
+        {
+          "name": "Rhodri W",
+          "jersey": "10"
+        }
+      ],
+      "unavailable_players": [
+        {
+          "name": "Rafael H",
+          "jersey": "12",
+          "reason": "Not available for today's match"
+        }
+      ]
     },
     {
       "id": "match-004",
@@ -236,115 +335,120 @@
     {
       "id": "match-005",
       "date": "2025-10-04",
-      "opponent": "TBD",
-      "result": "pending",
-      "location": "TBD",
-      "kickoff": "TBD",
-      "match_number": "TBD",
+      "opponent": "RMSC U11B8D3 (Tones)",
+      "result": "1-4 loss",
+      "location": "Pitt Meadows Athletic Park U11-U13 East grass",
+      "kickoff": "2:00pm",
+      "match_number": "2500595",
       "week": 5,
-      "scorers": [],
-      "assists": [],
-      "highlights": []
-    },
-    {
-      "id": "match-003",
-      "date": "2025-09-20",
-      "opponent": "PCFC Wolf Pack (McNeill)",
-      "result": "3-7 loss",
-      "location": "Mclean Park North", 
-      "kickoff": "10:00am",
-      "match_number": "2500567",
-      "week": 3,
+      "venue_type": "away",
       "final_score": {
-        "qpr": 3,
-        "opponent": 7,
-        "half_time": "1-5"
+        "qpr": 1,
+        "opponent": 4,
+        "half_time": "1-2"
       },
-      "scorers": ["Minh-An D", "Travis C", "Niko D (penalty)"],
-      "assists": [],
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Andy E",
+        "second_half": "Ethan G"
+      },
+      "scorers": ["Ethan G"],
+      "goal_details": [
+        {
+          "player": "Ethan G",
+          "goals": 1,
+          "notes": "Beautiful goal with assist from Travis C"
+        }
+      ],
+      "assists": ["Travis C"],
       "formation": "2-3-2",
-      "performance_notes": "Difficult first half down 5-1, but excellent second half with better ball control and teamwork. Faced significant bad luck throughout.",
+      "performance_notes": "Improved defensive performance with standout games from Yejun K and David C (best game). Adam K, Andrew N, and Owen H maintained their very good performance levels. Despite three players being unavailable (Rafael H, Alexander V, Rhodri W), the team showed resilience and better defensive organization.",
       "highlights": [
-        "Resilient second half comeback (outscored 2-2 after being down 5-1)",
-        "Much better ball control in second period",
-        "Excellent teamwork and playing as a unit after half-time", 
-        "Niko D scored penalty under pressure",
-        "Team showed tremendous character and fight",
-        "Faced significant bad luck with missed easy chances"
+        "Ethan G scored with a beautiful goal assisted by Travis C",
+        "Yejun K played his best game of the season",
+        "David C had his best performance",
+        "Strong continued performance from Adam K, Andrew N, and Owen H",
+        "Improved defensive organization despite unavailable players",
+        "Andy E stepped up to play goalkeeper in first half due to Rafael H being unavailable"
       ],
       "starting_lineup": [
         {
-          "name": "Yejun K",
-          "pos": "GK", 
-          "jersey": "7"
+          "name": "Andy E",
+          "pos": "GK",
+          "jersey": "4"
         },
         {
-          "name": "David C",
+          "name": "Andrew N",
           "pos": "CB",
-          "jersey": "14"
+          "jersey": "5"
         },
         {
-          "name": "Alexander V",
+          "name": "Niko D",
           "pos": "CB2",
-          "jersey": "8"
+          "jersey": "6"
         },
         {
-          "name": "Owen H", 
+          "name": "Owen H",
           "pos": "LM",
           "jersey": "9"
         },
         {
-          "name": "Henry K",
-          "pos": "CM", 
-          "jersey": "11"
+          "name": "Adam K",
+          "pos": "CM",
+          "jersey": "13"
+        },
+        {
+          "name": "David C",
+          "pos": "RM",
+          "jersey": "14"
+        },
+        {
+          "name": "Ethan G",
+          "pos": "ST",
+          "jersey": "15"
         },
         {
           "name": "Minh-An D",
-          "pos": "RM",
-          "jersey": "2"
-        },
-        {
-          "name": "Niko D",
-          "pos": "ST",
-          "jersey": "6"
-        },
-        {
-          "name": "Andrew N",
           "pos": "ST2",
-          "jersey": "5"
+          "jersey": "2"
         }
       ],
       "rotating_players": [
         {
-          "name": "Andy E",
-          "jersey": "4"
+          "name": "Yejun K",
+          "jersey": "7"
         },
         {
-          "name": "Travis C", 
-          "jersey": "3"
+          "name": "Henry K",
+          "jersey": "11"
         },
         {
           "name": "Eunjun K",
           "jersey": "16"
         },
         {
-          "name": "Ethan G",
-          "jersey": "15"
-        },
-        {
-          "name": "Adam K",
-          "jersey": "13"
-        },
-        {
-          "name": "Rhodri W",
-          "jersey": "10"
+          "name": "Travis C",
+          "jersey": "3"
         }
       ],
       "unavailable_players": [
         {
+          "name": "Rhodri W",
+          "jersey": "10",
+          "reason": "Not available"
+        },
+        {
+          "name": "Alexander V",
+          "jersey": "8",
+          "reason": "Not available"
+        },
+        {
           "name": "Rafael H",
           "jersey": "12",
-          "reason": "Not available for today's match"
+          "reason": "Not available"
         }
       ]
     }
@@ -353,7 +457,7 @@
     "submissions": [],
     "categories": [
       "Most Creative",
-      "Funniest", 
+      "Funniest",
       "Best Team Celebration",
       "Most Original"
     ]

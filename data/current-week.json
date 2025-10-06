@@ -1,53 +1,54 @@
 {
   "week": {
-    "date_range": "Sept 30 - Oct 6, 2025", 
-    "theme": "Building Momentum - Continued Improvement",
-    "last_updated": "2025-10-01T10:00:00-07:00"
+    "date_range": "Oct 7 - Oct 20, 2025", 
+    "theme": "Defensive Excellence - Building on Progress",
+    "last_updated": "2025-10-06T10:00:00-07:00"
   },
   "training": {
-    "date": "2025-10-02",
+    "date": "2025-10-16",
     "day": "Thursday",
     "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
-    "focus": "Building on improved performance and capitalizing on scoring chances",
+    "focus": "Maintaining defensive improvements and team coordination",
     "attendance_required": true,
     "completed": false,
     "upcoming_session": {
-      "date": "2025-10-02",
+      "date": "2025-10-16",
       "focus_areas": [
-        "Set piece practice - building on Travis C's free kick success",
-        "Defensive positioning - continuing Adam K, Owen H, Andrew N's strong work",
-        "Finishing drills - encouraging more goals like Andy E and Travis C",
-        "Team coordination exercises"
+        "Continuing defensive organization - building on Yejun K and David C's performances",
+        "Team coordination and positioning",
+        "Attacking play and finishing",
+        "Set pieces and transitions"
       ],
-      "preparation_for": "Oct 4 vs RMSC U11B8D3 (Tones) - Away"
-    }
+      "preparation_for": "Oct 18 match (opponent TBD)"
+    },
+    "notes": "Thanksgiving week Oct 7-13: No practice or match. Enjoy time with family! Training resumes Oct 16."
   },
   "match": {
-    "opponent": "RMSC U11B8D3 (Tones)",
-    "date": "2025-10-04",
-    "kickoff": "2:00pm",
-    "location": "Pitt Meadows Athletic Park U11-U13 East grass",
-    "venue_type": "away",
+    "opponent": "TBD",
+    "date": "2025-10-18",
+    "kickoff": "TBD",
+    "location": "TBD",
+    "venue_type": "TBD",
     "formation": "2-3-2",
-    "match_number": "2500595",
-    "week": "Week 5",
+    "match_number": "TBD",
+    "week": "Week 6",
     "status": "upcoming",
-    "preparation_focus": "Building on improved performance vs Swansea - better coordination, clinical finishing, and strong defensive work"
+    "preparation_focus": "Building on defensive improvements shown vs Tones"
   },
   "captains": {
-    "reveal_at": "2025-10-02T00:00:00-07:00",
+    "reveal_at": "2025-10-16T00:00:00-07:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced at Thursday training"
   },
   "goalkeepers": {
-    "reveal_at": "2025-10-02T00:00:00-07:00",
-    "first_half": "Rafael H",
-    "second_half": "Ethan G",
+    "reveal_at": "2025-10-16T00:00:00-07:00",
+    "first_half": "TBD",
+    "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Rafael H (Midfield) and Ethan G (Striker) selected for goalkeeper duties this week."
+    "rotation_note": "Goalkeepers will be announced at Thursday training."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -142,18 +143,7 @@
   "off_pitch": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
     "zones": {
-      "goalkeepers": [
-        {
-          "name": "Rafael H",
-          "jersey": "12",
-          "alternate_pos": "GK"
-        },
-        {
-          "name": "Ethan G",
-          "jersey": "15",
-          "alternate_pos": "GK"
-        }
-      ],
+      "goalkeepers": [],
       "defence": [
         {
           "name": "Andrew N",
@@ -171,8 +161,7 @@
       "midfield_wingers": [
         {
           "name": "Rafael H",
-          "jersey": "12",
-          "alternate_pos": "GK"
+          "jersey": "12"
         },
         {
           "name": "Owen H",
@@ -202,8 +191,7 @@
       "strikers": [
         {
           "name": "Ethan G",
-          "jersey": "15",
-          "alternate_pos": "GK"
+          "jersey": "15"
         },
         {
           "name": "Andy E",
@@ -292,80 +280,9 @@
         "jersey": "16"
       }
     ],
-    "starting": [
-      {
-        "name": "Rafael H",
-        "pos": "GK",
-        "jersey": "12"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "CB",
-        "jersey": "5"
-      },
-      {
-        "name": "Niko D",
-        "pos": "CB2",
-        "jersey": "6"
-      },
-      {
-        "name": "Owen H",
-        "pos": "LM",
-        "jersey": "9"
-      },
-      {
-        "name": "Adam K",
-        "pos": "CM",
-        "jersey": "13"
-      },
-      {
-        "name": "Alexander V",
-        "pos": "RM",
-        "jersey": "8"
-      },
-      {
-        "name": "Ethan G",
-        "pos": "ST",
-        "jersey": "15"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "ST2",
-        "jersey": "2"
-      }
-    ],
-    "rotating": [
-      {
-        "name": "Yejun K",
-        "jersey": "7"
-      },
-      {
-        "name": "David C",
-        "jersey": "14"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11"
-      },
-      {
-        "name": "Eunjun K",
-        "jersey": "16"
-      },
-      {
-        "name": "Andy E",
-        "jersey": "4"
-      },
-      {
-        "name": "Travis C",
-        "jersey": "3"
-      }
-    ],
-    "unavailable": [
-      {
-        "name": "Rhodri W",
-        "jersey": "10"
-      }
-    ]
+    "starting": [],
+    "rotating": [],
+    "unavailable": []
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
@@ -378,19 +295,66 @@
       "month": "September"
     }
   },
+  "rotation_history": {
+    "captains": [
+      {
+        "match": "Sept 13 vs CMFSC Millwall",
+        "first_half": "Travis C",
+        "second_half": "Minh-An D"
+      },
+      {
+        "match": "Sept 20 vs PCFC Wolf Pack",
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      {
+        "match": "Sept 27 vs CMFSC Swansea",
+        "first_half": "Niko D",
+        "second_half": "Owen H"
+      },
+      {
+        "match": "Oct 4 vs RMSC U11B8D3 (Tones)",
+        "first_half": "TBD",
+        "second_half": "TBD"
+      }
+    ],
+    "goalkeepers": [
+      {
+        "match": "Sept 13 vs CMFSC Millwall",
+        "first_half": "Owen H",
+        "second_half": "Adam K"
+      },
+      {
+        "match": "Sept 20 vs PCFC Wolf Pack",
+        "first_half": "Yejun K",
+        "second_half": "Alexander V"
+      },
+      {
+        "match": "Sept 27 vs CMFSC Swansea",
+        "first_half": "David C",
+        "second_half": "Henry K"
+      },
+      {
+        "match": "Oct 4 vs RMSC U11B8D3 (Tones)",
+        "first_half": "Andy E",
+        "second_half": "Ethan G"
+      }
+    ]
+  },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "Great progress shown vs Swansea! Improved overall performance with better team coordination. Strong defensive work from Adam K, Owen H, and Andrew N. Travis C's two goals (including beautiful free kick) and Andy E's first goal show our attacking potential. Focus on maintaining this momentum for Oct 4 AWAY match.",
-    "training_recap": "Next training: Thursday Oct 2. Focus on set pieces (building on Travis C's free kick), defensive positioning (continuing strong work from Adam K, Owen H, Andrew N), and finishing drills.",
-    "match_update": "NEXT MATCH: Oct 4 vs RMSC U11B8D3 (Tones) at 2:00pm, Pitt Meadows Athletic Park U11-U13 East grass (AWAY). Captains and goalkeepers TBD at Thursday training.",
-    "this_week": "Building on improved performance. Continue developing team coordination and capitalizing on scoring chances.",
+    "coach": "Outstanding defensive improvements vs Tones! Yejun K and David C had their best games. Adam K, Andrew N, and Owen H continue to excel. Great team spirit with Andy E and Ethan G stepping up as goalkeepers. Thanksgiving week off (Oct 7-13) - enjoy family time! Training resumes Oct 16.",
+    "training_recap": "Thanksgiving Week (Oct 7-13): No practice or match. NEXT training: Thursday Oct 16. Focus on maintaining defensive excellence and continuing team development.",
+    "match_update": "NEXT MATCH: Oct 18 (opponent, time, location TBD). Captains and goalkeepers TBD at Thursday Oct 16 training.",
+    "this_week": "Thanksgiving break week. Enjoy time with family! Return refreshed and ready to build on defensive improvements.",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
       "⚽ Sept 27 vs Swansea: Andy E first goal! Travis C 2 goals (beautiful free kick!)",
-      "🛡️ Strong defensive performances from Adam K, Owen H, Andrew N",
-      "📈 Continued improvement in team coordination and performance",
+      "🛡️ Oct 4 vs Tones: Best defensive performance! Yejun K and David C standout games",
+      "🤝 Great team spirit - Andy E & Ethan G stepped up as goalkeepers",
+      "📈 Continued improvement in defensive organization",
       "🏆 Sept Player of Month: Niko D | Captain of Month: Owen H"
     ]
   },

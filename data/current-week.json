@@ -73,6 +73,12 @@
         "jersey": "6"
       },
       {
+        "name": "Rhodri W",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "10"
+      },
+      {
         "name": "Rafael H",
         "pos": "Midfield",
         "tactical_pos": "CM",
@@ -156,6 +162,10 @@
         {
           "name": "Niko D",
           "jersey": "6"
+        },
+        {
+          "name": "Rhodri W",
+          "jersey": "10"
         }
       ],
       "midfield_wingers": [

@@ -1,28 +1,28 @@
 {
   "week": {
     "date_range": "Oct 7 - Oct 20, 2025", 
-    "theme": "Defensive Excellence - Building on Progress",
-    "last_updated": "2025-10-06T10:00:00-07:00"
+    "theme": "Defensive Situations - Tactical Excellence",
+    "last_updated": "2025-10-08T10:00:00-07:00"
   },
   "training": {
-    "date": "2025-10-16",
-    "day": "Thursday",
+    "date": "2025-10-09",
+    "day": "Wednesday",
     "time": "5:00pm",
     "location": "Town Centre Park - Mobilio Field",
-    "focus": "Maintaining defensive improvements and team coordination",
+    "focus": "Defensive situations and tactical positioning",
     "attendance_required": true,
     "completed": false,
     "upcoming_session": {
-      "date": "2025-10-16",
+      "date": "2025-10-09",
       "focus_areas": [
-        "Continuing defensive organization - building on Yejun K and David C's performances",
-        "Team coordination and positioning",
-        "Attacking play and finishing",
-        "Set pieces and transitions"
+        "Defensive situations practice",
+        "Tactical positioning and organization",
+        "Set piece defending",
+        "Transition from defense to attack"
       ],
       "preparation_for": "Oct 18 match (opponent TBD)"
     },
-    "notes": "Thanksgiving week Oct 7-13: No practice or match. Enjoy time with family! Training resumes Oct 16."
+    "notes": "Training is ON for Wednesday Oct 9th at 5:00pm. Focus on defensive situations."
   },
   "match": {
     "opponent": "TBD",
@@ -435,10 +435,10 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "Outstanding defensive improvements vs Tones! Yejun K and David C had their best games. Adam K, Andrew N, and Owen H continue to excel. Great team spirit with Andy E and Ethan G stepping up as goalkeepers. Thanksgiving week off (Oct 7-13) - enjoy family time! Training resumes Oct 16.",
-    "training_recap": "Thanksgiving Week (Oct 7-13): No practice or match. NEXT training: Thursday Oct 16. Focus on maintaining defensive excellence and continuing team development.",
-    "match_update": "NEXT MATCH: Oct 18 (opponent, time, location TBD). Captains and goalkeepers TBD at Thursday Oct 16 training.",
-    "this_week": "Thanksgiving break week. Enjoy time with family! Return refreshed and ready to build on defensive improvements.",
+    "coach": "Outstanding defensive improvements vs Tones! Yejun K and David C had their best games. Adam K, Andrew N, and Owen H continue to excel. Great team spirit with Andy E and Ethan G stepping up as goalkeepers. Training is ON for Wednesday Oct 9th - focus on defensive situations!",
+    "training_recap": "NEXT training: Wednesday Oct 9 at 5:00pm. Focus on defensive situations, tactical positioning, and set piece defending.",
+    "match_update": "NEXT MATCH: Oct 18 (opponent, time, location TBD). Captains and goalkeepers selected: Minh-An D and Rhodri W.",
+    "this_week": "Training Wednesday Oct 9! Focus on defensive situations and building on recent improvements.",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",

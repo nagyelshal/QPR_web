@@ -451,6 +451,48 @@
           "reason": "Not available"
         }
       ]
+    },
+    {
+      "id": "match-006",
+      "date": "2025-10-18",
+      "opponent": "CMFSC QPR",
+      "result": "pending",
+      "location": "Town Centre Park - Mobilio Field",
+      "kickoff": "1:00pm",
+      "match_number": "2500613",
+      "week": 6,
+      "venue_type": "home",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
+    },
+    {
+      "id": "match-007",
+      "date": "2025-10-25",
+      "opponent": "PMSC Storm",
+      "result": "pending",
+      "location": "Trasolini Turf North",
+      "kickoff": "2:30pm",
+      "match_number": "2500622",
+      "week": 7,
+      "venue_type": "away",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
+    },
+    {
+      "id": "match-008",
+      "date": "2025-11-01",
+      "opponent": "CMFSC Millwall",
+      "result": "pending",
+      "location": "Town Centre Park - Mobilio Field",
+      "kickoff": "11:00am",
+      "match_number": "2500628",
+      "week": 8,
+      "venue_type": "home",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
     }
   ],
   "celebrations": {

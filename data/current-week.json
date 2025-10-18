@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Oct 7 - Oct 20, 2025", 
     "theme": "Defensive Situations - Tactical Excellence",
-    "last_updated": "2025-10-08T10:00:00-07:00"
+    "last_updated": "2025-10-17T22:30:00-07:00"
   },
   "training": {
     "date": "2025-10-09",
@@ -11,7 +11,7 @@
     "location": "Town Centre Park - Mobilio Field",
     "focus": "Defensive situations and tactical positioning",
     "attendance_required": true,
-    "completed": false,
+    "completed": true,
     "upcoming_session": {
       "date": "2025-10-09",
       "focus_areas": [
@@ -22,17 +22,17 @@
       ],
       "preparation_for": "Oct 18 match (opponent TBD)"
     },
-    "notes": "Training is ON for Wednesday Oct 9th at 5:00pm. Focus on defensive situations."
+    "notes": "Training completed Thursday with defensive situations focus."
   },
   "match": {
-    "opponent": "CMFSC QPR",
+    "opponent": "PMSC Soccer Stars",
     "date": "2025-10-18",
-    "kickoff": "1:00pm",
-    "location": "Town Centre Park - Mobilio Field",
+    "kickoff": "12:30pm",
+    "location": "Miller Park West",
     "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2500613",
-    "week": "Week 6",
+    "match_number": "2501707",
+    "week": "Week 7",
     "status": "upcoming",
     "preparation_focus": "Building on defensive improvements shown vs Tones"
   },
@@ -435,9 +435,9 @@
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "Outstanding defensive improvements vs Tones! Yejun K and David C had their best games. Adam K, Andrew N, and Owen H continue to excel. Great team spirit with Andy E and Ethan G stepping up as goalkeepers. Training is ON for Wednesday Oct 9th - focus on defensive situations!",
-    "training_recap": "NEXT training: Wednesday Oct 9 at 5:00pm. Focus on defensive situations, tactical positioning, and set piece defending.",
-    "match_update": "NEXT MATCH: Friday Oct 18 vs CMFSC QPR at 1:00pm, Town Centre Park - Mobilio Field (HOME). Captains TBD. Goalkeepers: Minh-An D and Rhodri W.",
+    "coach": "Excellent practice Thursday! Continued defensive positioning work with 1v1 and 2v2 situations. Team competed well in scrimmage vs Division 2 team despite speed/fitness differences. Andrew N, Owen H, and Alexander V shined! Ready for Saturday vs PMSC Soccer Stars at Miller Park West.",
+    "training_recap": "Thursday practice complete! Focused on defensive positioning, 1v1 and 2v2 situations. Scrimmaged against Division 2 team - great effort! Andrew N, Owen H, and Alexander V standout performances.",
+    "match_update": "NEXT MATCH: Saturday Oct 18 vs PMSC Soccer Stars at 12:30pm, Miller Park West (HOME). Goalkeepers: Minh-An D and Rhodri W. Starting lineup set!",
     "this_week": "Training Wednesday Oct 9! Focus on defensive situations and building on recent improvements.",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",

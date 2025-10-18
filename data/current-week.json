@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Oct 7 - Oct 20, 2025", 
     "theme": "Defensive Situations - Tactical Excellence",
-    "last_updated": "2025-10-17T22:30:00-07:00"
+    "last_updated": "2025-10-17T22:45:00-07:00"
   },
   "training": {
     "date": "2025-10-09",
@@ -318,19 +318,19 @@
         "jersey": "6"
       },
       {
-        "name": "Rafael H",
+        "name": "Alexander V",
         "pos": "LM",
-        "jersey": "12"
+        "jersey": "8"
+      },
+      {
+        "name": "Adam K",
+        "pos": "CM",
+        "jersey": "13"
       },
       {
         "name": "Owen H",
-        "pos": "CM",
-        "jersey": "9"
-      },
-      {
-        "name": "Alexander V",
         "pos": "RM",
-        "jersey": "8"
+        "jersey": "9"
       },
       {
         "name": "Travis C",
@@ -353,8 +353,8 @@
         "jersey": "5"
       },
       {
-        "name": "Adam K",
-        "jersey": "13"
+        "name": "Rafael H",
+        "jersey": "12"
       },
       {
         "name": "David C",

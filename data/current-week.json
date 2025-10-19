@@ -2,7 +2,7 @@
   "week": {
     "date_range": "Oct 7 - Oct 20, 2025", 
     "theme": "Defensive Situations - Tactical Excellence",
-    "last_updated": "2025-10-17T22:45:00-07:00"
+    "last_updated": "2025-10-17T22:50:00-07:00"
   },
   "training": {
     "date": "2025-10-09",
@@ -353,10 +353,6 @@
         "jersey": "5"
       },
       {
-        "name": "Rafael H",
-        "jersey": "12"
-      },
-      {
         "name": "David C",
         "jersey": "14"
       },
@@ -373,7 +369,13 @@
         "jersey": "15"
       }
     ],
-    "unavailable": []
+    "unavailable": [
+      {
+        "name": "Rafael H",
+        "jersey": "12",
+        "reason": "Not available this week"
+      }
+    ]
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",

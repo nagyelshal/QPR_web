@@ -456,15 +456,113 @@
       "id": "match-006",
       "date": "2025-10-18",
       "opponent": "PMSC Soccer Stars",
-      "result": "pending",
+      "result": "0-4 loss",
       "location": "Miller Park West",
       "kickoff": "12:30pm",
       "match_number": "2501707",
       "week": 7,
       "venue_type": "home",
+      "final_score": {
+        "qpr": 0,
+        "opponent": 4,
+        "half_time": "0-2"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Minh-An D",
+        "second_half": "Rhodri W"
+      },
       "scorers": [],
       "assists": [],
-      "highlights": []
+      "formation": "2-3-2",
+      "performance_notes": "QPR dominated possession for 25 minutes in the first half before conceding 2 goals in the final 2 minutes. Second half saw the team control the ball in the last 15 minutes. Solid defensive performance from Andrew N. Ethan G and Andy E excelled in both midfield and attacking positions. Owen H played a crucial role in ball control before leaving for an appointment in the second half. Main area for improvement: finishing - team created many chances but struggled to convert.",
+      "highlights": [
+        "Dominated possession for 25 minutes in first half",
+        "Controlled ball in final 15 minutes of second half",
+        "Andrew N solid defensive performance",
+        "Ethan G and Andy E excellent in midfield and attack",
+        "Owen H strong ball control before leaving for appointment",
+        "Created many scoring chances but struggled with finishing",
+        "Team showed resilience and positive play despite result"
+      ],
+      "starting_lineup": [
+        {
+          "name": "Minh-An D",
+          "pos": "GK",
+          "jersey": "2"
+        },
+        {
+          "name": "Rhodri W",
+          "pos": "CB",
+          "jersey": "10"
+        },
+        {
+          "name": "Niko D",
+          "pos": "CB2",
+          "jersey": "6"
+        },
+        {
+          "name": "Alexander V",
+          "pos": "LM",
+          "jersey": "8"
+        },
+        {
+          "name": "Adam K",
+          "pos": "CM",
+          "jersey": "13"
+        },
+        {
+          "name": "Owen H",
+          "pos": "RM",
+          "jersey": "9"
+        },
+        {
+          "name": "Travis C",
+          "pos": "ST",
+          "jersey": "3"
+        },
+        {
+          "name": "Andy E",
+          "pos": "ST2",
+          "jersey": "4"
+        }
+      ],
+      "rotating_players": [
+        {
+          "name": "Yejun K",
+          "jersey": "7"
+        },
+        {
+          "name": "Andrew N",
+          "jersey": "5"
+        },
+        {
+          "name": "David C",
+          "jersey": "14"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "Ethan G",
+          "jersey": "15"
+        }
+      ],
+      "unavailable_players": [
+        {
+          "name": "Rafael H",
+          "jersey": "12",
+          "reason": "Not available"
+        }
+      ]
     },
     {
       "id": "match-007",

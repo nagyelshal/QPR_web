@@ -321,7 +321,48 @@
         "jersey": "16"
       }
     ],
-    "starting": [],
+    "starting": [
+      {
+        "name": "Niko D",
+        "pos": "GK",
+        "jersey": "6"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "CB",
+        "jersey": "5"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "CB2",
+        "jersey": "10"
+      },
+      {
+        "name": "Owen H",
+        "pos": "LM",
+        "jersey": "9"
+      },
+      {
+        "name": "Adam K",
+        "pos": "CM",
+        "jersey": "13"
+      },
+      {
+        "name": "Rafael H",
+        "pos": "RM",
+        "jersey": "12"
+      },
+      {
+        "name": "Minh-An D",
+        "pos": "ST",
+        "jersey": "2"
+      },
+      {
+        "name": "Ethan G",
+        "pos": "ST2",
+        "jersey": "15"
+      }
+    ],
     "rotating": [],
     "unavailable": []
   },

@@ -1,55 +1,51 @@
 {
   "week": {
-    "date_range": "Oct 21 - Oct 27, 2025", 
-    "theme": "Finishing & Goal Scoring Excellence",
-    "last_updated": "2025-10-24T16:00:00-07:00"
+    "date_range": "Oct 28 - Nov 3, 2025", 
+    "theme": "Building on Victory - Maintaining Momentum",
+    "last_updated": "2025-10-28T12:00:00-07:00"
   },
   "training": {
-    "date": "2025-10-24",
-    "day": "Friday",
-    "time": "4:00pm - 6:00pm",
-    "location": "Riverview Park Elementary School",
-    "focus": "Finishing techniques and match preparation - Extended 2-hour session",
+    "date": "TBD",
+    "day": "Wednesday",
+    "time": "TBD",
+    "location": "TBD",
+    "focus": "TBD",
     "attendance_required": true,
     "completed": false,
     "upcoming_session": {
-      "date": "2025-10-24",
+      "date": "TBD",
       "focus_areas": [
-        "Shooting accuracy and technique",
-        "1v1 finishing situations",
-        "Movement in the box",
-        "Converting chances into goals",
-        "Match preparation for Oct 25"
+        "TBD"
       ],
-      "preparation_for": "Oct 25 match vs AFC U11 B Div 3"
+      "preparation_for": "Nov 1 match vs RMSC U11B14D3"
     },
-    "notes": "EXTENDED SESSION TODAY: 4-6pm at Riverview Park Elementary. Kids can join/leave anytime but encouraged to stay full 2 hours! Focus on finishing and match prep for tomorrow."
+    "notes": "Training details will be announced soon"
   },
   "match": {
-    "opponent": "AFC U11 B Div 3 (Martens)",
-    "date": "2025-10-25",
-    "kickoff": "10:00am",
-    "location": "Albion Sports Complex 3 (Grass) (field 2)",
-    "venue_type": "away",
+    "opponent": "RMSC U11B14D3 (Johnson)",
+    "date": "2025-11-01",
+    "kickoff": "12:30pm",
+    "location": "Miller Park West",
+    "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2501716",
-    "week": "Week 8",
+    "match_number": "2501723",
+    "week": "Week 9",
     "status": "upcoming",
-    "preparation_focus": "Converting possession into goals - capitalizing on chances created"
+    "preparation_focus": "Continuing our winning form - maintaining the same energy and finishing quality from last match"
   },
   "captains": {
-    "reveal_at": "2025-10-23T00:00:00-07:00",
+    "reveal_at": "2025-10-30T00:00:00-07:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "Captains will be announced at Wednesday training"
+    "training_update": "Captains will be announced at training"
   },
   "goalkeepers": {
-    "reveal_at": "2025-10-23T00:00:00-07:00",
-    "first_half": "Travis C",
-    "second_half": "Andrew N",
+    "reveal_at": "2025-10-30T00:00:00-07:00",
+    "first_half": "Niko D",
+    "second_half": "Rafael H",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Travis C (Striker) and Andrew N (Defence) selected for goalkeeper duties this week. Both getting their first turn in goal."
+    "rotation_note": "Niko D (Defence) and Rafael H (Midfield) selected for goalkeeper duties - both getting their first turn in goal."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -152,13 +148,13 @@
     "zones": {
       "goalkeepers": [
         {
-          "name": "Travis C",
-          "jersey": "3",
+          "name": "Niko D",
+          "jersey": "6",
           "alternate_pos": "GK"
         },
         {
-          "name": "Andrew N",
-          "jersey": "5",
+          "name": "Rafael H",
+          "jersey": "12",
           "alternate_pos": "GK"
         }
       ],
@@ -302,81 +298,9 @@
         "jersey": "16"
       }
     ],
-    "starting": [
-      {
-        "name": "Travis C",
-        "pos": "GK",
-        "jersey": "3"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "CB",
-        "jersey": "5"
-      },
-      {
-        "name": "Rhodri W",
-        "pos": "CB2",
-        "jersey": "10"
-      },
-      {
-        "name": "Niko D",
-        "pos": "LM",
-        "jersey": "6"
-      },
-      {
-        "name": "Adam K",
-        "pos": "CM",
-        "jersey": "13"
-      },
-      {
-        "name": "Rafael H",
-        "pos": "RM",
-        "jersey": "12"
-      },
-      {
-        "name": "Andy E",
-        "pos": "ST",
-        "jersey": "4"
-      },
-      {
-        "name": "Ethan G",
-        "pos": "ST2",
-        "jersey": "15"
-      }
-    ],
-    "rotating": [
-      {
-        "name": "Yejun K",
-        "jersey": "7"
-      },
-      {
-        "name": "Owen H",
-        "jersey": "9"
-      },
-      {
-        "name": "David C",
-        "jersey": "14"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11"
-      },
-      {
-        "name": "Eunjun K",
-        "jersey": "16"
-      },
-      {
-        "name": "Minh-An D",
-        "jersey": "2"
-      }
-    ],
-    "unavailable": [
-      {
-        "name": "Alexander V",
-        "jersey": "8",
-        "reason": "Not available this weekend"
-      }
-    ]
+    "starting": [],
+    "rotating": [],
+    "unavailable": []
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
@@ -415,6 +339,11 @@
         "match": "Oct 18 vs PMSC Soccer Stars",
         "first_half": "TBD",
         "second_half": "TBD"
+      },
+      {
+        "match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)",
+        "first_half": "Owen H",
+        "second_half": "Niko D"
       }
     ],
     "goalkeepers": [
@@ -442,16 +371,21 @@
         "match": "Oct 18 vs PMSC Soccer Stars",
         "first_half": "Minh-An D",
         "second_half": "Rhodri W"
+      },
+      {
+        "match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)",
+        "first_half": "Travis C",
+        "second_half": "Andrew N"
       }
     ]
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "Excellent practices this week! Wednesday focused on crossing in attack and defence situations. Friday extended session (4-6pm at Riverview Park Elementary) - kids can join/leave anytime but encouraged for full 2 hours! Tomorrow's match: Travis C and Andrew N get their first turns as goalkeepers. Starting lineup set with Travis (GK), Andrew N & Rhodri (Defence), Niko, Adam, Rafael (Mid), Andy & Ethan (Strikers). Alexander V unavailable. Let's convert our chances!",
-    "training_recap": "Wednesday: Crossing excellence in attack & defence situations. Friday: Extended 2-hour session at Riverview Park Elementary (4-6pm) - flexible join/leave times, encouraged to stay full session. Focus on finishing!",
-    "match_update": "MATCH TOMORROW: Friday Oct 25 at 10:00am vs AFC U11 B Div 3 (Martens), Albion Sports Complex 3 (AWAY). GK: Travis C (1st half) & Andrew N (2nd half) - both first-timers! Starting lineup set. Alexander V unavailable.",
-    "this_week": "Two outstanding practices! Wednesday crossing work + Friday extended finishing session. Ready for tomorrow's match!",
+    "coach": "FIRST WIN ACHIEVED! 🎉 Amazing 4-2 victory last Saturday with Adam K hat-trick and Ethan G goal! Seven players had their best games (Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H). Friday extended practice clearly paid off! Next match: Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson) at Miller Park West (HOME). Let's keep the momentum going!",
+    "training_recap": "Last week's Friday extended session (4-6pm Riverview Park Elementary) was a game-changer - directly led to our 4-goal performance!",
+    "match_update": "NEXT MATCH: Saturday Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson), Miller Park West (HOME). Training details to be announced.",
+    "this_week": "Coming off our FIRST WIN! Let's build on this momentum and continue the excellent team performance.",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -460,7 +394,10 @@
       "⏱️ Oct 18 vs Soccer Stars: Dominated possession 25 min (1st half) + 15 min (2nd half)",
       "🤝 Andrew N solid defence, Ethan G & Andy E excellent versatility",
       "🎓 Oct 23: Crossing mastery - attack & defence situations",
-      "⚽ Oct 24: Extended 2-hour practice session approved!",
+      "⚽ Oct 24: Extended 2-hour practice session - game changer!",
+      "🏆 Oct 25: FIRST WIN! 4-2 victory with Adam K hat-trick & Ethan G goal",
+      "⭐ Oct 25: Seven players best games - Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H",
+      "🥅 Oct 25: Travis C & Andrew N excellent first-time goalkeepers",
       "🏆 Sept Player of Month: Niko D | Captain of Month: Owen H"
     ]
   },

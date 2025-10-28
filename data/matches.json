@@ -568,15 +568,136 @@
       "id": "match-007",
       "date": "2025-10-25",
       "opponent": "AFC U11 B Div 3 (Martens)",
-      "result": "pending",
+      "result": "4-2 win",
       "location": "Albion Sports Complex 3 (Grass) (field 2)",
       "kickoff": "10:00am",
       "match_number": "2501716",
       "week": 8,
       "venue_type": "away",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "final_score": {
+        "qpr": 4,
+        "opponent": 2,
+        "half_time": "2-1 QPR"
+      },
+      "captains": {
+        "first_half": "Owen H",
+        "second_half": "Niko D"
+      },
+      "goalkeepers": {
+        "first_half": "Travis C",
+        "second_half": "Andrew N"
+      },
+      "scorers": ["Adam K", "Adam K", "Adam K", "Ethan G"],
+      "goal_details": [
+        {
+          "player": "Adam K",
+          "goals": 3,
+          "notes": "Hat-trick! Outstanding performance",
+          "assists": ["Rafael H", "Rafael H", "Owen H"]
+        },
+        {
+          "player": "Ethan G",
+          "goals": 1,
+          "notes": "",
+          "assists": ["Owen H"]
+        }
+      ],
+      "assists": ["Rafael H", "Rafael H", "Owen H", "Owen H"],
+      "formation": "2-3-2",
+      "performance_notes": "FIRST WIN OF THE SEASON! Outstanding team performance with multiple players having their best games. Adam K scored a hat-trick (assisted twice by Rafael H and once by Owen H) leading the attack. Ethan G also scored (assisted by Owen H). Match flow: We scored first, they equalized, then we scored again to lead 2-1 at half-time. In the second half, we scored early to make it 3-1, they pulled one back to 3-2, then we sealed the win with our 4th goal. Extended Friday practice session clearly paid off with improved finishing and conversion of chances. Standout performances from Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, and Owen H - all playing their best games of the season. Rafael H and Owen H provided excellent assists throughout the match.",
+      "highlights": [
+        "🏆 FIRST WIN OF THE SEASON!",
+        "⚽ Adam K hat-trick - 3 goals!",
+        "🎯 Rafael H with 2 assists - excellent playmaking",
+        "🎯 Owen H with 2 assists - great vision and passing",
+        "⚽ Ethan G scored",
+        "👨‍✈️ Captains: Owen H (1st half) & Niko D (2nd half) - excellent leadership",
+        "📊 Half-time: 2-1 QPR lead after back-and-forth first half",
+        "⚡ Early second half goal extended lead to 3-1",
+        "🌟 Yejun K - best game of the season",
+        "🌟 Rhodri W - best game of the season",
+        "🌟 Andrew N - best game of the season",
+        "🌟 Niko D - best game of the season",
+        "🌟 David C - best game of the season",
+        "🎯 Extended Friday practice paid off - improved finishing",
+        "💪 Team played with confidence and determination",
+        "🔥 Travis C and Andrew N first-time goalkeepers performed well"
+      ],
+      "starting_lineup": [
+        {
+          "name": "Travis C",
+          "pos": "GK",
+          "jersey": "3"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB",
+          "jersey": "5"
+        },
+        {
+          "name": "Rhodri W",
+          "pos": "CB2",
+          "jersey": "10"
+        },
+        {
+          "name": "Niko D",
+          "pos": "LM",
+          "jersey": "6"
+        },
+        {
+          "name": "Adam K",
+          "pos": "CM",
+          "jersey": "13"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "RM",
+          "jersey": "12"
+        },
+        {
+          "name": "Andy E",
+          "pos": "ST",
+          "jersey": "4"
+        },
+        {
+          "name": "Ethan G",
+          "pos": "ST2",
+          "jersey": "15"
+        }
+      ],
+      "rotating_players": [
+        {
+          "name": "Yejun K",
+          "jersey": "7"
+        },
+        {
+          "name": "Owen H",
+          "jersey": "9"
+        },
+        {
+          "name": "David C",
+          "jersey": "14"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "Minh-An D",
+          "jersey": "2"
+        }
+      ],
+      "unavailable_players": [
+        {
+          "name": "Alexander V",
+          "jersey": "8",
+          "reason": "Not available"
+        }
+      ]
     },
     {
       "id": "match-008",

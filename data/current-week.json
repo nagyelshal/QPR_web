@@ -7,7 +7,7 @@
   "training": {
     "sessions": [
       {
-        "date": "2025-10-31",
+        "date": "2025-10-30",
         "day": "Thursday",
         "time": "5:00pm - 6:00pm",
         "location": "Town Centre Park",
@@ -16,7 +16,7 @@
         "completed": false
       },
       {
-        "date": "2025-11-01",
+        "date": "2025-10-31",
         "day": "Friday",
         "time": "4:00pm - 6:00pm",
         "location": "Riverview Park Elementary Field",
@@ -26,7 +26,7 @@
       }
     ],
     "upcoming_session": {
-      "date": "2025-10-31",
+      "date": "2025-10-30",
       "focus_areas": [
         "Building on first win success",
         "Maintaining finishing quality",

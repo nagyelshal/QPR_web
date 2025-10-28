@@ -2,9 +2,16 @@
   "week": {
     "date_range": "Oct 28 - Nov 3, 2025", 
     "theme": "Building on Victory - Maintaining Momentum",
-    "last_updated": "2025-10-28T12:00:00-07:00"
+    "last_updated": "2025-10-28T14:30:00-07:00"
   },
   "training": {
+    "date": "2025-10-30",
+    "day": "Thursday",
+    "time": "5:00pm - 6:00pm",
+    "location": "Town Centre Park",
+    "focus": "Maintaining momentum and match preparation",
+    "attendance_required": true,
+    "completed": false,
     "sessions": [
       {
         "date": "2025-10-30",

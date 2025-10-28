@@ -205,6 +205,20 @@ const homeAwayText = isHome ? 'Home' : 'Away';
               <p><strong>Attendance:</strong> {weekData.training.last_session.attendance} players</p>
             </div>
           )}
+
+          {weekData.training.sessions && weekData.training.sessions.length > 0 && (
+            <div class="training-sessions" style="margin-top: 1rem;">
+              <h4>📅 This Week's Sessions</h4>
+              <ul>
+                {weekData.training.sessions.map((s) => (
+                  <li>
+                    <strong>{new Date(s.date + 'T00:00:00-07:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</strong>
+                    {` — ${s.time} at ${s.location}`}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </section>

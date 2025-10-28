@@ -5,21 +5,37 @@
     "last_updated": "2025-10-28T12:00:00-07:00"
   },
   "training": {
-    "date": "TBD",
-    "day": "Wednesday",
-    "time": "TBD",
-    "location": "TBD",
-    "focus": "TBD",
-    "attendance_required": true,
-    "completed": false,
+    "sessions": [
+      {
+        "date": "2025-10-31",
+        "day": "Thursday",
+        "time": "5:00pm - 6:00pm",
+        "location": "Town Centre Park",
+        "focus": "Maintaining momentum and match preparation",
+        "attendance_required": true,
+        "completed": false
+      },
+      {
+        "date": "2025-11-01",
+        "day": "Friday",
+        "time": "4:00pm - 6:00pm",
+        "location": "Riverview Park Elementary Field",
+        "focus": "Final preparation and extended session",
+        "attendance_required": true,
+        "completed": false
+      }
+    ],
     "upcoming_session": {
-      "date": "TBD",
+      "date": "2025-10-31",
       "focus_areas": [
-        "TBD"
+        "Building on first win success",
+        "Maintaining finishing quality",
+        "Team coordination and movement",
+        "Match preparation for Nov 1"
       ],
       "preparation_for": "Nov 1 match vs RMSC U11B14D3"
     },
-    "notes": "Training details will be announced soon"
+    "notes": "Two practice sessions this week! Thursday 5-6pm at Town Centre Park, then Friday 4-6pm extended session at Riverview Park Elementary Field."
   },
   "match": {
     "opponent": "RMSC U11B14D3 (Johnson)",
@@ -381,11 +397,11 @@
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
-    "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "FIRST WIN ACHIEVED! 🎉 Amazing 4-2 victory last Saturday with Adam K hat-trick and Ethan G goal! Seven players had their best games (Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H). Friday extended practice clearly paid off! Next match: Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson) at Miller Park West (HOME). Let's keep the momentum going!",
-    "training_recap": "Last week's Friday extended session (4-6pm Riverview Park Elementary) was a game-changer - directly led to our 4-goal performance!",
-    "match_update": "NEXT MATCH: Saturday Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson), Miller Park West (HOME). Training details to be announced.",
-    "this_week": "Coming off our FIRST WIN! Let's build on this momentum and continue the excellent team performance.",
+    "kit": "White kit",
+    "coach": "FIRST WIN ACHIEVED! 🎉 Amazing 4-2 victory last Saturday with Adam K hat-trick and Ethan G goal! Seven players had their best games (Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H). Rafael H & Owen H each had 2 assists! This week: Thursday 5-6pm at Town Centre Park, Friday 4-6pm extended session at Riverview Park Elementary Field. Next match: Saturday Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson) at Miller Park West (HOME). Niko D & Rafael H will be goalkeepers - both first-timers! Let's keep the momentum going!",
+    "training_recap": "Two practice sessions scheduled: Thursday 5-6pm Town Centre Park, Friday 4-6pm Riverview Park Elementary Field (extended session).",
+    "match_update": "NEXT MATCH: Saturday Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson), Miller Park West (HOME). White kit. GKs: Niko D (1st half) & Rafael H (2nd half) - both first-timers!",
+    "this_week": "Coming off our FIRST WIN! Two practice sessions this week - Thursday at Town Centre Park, Friday extended session at Riverview Park Elementary. Build on the momentum!",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",

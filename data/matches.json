@@ -703,29 +703,148 @@
       "id": "match-008",
       "date": "2025-11-01",
       "opponent": "RMSC U11B14D3 (Johnson)",
-      "result": "pending",
+      "result": "cancelled",
       "location": "Miller Park West",
       "kickoff": "12:30pm",
       "match_number": "2501723",
       "week": 9,
       "venue_type": "home",
+      "cancellation_reason": "Flooded fields due to heavy rain",
       "scorers": [],
       "assists": [],
-      "highlights": []
+      "highlights": [
+        "Match cancelled due to weather conditions",
+        "Field safety concerns from heavy rainfall",
+        "May be rescheduled later in season"
+      ]
     },
     {
       "id": "match-009",
       "date": "2025-11-08",
       "opponent": "PCFC Thunder (Partridge)",
-      "result": "pending",
-      "location": "TBA",
-      "kickoff": "TBA",
+      "result": "1-2 loss",
+      "location": "Mclean Park South",
+      "kickoff": "11:30am",
       "match_number": "2501729",
       "week": 10,
       "venue_type": "away",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "final_score": {
+        "qpr": 1,
+        "opponent": 2,
+        "half_time": "TBD"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Niko D",
+        "second_half": "Rafael H"
+      },
+      "scorers": ["Andy E"],
+      "goal_details": [
+        {
+          "player": "Andy E",
+          "goals": 1,
+          "notes": "Beautiful finish showing composure and technique"
+        }
+      ],
+      "assists": ["Travis C"],
+      "formation": "2-3-2",
+      "performance_notes": "Solid team performance against tough opposition. Team held their ground defensively and competed at a high level throughout. Andy E scored a fantastic goal assisted by Travis C, putting training finishing work into practice. Ten players delivered standout performances: Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, and Rhodri W. Adam K was unavailable due to other sports commitments. Despite the loss, the team showed excellent defensive organization and character.",
+      "highlights": [
+        "⚽ Andy E beautiful finish - training work paid off",
+        "🎯 Travis C excellent assist",
+        "🌟 Yejun K - outstanding game",
+        "🌟 Niko D - solid throughout (GK 1st half)",
+        "🌟 Rafael H - excellent contribution (GK 2nd half)",
+        "🌟 David C - great performance",
+        "🌟 Andy E - quality finish and work rate",
+        "🌟 Travis C - assist and strong play",
+        "🌟 Minh-An D - tireless work",
+        "🌟 Andrew N - defensive excellence",
+        "🌟 Ethan G - quality performance",
+        "🌟 Rhodri W - rock solid at the back",
+        "🛡️ Excellent defensive organization against tough opposition",
+        "💪 Team competed strongly for full 90 minutes",
+        "📈 Real progress shown - 10 players having standout games",
+        "🔥 Niko D and Rafael H first-time goalkeepers performed well"
+      ],
+      "starting_lineup": [
+        {
+          "name": "Niko D",
+          "pos": "GK",
+          "jersey": "6"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB",
+          "jersey": "5"
+        },
+        {
+          "name": "Rhodri W",
+          "pos": "CB2",
+          "jersey": "10"
+        },
+        {
+          "name": "Owen H",
+          "pos": "LM",
+          "jersey": "9"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "CM",
+          "jersey": "12"
+        },
+        {
+          "name": "Travis C",
+          "pos": "RM",
+          "jersey": "3"
+        },
+        {
+          "name": "Minh-An D",
+          "pos": "ST",
+          "jersey": "2"
+        },
+        {
+          "name": "Ethan G",
+          "pos": "ST2",
+          "jersey": "15"
+        }
+      ],
+      "rotating_players": [
+        {
+          "name": "Yejun K",
+          "jersey": "7"
+        },
+        {
+          "name": "David C",
+          "jersey": "14"
+        },
+        {
+          "name": "Andy E",
+          "jersey": "4"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        },
+        {
+          "name": "Alexander V",
+          "jersey": "8"
+        }
+      ],
+      "unavailable_players": [
+        {
+          "name": "Adam K",
+          "jersey": "13",
+          "reason": "Other sports commitments"
+        }
+      ]
     },
     {
       "id": "match-010",

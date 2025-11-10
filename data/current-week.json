@@ -1,74 +1,55 @@
 {
   "week": {
-    "date_range": "Oct 28 - Nov 3, 2025", 
-    "theme": "Building on Victory - Maintaining Momentum",
-    "last_updated": "2025-10-28T14:30:00-07:00"
+    "date_range": "Nov 10 - Nov 16, 2025", 
+    "theme": "Resilience and Growth - Building on Strong Performance",
+    "last_updated": "2025-11-09T12:00:00-07:00"
   },
   "training": {
-    "date": "2025-10-30",
-    "day": "Thursday",
-    "time": "5:00pm - 6:00pm",
-    "location": "Town Centre Park",
-    "focus": "Maintaining momentum and match preparation",
+    "date": "TBD",
+    "day": "TBD",
+    "time": "TBD",
+    "location": "TBD",
+    "focus": "TBD",
     "attendance_required": true,
     "completed": false,
-    "sessions": [
-      {
-        "date": "2025-10-30",
-        "day": "Thursday",
-        "time": "5:00pm - 6:00pm",
-        "location": "Town Centre Park",
-        "focus": "Maintaining momentum and match preparation",
-        "attendance_required": true,
-        "completed": false
-      },
-      {
-        "date": "2025-10-31",
-        "day": "Friday",
-        "time": "4:00pm - 6:00pm",
-        "location": "Riverview Park Elementary Field",
-        "focus": "Final preparation and extended session",
-        "attendance_required": true,
-        "completed": false
-      }
-    ],
+    "sessions": [],
     "upcoming_session": {
-      "date": "2025-10-30",
+      "date": "TBD",
       "focus_areas": [
-        "Building on first win success",
-        "Maintaining finishing quality",
-        "Team coordination and movement",
-        "Match preparation for Nov 1"
+        "Building on solid defensive performance",
+        "Converting more chances",
+        "Team coordination",
+        "Match preparation for Nov 15"
       ],
-      "preparation_for": "Nov 1 match vs RMSC U11B14D3"
+      "preparation_for": "Nov 15 match vs CMFSC Sheffield United"
     },
-    "notes": "Two practice sessions this week! Thursday 5-6pm at Town Centre Park, then Friday 4-6pm extended session at Riverview Park Elementary Field."
+    "notes": "Training schedule to be announced. Team showed great resilience last week!"
   },
   "match": {
-    "opponent": "RMSC U11B14D3 (Johnson)",
-    "date": "2025-11-01",
-    "kickoff": "12:30pm",
-    "location": "Miller Park West",
+    "opponent": "CMFSC Sheffield United",
+    "date": "2025-11-15",
+    "kickoff": "11:30am",
+    "location": "Miller Park East",
     "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2501723",
-    "week": "Week 9",
+    "match_number": "2501736",
+    "week": "Week 11",
     "status": "upcoming",
-    "preparation_focus": "Continuing our winning form - maintaining the same energy and finishing quality from last match"
+    "preparation_focus": "Building on last week's solid performance - converting chances and maintaining defensive organization"
   },
   "captains": {
-    "reveal_at": "2025-10-30T00:00:00-07:00",
+    "reveal_at": "2025-11-13T00:00:00-07:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced at training"
   },
   "goalkeepers": {
-    "reveal_at": "2025-10-30T00:00:00-07:00",
-    "first_half": "Niko D",
-    "second_half": "Rafael H",
+    "reveal_at": "2025-11-13T00:00:00-07:00",
+    "first_half": "TBD",
+    "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Niko D (Defence) and Rafael H (Midfield) selected for goalkeeper duties - both getting their first turn in goal."
+    "rotation_note": "Next goalkeepers to be selected - Eunjun K hasn't had a turn yet, and others ready for second rotation."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -171,13 +152,13 @@
     "zones": {
       "goalkeepers": [
         {
-          "name": "Niko D",
-          "jersey": "6",
+          "name": "TBD",
+          "jersey": "?",
           "alternate_pos": "GK"
         },
         {
-          "name": "Rafael H",
-          "jersey": "12",
+          "name": "TBD",
+          "jersey": "?",
           "alternate_pos": "GK"
         }
       ],
@@ -321,48 +302,7 @@
         "jersey": "16"
       }
     ],
-    "starting": [
-      {
-        "name": "Niko D",
-        "pos": "GK",
-        "jersey": "6"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "CB",
-        "jersey": "5"
-      },
-      {
-        "name": "Rhodri W",
-        "pos": "CB2",
-        "jersey": "10"
-      },
-      {
-        "name": "Owen H",
-        "pos": "LM",
-        "jersey": "9"
-      },
-      {
-        "name": "Adam K",
-        "pos": "CM",
-        "jersey": "13"
-      },
-      {
-        "name": "Rafael H",
-        "pos": "RM",
-        "jersey": "12"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "ST",
-        "jersey": "2"
-      },
-      {
-        "name": "Ethan G",
-        "pos": "ST2",
-        "jersey": "15"
-      }
-    ],
+    "starting": [],
     "rotating": [],
     "unavailable": []
   },
@@ -408,6 +348,11 @@
         "match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)",
         "first_half": "Owen H",
         "second_half": "Niko D"
+      },
+      {
+        "match": "Nov 8 vs PCFC Thunder",
+        "first_half": "TBD",
+        "second_half": "TBD"
       }
     ],
     "goalkeepers": [
@@ -440,16 +385,21 @@
         "match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)",
         "first_half": "Travis C",
         "second_half": "Andrew N"
+      },
+      {
+        "match": "Nov 8 vs PCFC Thunder",
+        "first_half": "Niko D",
+        "second_half": "Rafael H"
       }
     ]
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
-    "kit": "White kit",
-    "coach": "FIRST WIN ACHIEVED! 🎉 Amazing 4-2 victory last Saturday with Adam K hat-trick and Ethan G goal! Seven players had their best games (Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H). Rafael H & Owen H each had 2 assists! This week: Thursday 5-6pm at Town Centre Park, Friday 4-6pm extended session at Riverview Park Elementary Field. Next match: Saturday Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson) at Miller Park West (HOME). Niko D & Rafael H will be goalkeepers - both first-timers! Let's keep the momentum going!",
-    "training_recap": "Two practice sessions scheduled: Thursday 5-6pm Town Centre Park, Friday 4-6pm Riverview Park Elementary Field (extended session).",
-    "match_update": "NEXT MATCH: Saturday Nov 1 at 12:30pm vs RMSC U11B14D3 (Johnson), Miller Park West (HOME). White kit. GKs: Niko D (1st half) & Rafael H (2nd half) - both first-timers!",
-    "this_week": "Coming off our FIRST WIN! Two practice sessions this week - Thursday at Town Centre Park, Friday extended session at Riverview Park Elementary. Build on the momentum!",
+    "kit": "TBD - Will be announced based on opponent kit",
+    "coach": "Strong performance last Saturday! Hard-fought 2-1 loss against tough PCFC Thunder. Andy E scored a beautiful finish (Travis C assist), and TEN players had standout games: Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W. Excellent defensive organization throughout. Niko D & Rafael H performed well as first-time goalkeepers. Training Nov 6-7 focused on finishing - and it showed! Next match: Saturday Nov 15 at 11:30am vs CMFSC Sheffield United at Miller Park East (HOME). Let's keep building!",
+    "training_recap": "Nov 6-7: Two excellent training sessions focused on finishing techniques and chance conversion. Great dedication from the squad!",
+    "match_update": "NEXT MATCH: Saturday Nov 15 at 11:30am vs CMFSC Sheffield United, Miller Park East (HOME). Training schedule to be announced.",
+    "this_week": "Building on last week's solid performance. Team showing real progress with excellent defensive organization and competing strongly against tough opponents.",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -462,6 +412,12 @@
       "🏆 Oct 25: FIRST WIN! 4-2 victory with Adam K hat-trick & Ethan G goal",
       "⭐ Oct 25: Seven players best games - Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H",
       "🥅 Oct 25: Travis C & Andrew N excellent first-time goalkeepers",
+      "🚫 Nov 1: Match vs RMSC cancelled - flooded fields",
+      "🎯 Nov 6-7: Two excellent training sessions - finishing focus",
+      "⚽ Nov 8: Andy E beautiful finish vs PCFC Thunder (Travis C assist)",
+      "🌟 Nov 8: TEN players standout performances - Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W",
+      "🛡️ Nov 8: Excellent defensive organization - competed strongly for full match",
+      "🥅 Nov 8: Niko D & Rafael H first-time goalkeepers performed well",
       "🏆 Sept Player of Month: Niko D | Captain of Month: Owen H"
     ]
   },

@@ -1,0 +1,814 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PlayerChip from '../components/PlayerChip.astro';
+import Pitch from '../components/Pitch.astro';
+import PhasedPitch from '../components/PhasedPitch.astro';
+import Notice from '../components/Notice.astro';
+
+const base = import.meta.env.BASE_URL;
+
+// Load current week data
+const weekData = await import('../../data/current-week.json');
+
+// Check what should be revealed based on current time
+const now = new Date();
+const captainsRevealTime = new Date(weekData.captains.reveal_at);
+const lineupRevealTime = new Date(weekData.lineup.reveal_at);
+
+const captainsRevealed = now >= captainsRevealTime;
+const lineupRevealed = now >= lineupRevealTime;
+
+// Determine current phase for lineup display
+let currentPhase = 'initial';
+if (lineupRevealed) {
+  currentPhase = 'lineup';
+} else if (captainsRevealed) {
+  currentPhase = 'captains';
+}
+
+// Calculate time until next reveal
+function getTimeUntil(targetDate) {
+  const diff = targetDate.getTime() - now.getTime();
+  if (diff <= 0) return null;
+  
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  
+  if (days > 0) return `${days}d ${hours}h`;
+  if (hours > 0) return `${hours}h ${minutes}m`;
+  return `${minutes}m`;
+}
+
+const timeUntilCaptains = getTimeUntil(captainsRevealTime);
+const timeUntilLineup = getTimeUntil(lineupRevealTime);
+
+// Format training date nicely
+const trainingDate = new Date(weekData.training.date);
+const isTrainingToday = trainingDate.toDateString() === now.toDateString();
+const isTrainingTomorrow = trainingDate.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
+
+let trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+if (isTrainingToday) trainingLabel = `Today (${trainingLabel})`;
+else if (isTrainingTomorrow) trainingLabel = `Tomorrow (${trainingLabel})`;
+
+// Format match date nicely
+const matchDate = new Date(weekData.match.date);
+const isMatchToday = matchDate.toDateString() === now.toDateString();
+const isMatchTomorrow = matchDate.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
+
+let matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+if (isMatchToday) matchLabel = `Today (${matchLabel})`;
+else if (isMatchTomorrow) matchLabel = `Tomorrow (${matchLabel})`;
+---
+
+<BaseLayout title="Current Week - Queens Park Rangers U11B">
+  <div class="container current-week-page">
+    
+    <!-- Hero Section -->
+    <header class="week-hero">
+      <div class="week-badge">
+        <span class="week-text">Current Week</span>
+        <span class="week-dates">{weekData.week.date_range}</span>
+      </div>
+      <h1 class="week-title">{weekData.week.theme}</h1>
+      <div class="countdown-grid">
+        {!captainsRevealed && timeUntilCaptains && (
+          <div class="countdown-item">
+            <span class="countdown-label">Captains & Goalies</span>
+            <span class="countdown-time">{timeUntilCaptains}</span>
+          </div>
+        )}
+        {!lineupRevealed && timeUntilLineup && (
+          <div class="countdown-item">
+            <span class="countdown-label">Full Lineup</span>
+            <span class="countdown-time">{timeUntilLineup}</span>
+          </div>
+        )}
+        {weekData.match.kickoff !== "TBA" && (
+          <div class="countdown-item">
+            <span class="countdown-label">Kickoff</span>
+            <span class="countdown-time">{weekData.match.kickoff}</span>
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+      <div class="action-grid">
+        <a href="#training" class="action-card training">
+          <div class="action-icon">🏃‍♂️</div>
+          <div class="action-content">
+            <h3>Training</h3>
+            <p>{trainingLabel} at {weekData.training.time}</p>
+          </div>
+        </a>
+        <a href="#match" class="action-card match">
+          <div class="action-icon">⚽</div>
+          <div class="action-content">
+            <h3>Match</h3>
+            <p>{matchLabel} vs {weekData.match.opponent}</p>
+          </div>
+        </a>
+        <a href="#lineup" class="action-card lineup">
+          <div class="action-icon">📋</div>
+          <div class="action-content">
+            <h3>Team Lineup</h3>
+            <p>{currentPhase === 'lineup' ? 'Lineup Revealed' : currentPhase === 'captains' ? 'Captains Revealed' : 'Coming Soon'}</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Training Focus -->
+    <section class="section" id="training">
+      <h2 class="section-title">🏃‍♂️ This Week's Training</h2>
+      <div class="training-card">
+        <div class="training-info">
+          <h3>{trainingLabel} at {weekData.training.time}</h3>
+          <p><strong>Focus:</strong> {weekData.training.focus}</p>
+          {weekData.training.special_drill && <p><strong>Special Drill:</strong> {weekData.training.special_drill}</p>}
+          <p><strong>Formation Practice:</strong> Team will practice {weekData.match.formation} formation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Match Info -->
+    <section class="section" id="match">
+      <h2 class="section-title">⚽ This Week's Match</h2>
+      <div class="match-card">
+        <div class="match-teams">
+          <div class="team-info">
+            <div class="team-crest qpr">QPR</div>
+            <span class="team-name">Queens Park Rangers</span>
+          </div>
+          <div class="vs">VS</div>
+          <div class="team-info">
+            <div class="team-crest opponent">⚡</div>
+            <span class="team-name">{weekData.match.opponent}</span>
+          </div>
+        </div>
+        <div class="match-details">
+          <p><strong>{matchLabel}</strong></p>
+          <p>Kickoff: {weekData.match.kickoff}</p>
+          <p>{weekData.match.location}</p>
+          {weekData.match.match_number && (
+            <p class="match-number">Match #{weekData.match.match_number}</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Captains Section -->
+    <section class="section">
+      <h2 class="section-title">🏅 Captains of the Week</h2>
+      
+      {captainsRevealed ? (
+        <div class="captains-grid">
+          <div class="captain-card revealed">
+            <div class="captain-badge">
+              <span class="captain-letter">1st</span>
+            </div>
+            <h3 class="captain-name">{weekData.captains.first_half}</h3>
+            <p class="captain-half">First Half Captain</p>
+            <p class="captain-duties">{weekData.captains.duties}</p>
+          </div>
+          <div class="captain-card revealed">
+            <div class="captain-badge">
+              <span class="captain-letter">2nd</span>
+            </div>
+            <h3 class="captain-name">{weekData.captains.second_half}</h3>
+            <p class="captain-half">Second Half Captain</p>
+            <p class="captain-duties">{weekData.captains.duties}</p>
+          </div>
+        </div>
+      ) : (
+        <div class="captains-grid">
+          <div class="captain-card placeholder">
+            <div class="reveal-ribbon">
+              {timeUntilCaptains ? `${timeUntilCaptains} left` : 'Reveals Wednesday'}
+            </div>
+            <div class="captain-placeholder">
+              <div class="shimmer-captain"></div>
+              <p>First Half Captain</p>
+              <p>{weekData.captains.duties}</p>
+            </div>
+          </div>
+          <div class="captain-card placeholder">
+            <div class="reveal-ribbon">
+              {timeUntilCaptains ? `${timeUntilCaptains} left` : 'Reveals Wednesday'}
+            </div>
+            <div class="captain-placeholder">
+              <div class="shimmer-captain"></div>
+              <p>Second Half Captain</p>
+              <p>{weekData.captains.duties}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- Starting Lineup -->
+    <section class="section" id="lineup">
+      <h2 class="section-title">📋 Team Lineup Phases</h2>
+      
+      <div class="phase-indicator">
+        {currentPhase === 'initial' && (
+          <div class="phase-banner initial">
+            <h3>🏃‍♂️ All Players Available</h3>
+            <p>
+              {timeUntilCaptains && `Captains reveal in ${timeUntilCaptains} • `}
+              {timeUntilLineup && `Full lineup in ${timeUntilLineup}`}
+            </p>
+          </div>
+        )}
+        {currentPhase === 'captains' && (
+          <div class="phase-banner captains">
+            <h3>🏅 Captains & Goalkeepers Revealed!</h3>
+            <p>
+              {timeUntilLineup ? `Full lineup reveals in ${timeUntilLineup}` : 'Full lineup reveals Friday'}
+            </p>
+          </div>
+        )}
+        {currentPhase === 'lineup' && (
+          <div class="phase-banner lineup">
+            <h3>⚡ Full Lineup Revealed!</h3>
+            <p>Starting 8 and rotating squad confirmed</p>
+          </div>
+        )}
+      </div>
+
+      <PhasedPitch 
+        formation={weekData.match.formation}
+        allPlayers={weekData.lineup.all_players}
+        startingPlayers={weekData.lineup.starting}
+        rotatingPlayers={weekData.lineup.rotating}
+        captains={weekData.captains}
+        goalkeepers={weekData.goalkeepers}
+        phase={currentPhase}
+      />
+    </section>
+
+    <!-- Hype Strip -->
+    <section class="section hype-section">
+      <h2 class="section-title">🎉 Week Hype</h2>
+      
+      <div class="hype-grid">
+        <div class="hype-card">
+          <h3>📣 Chant of the Week</h3>
+          <p class="chant">{weekData.hype.chant}</p>
+        </div>
+        
+        {weekData.hype.player_of_month && (
+          <div class="hype-card">
+            <h3>🏅 Player of the Month</h3>
+            <p><strong>{weekData.hype.player_of_month.name}</strong></p>
+            <p>{weekData.hype.player_of_month.month}</p>
+            <a href={`${base}awards/`} class="btn btn-small">See Awards →</a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Coach Notes -->
+    <section class="section">
+      <Notice type="info" title="Coach Notes">
+        <ul>
+          <li><strong>Arrival:</strong> {weekData.notes.arrival}</li>
+          <li><strong>Kit:</strong> {weekData.notes.kit}</li>
+          <li><strong>Focus:</strong> {weekData.notes.coach}</li>
+        </ul>
+      </Notice>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .current-week-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .week-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+    color: white;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .week-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.3;
+  }
+
+  .week-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 8px 20px;
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    backdrop-filter: blur(10px);
+  }
+
+  .week-text {
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .week-dates {
+    opacity: 0.9;
+    font-size: 0.9rem;
+  }
+
+  .week-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-lg) 0;
+    background: linear-gradient(45deg, #ffffff, #e3f2fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .countdown-item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .countdown-label {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin-bottom: 4px;
+  }
+
+  .countdown-time {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .quick-actions {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .action-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .action-card.training:hover {
+    border-color: #4caf50;
+  }
+
+  .action-card.match:hover {
+    border-color: #ff9800;
+  }
+
+  .action-card.lineup:hover {
+    border-color: #1976d2;
+  }
+
+  .action-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .action-content h3 {
+    margin: 0 0 4px 0;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .action-content p {
+    margin: 0;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+  }
+
+  .training-card {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(21, 101, 192, 0.2);
+  }
+
+  .training-info h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .match-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .team-crest {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+  }
+
+  .team-crest.qpr {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  }
+
+  .team-crest.opponent {
+    background: linear-gradient(135deg, #757575 0%, #424242 100%);
+  }
+
+  .team-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .vs {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .match-details p {
+    margin: var(--spacing-xs) 0;
+    color: var(--color-text-light);
+  }
+
+  .match-details p:first-child {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .match-number {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  .captains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .captain-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .captain-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .captain-card.revealed {
+    animation: cardReveal 0.8s ease-out;
+  }
+
+  .captain-card.placeholder {
+    background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+    color: #757575;
+  }
+
+  .captain-badge {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+  }
+
+  .captain-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+  }
+
+  .captain-half {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .captain-duties {
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .reveal-ribbon {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: linear-gradient(135deg, #ff5722 0%, #d84315 100%);
+    color: white;
+    padding: 4px 40px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.3);
+  }
+
+  .captain-placeholder {
+    padding-top: var(--spacing-lg);
+  }
+
+  .shimmer-captain {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-md);
+    animation: shimmer 2s infinite;
+  }
+
+  .phase-indicator {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .phase-banner {
+    text-align: center;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phase-banner.initial {
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  }
+
+  .phase-banner.captains {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  }
+
+  .phase-banner.lineup {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  }
+
+  .phase-banner h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .phase-banner p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1rem;
+  }
+
+  .phase-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.5;
+  }
+
+  .hype-section {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+  }
+
+  .hype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .hype-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(156, 39, 176, 0.2);
+  }
+
+  .chant {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: var(--spacing-md) 0;
+  }
+
+  @keyframes cardReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .captain-card.revealed,
+    .confetti-message,
+    .confetti {
+      animation: none;
+    }
+    
+    .shimmer-captain {
+      animation: none;
+      background: #e0e0e0;
+    }
+
+    .action-card:hover {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .week-title {
+      font-size: 2rem;
+    }
+    
+    .match-teams {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .vs {
+      transform: rotate(90deg);
+    }
+    
+    .captains-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .countdown-grid {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .action-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .action-card {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-sm);
+    }
+  }
+</style>
+
+<script>
+  // Add smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Update countdown every minute
+  function updateCountdowns() {
+    const now = new Date();
+    const captainsTime = new Date('2025-09-04T09:00:00-07:00');
+    const lineupTime = new Date('2025-09-05T19:00:00-07:00');
+    
+    function formatTimeUntil(target) {
+      const diff = target.getTime() - now.getTime();
+      if (diff <= 0) return null;
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      
+      if (days > 0) return `${days}d ${hours}h`;
+      if (hours > 0) return `${hours}h ${minutes}m`;
+      return `${minutes}m`;
+    }
+    
+    // Update countdown displays if they exist
+    const countdownItems = document.querySelectorAll('.countdown-time');
+    countdownItems.forEach((item, index) => {
+      const target = index === 0 ? captainsTime : lineupTime;
+      const timeLeft = formatTimeUntil(target);
+      if (timeLeft) {
+        item.textContent = timeLeft;
+      }
+    });
+  }
+  
+  // Update immediately and then every minute
+  updateCountdowns();
+  setInterval(updateCountdowns, 60000);
+</script>

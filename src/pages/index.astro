@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
-import Notice from '../components/Notice.astro';
 import { getCollection } from 'astro:content';
 
 // Get the base path from the config
@@ -10,10 +9,38 @@ const base = import.meta.env.BASE_URL;
 // Get latest news posts
 const allPosts = await getCollection('news');
 const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-const latestPost = sortedPosts[0];
+const recentPosts = sortedPosts.slice(0, 3);
 
-// Import config
-const config = await import('../../data/config.json');
+// Import matches data
+const matchesData = await import('../../data/matches.json');
+const matches = matchesData.default.matches;
+
+// Calculate goal scorers statistics
+const goalScorers = new Map();
+matches.forEach(match => {
+  if (match.scorers && match.scorers.length > 0) {
+    match.scorers.forEach(scorer => {
+      // Clean up scorer name (remove penalty notation, etc.)
+      const cleanName = scorer.replace(/\s*\(.*?\)\s*/g, '').trim();
+      goalScorers.set(cleanName, (goalScorers.get(cleanName) || 0) + 1);
+    });
+  }
+});
+
+// Sort by goals (descending)
+const sortedScorers = Array.from(goalScorers.entries())
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 10); // Top 10 scorers
+
+// Calculate team stats
+const totalMatches = matches.filter(m => m.result && m.result !== 'pending' && m.result !== 'cancelled').length;
+const wins = matches.filter(m => m.result && m.result.includes('win')).length;
+const losses = matches.filter(m => m.result && m.result.includes('loss')).length;
+const draws = matches.filter(m => m.result && m.result.includes('draw')).length;
+const totalGoals = matches.reduce((sum, match) => {
+  if (match.scorers) return sum + match.scorers.length;
+  return sum;
+}, 0);
 ---
 
 <BaseLayout title="Home - Queens Park Rangers U11B">
@@ -22,64 +49,81 @@ const config = await import('../../data/config.json');
     <div class="container">
       <h1 class="soccer-bounce">⚽ Queens Park Rangers ⚽</h1>
       <p><strong>U11 Boys • Coquitlam Metro-Ford SC • Season 2025-2026</strong></p>
-      <p>Welcome to our team website! Stay updated with practice schedules, news, and everything QPR. 🏆</p>
+      <p>Building momentum with {wins} {wins === 1 ? 'win' : 'wins'} this season! 🏆</p>
     </div>
   </section>
 
   <div class="container">
-    <div class="grid grid-2" style="margin-top: var(--spacing-2xl);">
-      
-      <!-- This Week Section -->
-      <div>
-        <h2>This Week</h2>
-        {latestPost ? (
-          <PostCard 
-            title={latestPost.data.title}
-            date={latestPost.data.date}
-            summary={latestPost.data.summary}
-            slug={latestPost.slug}
-            tags={latestPost.data.tags}
-          />
-        ) : (
-          <div class="card">
-            <p>No recent news posts. Check back soon!</p>
-          </div>
-        )}
-      </div>
-
-      <!-- Quick Info Section -->
-      <div>
-        <h2 class="soccer-icon">Quick Info</h2>
-        
-        <div class="card card-highlight team-highlight">
-          <h3>🏃‍♂️ Practice Details</h3>
-          <p><strong>{config.practice_day}</strong><br>
-          {config.practice_time}<br>
-          {config.practice_location}</p>
-          <a href={`${base}schedule/`} class="btn btn-small">Full Schedule →</a>
-        </div>
-
-        <div class="card game-card" style="margin-top: var(--spacing-lg);">
-          <h3>🏆 First Game</h3>
-          <p>{config.first_game_weekend}</p>
-          <p><em>Fixture details will be posted once available</em></p>
-        </div>
-
-        <div class="card game-card" style="margin-top: var(--spacing-lg);">
-          <h3>👕 Kit Information</h3>
-          <p>Pickup windows and exchange details</p>
-          <a href={`${base}kits/`} class="btn btn-small">Kit Details →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick Actions -->
+    <!-- Season Dashboard -->
     <section style="margin-top: var(--spacing-2xl);">
-      <h2 class="soccer-icon">Quick Links</h2>
+      <h2>📊 Season Dashboard</h2>
+      <div class="grid grid-4">
+        <div class="card stat-card">
+          <div class="stat-number">{totalMatches}</div>
+          <div class="stat-label">Matches Played</div>
+        </div>
+        <div class="card stat-card stat-wins">
+          <div class="stat-number">{wins}</div>
+          <div class="stat-label">Wins</div>
+        </div>
+        <div class="card stat-card stat-losses">
+          <div class="stat-number">{losses}</div>
+          <div class="stat-label">Losses</div>
+        </div>
+        <div class="card stat-card stat-goals">
+          <div class="stat-number">{totalGoals}</div>
+          <div class="stat-label">Goals Scored</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Scorers Section -->
+    {sortedScorers.length > 0 && (
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>⚽ Top Goal Scorers</h2>
+        <div class="card">
+          <div class="scorers-table">
+            {sortedScorers.map((scorer, index) => (
+              <div class="scorer-row">
+                <div class="scorer-rank">{index + 1}</div>
+                <div class="scorer-name">{scorer[0]}</div>
+                <div class="scorer-goals">
+                  <span class="goals-number">{scorer[1]}</span>
+                  <span class="goals-label">{scorer[1] === 1 ? 'goal' : 'goals'}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Latest News Section -->
+    <section style="margin-top: var(--spacing-2xl);">
+      <h2>📰 Latest News</h2>
       <div class="grid grid-3">
-        <a href={`${base}team-goals/`} class="card game-card" style="text-decoration: none; color: inherit;">
-          <h3>🎯 Team Goals</h3>
-          <p>Track our season achievements and progress</p>
+        {recentPosts.map(post => (
+          <PostCard 
+            title={post.data.title}
+            date={post.data.date}
+            summary={post.data.summary}
+            slug={post.slug}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+      <div style="text-align: center; margin-top: var(--spacing-lg);">
+        <a href={`${base}news/`} class="btn">View All News →</a>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section style="margin-top: var(--spacing-2xl);">
+      <h2>🔗 Quick Links</h2>
+      <div class="grid grid-3">
+        <a href={`${base}current-week/`} class="card game-card" style="text-decoration: none; color: inherit;">
+          <h3>📅 This Week</h3>
+          <p>Training schedule, lineup, and next match</p>
         </a>
         
         <a href={`${base}matches/`} class="card game-card" style="text-decoration: none; color: inherit;">
@@ -87,26 +131,157 @@ const config = await import('../../data/config.json');
           <p>View games, scores, and highlights</p>
         </a>
         
-        <a href={`${base}achievements/`} class="card game-card" style="text-decoration: none; color: inherit;">
-          <h3>🏆 Achievements</h3>
-          <p>Unlock badges and track your progress</p>
-        </a>
-        
         <a href={`${base}roster/`} class="card game-card" style="text-decoration: none; color: inherit;">
           <h3>👥 Team Roster</h3>
           <p>Meet the QPR U11B squad</p>
         </a>
-        
-        <a href={`${base}downloads/`} class="card game-card" style="text-decoration: none; color: inherit;">
-          <h3>📄 Downloads</h3>
-          <p>Forms, checklists, and important documents</p>
-        </a>
       </div>
     </section>
-
-    <!-- Important Notice -->
-    <Notice type="info" title="New Season Updates">
-      <p>We're preparing for an exciting 2025-2026 season! Keep checking back for the latest updates on practice schedules, game fixtures, and important announcements.</p>
-    </Notice>
   </div>
+
+  <style>
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--spacing-md);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, var(--qpr-blue) 0%, #1e4d8b 100%);
+      color: white;
+      border: none;
+    }
+
+    .stat-wins {
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    }
+
+    .stat-losses {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    }
+
+    .stat-goals {
+      background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .scorers-table {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .scorer-row {
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      transition: all 0.2s;
+    }
+
+    .scorer-row:hover {
+      background: var(--gray-100);
+      transform: translateX(5px);
+    }
+
+    .scorer-row:first-child {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+    }
+
+    .scorer-row:nth-child(2) {
+      background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+      font-weight: bold;
+    }
+
+    .scorer-row:nth-child(3) {
+      background: linear-gradient(135deg, #cd7f32 0%, #e5a572 100%);
+      font-weight: bold;
+    }
+
+    .scorer-rank {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--qpr-blue);
+      text-align: center;
+    }
+
+    .scorer-row:first-child .scorer-rank,
+    .scorer-row:nth-child(2) .scorer-rank,
+    .scorer-row:nth-child(3) .scorer-rank {
+      color: #333;
+    }
+
+    .scorer-name {
+      font-size: 1rem;
+    }
+
+    .scorer-goals {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .goals-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--qpr-blue);
+    }
+
+    .scorer-row:first-child .goals-number,
+    .scorer-row:nth-child(2) .goals-number,
+    .scorer-row:nth-child(3) .goals-number {
+      color: #333;
+    }
+
+    .goals-label {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+
+    @media (max-width: 768px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .scorer-row {
+        grid-template-columns: 30px 1fr auto;
+        padding: var(--spacing-xs) var(--spacing-sm);
+      }
+
+      .scorer-rank {
+        font-size: 1rem;
+      }
+
+      .scorer-name {
+        font-size: 0.9rem;
+      }
+
+      .goals-number {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </BaseLayout>

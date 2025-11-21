@@ -1,8 +1,8 @@
 {
   "week": {
-    "date_range": "Nov 10 - Nov 16, 2025", 
-    "theme": "Resilience and Growth - Building on Strong Performance",
-    "last_updated": "2025-11-09T12:00:00-07:00"
+    "date_range": "Nov 17 - Nov 23, 2025", 
+    "theme": "Momentum Building - Two Wins and Counting!",
+    "last_updated": "2025-11-21T10:00:00-08:00"
   },
   "training": {
     "date": "TBD",
@@ -16,40 +16,40 @@
     "upcoming_session": {
       "date": "TBD",
       "focus_areas": [
-        "Building on solid defensive performance",
-        "Converting more chances",
-        "Team coordination",
-        "Match preparation for Nov 15"
+        "Maintaining winning momentum",
+        "Penalty conversion practice",
+        "Capitalizing on chances",
+        "Away game preparation"
       ],
-      "preparation_for": "Nov 15 match vs CMFSC Sheffield United"
+      "preparation_for": "Nov 22 match vs CMFSC Middlesbrough"
     },
-    "notes": "Training schedule to be announced. Team showed great resilience last week!"
+    "notes": "Training schedule to be announced. SECOND WIN last Saturday! Keep the momentum going!"
   },
   "match": {
-    "opponent": "CMFSC Sheffield United",
-    "date": "2025-11-15",
-    "kickoff": "11:30am",
-    "location": "Miller Park East",
-    "venue_type": "home",
+    "opponent": "CMFSC Middlesbrough",
+    "date": "2025-11-22",
+    "kickoff": "10:30am",
+    "location": "Eagle Ridge Park South",
+    "venue_type": "away",
     "formation": "2-3-2",
-    "match_number": "2501736",
-    "week": "Week 11",
+    "match_number": "2501742",
+    "week": "Week 12",
     "status": "upcoming",
-    "preparation_focus": "Building on last week's solid performance - converting chances and maintaining defensive organization"
+    "preparation_focus": "Building on our second win - maintaining clinical finishing and strong team performance"
   },
   "captains": {
-    "reveal_at": "2025-11-13T00:00:00-07:00",
+    "reveal_at": "2025-11-20T00:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced at training"
   },
   "goalkeepers": {
-    "reveal_at": "2025-11-13T00:00:00-07:00",
+    "reveal_at": "2025-11-20T00:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Next goalkeepers to be selected - Eunjun K hasn't had a turn yet, and others ready for second rotation."
+    "rotation_note": "Eunjun K hasn't had a turn yet - will be selected for this match."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -114,12 +114,6 @@
         "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "11"
-      },
-      {
-        "name": "Alexander V",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "8"
       },
       {
         "name": "Ethan G",
@@ -204,10 +198,6 @@
         {
           "name": "David C",
           "jersey": "14"
-        },
-        {
-          "name": "Alexander V",
-          "jersey": "8"
         }
       ],
       "strikers": [
@@ -244,10 +234,6 @@
       {
         "name": "Adam K",
         "jersey": "13"
-      },
-      {
-        "name": "Alexander V",
-        "jersey": "8"
       },
       {
         "name": "Andy E",
@@ -353,6 +339,11 @@
         "match": "Nov 8 vs PCFC Thunder",
         "first_half": "TBD",
         "second_half": "TBD"
+      },
+      {
+        "match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)",
+        "first_half": "TBD",
+        "second_half": "TBD"
       }
     ],
     "goalkeepers": [
@@ -364,7 +355,7 @@
       {
         "match": "Sept 20 vs PCFC Wolf Pack",
         "first_half": "Yejun K",
-        "second_half": "Alexander V"
+        "second_half": "TBD"
       },
       {
         "match": "Sept 27 vs CMFSC Swansea",
@@ -390,16 +381,21 @@
         "match": "Nov 8 vs PCFC Thunder",
         "first_half": "Niko D",
         "second_half": "Rafael H"
+      },
+      {
+        "match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)",
+        "first_half": "TBD",
+        "second_half": "TBD"
       }
     ]
   },
   "notes": {
     "arrival": "Arrive 30 min early for warm-up",
     "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "Strong performance last Saturday! Hard-fought 2-1 loss against tough PCFC Thunder. Andy E scored a beautiful finish (Travis C assist), and TEN players had standout games: Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W. Excellent defensive organization throughout. Niko D & Rafael H performed well as first-time goalkeepers. Training Nov 6-7 focused on finishing - and it showed! Next match: Saturday Nov 15 at 11:30am vs CMFSC Sheffield United at Miller Park East (HOME). Let's keep building!",
-    "training_recap": "Nov 6-7: Two excellent training sessions focused on finishing techniques and chance conversion. Great dedication from the squad!",
-    "match_update": "NEXT MATCH: Saturday Nov 15 at 11:30am vs CMFSC Sheffield United, Miller Park East (HOME). Training schedule to be announced.",
-    "this_week": "Building on last week's solid performance. Team showing real progress with excellent defensive organization and competing strongly against tough opponents.",
+    "coach": "SECOND WIN OF THE SEASON last Saturday! Fantastic 4-2 victory over Sheffield United! Niko D converted a penalty with confidence, Adam K scored twice showing smart positioning for follow-ups, and Travis C finished beautifully from Andy E's assist. Andy showed real character - missed a penalty but bounced back to provide the crucial assist. Rafael H hit the post twice, showing we're creating quality chances. Despite wasting many opportunities, the team showed resilience and determination to secure the win. Excellent momentum building! Next match: Saturday Nov 22 at 10:30am vs CMFSC Middlesbrough at Eagle Ridge Park South (AWAY). Let's make it three wins!",
+    "training_recap": "Training schedule to be announced. Focus on maintaining momentum and capitalizing on chances.",
+    "match_update": "NEXT MATCH: Saturday Nov 22 at 10:30am vs CMFSC Middlesbrough, Eagle Ridge Park South (AWAY). Training details coming soon.",
+    "this_week": "Building on our SECOND WIN! Team showing real momentum with clinical finishing and strong character. Let's keep this winning streak going!",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -418,8 +414,13 @@
       "🌟 Nov 8: TEN players standout performances - Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W",
       "🛡️ Nov 8: Excellent defensive organization - competed strongly for full match",
       "🥅 Nov 8: Niko D & Rafael H first-time goalkeepers performed well",
+      "🏆 Nov 15: SECOND WIN! 4-2 vs Sheffield United - Niko D penalty, Adam K brace, Travis C goal",
+      "💪 Nov 15: Andy E showed character - missed penalty but assisted Travis C's goal",
+      "⚽ Nov 15: Adam K scoring twice with smart positioning - clinical hunter!",
+      "🎯 Nov 15: Rafael H hit post twice - creating quality chances",
+      "🔥 Nov 15: Team resilience despite wasted chances - winning mentality!",
       "🏆 Sept Player of Month: Niko D | Captain of Month: Owen H"
     ]
   },
-  "status": "building-momentum"
+  "status": "winning-streak"
 }

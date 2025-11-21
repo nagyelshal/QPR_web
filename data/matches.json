@@ -850,15 +850,63 @@
       "id": "match-010",
       "date": "2025-11-15",
       "opponent": "CMFSC Sheffield United",
-      "result": "pending",
-      "location": "TBA",
-      "kickoff": "TBA",
+      "result": "4-2 win",
+      "location": "Miller Park East",
+      "kickoff": "11:30am",
       "match_number": "2501736",
       "week": 11,
-      "venue_type": "away",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "venue_type": "home",
+      "final_score": {
+        "qpr": 4,
+        "opponent": 2,
+        "half_time": "TBD"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "scorers": ["Niko D", "Adam K", "Adam K", "Travis C"],
+      "goal_details": [
+        {
+          "player": "Niko D",
+          "goals": 1,
+          "notes": "Penalty - converted with confidence"
+        },
+        {
+          "player": "Adam K",
+          "goals": 2,
+          "notes": "Two follow-up goals - smart hunter, clinical finishing"
+        },
+        {
+          "player": "Travis C",
+          "goals": 1,
+          "notes": "Beautiful goal from Andy E assist"
+        }
+      ],
+      "assists": ["Andy E"],
+      "formation": "2-3-2",
+      "performance_notes": "SECOND WIN OF THE SEASON! Solid 4-2 victory with strong team performance. Niko D converted a penalty while Andy E missed one. Adam K scored twice from follow-ups showing smart positioning and clinical finishing. Travis C scored a beautiful goal assisted by Andy E. Rafael H hit the post twice, showing the team created even more chances. Despite many wasted opportunities, the team showed resilience and determination to secure the win. Strong performance overall with good attacking play.",
+      "highlights": [
+        "🏆 SECOND WIN OF THE SEASON! 4-2 victory",
+        "⚽ Niko D penalty goal - converted confidently",
+        "❌ Andy E penalty miss - showed character to keep contributing",
+        "⚽⚽ Adam K brace - two follow-up goals, smart hunter positioning",
+        "⚽ Travis C beautiful finish from Andy E assist",
+        "🎯 Andy E excellent assist for Travis C goal",
+        "🎯 Rafael H hit the post twice - unlucky but created chances",
+        "💪 Strong team performance throughout",
+        "✨ Clinical finishing from follow-ups - training work paying off",
+        "🔥 Solid win despite many wasted chances - shows character",
+        "📈 Team resilience and determination evident",
+        "🏠 Home victory at Miller Park East"
+      ],
+      "starting_lineup": [],
+      "rotating_players": [],
+      "unavailable_players": []
     },
     {
       "id": "match-011",

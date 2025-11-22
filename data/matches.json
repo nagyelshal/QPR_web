@@ -912,15 +912,122 @@
       "id": "match-011",
       "date": "2025-11-22",
       "opponent": "CMFSC Middlesbrough",
-      "result": "pending",
-      "location": "TBA",
-      "kickoff": "TBA",
+      "result": "5-2 win",
+      "location": "Eagle Ridge Park - South Field",
+      "kickoff": "10:30am",
       "match_number": "2501742",
       "week": 12,
       "venue_type": "away",
-      "scorers": [],
+      "final_score": {
+        "qpr": 5,
+        "opponent": 2,
+        "half_time": "TBD"
+      },
+      "achievements": [
+        "Three Wins in a Row",
+        "High Five! (5 goals in a match)",
+        "Shared Glory (3+ different scorers)",
+        "Corner Kick Magic",
+        "Super Save (goalkeeper saves)",
+        "Clean Hands (Rhodri - 1st half clean sheet)"
+      ],
+      "scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
       "assists": [],
-      "highlights": []
+      "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"],
+      "absent_players": [],
+      "formation": "2-3-2",
+      "starting_lineup": [
+        {
+          "name": "Rhodri W",
+          "pos": "GK",
+          "jersey": "10"
+        },
+        {
+          "name": "Yejun K",
+          "pos": "CB",
+          "jersey": "7"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB2",
+          "jersey": "5"
+        },
+        {
+          "name": "Ethan G",
+          "pos": "LM",
+          "jersey": "15"
+        },
+        {
+          "name": "Niko D",
+          "pos": "CM",
+          "jersey": "6"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "RM",
+          "jersey": "12"
+        },
+        {
+          "name": "Minh-An D",
+          "pos": "ST",
+          "jersey": "2"
+        },
+        {
+          "name": "David C",
+          "pos": "ST2",
+          "jersey": "14"
+        }
+      ],
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Rhodri W",
+        "second_half": "Adam K"
+      },
+      "highlights": [
+        "⚽ THIRD WIN IN A ROW! Dominant 5-2 victory",
+        "🎯 Travis C scored TWICE - direct from corner and beautiful finish from difficult angle",
+        "⭐ Rafael H scored his FIRST GOAL - best match of the season",
+        "💪 Rhodri W clean sheet in first half as goalkeeper",
+        "🥅 Adam K made many crucial saves in second half",
+        "🛡️ Impressive defensive display from Yejun K, Andrew N, and Rhodri W",
+        "⚡ Niko D and Rafael H controlled midfield possession",
+        "🔥 Ethan G scored with an insane shot",
+        "✨ Andy E solid finish for a goal",
+        "📈 Minh-An D, Owen H, and David C had excellent performances",
+        "🎪 David C nearly scored with beautiful shots",
+        "🌟 Team playing with confidence from the start",
+        "🏆 Three consecutive wins - incredible momentum!"
+      ],
+      "rotating_players": [
+        {
+          "name": "Travis C",
+          "jersey": "3"
+        },
+        {
+          "name": "Andy E",
+          "jersey": "4"
+        },
+        {
+          "name": "Adam K",
+          "jersey": "13"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
+        },
+        {
+          "name": "Owen H",
+          "jersey": "9"
+        },
+        {
+          "name": "Eunjun K",
+          "jersey": "16"
+        }
+      ],
+      "unavailable_players": []
     },
     {
       "id": "match-012",

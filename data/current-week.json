@@ -49,8 +49,89 @@
     "formation": "2-3-2",
     "match_number": "2501742",
     "week": "Week 12",
-    "status": "upcoming",
-    "preparation_focus": "Building on our second win - maintaining clinical finishing and strong team performance"
+    "status": "completed",
+    "preparation_focus": "Building on our second win - maintaining clinical finishing and strong team performance",
+    "result": {
+      "qpr_goals": 5,
+      "opponent_goals": 2,
+      "half_time": "TBD"
+    }
+  },
+  "previous_match": {
+    "opponent": "CMFSC Middlesbrough",
+    "date": "2025-11-22",
+    "location": "Eagle Ridge Park - South Field",
+    "venue_type": "away",
+    "status": "completed",
+    "result": {
+      "qpr_goals": 5,
+      "opponent_goals": 2,
+      "half_time": "TBD",
+      "goal_scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
+      "assists": [],
+      "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"]
+    },
+    "achievements": [
+      "Three Wins in a Row!",
+      "High Five! (5 goals in a match)",
+      "Shared Glory (3+ different scorers)",
+      "Corner Kick Magic (Travis scored direct from corner)",
+      "Super Save (both goalkeepers)",
+      "Clean Hands (Rhodri - 1st half clean sheet)"
+    ],
+    "match_report": "THIRD WIN IN A ROW! Dominant 5-2 victory away at Eagle Ridge Park. The team was firing from the start with confidence and momentum. Travis C scored TWICE including a stunning direct corner kick goal and a beautiful finish from a difficult angle. Rafael H had his BEST MATCH of the season scoring his FIRST GOAL. Ethan G netted an insane shot, and Andy E added a solid finish. Rhodri W kept a clean sheet in the first half as goalkeeper, while Adam K made many crucial saves in the second half. Impressive defensive display from Yejun K, Andrew N, and Rhodri W. Niko D and Rafael H controlled midfield possession brilliantly. Minh-An D, Owen H, and David C all had excellent performances, with David nearly scoring with beautiful shots. Three consecutive wins - incredible momentum building!",
+    "lineup_used": {
+      "starting": [
+        {
+          "name": "Rhodri W",
+          "pos": "GK",
+          "jersey": "10"
+        },
+        {
+          "name": "Yejun K",
+          "pos": "CB",
+          "jersey": "7"
+        },
+        {
+          "name": "Andrew N",
+          "pos": "CB2",
+          "jersey": "5"
+        },
+        {
+          "name": "Ethan G",
+          "pos": "LM",
+          "jersey": "15"
+        },
+        {
+          "name": "Niko D",
+          "pos": "CM",
+          "jersey": "6"
+        },
+        {
+          "name": "Rafael H",
+          "pos": "RM",
+          "jersey": "12"
+        },
+        {
+          "name": "Minh-An D",
+          "pos": "ST",
+          "jersey": "2"
+        },
+        {
+          "name": "David C",
+          "pos": "ST2",
+          "jersey": "14"
+        }
+      ],
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Rhodri W",
+        "second_half": "Adam K"
+      }
+    }
   },
   "captains": {
     "reveal_at": "2025-11-20T00:00:00-08:00",
@@ -61,10 +142,10 @@
   },
   "goalkeepers": {
     "reveal_at": "2025-11-20T00:00:00-08:00",
-    "first_half": "Adam K",
-    "second_half": "Rhodri W",
+    "first_half": "Rhodri W",
+    "second_half": "Adam K",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Eunjun K hasn't had a turn yet - will be selected for this match."
+    "rotation_note": "Rhodri started in goal with a clean sheet first half, Adam made many crucial saves in the second half."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",

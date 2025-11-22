@@ -1,6 +1,6 @@
 {
   "season": "2025-2026",
-  "lastUpdated": "September 16, 2025",
+  "lastUpdated": "November 22, 2025",
   "levels": [
     {
       "level": 1,
@@ -80,9 +80,11 @@
           "id": "high-five-goals",
           "title": "High Five!",
           "description": "Score 5 goals in a single match (team total)",
-          "completed": false,
+          "completed": true,
           "points": 100,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs CMFSC Middlesbrough (Third Win!)"
         },
         {
           "id": "every-player-touches-ball",
@@ -104,17 +106,21 @@
           "id": "first-win",
           "title": "First Victory",
           "description": "Win your first match of the season",
-          "completed": false,
+          "completed": true,
           "points": 150,
-          "completedDate": null
+          "completedDate": "October 25, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs AFC U11 B Div 3 (FIRST WIN!)"
         },
         {
           "id": "goalkeeper-clean-hands",
           "title": "Clean Hands",
           "description": "Goalkeeper doesn't drop the ball for a full half",
-          "completed": false,
+          "completed": true,
           "points": 75,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Rhodri W",
+          "completedMatch": "vs CMFSC Middlesbrough (First Half Clean Sheet)"
         }
       ]
     },
@@ -136,25 +142,31 @@
           "id": "multiple-scorers",
           "title": "Shared Glory",
           "description": "Have 3+ different players score in one match",
-          "completed": false,
+          "completed": true,
           "points": 125,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Travis C, Rafael H, Andy E, Ethan G",
+          "completedMatch": "vs CMFSC Middlesbrough (4 different scorers)"
         },
         {
           "id": "corner-kick-goal",
           "title": "Corner Kick Magic",
           "description": "Score a goal from a corner kick",
-          "completed": false,
+          "completed": true,
           "points": 100,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Travis C",
+          "completedMatch": "vs CMFSC Middlesbrough (Direct from corner!)"
         },
         {
           "id": "goalkeeper-save",
           "title": "Super Save",
           "description": "Goalkeeper makes a great save to keep us in the game",
-          "completed": false,
+          "completed": true,
           "points": 75,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Rhodri W & Adam K",
+          "completedMatch": "vs CMFSC Middlesbrough (Both keepers made crucial saves)"
         },
         {
           "id": "throw-in-goal",
@@ -248,17 +260,21 @@
           "id": "win-by-3",
           "title": "Dominant Victory",
           "description": "Win a match by 3+ goals difference",
-          "completed": false,
+          "completed": true,
           "points": 300,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs CMFSC Middlesbrough (5-2 win)"
         },
         {
           "id": "3-match-streak",
           "title": "Winning Momentum",
           "description": "Win 3 matches in a row",
-          "completed": false,
+          "completed": true,
           "points": 350,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs CMFSC Middlesbrough (Third consecutive win!)"
         }
       ]
     },

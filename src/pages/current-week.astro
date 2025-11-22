@@ -1435,7 +1435,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     const captainsTime = captainsAt ? new Date(captainsAt) : null;
     const positionsTime = positionsAt ? new Date(positionsAt) : null;
     const lineupTime = lineupAt ? new Date(lineupAt) : null;
-    let matchTime = matchDateStr && matchDateStr !== 'TBD' ? new Date(matchDateStr) : null;
+    let matchTime = matchDateStr && matchDateStr !== 'TBD' ? new Date(matchDateStr + 'T00:00:00-08:00') : null;
     if (matchTime && matchKickoff && /^(\d+):(\d+)(am|pm)$/i.test(matchKickoff)) {
       const [, hh, mm, ap] = matchKickoff.match(/(\d+):(\d+)(am|pm)/i);
       let h = parseInt(hh, 10);
@@ -1445,7 +1445,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
       if (!isPm && h === 12) h = 0;
       matchTime.setHours(h, m, 0, 0);
     }
-    const trainingDate = trainingDateStr ? new Date(trainingDateStr) : null;
+    const trainingDate = trainingDateStr && trainingDateStr !== 'TBD' ? new Date(trainingDateStr + 'T00:00:00-08:00') : null;
     
     function formatDateLabel(date) {
       const isToday = date.toDateString() === now.toDateString();

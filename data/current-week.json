@@ -68,12 +68,6 @@
         "jersey": "7"
       },
       {
-        "name": "Niko D",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "6"
-      },
-      {
         "name": "Rhodri W",
         "pos": "Defence",
         "tactical_pos": "CB",
@@ -102,6 +96,12 @@
         "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "16"
+      },
+      {
+        "name": "Niko D",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "6"
       },
       {
         "name": "Ethan G",
@@ -166,10 +166,6 @@
           "jersey": "7"
         },
         {
-          "name": "Niko D",
-          "jersey": "6"
-        },
-        {
           "name": "Rhodri W",
           "jersey": "10"
         },
@@ -190,6 +186,10 @@
         {
           "name": "Eunjun K",
           "jersey": "16"
+        },
+        {
+          "name": "Niko D",
+          "jersey": "6"
         },
         {
           "name": "Ethan G",
@@ -349,8 +349,8 @@
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
     "player_of_month": {
-      "name": "Niko D",
-      "month": "September"
+      "name": "Andrew N",
+      "month": "October"
     },
     "captain_of_month": {
       "name": "Owen H",

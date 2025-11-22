@@ -61,14 +61,14 @@ const timeUntilPositions = now < captainsPositionsAt ? getTimeUntil(captainsPosi
 const timeUntilLineup = now < lineupAt ? getTimeUntil(lineupAt) : null;
 
 // Format training date nicely - will be updated by client-side JavaScript
-const trainingDate = new Date(weekData.training.date + 'T00:00:00-07:00');
+const trainingDate = new Date(weekData.training.date + 'T00:00:00-08:00');
 let trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
 // Format match date nicely (TBD-safe)
 let matchDate: Date | null = null;
 let matchLabel = 'TBD';
 if (weekData.match.date && weekData.match.date !== 'TBD') {
-  matchDate = new Date(weekData.match.date + 'T00:00:00-07:00');
+  matchDate = new Date(weekData.match.date + 'T00:00:00-08:00');
   matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 }
 
@@ -212,7 +212,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
               <ul>
                 {weekData.training.sessions.map((s) => (
                   <li>
-                    <strong>{new Date(s.date + 'T00:00:00-07:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</strong>
+                    <strong>{new Date(s.date + 'T00:00:00-08:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</strong>
                     {` — ${s.time} at ${s.location}`}
                   </li>
                 ))}

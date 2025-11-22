@@ -46,8 +46,8 @@
   },
   "goalkeepers": {
     "reveal_at": "2025-11-20T00:00:00-08:00",
-    "first_half": "TBD",
-    "second_half": "TBD",
+    "first_half": "Adam K",
+    "second_half": "Rhodri W",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
     "rotation_note": "Eunjun K hasn't had a turn yet - will be selected for this match."
   },
@@ -80,16 +80,16 @@
         "jersey": "10"
       },
       {
+        "name": "Henry K",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "11"
+      },
+      {
         "name": "Rafael H",
         "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "12"
-      },
-      {
-        "name": "Owen H",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "9"
       },
       {
         "name": "Adam K",
@@ -104,22 +104,16 @@
         "jersey": "16"
       },
       {
-        "name": "David C",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "14"
-      },
-      {
-        "name": "Henry K",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "11"
-      },
-      {
         "name": "Ethan G",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
         "jersey": "15"
+      },
+      {
+        "name": "Travis C",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "3"
       },
       {
         "name": "Andy E",
@@ -128,16 +122,22 @@
         "jersey": "4"
       },
       {
-        "name": "Travis C",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "3"
-      },
-      {
         "name": "Minh-An D",
         "pos": "Strikers",
         "tactical_pos": "ST",
         "jersey": "2"
+      },
+      {
+        "name": "David C",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "14"
+      },
+      {
+        "name": "Owen H",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "9"
       }
     ]
   },
@@ -146,13 +146,13 @@
     "zones": {
       "goalkeepers": [
         {
-          "name": "TBD",
-          "jersey": "?",
+          "name": "Adam K",
+          "jersey": "13",
           "alternate_pos": "GK"
         },
         {
-          "name": "TBD",
-          "jersey": "?",
+          "name": "Rhodri W",
+          "jersey": "10",
           "alternate_pos": "GK"
         }
       ],
@@ -172,16 +172,16 @@
         {
           "name": "Rhodri W",
           "jersey": "10"
+        },
+        {
+          "name": "Henry K",
+          "jersey": "11"
         }
       ],
       "midfield_wingers": [
         {
           "name": "Rafael H",
           "jersey": "12"
-        },
-        {
-          "name": "Owen H",
-          "jersey": "9"
         },
         {
           "name": "Adam K",
@@ -192,30 +192,30 @@
           "jersey": "16"
         },
         {
-          "name": "Henry K",
-          "jersey": "11"
-        },
-        {
-          "name": "David C",
-          "jersey": "14"
-        }
-      ],
-      "strikers": [
-        {
           "name": "Ethan G",
           "jersey": "15"
         },
+        {
+          "name": "Travis C",
+          "jersey": "3"
+        }
+      ],
+      "strikers": [
         {
           "name": "Andy E",
           "jersey": "4"
         },
         {
-          "name": "Travis C",
-          "jersey": "3"
-        },
-        {
           "name": "Minh-An D",
           "jersey": "2"
+        },
+        {
+          "name": "David C",
+          "jersey": "14"
+        },
+        {
+          "name": "Owen H",
+          "jersey": "9"
         }
       ]
     },
@@ -288,8 +288,62 @@
         "jersey": "16"
       }
     ],
-    "starting": [],
-    "rotating": [],
+    "starting": [
+      {
+        "name": "Yejun K",
+        "jersey": "7"
+      },
+      {
+        "name": "Rhodri W",
+        "jersey": "10"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "15"
+      },
+      {
+        "name": "Travis C",
+        "jersey": "3"
+      },
+      {
+        "name": "Rafael H",
+        "jersey": "12"
+      },
+      {
+        "name": "Minh-An D",
+        "jersey": "2"
+      },
+      {
+        "name": "David C",
+        "jersey": "14"
+      }
+    ],
+    "rotating": [
+      {
+        "name": "Andy E",
+        "jersey": "4"
+      },
+      {
+        "name": "Andrew N",
+        "jersey": "5"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11"
+      },
+      {
+        "name": "Niko D",
+        "jersey": "6"
+      },
+      {
+        "name": "Owen H",
+        "jersey": "9"
+      }
+    ],
     "unavailable": []
   },
   "hype": {

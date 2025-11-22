@@ -102,9 +102,11 @@
           "id": "strong-finish",
           "title": "Strong Finish",
           "description": "Win or score in the final 10 minutes of a match",
-          "completed": false,
+          "completed": true,
           "points": 50,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "Whole Team",
+          "completedMatch": "vs CMFSC Middlesbrough (Strong finish securing 5-2 win)"
         },
         {
           "id": "first-win",

@@ -10,6 +10,8 @@ const { title, description = "Coquitlam Metro-Ford SC - Queens Park Rangers U11 
 
 // Get the base path from the config
 const base = import.meta.env.BASE_URL;
+const isCurrentWeekPage = Astro.url.pathname.includes('current-week');
+const currentWeekData = isCurrentWeekPage ? await import('../../data/current-week.json') : null;
 ---
 
 <!doctype html>
@@ -31,12 +33,12 @@ const base = import.meta.env.BASE_URL;
       gtag('config', 'G-14R3RPES8W');
     </script>
   </head>
-  <body data-captains={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).captains.reveal_at : undefined}
-        data-positions={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).positions.reveal_at : undefined}
-        data-lineup={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).lineup?.reveal_at ?? '' : undefined}
-        data-training-date={Astro.url.pathname.includes('current-week') ? ((await import('../../data/current-week.json')).training.date + 'T00:00:00-07:00') : undefined}
-        data-match-date={Astro.url.pathname.includes('current-week') ? (((await import('../../data/current-week.json')).match.date && (await import('../../data/current-week.json')).match.date !== 'TBD') ? ((await import('../../data/current-week.json')).match.date + 'T00:00:00-07:00') : 'TBD') : undefined}
-        data-match-kickoff={Astro.url.pathname.includes('current-week') ? (await import('../../data/current-week.json')).match.kickoff : undefined}>
+  <body data-captains={isCurrentWeekPage ? currentWeekData?.captains.reveal_at : undefined}
+    data-positions={isCurrentWeekPage ? currentWeekData?.positions.reveal_at : undefined}
+    data-lineup={isCurrentWeekPage ? (currentWeekData?.lineup?.reveal_at ?? '') : undefined}
+    data-training-date={isCurrentWeekPage ? currentWeekData?.training.date : undefined}
+    data-match-date={isCurrentWeekPage ? ((currentWeekData?.match.date && currentWeekData?.match.date !== 'TBD') ? currentWeekData?.match.date : 'TBD') : undefined}
+    data-match-kickoff={isCurrentWeekPage ? currentWeekData?.match.kickoff : undefined}>
     <a href="#main" class="skip-link">Skip to main content</a>
     
     <header class="header">

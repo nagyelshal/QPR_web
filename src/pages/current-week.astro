@@ -61,15 +61,19 @@ const timeUntilPositions = now < captainsPositionsAt ? getTimeUntil(captainsPosi
 const timeUntilLineup = now < lineupAt ? getTimeUntil(lineupAt) : null;
 
 // Format training date nicely - will be updated by client-side JavaScript
-const trainingDate = new Date(weekData.training.date + 'T00:00:00-08:00');
-let trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+let trainingDate: Date | null = null;
+let trainingLabel = 'TBD';
+if (weekData.training.date && weekData.training.date !== 'TBD') {
+  trainingDate = new Date(weekData.training.date + 'T00:00:00-08:00');
+  trainingLabel = trainingDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Vancouver' });
+}
 
 // Format match date nicely (TBD-safe)
 let matchDate: Date | null = null;
 let matchLabel = 'TBD';
 if (weekData.match.date && weekData.match.date !== 'TBD') {
   matchDate = new Date(weekData.match.date + 'T00:00:00-08:00');
-  matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  matchLabel = matchDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Vancouver' });
 }
 
 // Create full match datetime for countdown calculation (TBD-safe)
@@ -212,7 +216,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
               <ul>
                 {weekData.training.sessions.map((s) => (
                   <li>
-                    <strong>{new Date(s.date + 'T00:00:00-08:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</strong>
+                    <strong>{new Date(s.date + 'T00:00:00-08:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Vancouver' })}</strong>
                     {` — ${s.time} at ${s.location}`}
                   </li>
                 ))}
@@ -1451,7 +1455,7 @@ const homeAwayText = isHome ? 'Home' : 'Away';
       const isToday = date.toDateString() === now.toDateString();
       const isTomorrow = date.toDateString() === new Date(now.getTime() + 24*60*60*1000).toDateString();
       
-      const baseLabel = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  const baseLabel = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Vancouver' });
       
       if (isToday) return `Today (${baseLabel})`;
       if (isTomorrow) return `Tomorrow (${baseLabel})`;

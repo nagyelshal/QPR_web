@@ -5,25 +5,40 @@
     "last_updated": "2025-11-21T10:00:00-08:00"
   },
   "training": {
-    "date": "TBD",
-    "day": "TBD",
-    "time": "TBD",
-    "location": "TBD",
-    "focus": "TBD",
+    "date": "2025-11-20",
+    "day": "Thursday",
+    "time": "5:30pm - 7:00pm",
+    "location": "Town Centre Park Turf",
+    "focus": "Quick passing combinations and off-ball movement",
     "attendance_required": true,
-    "completed": false,
-    "sessions": [],
-    "upcoming_session": {
-      "date": "TBD",
-      "focus_areas": [
-        "Maintaining winning momentum",
-        "Penalty conversion practice",
-        "Capitalizing on chances",
-        "Away game preparation"
-      ],
-      "preparation_for": "Nov 22 match vs CMFSC Middlesbrough"
+    "completed": true,
+    "sessions": [
+      {
+        "date": "2025-11-20",
+        "time": "5:30pm - 7:00pm",
+        "location": "Town Centre Park Turf",
+        "focus": "Passing tempo through the 2-3-2 shape"
+      }
+    ],
+    "last_session": {
+      "attendance": 14,
+      "highlights": [
+        "3v1 and 4v2 rondos to speed up decision making",
+        "Pattern play from backs through midfield into strikers",
+        "Shadow pressing to reinforce off-ball movement cues"
+      ]
     },
-    "notes": "Training schedule to be announced. SECOND WIN last Saturday! Keep the momentum going!"
+    "upcoming_session": {
+      "date": "2025-11-21",
+      "focus_areas": [
+        "One-touch passing under pressure",
+        "Rotations out of midfield to create overloads",
+        "Finishing after third-man runs",
+        "Away match walkthrough at Eagle Ridge"
+      ],
+      "preparation_for": "Nov 22 away match vs CMFSC Middlesbrough"
+    },
+    "notes": "Thursday's session at Town Centre Park locked in the 2-3-2 shape with sharp passing combinations and constant movement off the ball."
   },
   "match": {
     "opponent": "CMFSC Middlesbrough",
@@ -290,58 +305,76 @@
     ],
     "starting": [
       {
+        "name": "Adam K",
+        "jersey": "13",
+        "pos": "GK"
+      },
+      {
         "name": "Yejun K",
-        "jersey": "7"
+        "jersey": "7",
+        "pos": "CB"
       },
       {
         "name": "Rhodri W",
-        "jersey": "10"
+        "jersey": "10",
+        "pos": "CB2"
       },
       {
         "name": "Ethan G",
-        "jersey": "15"
+        "jersey": "15",
+        "pos": "LM"
       },
       {
         "name": "Travis C",
-        "jersey": "3"
+        "jersey": "3",
+        "pos": "CM"
       },
       {
         "name": "Rafael H",
-        "jersey": "12"
+        "jersey": "12",
+        "pos": "RM"
       },
       {
         "name": "Minh-An D",
-        "jersey": "2"
+        "jersey": "2",
+        "pos": "ST"
       },
       {
         "name": "David C",
-        "jersey": "14"
+        "jersey": "14",
+        "pos": "ST2"
       }
     ],
     "rotating": [
       {
         "name": "Andy E",
-        "jersey": "4"
+        "jersey": "4",
+        "pos": "ST"
       },
       {
         "name": "Andrew N",
-        "jersey": "5"
+        "jersey": "5",
+        "pos": "CB"
       },
       {
         "name": "Eunjun K",
-        "jersey": "16"
+        "jersey": "16",
+        "pos": "CM"
       },
       {
         "name": "Henry K",
-        "jersey": "11"
+        "jersey": "11",
+        "pos": "CB2"
       },
       {
         "name": "Niko D",
-        "jersey": "6"
+        "jersey": "6",
+        "pos": "CM"
       },
       {
         "name": "Owen H",
-        "jersey": "9"
+        "jersey": "9",
+        "pos": "ST2"
       }
     ],
     "unavailable": []
@@ -447,7 +480,7 @@
     "arrival": "Arrive by 10:00 AM (30 min early for warm-up)",
     "kit": "TBD - Will be announced based on opponent kit",
     "coach": "SECOND WIN OF THE SEASON last Saturday! Fantastic 4-2 victory over Sheffield United! Niko D converted a penalty with confidence, Adam K scored twice showing smart positioning for follow-ups, and Travis C finished beautifully from Andy E's assist. Andy showed real character - missed a penalty but bounced back to provide the crucial assist. Rafael H hit the post twice, showing we're creating quality chances. Despite wasting many opportunities, the team showed resilience and determination to secure the win. Excellent momentum building! Next match: Saturday Nov 22 at 10:30am vs CMFSC Middlesbrough at Eagle Ridge Park - South Field (AWAY). Let's make it three wins!",
-    "training_recap": "Training schedule to be announced. Focus on maintaining momentum and capitalizing on chances.",
+  "training_recap": "Thursday at Town Centre Park: nonstop rondos, third-man runs and off-ball triggers to prep for Middlesbrough.",
     "match_update": "NEXT MATCH: Saturday Nov 22 at 10:30am vs CMFSC Middlesbrough, Eagle Ridge Park - South Field (AWAY). Arrive by 10:00 AM.",
     "this_week": "Building on our SECOND WIN! Team showing real momentum with clinical finishing and strong character. Let's keep this winning streak going!",
     "achievements": [
@@ -473,7 +506,7 @@
       "⚽ Nov 15: Adam K scoring twice with smart positioning - clinical hunter!",
       "🎯 Nov 15: Rafael H hit post twice - creating quality chances",
       "🔥 Nov 15: Team resilience despite wasted chances - winning mentality!",
-      "🏆 Sept Player of Month: Niko D | Captain of Month: Owen H"
+      "🏆 Oct Player of Month: Andrew N | Captain of Month: Owen H"
     ]
   },
   "status": "winning-streak"

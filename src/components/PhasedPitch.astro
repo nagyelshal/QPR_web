@@ -142,8 +142,8 @@ const getSlotPosition = (slot) => {
             return (
               <g class="player-position">
                 <circle cx={pos.x} cy={pos.y} r="6" fill={isLineupRevealed ? "#1976d2" : "#9c27b0"} stroke="#ffffff" stroke-width="1" />
-                <text x={pos.x} y={pos.y + 0.5} text-anchor="middle" fill="white" font-size="1.4" font-weight="bold">
-                  {playerForPosition ? playerForPosition.name.split(' ')[0] : slot.pos}
+                <text x={pos.x} y={pos.y + 0.4} text-anchor="middle" fill="white" font-size="1.2" font-weight="bold">
+                  {playerForPosition ? playerForPosition.name : slot.pos}
                 </text>
               </g>
             );

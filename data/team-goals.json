@@ -72,9 +72,11 @@
           "id": "perfect-attendance",
           "title": "Perfect Attendance",
           "description": "Have full squad attendance at a training session",
-          "completed": false,
+          "completed": true,
           "points": 50,
-          "completedDate": null
+          "completedDate": "November 20, 2025",
+          "completedBy": "All Squad Members",
+          "completedMatch": "Thursday training at Town Centre Park"
         },
         {
           "id": "high-five-goals",
@@ -90,14 +92,16 @@
           "id": "every-player-touches-ball",
           "title": "Touch Master",
           "description": "Every player touches the ball in the first 10 minutes",
-          "completed": false,
+          "completed": true,
           "points": 75,
-          "completedDate": null
+          "completedDate": "November 22, 2025",
+          "completedBy": "All Squad Members",
+          "completedMatch": "vs CMFSC Middlesbrough (Everyone involved early)"
         },
         {
-          "id": "captain-leadership",
-          "title": "Captain's Call",
-          "description": "Team captain successfully leads a team talk",
+          "id": "strong-finish",
+          "title": "Strong Finish",
+          "description": "Win or score in the final 10 minutes of a match",
           "completed": false,
           "points": 50,
           "completedDate": null

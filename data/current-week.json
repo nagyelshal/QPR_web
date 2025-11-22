@@ -68,18 +68,18 @@
       "opponent_goals": 2,
       "half_time": "TBD",
       "goal_scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
-      "assists": [],
+      "assists": ["Owen H", "Rafael H", "Niko D", "Ethan G"],
       "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"]
     },
     "achievements": [
-      "Three Wins in a Row!",
+      "Third Win of the Season!",
       "High Five! (5 goals in a match)",
-      "Shared Glory (3+ different scorers)",
+      "Shared Glory (4 different scorers)",
       "Corner Kick Magic (Travis scored direct from corner)",
       "Super Save (both goalkeepers)",
-      "Clean Hands (Rhodri - 1st half clean sheet)"
+      "Clean Hands (Rhodri 1st half)"
     ],
-    "match_report": "THIRD WIN IN A ROW! Dominant 5-2 victory away at Eagle Ridge Park. The team was firing from the start with confidence and momentum. Travis C scored TWICE including a stunning direct corner kick goal and a beautiful finish from a difficult angle. Rafael H had his BEST MATCH of the season scoring his FIRST GOAL. Ethan G netted an insane shot, and Andy E added a solid finish. Rhodri W kept a clean sheet in the first half as goalkeeper, while Adam K made many crucial saves in the second half. Impressive defensive display from Yejun K, Andrew N, and Rhodri W. Niko D and Rafael H controlled midfield possession brilliantly. Minh-An D, Owen H, and David C all had excellent performances, with David nearly scoring with beautiful shots. Three consecutive wins - incredible momentum building!",
+    "match_report": "THIRD WIN OF THE SEASON! Dominant 5-2 victory away at Eagle Ridge Park. The team was firing from the start with confidence and momentum. Travis C scored TWICE including a stunning direct corner kick goal and a beautiful finish from a difficult angle. Rafael H had his BEST MATCH of the season scoring his FIRST GOAL. Ethan G netted an insane shot, and Andy E added a solid finish. Rhodri W kept a clean sheet in the first half as goalkeeper, while Adam K made many crucial saves in the second half. Impressive defensive display from Yejun K, Andrew N, and Rhodri W. Niko D and Rafael H controlled midfield possession brilliantly. Minh-An D, Owen H, and David C all had excellent performances, with David nearly scoring with beautiful shots. Building incredible winning momentum!",
     "lineup_used": {
       "starting": [
         {

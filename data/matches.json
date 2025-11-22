@@ -924,7 +924,7 @@
         "half_time": "TBD"
       },
       "achievements": [
-        "Three Wins in a Row",
+        "Third Win of the Season",
         "High Five! (5 goals in a match)",
         "Shared Glory (3+ different scorers)",
         "Corner Kick Magic",
@@ -932,7 +932,7 @@
         "Clean Hands (Rhodri - 1st half clean sheet)"
       ],
       "scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
-      "assists": [],
+      "assists": ["Owen H", "Rafael H", "Niko D", "Ethan G"],
       "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"],
       "absent_players": [],
       "formation": "2-3-2",
@@ -987,7 +987,7 @@
         "second_half": "Adam K"
       },
       "highlights": [
-        "⚽ THIRD WIN IN A ROW! Dominant 5-2 victory",
+        "⚽ THIRD WIN OF THE SEASON! Dominant 5-2 victory",
         "🎯 Travis C scored TWICE - direct from corner and beautiful finish from difficult angle",
         "⭐ Rafael H scored his FIRST GOAL - best match of the season",
         "💪 Rhodri W clean sheet in first half as goalkeeper",
@@ -999,7 +999,7 @@
         "📈 Minh-An D, Owen H, and David C had excellent performances",
         "🎪 David C nearly scored with beautiful shots",
         "🌟 Team playing with confidence from the start",
-        "🏆 Three consecutive wins - incredible momentum!"
+        "🏆 Building winning momentum with third victory!"
       ],
       "rotating_players": [
         {

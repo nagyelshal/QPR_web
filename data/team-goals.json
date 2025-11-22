@@ -276,11 +276,9 @@
           "id": "3-match-streak",
           "title": "Winning Momentum",
           "description": "Win 3 matches in a row",
-          "completed": true,
+          "completed": false,
           "points": 350,
-          "completedDate": "November 22, 2025",
-          "completedBy": "Whole Team",
-          "completedMatch": "vs CMFSC Middlesbrough (Third consecutive win!)"
+          "completedDate": null
         }
       ]
     },

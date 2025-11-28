@@ -1,61 +1,66 @@
 {
   "week": {
-    "date_range": "Nov 17 - Nov 23, 2025", 
-    "theme": "Momentum Building - Two Wins and Counting!",
-    "last_updated": "2025-11-21T10:00:00-08:00"
+    "date_range": "Nov 24 - Nov 30, 2025", 
+    "theme": "Three in a Row - Let's Keep the Winning Streak Alive!",
+    "last_updated": "2025-11-28T10:00:00-08:00"
   },
   "training": {
-    "date": "2025-11-20",
+    "date": "2025-11-28",
     "day": "Thursday",
-    "time": "5:30pm - 7:00pm",
-    "location": "Town Centre Park Turf",
-    "focus": "Quick passing combinations and off-ball movement",
+    "time": "5:00pm - 6:00pm",
+    "location": "Town Centre Park",
+    "focus": "Match preparation and tactical review",
     "attendance_required": true,
-    "completed": true,
+    "completed": false,
     "sessions": [
       {
-        "date": "2025-11-20",
-        "time": "5:30pm - 7:00pm",
-        "location": "Town Centre Park Turf",
-        "focus": "Passing tempo through the 2-3-2 shape"
+        "date": "2025-11-27",
+        "day": "Wednesday",
+        "time": "5:00pm - 6:00pm",
+        "location": "Town Centre Park",
+        "focus": "Technical skills and finishing",
+        "completed": true
+      },
+      {
+        "date": "2025-11-28",
+        "day": "Thursday",
+        "time": "5:00pm - 6:00pm",
+        "location": "Town Centre Park",
+        "focus": "Match preparation and tactical review",
+        "completed": false
       }
     ],
     "last_session": {
       "attendance": 14,
       "highlights": [
-        "3v1 and 4v2 rondos to speed up decision making",
-        "Pattern play from backs through midfield into strikers",
-        "Shadow pressing to reinforce off-ball movement cues"
+        "Great energy and focus from the squad",
+        "Finishing drills paying off",
+        "Building on three-win momentum"
       ]
     },
     "upcoming_session": {
-      "date": "2025-11-21",
+      "date": "2025-11-28",
       "focus_areas": [
-        "One-touch passing under pressure",
-        "Rotations out of midfield to create overloads",
-        "Finishing after third-man runs",
-        "Away match walkthrough at Eagle Ridge"
+        "Match preparation for Nov 29",
+        "Set pieces and positioning",
+        "Building on three-win momentum",
+        "Team coordination"
       ],
-      "preparation_for": "Nov 22 away match vs CMFSC Middlesbrough"
+      "preparation_for": "Nov 29 match vs CMFSC Queens Park Rangers"
     },
-    "notes": "Thursday's session at Town Centre Park locked in the 2-3-2 shape with sharp passing combinations and constant movement off the ball."
+    "notes": "Great training sessions Wed & Thu preparing for Friday's HOME match! Let's make it FOUR wins!"
   },
   "match": {
-    "opponent": "CMFSC Middlesbrough",
-    "date": "2025-11-22",
-    "kickoff": "10:30am",
-    "location": "Eagle Ridge Park - South Field",
-    "venue_type": "away",
+    "opponent": "CMFSC Queens Park Rangers",
+    "date": "2025-11-29",
+    "kickoff": "10:15am",
+    "location": "Miller Park West",
+    "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2501742",
-    "week": "Week 12",
-    "status": "completed",
-    "preparation_focus": "Building on our second win - maintaining clinical finishing and strong team performance",
-    "result": {
-      "qpr_goals": 5,
-      "opponent_goals": 2,
-      "half_time": "TBD"
-    }
+    "match_number": "2501748",
+    "week": "Week 13",
+    "status": "upcoming",
+    "preparation_focus": "Four wins in a row! Keep the momentum, stay clinical, dominate at home"
   },
   "previous_match": {
     "opponent": "CMFSC Middlesbrough",
@@ -134,18 +139,18 @@
     }
   },
   "captains": {
-    "reveal_at": "2025-11-20T00:00:00-08:00",
+    "reveal_at": "2025-11-28T00:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
-    "training_update": "Captains will be announced at training"
+    "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2025-11-20T00:00:00-08:00",
-    "first_half": "Rhodri W",
-    "second_half": "Adam K",
+    "reveal_at": "2025-11-28T00:00:00-08:00",
+    "first_half": "Andy E",
+    "second_half": "David C",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Rhodri started in goal with a clean sheet first half, Adam made many crucial saves in the second half."
+    "rotation_note": "Andy E second turn (first was Oct 4), David C second turn (first was Sept 27). Eunjun K next in rotation."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -386,8 +391,8 @@
     ],
     "starting": [
       {
-        "name": "Adam K",
-        "jersey": "13",
+        "name": "Andy E",
+        "jersey": "4",
         "pos": "GK"
       },
       {
@@ -401,13 +406,13 @@
         "pos": "CB2"
       },
       {
-        "name": "Ethan G",
-        "jersey": "15",
+        "name": "Niko D",
+        "jersey": "6",
         "pos": "LM"
       },
       {
-        "name": "Travis C",
-        "jersey": "3",
+        "name": "Adam K",
+        "jersey": "13",
         "pos": "CM"
       },
       {
@@ -416,41 +421,9 @@
         "pos": "RM"
       },
       {
-        "name": "Minh-An D",
-        "jersey": "2",
-        "pos": "ST"
-      },
-      {
         "name": "David C",
         "jersey": "14",
-        "pos": "ST2"
-      }
-    ],
-    "rotating": [
-      {
-        "name": "Andy E",
-        "jersey": "4",
         "pos": "ST"
-      },
-      {
-        "name": "Andrew N",
-        "jersey": "5",
-        "pos": "CB"
-      },
-      {
-        "name": "Eunjun K",
-        "jersey": "16",
-        "pos": "CM"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11",
-        "pos": "CB2"
-      },
-      {
-        "name": "Niko D",
-        "jersey": "6",
-        "pos": "CM"
       },
       {
         "name": "Owen H",
@@ -458,7 +431,40 @@
         "pos": "ST2"
       }
     ],
-    "unavailable": []
+    "rotating": [
+      {
+        "name": "Travis C",
+        "jersey": "3",
+        "pos": "MF/ST"
+      },
+      {
+        "name": "Ethan G",
+        "jersey": "15",
+        "pos": "MF/ST"
+      },
+      {
+        "name": "Eunjun K",
+        "jersey": "16",
+        "pos": "CM"
+      }
+    ],
+    "unavailable": [
+      {
+        "name": "Andrew N",
+        "jersey": "5",
+        "reason": "Unavailable"
+      },
+      {
+        "name": "Henry K",
+        "jersey": "11",
+        "reason": "Unavailable"
+      },
+      {
+        "name": "Minh-An D",
+        "jersey": "2",
+        "reason": "Unavailable"
+      }
+    ]
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
@@ -554,16 +560,21 @@
         "match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)",
         "first_half": "Travis C",
         "second_half": "Owen H"
+      },
+      {
+        "match": "Nov 22 vs CMFSC Middlesbrough (THIRD WIN!)",
+        "first_half": "Rhodri W",
+        "second_half": "Adam K"
       }
     ]
   },
   "notes": {
-    "arrival": "Arrive by 10:00 AM (30 min early for warm-up)",
-    "kit": "TBD - Will be announced based on opponent kit",
-    "coach": "SECOND WIN OF THE SEASON last Saturday! Fantastic 4-2 victory over Sheffield United! Niko D converted a penalty with confidence, Adam K scored twice showing smart positioning for follow-ups, and Travis C finished beautifully from Andy E's assist. Andy showed real character - missed a penalty but bounced back to provide the crucial assist. Rafael H hit the post twice, showing we're creating quality chances. Despite wasting many opportunities, the team showed resilience and determination to secure the win. Excellent momentum building! Next match: Saturday Nov 22 at 10:30am vs CMFSC Middlesbrough at Eagle Ridge Park - South Field (AWAY). Let's make it three wins!",
-  "training_recap": "Thursday at Town Centre Park: nonstop rondos, third-man runs and off-ball triggers to prep for Middlesbrough.",
-    "match_update": "NEXT MATCH: Saturday Nov 22 at 10:30am vs CMFSC Middlesbrough, Eagle Ridge Park - South Field (AWAY). Arrive by 10:00 AM.",
-    "this_week": "Building on our SECOND WIN! Team showing real momentum with clinical finishing and strong character. Let's keep this winning streak going!",
+    "arrival": "Arrive by 9:45 AM (30 min early for warm-up)",
+    "kit": "Home kit - Blue and White hoops",
+    "coach": "THREE WINS IN A ROW! Amazing 5-2 victory at Eagle Ridge last Saturday! Travis C scored TWICE including a stunning corner kick goal, Rafael H got his FIRST GOAL, Ethan G with an insane shot, and Andy E added another. Rhodri W kept a clean sheet as first-half goalkeeper, Adam K made crucial saves in the second half. Dominant performance from Yejun K, Andrew N, Rhodri W on defense. Great training this week - Wed & Thu at Town Centre Park. Friday Nov 29 at 10:15am vs CMFSC Queens Park Rangers at Miller Park West (HOME). Andy E and David C are our goalkeepers. Starting lineup: Yejun & Rhodri defence, Niko/Adam/Rafael midfield, David & Owen strikers. Andrew, Henry, and Minh-An unavailable. Travis, Ethan, and Eunjun rotating. LET'S MAKE IT FOUR WINS!",
+    "training_recap": "Nov 27-28: Two excellent training sessions at Town Centre Park focused on match preparation, technical skills, and tactical review. Great attendance and energy!",
+    "match_update": "NEXT MATCH: Friday Nov 29 at 10:15am vs CMFSC Queens Park Rangers, Miller Park West (HOME). Arrive by 9:45 AM.",
+    "this_week": "Two solid training sessions completed! Team ready for HOME match Friday. FOUR WINS IN A ROW within reach!",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -587,6 +598,12 @@
       "⚽ Nov 15: Adam K scoring twice with smart positioning - clinical hunter!",
       "🎯 Nov 15: Rafael H hit post twice - creating quality chances",
       "🔥 Nov 15: Team resilience despite wasted chances - winning mentality!",
+      "🏆 Nov 22: THIRD WIN! 5-2 vs Middlesbrough - Travis C x2, Rafael H first goal, Ethan G, Andy E",
+      "⚽ Nov 22: Travis C stunning corner kick goal - Corner Kick Magic!",
+      "🌟 Nov 22: Rafael H BEST MATCH - first goal of the season!",
+      "🥅 Nov 22: Rhodri W clean sheet first half, Adam K crucial saves second half",
+      "🛡️ Nov 22: Dominant defense - Yejun K, Andrew N, Rhodri W excellent",
+      "🎯 Nov 22: Four different scorers - Shared Glory achievement!",
       "🏆 Oct Player of Month: Andrew N | Captain of Month: Owen H"
     ]
   },

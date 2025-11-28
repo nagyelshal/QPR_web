@@ -8,7 +8,7 @@
     "date": "2025-11-28",
     "day": "Thursday",
     "time": "5:00pm - 6:00pm",
-    "location": "Town Centre Park",
+    "location": "Riverview Park Elementary",
     "focus": "Match preparation and tactical review",
     "attendance_required": true,
     "completed": false,
@@ -25,7 +25,7 @@
         "date": "2025-11-28",
         "day": "Thursday",
         "time": "5:00pm - 6:00pm",
-        "location": "Town Centre Park",
+        "location": "Riverview Park Elementary",
         "focus": "Match preparation and tactical review",
         "completed": false
       }
@@ -46,12 +46,12 @@
         "Building on three-win momentum",
         "Team coordination"
       ],
-      "preparation_for": "Nov 29 match vs CMFSC Queens Park Rangers"
+      "preparation_for": "Nov 29 match vs RMSC U11B6D3 (Geary)"
     },
     "notes": "Great training sessions Wed & Thu preparing for Friday's HOME match! Let's make it FOUR wins!"
   },
   "match": {
-    "opponent": "CMFSC Queens Park Rangers",
+    "opponent": "RMSC U11B6D3 (Geary)",
     "date": "2025-11-29",
     "kickoff": "10:15am",
     "location": "Miller Park West",
@@ -469,11 +469,7 @@
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
     "player_of_month": {
-      "name": "Andrew N",
-      "month": "October"
-    },
-    "captain_of_month": {
-      "name": "Owen H",
+      "name": "Niko D",
       "month": "September"
     }
   },
@@ -571,9 +567,9 @@
   "notes": {
     "arrival": "Arrive by 9:45 AM (30 min early for warm-up)",
     "kit": "Home kit - Blue and White hoops",
-    "coach": "THREE WINS IN A ROW! Amazing 5-2 victory at Eagle Ridge last Saturday! Travis C scored TWICE including a stunning corner kick goal, Rafael H got his FIRST GOAL, Ethan G with an insane shot, and Andy E added another. Rhodri W kept a clean sheet as first-half goalkeeper, Adam K made crucial saves in the second half. Dominant performance from Yejun K, Andrew N, Rhodri W on defense. Great training this week - Wed & Thu at Town Centre Park. Friday Nov 29 at 10:15am vs CMFSC Queens Park Rangers at Miller Park West (HOME). Andy E and David C are our goalkeepers. Starting lineup: Yejun & Rhodri defence, Niko/Adam/Rafael midfield, David & Owen strikers. Andrew, Henry, and Minh-An unavailable. Travis, Ethan, and Eunjun rotating. LET'S MAKE IT FOUR WINS!",
-    "training_recap": "Nov 27-28: Two excellent training sessions at Town Centre Park focused on match preparation, technical skills, and tactical review. Great attendance and energy!",
-    "match_update": "NEXT MATCH: Friday Nov 29 at 10:15am vs CMFSC Queens Park Rangers, Miller Park West (HOME). Arrive by 9:45 AM.",
+    "coach": "THREE WINS IN A ROW! Amazing 5-2 victory at Eagle Ridge last Saturday! Travis C scored TWICE including a stunning corner kick goal, Rafael H got his FIRST GOAL, Ethan G with an insane shot, and Andy E added another. Rhodri W kept a clean sheet as first-half goalkeeper, Adam K made crucial saves in the second half. Dominant performance from Yejun K, Andrew N, Rhodri W on defense. Great training this week - Wed at Town Centre Park & Thu at Riverview Park Elementary. Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary) at Miller Park West (HOME). Andy E and David C are our goalkeepers. Starting lineup: Yejun & Rhodri defence, Niko/Adam/Rafael midfield, David & Owen strikers. Andrew, Henry, and Minh-An unavailable. Travis, Ethan, and Eunjun rotating. LET'S MAKE IT FOUR WINS!",
+    "training_recap": "Nov 27-28: Two excellent training sessions - Wed at Town Centre Park, Thu at Riverview Park Elementary - focused on match preparation, technical skills, and tactical review. Great attendance and energy!",
+    "match_update": "NEXT MATCH: Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary), Miller Park West (HOME). Arrive by 9:45 AM.",
     "this_week": "Two solid training sessions completed! Team ready for HOME match Friday. FOUR WINS IN A ROW within reach!",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
@@ -604,7 +600,7 @@
       "🥅 Nov 22: Rhodri W clean sheet first half, Adam K crucial saves second half",
       "🛡️ Nov 22: Dominant defense - Yejun K, Andrew N, Rhodri W excellent",
       "🎯 Nov 22: Four different scorers - Shared Glory achievement!",
-      "🏆 Oct Player of Month: Andrew N | Captain of Month: Owen H"
+      "🏆 Oct Player of Month: Andrew N"
     ]
   },
   "status": "winning-streak"

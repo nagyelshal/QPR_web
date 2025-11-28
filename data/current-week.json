@@ -68,7 +68,7 @@
       "opponent_goals": 2,
       "half_time": "TBD",
       "goal_scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
-      "assists": ["Owen H", "Rafael H", "Niko D", "Ethan G"],
+      "assists": [],
       "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"]
     },
     "achievements": [
@@ -552,8 +552,8 @@
       },
       {
         "match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)",
-        "first_half": "TBD",
-        "second_half": "TBD"
+        "first_half": "Travis C",
+        "second_half": "Owen H"
       }
     ]
   },

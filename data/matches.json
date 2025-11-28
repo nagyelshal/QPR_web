@@ -866,8 +866,8 @@
         "second_half": "TBD"
       },
       "goalkeepers": {
-        "first_half": "TBD",
-        "second_half": "TBD"
+        "first_half": "Travis C",
+        "second_half": "Owen H"
       },
       "scorers": ["Niko D", "Adam K", "Adam K", "Travis C"],
       "goal_details": [
@@ -932,7 +932,7 @@
         "Clean Hands (Rhodri - 1st half clean sheet)"
       ],
       "scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
-      "assists": ["Owen H", "Rafael H", "Niko D", "Ethan G"],
+      "assists": [],
       "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"],
       "absent_players": [],
       "formation": "2-3-2",

@@ -62,82 +62,6 @@
     "status": "upcoming",
     "preparation_focus": "Four wins in a row! Keep the momentum, stay clinical, dominate at home"
   },
-  "previous_match": {
-    "opponent": "CMFSC Middlesbrough",
-    "date": "2025-11-22",
-    "location": "Eagle Ridge Park - South Field",
-    "venue_type": "away",
-    "status": "completed",
-    "result": {
-      "qpr_goals": 5,
-      "opponent_goals": 2,
-      "half_time": "TBD",
-      "goal_scorers": ["Travis C", "Rafael H", "Travis C", "Andy E", "Ethan G"],
-      "assists": [],
-      "defensive_stars": ["Yejun K", "Andrew N", "Rhodri W"]
-    },
-    "achievements": [
-      "Third Win of the Season!",
-      "High Five! (5 goals in a match)",
-      "Shared Glory (4 different scorers)",
-      "Corner Kick Magic (Travis scored direct from corner)",
-      "Super Save (both goalkeepers)",
-      "Clean Hands (Rhodri 1st half)"
-    ],
-    "match_report": "THIRD WIN OF THE SEASON! Dominant 5-2 victory away at Eagle Ridge Park. The team was firing from the start with confidence and momentum. Travis C scored TWICE including a stunning direct corner kick goal and a beautiful finish from a difficult angle. Rafael H had his BEST MATCH of the season scoring his FIRST GOAL. Ethan G netted an insane shot, and Andy E added a solid finish. Rhodri W kept a clean sheet in the first half as goalkeeper, while Adam K made many crucial saves in the second half. Impressive defensive display from Yejun K, Andrew N, and Rhodri W. Niko D and Rafael H controlled midfield possession brilliantly. Minh-An D, Owen H, and David C all had excellent performances, with David nearly scoring with beautiful shots. Building incredible winning momentum!",
-    "lineup_used": {
-      "starting": [
-        {
-          "name": "Rhodri W",
-          "pos": "GK",
-          "jersey": "10"
-        },
-        {
-          "name": "Yejun K",
-          "pos": "CB",
-          "jersey": "7"
-        },
-        {
-          "name": "Andrew N",
-          "pos": "CB2",
-          "jersey": "5"
-        },
-        {
-          "name": "Ethan G",
-          "pos": "LM",
-          "jersey": "15"
-        },
-        {
-          "name": "Niko D",
-          "pos": "CM",
-          "jersey": "6"
-        },
-        {
-          "name": "Rafael H",
-          "pos": "RM",
-          "jersey": "12"
-        },
-        {
-          "name": "Minh-An D",
-          "pos": "ST",
-          "jersey": "2"
-        },
-        {
-          "name": "David C",
-          "pos": "ST2",
-          "jersey": "14"
-        }
-      ],
-      "captains": {
-        "first_half": "TBD",
-        "second_half": "TBD"
-      },
-      "goalkeepers": {
-        "first_half": "Rhodri W",
-        "second_half": "Adam K"
-      }
-    }
-  },
   "captains": {
     "reveal_at": "2025-11-28T00:00:00-08:00",
     "first_half": "TBD",
@@ -566,10 +490,10 @@
   },
   "notes": {
     "arrival": "Arrive by 9:45 AM (30 min early for warm-up)",
-    "kit": "Home kit - Blue and White hoops",
-    "coach": "THREE WINS IN A ROW! Amazing 5-2 victory at Eagle Ridge last Saturday! Travis C scored TWICE including a stunning corner kick goal, Rafael H got his FIRST GOAL, Ethan G with an insane shot, and Andy E added another. Rhodri W kept a clean sheet as first-half goalkeeper, Adam K made crucial saves in the second half. Dominant performance from Yejun K, Andrew N, Rhodri W on defense. Great training this week - Wed at Town Centre Park & Thu at Riverview Park Elementary. Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary) at Miller Park West (HOME). Andy E and David C are our goalkeepers. Starting lineup: Yejun & Rhodri defence, Niko/Adam/Rafael midfield, David & Owen strikers. Andrew, Henry, and Minh-An unavailable. Travis, Ethan, and Eunjun rotating. LET'S MAKE IT FOUR WINS!",
+    "kit": "Away kit - White",
+    "coach": "THREE WINS IN A ROW! Team showing incredible momentum. Great training this week - Wed at Town Centre Park & Thu at Riverview Park Elementary. Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary) at Miller Park West (HOME). Andy E and David C are our goalkeepers. Starting lineup: Yejun & Rhodri defence, Niko/Adam/Rafael midfield, David & Owen strikers. Andrew, Henry, and Minh-An unavailable. Travis, Ethan, and Eunjun rotating. LET'S MAKE IT FOUR WINS!",
     "training_recap": "Nov 27-28: Two excellent training sessions - Wed at Town Centre Park, Thu at Riverview Park Elementary - focused on match preparation, technical skills, and tactical review. Great attendance and energy!",
-    "match_update": "NEXT MATCH: Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary), Miller Park West (HOME). Arrive by 9:45 AM.",
+    "match_update": "NEXT MATCH: Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary), Miller Park West (HOME). Arrive by 9:45 AM. Wear WHITE kit.",
     "this_week": "Two solid training sessions completed! Team ready for HOME match Friday. FOUR WINS IN A ROW within reach!",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",

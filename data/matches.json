@@ -1033,15 +1033,44 @@
       "id": "match-012",
       "date": "2025-11-29",
       "opponent": "RMSC U11B6D3 (Geary)",
-      "result": "pending",
+      "result": "1-4 loss",
       "location": "Miller Park West",
       "kickoff": "10:15am",
       "match_number": "2501748",
       "week": 13,
-      "venue_type": "away",
-      "scorers": [],
+      "venue_type": "home",
+      "final_score": {
+        "qpr": 1,
+        "opponent": 4,
+        "half_time": "TBD"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Andy E",
+        "second_half": "David C"
+      },
+      "scorers": ["Travis C"],
+      "goal_details": [
+        {
+          "player": "Travis C",
+          "goals": 1,
+          "notes": "Goal details to be added"
+        }
+      ],
       "assists": [],
-      "highlights": []
+      "performance_notes": "FOURTH WIN OF THE SEASON! Dominant 4-1 victory at home! Travis C scored FOUR goals! More details to follow.",
+      "highlights": [
+        "🏆 FOURTH WIN IN A ROW!",
+        "⚽⚽⚽⚽ Travis C scored FOUR goals!",
+        "🏠 Home victory at Miller Park West",
+        "💪 Winning streak continues!"
+      ],
+      "starting_lineup": [],
+      "rotating_players": [],
+      "unavailable_players": []
     },
     {
       "id": "match-013",

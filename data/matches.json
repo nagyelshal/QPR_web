@@ -1042,7 +1042,7 @@
       "final_score": {
         "qpr": 1,
         "opponent": 4,
-        "half_time": "TBD"
+        "half_time": "0-0"
       },
       "captains": {
         "first_half": "TBD",
@@ -1057,16 +1057,23 @@
         {
           "player": "Travis C",
           "goals": 1,
-          "notes": "Goal details to be added"
+          "notes": "Beautiful finish from Owen H's cross"
         }
       ],
-      "assists": [],
-      "performance_notes": "FOURTH WIN OF THE SEASON! Dominant 4-1 victory at home! Travis C scored FOUR goals! More details to follow.",
+      "assists": ["Owen H"],
+      "performance_notes": "Hard-fought match with excellent performances despite the 1-4 loss. Andy E kept a clean sheet in the first half with outstanding defensive support from Yejun K and Rafael H - both had great games controlling the back line. Very tight, competitive first half ended 0-0. Second half saw opponent take 2-0 lead, but team created many chances and nearly completed first comeback when Travis C scored from Owen H's beautiful cross to make it 1-2. Pushed hard for equalizer but opponent scored controversial offside goal. Fourth goal came on counter-attack after entire team pushed forward for last-minute equalizer attempt. Team showed great character, created quality chances, and competed strongly throughout. Positive performance to build on.",
       "highlights": [
-        "🏆 FOURTH WIN IN A ROW!",
-        "⚽⚽⚽⚽ Travis C scored FOUR goals!",
-        "🏠 Home victory at Miller Park West",
-        "💪 Winning streak continues!"
+        "🛡️ Andy E clean sheet first half - excellent goalkeeping",
+        "⭐ Yejun K great defensive game - solid at the back",
+        "⭐ Rafael H great defensive game - controlled back line", 
+        "⚽ Travis C goal from Owen H's beautiful cross",
+        "🎯 Owen H beautiful cross assist for Travis",
+        "💪 Team created many chances - unlucky not to score more",
+        "🔥 Nearly completed first comeback of season",
+        "⚔️ Competitive first half - 0-0 at break",
+        "🎪 Entire team pushed forward in final moments",
+        "💙 Great character shown despite result",
+        "😤 Controversial offside goal changed momentum"
       ],
       "starting_lineup": [],
       "rotating_players": [],

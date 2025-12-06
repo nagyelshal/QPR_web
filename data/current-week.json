@@ -1,80 +1,59 @@
 {
   "week": {
-    "date_range": "Nov 24 - Nov 30, 2025", 
-    "theme": "Three in a Row - Let's Keep the Winning Streak Alive!",
-    "last_updated": "2025-11-28T10:00:00-08:00"
+    "date_range": "Dec 1 - Dec 7, 2025", 
+    "theme": "Bounce Back Strong - Learn and Grow Together",
+    "last_updated": "2025-12-05T18:00:00-08:00"
   },
   "training": {
-    "date": "2025-11-28",
-    "day": "Thursday",
-    "time": "5:00pm - 6:00pm",
-    "location": "Riverview Park Elementary",
-    "focus": "Match preparation and tactical review",
-    "attendance_required": true,
+    "date": null,
+    "day": null,
+    "time": null,
+    "location": null,
+    "focus": null,
+    "attendance_required": false,
     "completed": false,
-    "sessions": [
-      {
-        "date": "2025-11-27",
-        "day": "Wednesday",
-        "time": "5:00pm - 6:00pm",
-        "location": "Town Centre Park",
-        "focus": "Technical skills and finishing",
-        "completed": true
-      },
-      {
-        "date": "2025-11-28",
-        "day": "Thursday",
-        "time": "5:00pm - 6:00pm",
-        "location": "Riverview Park Elementary",
-        "focus": "Match preparation and tactical review",
-        "completed": false
-      }
-    ],
+    "sessions": [],
     "last_session": {
+      "date": "2025-11-28",
       "attendance": 14,
       "highlights": [
-        "Great energy and focus from the squad",
-        "Finishing drills paying off",
-        "Building on three-win momentum"
+        "Good preparation before Nov 29 match",
+        "Positive energy from the squad",
+        "Focus on team coordination"
       ]
     },
     "upcoming_session": {
-      "date": "2025-11-28",
-      "focus_areas": [
-        "Match preparation for Nov 29",
-        "Set pieces and positioning",
-        "Building on three-win momentum",
-        "Team coordination"
-      ],
-      "preparation_for": "Nov 29 match vs RMSC U11B6D3 (Geary)"
+      "date": null,
+      "focus_areas": [],
+      "preparation_for": "Dec 6 match vs RMSC U11B10D3 Blue Lightning (Petrik)"
     },
-    "notes": "Great training sessions Wed & Thu preparing for Friday's HOME match! Let's make it FOUR wins!"
+    "notes": "Check with coach for any training sessions this week before Friday's AWAY match!"
   },
   "match": {
-    "opponent": "RMSC U11B6D3 (Geary)",
-    "date": "2025-11-29",
-    "kickoff": "10:15am",
-    "location": "Miller Park West",
-    "venue_type": "home",
+    "opponent": "RMSC U11B10D3 Blue Lightning (Petrik)",
+    "date": "2025-12-06",
+    "kickoff": "10:30am",
+    "location": "Pitt Meadows Secondary School - Field 1 East Turf",
+    "venue_type": "away",
     "formation": "2-3-2",
-    "match_number": "2501748",
-    "week": "Week 13",
+    "match_number": "2501753",
+    "week": "Week 14",
     "status": "upcoming",
-    "preparation_focus": "Four wins in a row! Keep the momentum, stay clinical, dominate at home"
+    "preparation_focus": "Bounce back strong - build on the positives from last match. Great chances created, excellent defensive performances. Time to convert opportunities!"
   },
   "captains": {
-    "reveal_at": "2025-11-28T00:00:00-08:00",
+    "reveal_at": "2025-12-05T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2025-11-28T00:00:00-08:00",
-    "first_half": "Andy E",
-    "second_half": "David C",
+    "reveal_at": "2025-12-05T18:00:00-08:00",
+    "first_half": "Eunjun K",
+    "second_half": "Yejun K",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Andy E second turn (first was Oct 4), David C second turn (first was Sept 27). Eunjun K next in rotation."
+    "rotation_note": "Eunjun K first turn (only player who hasn't had a goalkeeper turn yet!), Yejun K second turn (first was Sept 20). Maintaining fair rotation across the squad."
   },
   "positions": {
     "reveal_at": "2025-09-23T00:00:00-07:00",
@@ -313,76 +292,9 @@
         "jersey": "16"
       }
     ],
-    "starting": [
-      {
-        "name": "Andy E",
-        "jersey": "4",
-        "pos": "GK"
-      },
-      {
-        "name": "Yejun K",
-        "jersey": "7",
-        "pos": "CB"
-      },
-      {
-        "name": "Rhodri W",
-        "jersey": "10",
-        "pos": "CB2"
-      },
-      {
-        "name": "Niko D",
-        "jersey": "6",
-        "pos": "LM"
-      },
-      {
-        "name": "Adam K",
-        "jersey": "13",
-        "pos": "CM"
-      },
-      {
-        "name": "Rafael H",
-        "jersey": "12",
-        "pos": "RM"
-      },
-      {
-        "name": "David C",
-        "jersey": "14",
-        "pos": "ST"
-      },
-      {
-        "name": "Owen H",
-        "jersey": "9",
-        "pos": "ST2"
-      }
-    ],
-    "rotating": [
-      {
-        "name": "Andrew N",
-        "jersey": "5",
-        "pos": "CB"
-      },
-      {
-        "name": "Travis C",
-        "jersey": "3",
-        "pos": "MF/ST"
-      },
-      {
-        "name": "Ethan G",
-        "jersey": "15",
-        "pos": "MF/ST"
-      },
-      {
-        "name": "Eunjun K",
-        "jersey": "16",
-        "pos": "CM"
-      }
-    ],
+    "starting": [],
+    "rotating": [],
     "unavailable": [
-      {
-        "name": "Henry K",
-        "jersey": "11",
-        "reason": "Unavailable"
-      },
       {
         "name": "Minh-An D",
         "jersey": "2",
@@ -485,16 +397,26 @@
         "match": "Nov 22 vs CMFSC Middlesbrough (THIRD WIN!)",
         "first_half": "Rhodri W",
         "second_half": "Adam K"
+      },
+      {
+        "match": "Nov 29 vs RMSC U11B6D3 (Geary)",
+        "first_half": "Andy E",
+        "second_half": "David C"
+      },
+      {
+        "match": "Dec 6 vs RMSC U11B10D3 Blue Lightning (Petrik)",
+        "first_half": "Eunjun K",
+        "second_half": "Yejun K"
       }
     ]
   },
   "notes": {
-    "arrival": "Arrive by 9:45 AM (30 min early for warm-up)",
-    "kit": "Away kit - White",
-    "coach": "THREE WINS IN A ROW! Team showing incredible momentum. Great training this week - Wed at Town Centre Park & Thu at Riverview Park Elementary. Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary) at Miller Park West (HOME). Andy E and David C are our goalkeepers. Starting lineup: Yejun & Rhodri defence, Niko/Adam/Rafael midfield, David & Owen strikers. Henry and Minh-An unavailable. Andrew, Travis, Ethan, and Eunjun rotating. LET'S MAKE IT FOUR WINS!",
-    "training_recap": "Nov 27-28: Two excellent training sessions - Wed at Town Centre Park, Thu at Riverview Park Elementary - focused on match preparation, technical skills, and tactical review. Great attendance and energy!",
-    "match_update": "NEXT MATCH: Friday Nov 29 at 10:15am vs RMSC U11B6D3 (Geary), Miller Park West (HOME). Arrive by 9:45 AM. Wear WHITE kit.",
-    "this_week": "Two solid training sessions completed! Team ready for HOME match Friday. FOUR WINS IN A ROW within reach!",
+    "arrival": "Arrive by 10:00 AM (30 min early for warm-up)",
+    "kit": "Home kit - Blue/White hoops",
+    "coach": "Great character shown against tough opponent last Friday. Team created quality chances and competed strongly throughout - excellent performances from Yejun K, Rafael H, and Andy E. This Friday Dec 6 at 10:30am vs RMSC U11B10D3 Blue Lightning (Petrik) at Pitt Meadows Secondary School Field 1 East Turf (AWAY). Eunjun K gets his FIRST goalkeeper turn (paired with Yejun K)! 13 players available - only Minh-An unavailable. Let's bounce back strong!",
+    "training_recap": "Nov 27-28: Two excellent training sessions completed before last match - focused on match preparation and technical skills.",
+    "match_update": "NEXT MATCH: Friday Dec 6 at 10:30am vs RMSC U11B10D3 Blue Lightning (Petrik), Pitt Meadows Secondary School - Field 1 East Turf (AWAY). Arrive by 10:00 AM. Wear HOME kit (Blue/White hoops).",
+    "this_week": "Ready to bounce back! Team showed great character last match. Eunjun K gets his first goalkeeper turn. 13 players available - let's build on the positives!",
     "achievements": [
       "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
       "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",

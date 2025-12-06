@@ -15,11 +15,11 @@ The team delivered an **exceptional performance** on Saturday, November 22nd, se
 
 A dominant away performance that saw the team firing from the start with confidence and momentum. Four different goal scorers, clinical assists, and solid defensive work combined for a thoroughly deserved victory.
 
-## Goal Scorers & Assists ⚽
+## Goal Scorers ⚽
 
 ### Travis C - Two Spectacular Goals 🎯⚽⚽
 Travis scored **TWICE** with two very different but equally impressive finishes:
-- **Direct from corner kick** - Stunning set piece goal assisted by **Owen H**'s brilliant delivery!
+- **Direct from corner kick** - Stunning set piece goal!
 - **Beautiful finish from difficult angle** - Clinical strike showing composure under pressure
 
 Travis now leads the team with **6 goals** on the season!
@@ -28,7 +28,7 @@ Travis now leads the team with **6 goals** on the season!
 Rafael had his **BEST MATCH of the season**, capping it off with his **first goal**! 
 - Scored with excellent positioning and finish
 - Controlled midfield possession brilliantly alongside Niko D
-- Provided an assist for one of the goals
+- Great all-around performance
 
 A breakthrough performance we've been waiting for!
 
@@ -41,15 +41,11 @@ Andy added a **solid goal** to the tally, continuing his scoring form (now with 
 Ethan scored with an **absolutely insane shot** that showcased his technical ability!
 - Spectacular strike that left everyone amazed
 - Now has **4 goals** on the season
-- Contributed an assist as well
+- Great overall contribution to the attack
 
-## Assists - Brilliant Playmaking 🎯
+## Playmaking - Brilliant Teamwork 🎯
 
-The creativity and teamwork on display was exceptional:
-- **Owen H** - Delivered the corner kick for Travis C's first goal
-- **Rafael H** - Set up a goal with smart passing
-- **Niko D** - Assisted Travis C's second goal with excellent build-up play
-- **Ethan G** - Provided an assist in addition to his goal
+Owen H, Rafael H, Niko D, and Ethan G all contributed with excellent assists and creative play throughout the match. The team movement and passing was outstanding!
 
 ## Defensive Excellence 🛡️
 

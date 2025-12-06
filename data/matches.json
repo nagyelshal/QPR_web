@@ -1083,15 +1083,66 @@
       "id": "match-013",
       "date": "2025-12-06",
       "opponent": "RMSC U11B10D3 Blue Lightning (Petrik)",
-      "result": "pending",
+      "result": "6-2 win",
       "location": "Pitt Meadows Secondary School - Field 1 East Turf",
       "kickoff": "10:30am",
       "match_number": "2501753",
       "week": 14,
       "venue_type": "away",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "final_score": {
+        "qpr": 6,
+        "opponent": 2,
+        "half_time": "4-1 QPR"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Eunjun K",
+        "second_half": "Yejun K"
+      },
+      "scorers": ["Travis C", "Owen H", "Rafael H", "Owen H", "Travis C", "Travis C"],
+      "goal_details": [
+        {
+          "player": "Travis C",
+          "goals": 3,
+          "notes": "Hat-trick! First goal early, second following up on keeper save, third from Rhodri corner with beautiful finish"
+        },
+        {
+          "player": "Owen H",
+          "goals": 2,
+          "notes": "First two goals of the season! Breakthrough performance after hitting bars and posts all season"
+        },
+        {
+          "player": "Rafael H",
+          "goals": 1,
+          "notes": "Third goal in first half"
+        }
+      ],
+      "assists": ["Rhodri W"],
+      "formation": "2-3-2",
+      "performance_notes": "Dominant 6-2 victory with complete control from start to finish! Travis C hat-trick led the attack with brilliant finishing including a corner goal. Owen H finally broke through with his first TWO goals of the season after hitting posts and bars all year - breakthrough moment! Rafael H continued his scoring form with the third goal. Team controlled the match throughout both halves. First half ended 4-1 with exceptional performances from Adam K, Yejun K, and Rafael H. Second half saw Travis add the fifth goal with great awareness, following up on an incredible save from their keeper. Opponent scored to make it 5-2, then Travis completed his hat-trick from a Rhodri W corner with a beautiful finish. Final seconds featured an INSANE Buffon-level save from Yejun K. Perfect way to end the first part of the season! Team celebrated with hot chocolate and photos.",
+      "highlights": [
+        "🎯 Travis C hat-trick - clinical finishing throughout!",
+        "⚽ Owen H FIRST TWO GOALS of the season - breakthrough!",
+        "🎉 Owen H finally scored after hitting bars/posts all season",
+        "⚽ Rafael H third consecutive match with a goal",
+        "🏆 Dominant 6-2 win - controlled start to finish",
+        "⭐ Adam K exceptional performance in midfield",
+        "⭐ Yejun K great game - including Buffon-level save at end!",
+        "⭐ Rafael H standout performance both goals and assists",
+        "🥅 Eunjun K first goalkeeper turn - solid debut",
+        "💪 Travis following up on incredible keeper save",
+        "🎪 Rhodri W corner assist for Travis hat-trick goal",
+        "🛡️ Yejun K insane final-second save - like Buffon!",
+        "☕ Celebrated first half of season with hot chocolate and photos",
+        "🔥 Team controlled the match from start to finish",
+        "🏆 FOURTH WIN of the season!"
+      ],
+      "starting_lineup": [],
+      "rotating_players": [],
+      "unavailable_players": []
     }
   ],
   "celebrations": {

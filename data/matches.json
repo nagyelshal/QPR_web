@@ -1099,7 +1099,7 @@
         "second_half": "TBD"
       },
       "goalkeepers": {
-        "first_half": "Eunjun K",
+        "first_half": "Ethan G",
         "second_half": "Yejun K"
       },
       "scorers": ["Travis C", "Owen H", "Rafael H", "Owen H", "Travis C", "Travis C"],
@@ -1120,19 +1120,20 @@
           "notes": "Third goal in first half"
         }
       ],
-      "assists": ["Rhodri W"],
+      "assists": ["Rhodri W", "Andy E"],
       "formation": "2-3-2",
-      "performance_notes": "Dominant 6-2 victory with complete control from start to finish! Travis C hat-trick led the attack with brilliant finishing including a corner goal. Owen H finally broke through with his first TWO goals of the season after hitting posts and bars all year - breakthrough moment! Rafael H continued his scoring form with the third goal. Team controlled the match throughout both halves. First half ended 4-1 with exceptional performances from Adam K, Yejun K, and Rafael H. Second half saw Travis add the fifth goal with great awareness, following up on an incredible save from their keeper. Opponent scored to make it 5-2, then Travis completed his hat-trick from a Rhodri W corner with a beautiful finish. Final seconds featured an INSANE Buffon-level save from Yejun K. Perfect way to end the first part of the season! Team celebrated with hot chocolate and photos.",
+      "performance_notes": "Dominant 6-2 victory with complete control from start to finish despite missing key players! Travis C hat-trick led the attack with brilliant finishing including a corner goal. Owen H finally broke through with his first TWO goals of the season after hitting posts and bars all year - breakthrough moment with Andy E assisting the second goal and adding to his many assists this season! Rafael H scored his second goal in last three matches with an amazing performance. Team controlled the match throughout both halves. First half ended 4-1 with exceptional performances from Adam K, Yejun K, Rafael H, and Ethan G who made many great saves as goalkeeper. Second half saw Travis add the fifth goal with great awareness, following up on an incredible save from their keeper. Opponent scored to make it 5-2, then Travis completed his hat-trick from a Rhodri W corner with a beautiful finish. Final seconds featured an INSANE Buffon-level save from Yejun K. Team showed great depth dealing with absences (Eunjun K fever, Minh-An D travelling) and Niko D's early exit due to muscle injury after just 5 minutes. Perfect way to end the first part of the season! Team celebrated with hot chocolate and photos.",
       "highlights": [
         "🎯 Travis C hat-trick - clinical finishing throughout!",
         "⚽ Owen H FIRST TWO GOALS of the season - breakthrough!",
         "🎉 Owen H finally scored after hitting bars/posts all season",
-        "⚽ Rafael H third consecutive match with a goal",
+        "⚽ Rafael H goal - second in last 3 games with amazing performance",
         "🏆 Dominant 6-2 win - controlled start to finish",
         "⭐ Adam K exceptional performance in midfield",
         "⭐ Yejun K great game - including Buffon-level save at end!",
-        "⭐ Rafael H standout performance both goals and assists",
-        "🥅 Eunjun K first goalkeeper turn - solid debut",
+        "⭐ Rafael H amazing overall performance",
+        "🥅 Ethan G many great saves as first half goalkeeper",
+        "🤝 Andy E assist for Owen H's second goal - many assists this season!",
         "💪 Travis following up on incredible keeper save",
         "🎪 Rhodri W corner assist for Travis hat-trick goal",
         "🛡️ Yejun K insane final-second save - like Buffon!",
@@ -1142,7 +1143,23 @@
       ],
       "starting_lineup": [],
       "rotating_players": [],
-      "unavailable_players": []
+      "unavailable_players": [
+        {
+          "name": "Eunjun K",
+          "jersey": "16",
+          "reason": "Fever"
+        },
+        {
+          "name": "Minh-An D",
+          "jersey": "2",
+          "reason": "Travelling"
+        },
+        {
+          "name": "Niko D",
+          "jersey": "6",
+          "reason": "Muscle injury (played only 5 minutes)"
+        }
+      ]
     }
   ],
   "celebrations": {

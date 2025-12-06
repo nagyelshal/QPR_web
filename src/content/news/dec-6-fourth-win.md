@@ -11,7 +11,7 @@ QPR Metro-Ford bounced back in spectacular fashion with a commanding 6-2 away vi
 
 ### Travis C Hat-Trick Masterclass
 
-**Travis C** delivered another stunning hat-trick performance, bringing his season total to an impressive **7 goals**:
+**Travis C** delivered another stunning hat-trick performance, bringing his season total to an impressive **10 goals**:
 
 - **First Goal:** Early strike to set the tone
 - **Second Goal:** Great awareness following up on an incredible save from their keeper on a crazy shot
@@ -21,15 +21,15 @@ Travis continues to be clinical in front of goal and a constant threat to oppone
 
 ### Owen H's Breakthrough Moment! 🎉
 
-After hitting bars and posts all season long, **Owen H** finally got his reward with **TWO GOALS** - his first of the season! The breakthrough moment the team has been waiting for. Owen's persistence and quality play has been evident all year, and today everything clicked perfectly. His second goal sealed an incredible personal performance.
+After hitting bars and posts all season long, **Owen H** finally got his reward with **TWO GOALS** - his first of the season! The breakthrough moment the team has been waiting for. Owen's persistence and quality play has been evident all year, and today everything clicked perfectly. His second goal, assisted by **Andy E**, sealed an incredible personal performance.
 
-### Rafael H On Fire
+### Rafael H Amazing Performance
 
-**Rafael H** scored his **third consecutive match with a goal**, netting the third in the first half. Rafael has been in sensational form recently and is becoming a consistent scoring threat for the team.
+**Rafael H** scored his **second goal in the last 3 games**, netting the third in the first half with an amazing overall performance. Rafael has been in sensational form recently and is becoming a consistent scoring threat for the team.
 
 ### First Half Dominance
 
-The first half was all QPR, ending 4-1 with exceptional performances from **Adam K, Yejun K, and Rafael H**. The team created chances at will and converted them with clinical precision. Despite conceding one goal after a good try from goalkeeper **Eunjun K** to block it, the team never lost control.
+The first half was all QPR, ending 4-1 with exceptional performances from **Adam K, Yejun K, Rafael H, and goalkeeper Ethan G**. The team created chances at will and converted them with clinical precision. **Ethan G made many great saves** in the first half, showcasing his ability between the posts. Despite conceding one goal after a good try from Ethan to block it, the team never lost control.
 
 ### Second Half Excellence
 
@@ -39,9 +39,14 @@ The second half continued the dominance with Travis adding the fifth goal. The o
 
 In the final seconds of the match, **Yejun K** produced an **INSANE save** - something straight out of Buffon's highlight reel! The perfect exclamation point on a dominant team performance.
 
-### Eunjun K's Goalkeeper Debut
+### Team Depth Shines Through
 
-**Eunjun K** made his first appearance as goalkeeper in the first half, completing the rotation that ensures every player gets experience in goal. A solid debut performance!
+The team showed incredible depth and resilience despite missing key players:
+- **Eunjun K** was unable to play due to fever
+- **Minh-An D** was travelling and unavailable
+- **Niko D** had to leave after just 5 minutes due to a muscle injury
+
+Despite these challenges, the team never missed a beat and dominated from start to finish!
 
 ### Celebrating Together ☕
 
@@ -51,22 +56,28 @@ After the match, the team celebrated the end of the first part of the season wit
 
 **Final Score:** QPR 6-2 Blue Lightning  
 **Half-time:** 4-1 QPR  
-**Goalkeepers:** Eunjun K (1st half debut), Yejun K (2nd half - Buffon save!)  
+**Goalkeepers:** Ethan G (1st half - many great saves!), Yejun K (2nd half - Buffon save!)  
 
 **Goal Scorers:**
-- Travis C ⚽⚽⚽ (Hat-trick! Season total: 7)
+- Travis C ⚽⚽⚽ (Hat-trick! Season total: 10)
 - Owen H ⚽⚽ (FIRST TWO GOALS!)
-- Rafael H ⚽ (Third consecutive match scoring)
+- Rafael H ⚽ (Second goal in last 3 games - amazing performance)
 
-**Assists:** Rhodri W
+**Assists:** Rhodri W, Andy E (adding to his many assists this season)
+
+**Unavailable:**
+- Eunjun K (Fever)
+- Minh-An D (Travelling)
+- Niko D (Muscle injury - played only 5 minutes)
 
 **Star Performers:**
 - ⭐ Travis C - Clinical hat-trick
 - ⭐ Owen H - Breakthrough with first two goals!
-- ⭐ Rafael H - Goal and exceptional overall performance
+- ⭐ Rafael H - Goal and amazing overall performance
 - ⭐ Adam K - Exceptional midfield performance
 - ⭐ Yejun K - Great game including Buffon-level save
-- ⭐ Eunjun K - Solid goalkeeper debut
+- ⭐ Ethan G - Many great saves as first half goalkeeper
+- ⭐ Andy E - Great assist adding to many this season
 - ⭐ Rhodri W - Corner assist
 
 ## Looking Ahead

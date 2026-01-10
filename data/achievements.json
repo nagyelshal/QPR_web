@@ -24,6 +24,14 @@
         "icon": "🔥",
         "rarity": "rare",
         "points": 30
+      },
+      {
+        "id": "free-kick-specialist",
+        "name": "Free Kick Specialist",
+        "description": "Score a goal from a free kick",
+        "icon": "🎯",
+        "rarity": "epic",
+        "points": 40
       }
     ],
     "defending": [
@@ -160,6 +168,12 @@
         "earned_date": "2025-09-14",
         "match": "vs CMFSC Millwall",
         "details": "First assist of the season on Niko D's opening goal"
+      },
+      {
+        "achievement_id": "free-kick-specialist",
+        "earned_date": "2025-09-27",
+        "match": "vs CMFSC Swansea",
+        "details": "Beautiful free kick goal - one of 2 goals scored in the match"
       },
       {
         "achievement_id": "two-half-heroes",

@@ -41,6 +41,23 @@ const totalGoals = matches.reduce((sum, match) => {
   if (match.scorers) return sum + match.scorers.length;
   return sum;
 }, 0);
+
+// Calculate goalkeeper appearances
+const goalkeeperStats = new Map();
+matches.forEach(match => {
+  if (match.goalkeepers) {
+    if (match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
+      goalkeeperStats.set(match.goalkeepers.first_half, (goalkeeperStats.get(match.goalkeepers.first_half) || 0) + 1);
+    }
+    if (match.goalkeepers.second_half && match.goalkeepers.second_half !== 'TBD') {
+      goalkeeperStats.set(match.goalkeepers.second_half, (goalkeeperStats.get(match.goalkeepers.second_half) || 0) + 1);
+    }
+  }
+});
+
+// Sort by appearances (descending)
+const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
+  .sort((a, b) => b[1] - a[1]);
 ---
 
 <BaseLayout title="Home - Queens Park Rangers U11B">
@@ -90,6 +107,27 @@ const totalGoals = matches.reduce((sum, match) => {
                 <div class="scorer-goals">
                   <span class="goals-number">{scorer[1]}</span>
                   <span class="goals-label">{scorer[1] === 1 ? 'goal' : 'goals'}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Goalkeeper Stats Section -->
+    {sortedGoalkeepers.length > 0 && (
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>🧤 Goalkeeper Rotation</h2>
+        <div class="card">
+          <div class="gk-table">
+            {sortedGoalkeepers.map((gk, index) => (
+              <div class="gk-row">
+                <div class="gk-rank">{index + 1}</div>
+                <div class="gk-name">{gk[0]}</div>
+                <div class="gk-appearances">
+                  <span class="appearances-number">{gk[1]}</span>
+                  <span class="appearances-label">{gk[1] === 1 ? 'half' : 'halves'}</span>
                 </div>
               </div>
             ))}
@@ -257,6 +295,91 @@ const totalGoals = matches.reduce((sum, match) => {
       color: var(--gray-600);
     }
 
+    .gk-table {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .gk-row {
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      transition: all 0.2s;
+    }
+
+    .gk-row:hover {
+      background: var(--gray-100);
+      transform: translateX(5px);
+    }
+
+    .gk-row:first-child {
+      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+      color: white;
+      font-weight: bold;
+    }
+
+    .gk-row:nth-child(2) {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      font-weight: bold;
+    }
+
+    .gk-row:nth-child(3) {
+      background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+      color: white;
+      font-weight: bold;
+    }
+
+    .gk-rank {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--qpr-blue);
+      text-align: center;
+    }
+
+    .gk-row:first-child .gk-rank,
+    .gk-row:nth-child(2) .gk-rank,
+    .gk-row:nth-child(3) .gk-rank {
+      color: white;
+    }
+
+    .gk-name {
+      font-size: 1rem;
+    }
+
+    .gk-appearances {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .appearances-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--qpr-blue);
+    }
+
+    .gk-row:first-child .appearances-number,
+    .gk-row:nth-child(2) .appearances-number,
+    .gk-row:nth-child(3) .appearances-number {
+      color: white;
+    }
+
+    .appearances-label {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+
+    .gk-row:first-child .appearances-label,
+    .gk-row:nth-child(2) .appearances-label,
+    .gk-row:nth-child(3) .appearances-label {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
     @media (max-width: 768px) {
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
@@ -280,6 +403,23 @@ const totalGoals = matches.reduce((sum, match) => {
       }
 
       .goals-number {
+        font-size: 1.2rem;
+      }
+
+      .gk-row {
+        grid-template-columns: 30px 1fr auto;
+        padding: var(--spacing-xs) var(--spacing-sm);
+      }
+
+      .gk-rank {
+        font-size: 1rem;
+      }
+
+      .gk-name {
+        font-size: 0.9rem;
+      }
+
+      .appearances-number {
         font-size: 1.2rem;
       }
     }

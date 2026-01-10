@@ -1,64 +1,64 @@
 {
   "week": {
-    "date_range": "Dec 1 - Dec 7, 2025", 
-    "theme": "Bounce Back Strong - Learn and Grow Together",
-    "last_updated": "2025-12-05T18:00:00-08:00"
+    "date_range": "Jan 5 - Jan 11, 2026",
+    "theme": "New Year, Same Winning Spirit!",
+    "last_updated": "2026-01-09T18:00:00-08:00"
   },
   "training": {
-    "date": null,
-    "day": null,
-    "time": null,
-    "location": null,
-    "focus": null,
-    "attendance_required": false,
-    "completed": false,
+    "date": "2026-01-08",
+    "day": "Wednesday",
+    "time": "5:00 PM",
+    "location": "Mobilio West (Town Centre Park) - Grid D",
+    "focus": "Match preparation and sharpness after winter break",
+    "attendance_required": true,
+    "completed": true,
     "sessions": [],
     "last_session": {
-      "date": "2025-11-28",
-      "attendance": 14,
+      "date": "2026-01-08",
+      "attendance": 12,
       "highlights": [
-        "Good preparation before Nov 29 match",
-        "Positive energy from the squad",
-        "Focus on team coordination"
-      ]
+        "Good session - all players attended except twins Eunjun and Yejun",
+        "Team looking sharp after winter break",
+        "Focus on match preparation for Saturday"
+      ],
+      "absent": ["Eunjun K", "Yejun K"]
     },
     "upcoming_session": {
       "date": null,
       "focus_areas": [],
-      "preparation_for": "Dec 6 match vs RMSC U11B10D3 Blue Lightning (Petrik)"
+      "preparation_for": "Jan 10 match vs RMSC U11B6D3"
     },
-    "notes": "Check with coach for any training sessions this week before Friday's AWAY match!"
+    "notes": "Great training session yesterday! All players ready for tomorrow's match."
   },
   "match": {
-    "opponent": "RMSC U11B10D3 Blue Lightning (Petrik)",
-    "date": "2025-12-06",
-    "kickoff": "10:30am",
-    "location": "Pitt Meadows Secondary School - Field 1 East Turf",
-    "venue_type": "away",
+    "opponent": "RMSC U11B6D3",
+    "date": "2026-01-10",
+    "kickoff": "11:00am",
+    "location": "Miller Park West",
+    "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2501753",
-    "week": "Week 14",
+    "match_number": "2501801",
+    "week": "Week 19",
     "status": "upcoming",
-    "preparation_focus": "Bounce back strong - build on the positives from last match. Great chances created, excellent defensive performances. Time to convert opportunities!"
+    "preparation_focus": "First match of 2026! Build on our winning momentum from before the break. All 14 players available - full squad strength!"
   },
   "captains": {
-    "reveal_at": "2025-12-05T18:00:00-08:00",
+    "reveal_at": "2026-01-09T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2025-12-05T18:00:00-08:00",
-    "first_half": "Eunjun K",
-    "second_half": "Yejun K",
+    "reveal_at": "2026-01-09T18:00:00-08:00",
+    "first_half": "TBD",
+    "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
-    "rotation_note": "Eunjun K first turn (only player who hasn't had a goalkeeper turn yet!), Yejun K second turn (first was Sept 20). Maintaining fair rotation across the squad."
+    "rotation_note": "Continuing fair rotation across the squad"
   },
   "positions": {
-    "reveal_at": "2025-09-23T00:00:00-07:00",
+    "reveal_at": "2026-01-09T00:00:00-08:00",
     "all_positions": [
-
       {
         "name": "Andrew N",
         "pos": "Defence",
@@ -146,7 +146,7 @@
     ]
   },
   "off_pitch": {
-    "reveal_at": "2025-09-23T00:00:00-07:00",
+    "reveal_at": "2026-01-09T00:00:00-08:00",
     "zones": {
       "goalkeepers": [
         {
@@ -233,7 +233,7 @@
     }
   },
   "lineup": {
-    "reveal_at": "2025-09-23T00:00:00-07:00",
+    "reveal_at": "2026-01-09T00:00:00-08:00",
     "all_players": [
       {
         "name": "Adam K",
@@ -294,16 +294,10 @@
     ],
     "starting": [],
     "rotating": [],
-    "unavailable": [
-      {
-        "name": "Minh-An D",
-        "jersey": "2",
-        "reason": "Unavailable"
-      }
-    ]
+    "unavailable": []
   },
   "hype": {
-    "chant": "1-2-3 QPR! 1-2-3 Metro-Ford! 🔵⚪",
+    "chant": "1-2-3 QPR! 1-2-3 Metro-Ford!",
     "player_of_month": {
       "name": "Niko D",
       "month": "September"
@@ -411,42 +405,45 @@
     ]
   },
   "notes": {
-    "arrival": "Arrive by 10:00 AM (30 min early for warm-up)",
-    "kit": "Home kit - Blue/White hoops",
-    "coach": "Great character shown against tough opponent last Friday. Team created quality chances and competed strongly throughout - excellent performances from Yejun K, Rafael H, and Andy E. This Friday Dec 6 at 10:30am vs RMSC U11B10D3 Blue Lightning (Petrik) at Pitt Meadows Secondary School Field 1 East Turf (AWAY). Eunjun K gets his FIRST goalkeeper turn (paired with Yejun K)! 13 players available - only Minh-An unavailable. Let's bounce back strong!",
-    "training_recap": "Nov 27-28: Two excellent training sessions completed before last match - focused on match preparation and technical skills.",
-    "match_update": "NEXT MATCH: Friday Dec 6 at 10:30am vs RMSC U11B10D3 Blue Lightning (Petrik), Pitt Meadows Secondary School - Field 1 East Turf (AWAY). Arrive by 10:00 AM. Wear HOME kit (Blue/White hoops).",
-    "this_week": "Ready to bounce back! Team showed great character last match. Eunjun K gets his first goalkeeper turn. 13 players available - let's build on the positives!",
+    "arrival": "Arrive by 10:30 AM (30 min early for warm-up)",
+    "kit": "Away kit - White",
+    "coach": "First match of 2026! All 14 players available and ready to continue our winning momentum. Good training session yesterday - all players attended except the twins Eunjun and Yejun. Everyone available for tomorrow's HOME match vs RMSC U11B6D3 at Miller Park West, kickoff 11:00am. Wear WHITE kit. Let's start the new year with a WIN!",
+    "training_recap": "Jan 8: Good training session with 12 players (twins Eunjun and Yejun absent). Team sharp and ready for match day.",
+    "match_update": "MATCH DAY TOMORROW: Saturday Jan 10 at 11:00am vs RMSC U11B6D3 at Miller Park West (HOME). Arrive by 10:30 AM. Wear WHITE kit.",
+    "this_week": "New year, full squad, winning momentum! All 14 players available for tomorrow's match. Let's go!",
     "achievements": [
-      "🎯 Sept 13 vs Millwall: Score First Goal ✅ and Team Work Goal ✅",
-      "💪 Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
-      "⚽ Sept 27 vs Swansea: Andy E first goal! Travis C 2 goals (beautiful free kick!)",
-      "🛡️ Oct 4 vs Tones: Best defensive performance! Yejun K and David C standout games",
-      "⏱️ Oct 18 vs Soccer Stars: Dominated possession 25 min (1st half) + 15 min (2nd half)",
-      "🤝 Andrew N solid defence, Ethan G & Andy E excellent versatility",
-      "🎓 Oct 23: Crossing mastery - attack & defence situations",
-      "⚽ Oct 24: Extended 2-hour practice session - game changer!",
-      "🏆 Oct 25: FIRST WIN! 4-2 victory with Adam K hat-trick & Ethan G goal",
-      "⭐ Oct 25: Seven players best games - Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H",
-      "🥅 Oct 25: Travis C & Andrew N excellent first-time goalkeepers",
-      "🚫 Nov 1: Match vs RMSC cancelled - flooded fields",
-      "🎯 Nov 6-7: Two excellent training sessions - finishing focus",
-      "⚽ Nov 8: Andy E beautiful finish vs PCFC Thunder (Travis C assist)",
-      "🌟 Nov 8: TEN players standout performances - Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W",
-      "🛡️ Nov 8: Excellent defensive organization - competed strongly for full match",
-      "🥅 Nov 8: Niko D & Rafael H first-time goalkeepers performed well",
-      "🏆 Nov 15: SECOND WIN! 4-2 vs Sheffield United - Niko D penalty, Adam K brace, Travis C goal",
-      "💪 Nov 15: Andy E showed character - missed penalty but assisted Travis C's goal",
-      "⚽ Nov 15: Adam K scoring twice with smart positioning - clinical hunter!",
-      "🎯 Nov 15: Rafael H hit post twice - creating quality chances",
-      "🔥 Nov 15: Team resilience despite wasted chances - winning mentality!",
-      "🏆 Nov 22: THIRD WIN! 5-2 vs Middlesbrough - Travis C x2, Rafael H first goal, Ethan G, Andy E",
-      "⚽ Nov 22: Travis C stunning corner kick goal - Corner Kick Magic!",
-      "🌟 Nov 22: Rafael H BEST MATCH - first goal of the season!",
-      "🥅 Nov 22: Rhodri W clean sheet first half, Adam K crucial saves second half",
-      "🛡️ Nov 22: Dominant defense - Yejun K, Andrew N, Rhodri W excellent",
-      "🎯 Nov 22: Four different scorers - Shared Glory achievement!",
-      "🏆 Oct Player of Month: Andrew N"
+      "Sept 13 vs Millwall: Score First Goal and Team Work Goal",
+      "Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
+      "Sept 27 vs Swansea: Andy E first goal! Travis C 2 goals (beautiful free kick!)",
+      "Oct 4 vs Tones: Best defensive performance! Yejun K and David C standout games",
+      "Oct 18 vs Soccer Stars: Dominated possession 25 min (1st half) + 15 min (2nd half)",
+      "Andrew N solid defence, Ethan G & Andy E excellent versatility",
+      "Oct 23: Crossing mastery - attack & defence situations",
+      "Oct 24: Extended 2-hour practice session - game changer!",
+      "Oct 25: FIRST WIN! 4-2 victory with Adam K hat-trick & Ethan G goal",
+      "Oct 25: Seven players best games - Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H",
+      "Oct 25: Travis C & Andrew N excellent first-time goalkeepers",
+      "Nov 1: Match vs RMSC cancelled - flooded fields",
+      "Nov 6-7: Two excellent training sessions - finishing focus",
+      "Nov 8: Andy E beautiful finish vs PCFC Thunder (Travis C assist)",
+      "Nov 8: TEN players standout performances - Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W",
+      "Nov 8: Excellent defensive organization - competed strongly for full match",
+      "Nov 8: Niko D & Rafael H first-time goalkeepers performed well",
+      "Nov 15: SECOND WIN! 4-2 vs Sheffield United - Niko D penalty, Adam K brace, Travis C goal",
+      "Nov 15: Andy E showed character - missed penalty but assisted Travis C's goal",
+      "Nov 15: Adam K scoring twice with smart positioning - clinical hunter!",
+      "Nov 15: Rafael H hit post twice - creating quality chances",
+      "Nov 15: Team resilience despite wasted chances - winning mentality!",
+      "Nov 22: THIRD WIN! 5-2 vs Middlesbrough - Travis C x2, Rafael H first goal, Ethan G, Andy E",
+      "Nov 22: Travis C stunning corner kick goal - Corner Kick Magic!",
+      "Nov 22: Rafael H BEST MATCH - first goal of the season!",
+      "Nov 22: Rhodri W clean sheet first half, Adam K crucial saves second half",
+      "Nov 22: Dominant defense - Yejun K, Andrew N, Rhodri W excellent",
+      "Nov 22: Four different scorers - Shared Glory achievement!",
+      "Dec 6: FOURTH WIN! 6-2 vs Blue Lightning - Travis C hat-trick, Owen H breakthrough goal!",
+      "Dec 6: Owen H first goal of the season!",
+      "Dec 6: Eunjun K first goalkeeper turn - excellent debut!",
+      "Oct Player of Month: Andrew N"
     ]
   },
   "status": "winning-streak"

@@ -50,6 +50,14 @@
         "icon": "🧱",
         "rarity": "rare",
         "points": 20
+      },
+      {
+        "id": "two-half-heroes",
+        "name": "Two-Half Heroes",
+        "description": "Play goalkeeper in both halves of a match",
+        "icon": "🥅",
+        "rarity": "epic",
+        "points": 40
       }
     ],
     "teamwork": [
@@ -79,7 +87,7 @@
         },
         {
           "id": "first-assist",
-          "name": "First Assist", 
+          "name": "First Assist",
           "description": "Provide your first assist of the season",
           "icon": "🤝",
           "rarity": "common",
@@ -90,7 +98,7 @@
           "name": "Defensive Star",
           "description": "Outstanding defensive performance in a match",
           "icon": "🌟",
-          "rarity": "uncommon", 
+          "rarity": "uncommon",
           "points": 15
         }
     ],
@@ -116,7 +124,7 @@
         "name": "Perfect Season",
         "description": "Win every match in the season",
         "icon": "💎",
-        "rarity": "legendary", 
+        "rarity": "legendary",
         "points": 100
       },
       {
@@ -140,7 +148,7 @@
     ],
     "ethan-g": [
       {
-        "achievement_id": "first-goal", 
+        "achievement_id": "first-goal",
         "earned_date": "2025-09-14",
         "match": "vs CMFSC Millwall",
         "details": "Scored team's second goal in home opener"
@@ -149,16 +157,22 @@
     "travis-c": [
       {
         "achievement_id": "first-assist",
-        "earned_date": "2025-09-14", 
+        "earned_date": "2025-09-14",
         "match": "vs CMFSC Millwall",
         "details": "First assist of the season on Niko D's opening goal"
+      },
+      {
+        "achievement_id": "two-half-heroes",
+        "earned_date": "2025-12-06",
+        "match": "vs RMSC U11B10D3 Blue Lightning",
+        "details": "Played goalkeeper in both halves during the 6-2 victory - FOURTH WIN!"
       }
     ],
     "rhodri-w": [
       {
         "achievement_id": "defensive-star",
         "earned_date": "2025-09-14",
-        "match": "vs CMFSC Millwall", 
+        "match": "vs CMFSC Millwall",
         "details": "Outstanding defensive performance in home opener"
       }
     ],

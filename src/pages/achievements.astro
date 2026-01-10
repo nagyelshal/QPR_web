@@ -1,0 +1,394 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import achievementsData from '../../data/achievements.json';
+import rosterData from '../../data/roster.json';
+
+const title = "Player Achievements";
+const description = "Track player badges, achievements, and progress throughout the season";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container">
+    <div class="achievements-header">
+      <h1>🏆 Player Achievements</h1>
+      <p>Track player badges, achievements, and progress throughout the season!</p>
+    </div>
+
+    <!-- Achievement Categories -->
+    <div class="categories-tabs">
+      <button class="tab-btn active" data-category="all">All Achievements</button>
+      <button class="tab-btn" data-category="scoring">⚽ Scoring</button>
+      <button class="tab-btn" data-category="defending">🛡️ Defending</button>
+      <button class="tab-btn" data-category="teamwork">🤝 Teamwork</button>
+      <button class="tab-btn" data-category="special">✨ Special</button>
+    </div>
+
+    <!-- Achievements Grid -->
+    <div class="achievements-section">
+      <h2>🎯 Available Achievements</h2>
+      <div class="achievements-grid" id="achievements-grid">
+        {Object.entries(achievementsData.achievements).map(([category, achievements]) => 
+          achievements && achievements.length ? achievements.map(achievement => (
+            <div class="achievement-card" data-category={category} data-rarity={achievement.rarity}>
+              <div class="achievement-icon">{achievement.icon}</div>
+              <div class="achievement-info">
+                <h3 class="achievement-name">{achievement.name}</h3>
+                <p class="achievement-description">{achievement.description}</p>
+                <span class="achievement-points">{achievement.points} pts</span>
+                <span class={`achievement-rarity rarity-${achievement.rarity}`}>
+                  {achievement.rarity.toUpperCase()}
+                </span>
+              </div>
+            </div>
+          )) : []
+        )}
+      </div>
+    </div>
+
+    <!-- Player Progress -->
+    <div class="player-progress-section">
+      <h2>👥 Player Progress</h2>
+      <div class="players-grid">
+        {rosterData.players.map(player => {
+          const playerKey = player.name.toLowerCase().replace(' ', '-');
+          const playerAchievements = achievementsData.playerProgress?.[playerKey] || { earned: [] };
+          
+          return (
+            <div class="player-card">
+              <div class="player-header">
+                <h3 class="player-name">
+                  {player.name} <span class="jersey-number">#{player.jersey}</span>
+                </h3>
+                <div class="player-stats">
+                  <div class="stat">
+                    <span class="stat-label">Badges</span>
+                    <span class="stat-value">{(playerAchievements.earned || []).length}</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">Points</span>  
+                    <span class="stat-value">{(playerAchievements.earned || []).length * 10}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="player-achievements">
+                <h4>Earned Badges ({(playerAchievements.earned || []).length})</h4>
+                <div class="earned-badges">
+                  {(playerAchievements.earned || []).length > 0 ? (
+                    (playerAchievements.earned || []).map(achievementId => {
+                      // Find the achievement details
+                      let achievement = null;
+                      Object.values(achievementsData.achievements).forEach(categoryAchievements => {
+                        if (categoryAchievements && categoryAchievements.length) {
+                          const found = categoryAchievements.find(a => a.id === achievementId);
+                          if (found) achievement = found;
+                        }
+                      });
+                      
+                      return achievement ? (
+                        <div class="mini-achievement">
+                          <span class="mini-icon">{achievement.icon}</span>
+                          <span class="mini-name">{achievement.name}</span>
+                        </div>
+                      ) : null;
+                    })
+                  ) : (
+                    <p class="no-badges">No badges earned yet!</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .achievements-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .achievements-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .achievements-header p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  .categories-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .tab-btn:hover, .tab-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+  .achievements-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .achievement-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  }
+
+  .achievement-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .achievement-info {
+    text-align: center;
+  }
+
+  .achievement-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .achievement-description {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .achievement-points {
+    background: #28a745;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .achievement-rarity {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .rarity-common { background: #6c757d; color: white; }
+  .rarity-rare { background: #007bff; color: white; }
+  .rarity-epic { background: #6f42c1; color: white; }
+  .rarity-legendary { background: #fd7e14; color: white; }
+
+  .player-progress-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .player-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid #f0f0f0;
+  }
+
+  .player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .player-name {
+    color: #333;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .jersey-number {
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  .player-stats {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .player-achievements h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .earned-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mini-achievement {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .mini-icon {
+    font-size: 1.2rem;
+  }
+
+  .mini-name {
+    font-weight: 500;
+  }
+
+  .no-badges {
+    color: #6c757d;
+    font-style: italic;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+
+    .achievements-grid, .players-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .categories-tabs {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    
+    .tab-btn {
+      white-space: nowrap;
+      min-width: max-content;
+    }
+    
+    .player-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .achievements-header h1 {
+      font-size: 2rem;
+    }
+
+    .achievements-section h2, 
+    .player-progress-section h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Category filtering
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const achievementCards = document.querySelectorAll('.achievement-card');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active tab
+        tabBtns.forEach(tab => tab.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+
+        // Filter achievements
+        achievementCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

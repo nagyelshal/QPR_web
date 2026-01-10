@@ -51,25 +51,25 @@
   },
   "goalkeepers": {
     "reveal_at": "2026-01-09T18:00:00-08:00",
-    "first_half": "TBD",
-    "second_half": "TBD",
+    "first_half": "Henry K",
+    "second_half": "Andrew N",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
     "rotation_note": "Continuing fair rotation across the squad"
   },
   "positions": {
     "reveal_at": "2026-01-09T00:00:00-08:00",
-    "all_positions": [
+    "starting_lineup": [
+      {
+        "name": "Henry K",
+        "pos": "GK",
+        "tactical_pos": "GK",
+        "jersey": "11"
+      },
       {
         "name": "Andrew N",
         "pos": "Defence",
         "tactical_pos": "CB",
         "jersey": "5"
-      },
-      {
-        "name": "Yejun K",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "7"
       },
       {
         "name": "Rhodri W",
@@ -78,10 +78,10 @@
         "jersey": "10"
       },
       {
-        "name": "Henry K",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "11"
+        "name": "Niko D",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "6"
       },
       {
         "name": "Rafael H",
@@ -90,16 +90,42 @@
         "jersey": "12"
       },
       {
-        "name": "Adam K",
+        "name": "Ethan G",
         "pos": "Midfield",
         "tactical_pos": "CM",
-        "jersey": "13"
+        "jersey": "15"
       },
       {
-        "name": "Eunjun K",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "16"
+        "name": "David C",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "14"
+      },
+      {
+        "name": "Owen H",
+        "pos": "Strikers",
+        "tactical_pos": "ST",
+        "jersey": "9"
+      }
+    ],
+    "all_positions": [
+      {
+        "name": "Henry K",
+        "pos": "GK",
+        "tactical_pos": "GK",
+        "jersey": "11"
+      },
+      {
+        "name": "Andrew N",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "5"
+      },
+      {
+        "name": "Rhodri W",
+        "pos": "Defence",
+        "tactical_pos": "CB",
+        "jersey": "10"
       },
       {
         "name": "Niko D",
@@ -108,28 +134,16 @@
         "jersey": "6"
       },
       {
+        "name": "Rafael H",
+        "pos": "Midfield",
+        "tactical_pos": "CM",
+        "jersey": "12"
+      },
+      {
         "name": "Ethan G",
         "pos": "Midfield",
         "tactical_pos": "CM",
         "jersey": "15"
-      },
-      {
-        "name": "Travis C",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "3"
-      },
-      {
-        "name": "Andy E",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "4"
-      },
-      {
-        "name": "Minh-An D",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "2"
       },
       {
         "name": "David C",

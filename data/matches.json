@@ -1160,6 +1160,76 @@
           "reason": "Muscle injury (played only 5 minutes)"
         }
       ]
+    },
+    {
+      "id": "match-014",
+      "date": "2026-01-10",
+      "opponent": "RMSC U11B6D3",
+      "result": "pending",
+      "location": "Miller Park West",
+      "kickoff": "11:00am",
+      "match_number": "2501801",
+      "week": 19,
+      "venue_type": "home",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
+    },
+    {
+      "id": "match-015",
+      "date": "2026-01-17",
+      "opponent": "CMFSC Sheffield United",
+      "result": "pending",
+      "location": "Town Centre Fridge South",
+      "kickoff": "8:30am",
+      "match_number": "2501813",
+      "week": 20,
+      "venue_type": "home",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
+    },
+    {
+      "id": "match-016",
+      "date": "2026-01-24",
+      "opponent": "CMFSC Sheffield United",
+      "result": "pending",
+      "location": "Town Centre Fridge South",
+      "kickoff": "10:00am",
+      "match_number": "2501825",
+      "week": 21,
+      "venue_type": "home",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
+    },
+    {
+      "id": "match-017",
+      "date": "2026-01-31",
+      "opponent": "RMSC U11B14D3",
+      "result": "pending",
+      "location": "Pitt Meadows Secondary 1",
+      "kickoff": "9:00am",
+      "match_number": "2501837",
+      "week": 22,
+      "venue_type": "away",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
+    },
+    {
+      "id": "match-018",
+      "date": "2026-02-07",
+      "opponent": "PCFC Sonics",
+      "result": "pending",
+      "location": "Percy Perry Stadium (Town Centre) South",
+      "kickoff": "12:15pm",
+      "match_number": "2501849",
+      "week": 23,
+      "venue_type": "home",
+      "scorers": [],
+      "assists": [],
+      "highlights": []
     }
   ],
   "celebrations": {

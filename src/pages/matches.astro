@@ -9,6 +9,15 @@ const description = "View match details, scores, and highlights";
 // Use site base path for links
 const base = import.meta.env.BASE_URL;
 
+// Split matches into upcoming and completed, sort appropriately
+const upcomingMatches = matchesData.matches
+  .filter(m => m.result === 'pending')
+  .sort((a, b) => new Date(a.date) - new Date(b.date)); // Soonest first
+
+const completedMatches = matchesData.matches
+  .filter(m => m.result !== 'pending')
+  .sort((a, b) => new Date(b.date) - new Date(a.date)); // Most recent first
+
 // Helper function to determine home/away status
 function getVenueInfo(match) {
   // First try to find the match in season schedule by match number
@@ -41,12 +50,83 @@ function getVenueInfo(match) {
 <BaseLayout title={title} description={description}>
   <div class="container">
     <div class="matches-header">
-      <h1>🏟️ Match Center</h1>
+      <h1>Match Center</h1>
       <p>View match details, scores, and highlights.</p>
     </div>
 
+    {upcomingMatches.length > 0 && (
+      <div class="section-header upcoming-header">
+        <h2>Upcoming Matches</h2>
+        <span class="match-count">{upcomingMatches.length} matches</span>
+      </div>
+    )}
+
     <div class="matches-grid">
-      {matchesData.matches.map(match => {
+      {upcomingMatches.map(match => {
+        const venueInfo = getVenueInfo(match);
+        return (
+        <div class="match-card upcoming" data-match-id={match.id}>
+          <div class="match-header">
+            <div class="match-date">
+              {new Date(match.date).toLocaleDateString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+              })}
+            </div>
+            <div class="match-week">Week {match.week}</div>
+            <div class={`venue-badge ${venueInfo.class}`}>
+              <span class="venue-icon">{venueInfo.icon}</span>
+              <span class="venue-text">{venueInfo.text}</span>
+            </div>
+          </div>
+
+          <div class="match-teams">
+            <div class="team home">
+              <div class="team-name">QPR U11B</div>
+              <div class="team-score">-</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team away">
+              <div class="team-name">{match.opponent}</div>
+              <div class="team-score">-</div>
+            </div>
+          </div>
+
+          <div class="match-details">
+            <div class="detail-item">
+              <span class="label">Kickoff:</span>
+              <span class="value">{match.kickoff}</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Location:</span>
+              <span class="value">{match.location}</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Match #:</span>
+              <span class="value">{match.match_number}</span>
+            </div>
+          </div>
+
+          <div class="match-status pending">
+            <span>Upcoming Match</span>
+          </div>
+
+          <a href={`${base}matches/${match.id}/`} class="match-link">
+            View Details
+          </a>
+        </div>
+        );
+      })}
+    </div>
+
+    <div class="section-header completed-header">
+      <h2>Completed Matches</h2>
+      <span class="match-count">{completedMatches.length} matches</span>
+    </div>
+
+    <div class="matches-grid">
+      {completedMatches.map(match => {
         const venueInfo = getVenueInfo(match);
         // derive scores
         let qprScore = '-';
@@ -167,6 +247,55 @@ function getVenueInfo(match) {
     margin-bottom: var(--spacing-md);
   }
 
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 12px;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .section-header .match-count {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+  }
+
+  .upcoming-header {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  }
+
+  .upcoming-header h2 {
+    color: #e65100;
+  }
+
+  .upcoming-header .match-count {
+    background: #e65100;
+    color: white;
+  }
+
+  .completed-header {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    margin-top: var(--spacing-xl);
+  }
+
+  .completed-header h2 {
+    color: #1565c0;
+  }
+
+  .completed-header .match-count {
+    background: #1565c0;
+    color: white;
+  }
+
   .matches-grid {
     display: grid;
     gap: var(--spacing-lg);
@@ -182,10 +311,18 @@ function getVenueInfo(match) {
     border: 2px solid transparent;
   }
 
+  .match-card.upcoming {
+    border-left: 4px solid #e65100;
+  }
+
   .match-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     border-color: var(--color-primary);
+  }
+
+  .match-card.upcoming:hover {
+    border-color: #e65100;
   }
 
   .match-header {

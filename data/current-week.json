@@ -1,17 +1,17 @@
 {
   "week": {
-    "date_range": "Jan 5 - Jan 11, 2026",
-    "theme": "New Year, Same Winning Spirit!",
-    "last_updated": "2026-01-09T18:00:00-08:00"
+    "date_range": "Jan 12 - Jan 18, 2026",
+    "theme": "Building on our Draw - Back to Winning Ways!",
+    "last_updated": "2026-01-13T12:00:00-08:00"
   },
   "training": {
-    "date": "2026-01-08",
+    "date": "2026-01-15",
     "day": "Wednesday",
     "time": "5:00 PM",
     "location": "Mobilio West (Town Centre Park) - Grid D",
-    "focus": "Match preparation and sharpness after winter break",
+    "focus": "Build on positive performance from last match, work on finishing and holding leads",
     "attendance_required": true,
-    "completed": true,
+    "completed": false,
     "sessions": [],
     "last_session": {
       "date": "2026-01-08",
@@ -24,287 +24,92 @@
       "absent": ["Eunjun K", "Yejun K"]
     },
     "upcoming_session": {
-      "date": null,
-      "focus_areas": [],
-      "preparation_for": "Jan 10 match vs RMSC U11B6D3"
+      "date": "2026-01-15",
+      "focus_areas": ["Finishing", "Defensive shape", "Holding leads"],
+      "preparation_for": "Jan 17 match vs CMFSC Thunder"
     },
-    "notes": "Great training session yesterday! All players ready for tomorrow's match."
+    "notes": "Wednesday training this week - preparing for Saturday's match vs Thunder"
   },
   "match": {
-    "opponent": "RMSC U11B6D3 (Geary)",
-    "date": "2026-01-10",
-    "kickoff": "11:00am",
-    "location": "Miller Park West",
+    "opponent": "CMFSC Thunder",
+    "date": "2026-01-17",
+    "kickoff": "11:15am",
+    "location": "Town Centre Fridge North",
     "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2501801",
-    "week": "Week 19",
+    "match_number": "2501813",
+    "week": "Week 20",
     "status": "upcoming",
-    "preparation_focus": "First match of 2026! Build on our winning momentum from before the break. All 14 players available - full squad strength!"
+    "preparation_focus": "Coming off a solid 2-2 draw where we led twice. Focus on defensive concentration and converting our chances. Adam K in great form with a brace last match!"
+  },
+  "last_match": {
+    "opponent": "RMSC U11B6D3 (Geary)",
+    "date": "2026-01-10",
+    "result": "2-2 Draw",
+    "scorers": ["Adam K (2)"],
+    "assists": ["Niko D"],
+    "goalkeepers": {
+      "first_half": "Andrew N",
+      "second_half": "Rafael H"
+    },
+    "highlights": [
+      "Led twice (1-0 and 2-1) but couldn't hold on",
+      "Adam K brace with brilliant runs",
+      "Niko D crazy long pass assist",
+      "Yejun K solid without practice",
+      "Rafael H great first half before GK duty"
+    ],
+    "unavailable": ["Henry K"]
   },
   "captains": {
-    "reveal_at": "2026-01-09T18:00:00-08:00",
+    "reveal_at": "2026-01-16T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2026-01-09T18:00:00-08:00",
-    "first_half": "Henry K",
-    "second_half": "Andrew N",
+    "reveal_at": "2026-01-16T18:00:00-08:00",
+    "first_half": "TBD",
+    "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
     "rotation_note": "Continuing fair rotation across the squad"
   },
   "positions": {
-    "reveal_at": "2026-01-09T00:00:00-08:00",
-    "starting_lineup": [
-      {
-        "name": "Henry K",
-        "pos": "GK",
-        "tactical_pos": "GK",
-        "jersey": "11"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "5"
-      },
-      {
-        "name": "Rhodri W",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "10"
-      },
-      {
-        "name": "Niko D",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "6"
-      },
-      {
-        "name": "Rafael H",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "12"
-      },
-      {
-        "name": "Ethan G",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "15"
-      },
-      {
-        "name": "David C",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "14"
-      },
-      {
-        "name": "Owen H",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "9"
-      }
-    ],
-    "all_positions": [
-      {
-        "name": "Henry K",
-        "pos": "GK",
-        "tactical_pos": "GK",
-        "jersey": "11"
-      },
-      {
-        "name": "Andrew N",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "5"
-      },
-      {
-        "name": "Rhodri W",
-        "pos": "Defence",
-        "tactical_pos": "CB",
-        "jersey": "10"
-      },
-      {
-        "name": "Niko D",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "6"
-      },
-      {
-        "name": "Rafael H",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "12"
-      },
-      {
-        "name": "Ethan G",
-        "pos": "Midfield",
-        "tactical_pos": "CM",
-        "jersey": "15"
-      },
-      {
-        "name": "David C",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "14"
-      },
-      {
-        "name": "Owen H",
-        "pos": "Strikers",
-        "tactical_pos": "ST",
-        "jersey": "9"
-      }
-    ]
+    "reveal_at": "2026-01-16T00:00:00-08:00",
+    "starting_lineup": [],
+    "all_positions": []
   },
   "off_pitch": {
-    "reveal_at": "2026-01-09T00:00:00-08:00",
+    "reveal_at": "2026-01-16T00:00:00-08:00",
     "zones": {
-      "goalkeepers": [
-        {
-          "name": "Adam K",
-          "jersey": "13",
-          "alternate_pos": "GK"
-        },
-        {
-          "name": "Rhodri W",
-          "jersey": "10",
-          "alternate_pos": "GK"
-        }
-      ],
-      "defence": [
-        {
-          "name": "Andrew N",
-          "jersey": "5"
-        },
-        {
-          "name": "Yejun K",
-          "jersey": "7"
-        },
-        {
-          "name": "Rhodri W",
-          "jersey": "10"
-        },
-        {
-          "name": "Henry K",
-          "jersey": "11"
-        }
-      ],
-      "midfield_wingers": [
-        {
-          "name": "Rafael H",
-          "jersey": "12"
-        },
-        {
-          "name": "Adam K",
-          "jersey": "13"
-        },
-        {
-          "name": "Eunjun K",
-          "jersey": "16"
-        },
-        {
-          "name": "Niko D",
-          "jersey": "6"
-        },
-        {
-          "name": "Ethan G",
-          "jersey": "15"
-        },
-        {
-          "name": "Travis C",
-          "jersey": "3"
-        }
-      ],
-      "strikers": [
-        {
-          "name": "Andy E",
-          "jersey": "4"
-        },
-        {
-          "name": "Minh-An D",
-          "jersey": "2"
-        },
-        {
-          "name": "David C",
-          "jersey": "14"
-        },
-        {
-          "name": "Owen H",
-          "jersey": "9"
-        }
-      ]
+      "goalkeepers": [],
+      "defence": [],
+      "midfield_wingers": [],
+      "strikers": []
     },
     "sideline_layout": {
-      "left_to_right": [
-        "Defence",
-        "Midfield",
-        "Strikers"
-      ],
+      "left_to_right": ["Defence", "Midfield", "Strikers"],
       "keeper_spot": "Near coach for quick switch at half"
     }
   },
   "lineup": {
-    "reveal_at": "2026-01-09T00:00:00-08:00",
+    "reveal_at": "2026-01-16T00:00:00-08:00",
     "all_players": [
-      {
-        "name": "Adam K",
-        "jersey": "13"
-      },
-      {
-        "name": "Andy E",
-        "jersey": "4"
-      },
-      {
-        "name": "Andrew N",
-        "jersey": "5"
-      },
-      {
-        "name": "David C",
-        "jersey": "14"
-      },
-      {
-        "name": "Ethan G",
-        "jersey": "15"
-      },
-      {
-        "name": "Henry K",
-        "jersey": "11"
-      },
-      {
-        "name": "Minh-An D",
-        "jersey": "2"
-      },
-      {
-        "name": "Niko D",
-        "jersey": "6"
-      },
-      {
-        "name": "Owen H",
-        "jersey": "9"
-      },
-      {
-        "name": "Rafael H",
-        "jersey": "12"
-      },
-      {
-        "name": "Rhodri W",
-        "jersey": "10"
-      },
-      {
-        "name": "Travis C",
-        "jersey": "3"
-      },
-      {
-        "name": "Yejun K",
-        "jersey": "7"
-      },
-      {
-        "name": "Eunjun K",
-        "jersey": "16"
-      }
+      {"name": "Adam K", "jersey": "13"},
+      {"name": "Andy E", "jersey": "4"},
+      {"name": "Andrew N", "jersey": "5"},
+      {"name": "David C", "jersey": "14"},
+      {"name": "Ethan G", "jersey": "15"},
+      {"name": "Henry K", "jersey": "11"},
+      {"name": "Minh-An D", "jersey": "2"},
+      {"name": "Niko D", "jersey": "6"},
+      {"name": "Owen H", "jersey": "9"},
+      {"name": "Rafael H", "jersey": "12"},
+      {"name": "Rhodri W", "jersey": "10"},
+      {"name": "Travis C", "jersey": "3"},
+      {"name": "Yejun K", "jersey": "7"},
+      {"name": "Eunjun K", "jersey": "16"}
     ],
     "starting": [],
     "rotating": [],
@@ -312,158 +117,58 @@
   },
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford!",
-    "player_of_month": {
-      "name": "Niko D",
-      "month": "September"
+    "player_of_match": {
+      "name": "Adam K",
+      "match": "Jan 10 vs RMSC U11B6D3 (Geary)",
+      "reason": "Brace with brilliant runs!"
     }
   },
   "rotation_history": {
     "captains": [
-      {
-        "match": "Sept 13 vs CMFSC Millwall",
-        "first_half": "Travis C",
-        "second_half": "Minh-An D"
-      },
-      {
-        "match": "Sept 20 vs PCFC Wolf Pack",
-        "first_half": "TBD",
-        "second_half": "TBD"
-      },
-      {
-        "match": "Sept 27 vs CMFSC Swansea",
-        "first_half": "Niko D",
-        "second_half": "Owen H"
-      },
-      {
-        "match": "Oct 4 vs RMSC U11B8D3 (Tones)",
-        "first_half": "Andy E",
-        "second_half": "Andy E"
-      },
-      {
-        "match": "Oct 18 vs PMSC Soccer Stars",
-        "first_half": "TBD",
-        "second_half": "TBD"
-      },
-      {
-        "match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)",
-        "first_half": "Owen H",
-        "second_half": "Niko D"
-      },
-      {
-        "match": "Nov 8 vs PCFC Thunder",
-        "first_half": "TBD",
-        "second_half": "TBD"
-      },
-      {
-        "match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)",
-        "first_half": "TBD",
-        "second_half": "TBD"
-      }
+      {"match": "Sept 13 vs CMFSC Millwall", "first_half": "Travis C", "second_half": "Minh-An D"},
+      {"match": "Sept 20 vs PCFC Wolf Pack", "first_half": "TBD", "second_half": "TBD"},
+      {"match": "Sept 27 vs CMFSC Swansea", "first_half": "Niko D", "second_half": "Owen H"},
+      {"match": "Oct 4 vs RMSC U11B8D3 (Tones)", "first_half": "Andy E", "second_half": "Andy E"},
+      {"match": "Oct 18 vs PMSC Soccer Stars", "first_half": "TBD", "second_half": "TBD"},
+      {"match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)", "first_half": "Owen H", "second_half": "Niko D"},
+      {"match": "Nov 8 vs PCFC Thunder", "first_half": "TBD", "second_half": "TBD"},
+      {"match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)", "first_half": "TBD", "second_half": "TBD"}
     ],
     "goalkeepers": [
-      {
-        "match": "Sept 13 vs CMFSC Millwall",
-        "first_half": "Owen H",
-        "second_half": "Adam K"
-      },
-      {
-        "match": "Sept 20 vs PCFC Wolf Pack",
-        "first_half": "Yejun K",
-        "second_half": "Alexander V"
-      },
-      {
-        "match": "Sept 27 vs CMFSC Swansea",
-        "first_half": "David C",
-        "second_half": "Henry K"
-      },
-      {
-        "match": "Oct 4 vs RMSC U11B8D3 (Tones)",
-        "first_half": "Andy E",
-        "second_half": "Ethan G"
-      },
-      {
-        "match": "Oct 18 vs PMSC Soccer Stars",
-        "first_half": "Minh-An D",
-        "second_half": "Rhodri W"
-      },
-      {
-        "match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)",
-        "first_half": "Travis C",
-        "second_half": "Andrew N"
-      },
-      {
-        "match": "Nov 8 vs PCFC Thunder",
-        "first_half": "Niko D",
-        "second_half": "Rafael H"
-      },
-      {
-        "match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)",
-        "first_half": "Travis C",
-        "second_half": "Owen H"
-      },
-      {
-        "match": "Nov 22 vs CMFSC Middlesbrough (THIRD WIN!)",
-        "first_half": "Rhodri W",
-        "second_half": "Adam K"
-      },
-      {
-        "match": "Nov 29 vs RMSC U11B6D3 (Geary)",
-        "first_half": "Andy E",
-        "second_half": "David C"
-      },
-      {
-        "match": "Dec 6 vs RMSC U11B10D3 Blue Lightning (Petrik)",
-        "first_half": "Ethan G",
-        "second_half": "Yejun K"
-      },
-      {
-        "match": "Jan 10 vs RMSC U11B6D3 (Geary) - 2-2 Draw",
-        "first_half": "Andrew N",
-        "second_half": "Rafael H"
-      }
+      {"match": "Sept 13 vs CMFSC Millwall", "first_half": "Owen H", "second_half": "Adam K"},
+      {"match": "Sept 20 vs PCFC Wolf Pack", "first_half": "Yejun K", "second_half": "Alexander V"},
+      {"match": "Sept 27 vs CMFSC Swansea", "first_half": "David C", "second_half": "Henry K"},
+      {"match": "Oct 4 vs RMSC U11B8D3 (Tones)", "first_half": "Andy E", "second_half": "Ethan G"},
+      {"match": "Oct 18 vs PMSC Soccer Stars", "first_half": "Minh-An D", "second_half": "Rhodri W"},
+      {"match": "Oct 25 vs AFC U11 B Div 3 (FIRST WIN!)", "first_half": "Travis C", "second_half": "Andrew N"},
+      {"match": "Nov 8 vs PCFC Thunder", "first_half": "Niko D", "second_half": "Rafael H"},
+      {"match": "Nov 15 vs CMFSC Sheffield United (SECOND WIN!)", "first_half": "Travis C", "second_half": "Owen H"},
+      {"match": "Nov 22 vs CMFSC Middlesbrough (THIRD WIN!)", "first_half": "Rhodri W", "second_half": "Adam K"},
+      {"match": "Nov 29 vs RMSC U11B6D3 (Geary)", "first_half": "Andy E", "second_half": "David C"},
+      {"match": "Dec 6 vs RMSC U11B10D3 Blue Lightning (FOURTH WIN!)", "first_half": "Ethan G", "second_half": "Yejun K"},
+      {"match": "Jan 10 vs RMSC U11B6D3 (Geary) - 2-2 Draw", "first_half": "Andrew N", "second_half": "Rafael H"}
     ]
   },
   "notes": {
-    "arrival": "Arrive by 10:30 AM (30 min early for warm-up)",
-    "kit": "Away kit - White",
-    "coach": "Solid 2-2 draw in our first match back! Led twice but couldn't hold on. Adam K brilliant with a brace, Niko D with a crazy long pass assist for the second. Great team performance especially from Yejun K who hadn't practiced but still delivered. Rafael H excellent first half before moving to goal.",
-    "training_recap": "Jan 8: Good training session with 12 players (twins Eunjun and Yejun absent). Team sharp and ready for match day.",
-    "match_update": "MATCH RESULT: Jan 10 vs RMSC U11B6D3 (Geary) - 2-2 DRAW. Adam K scored both goals with brilliant runs. Niko D assist. Led twice (1-0 and 2-1).",
-    "this_week": "Good performance to start 2026! Now preparing for next week's match.",
+    "arrival": "Arrive by 10:45 AM (30 min early for warm-up)",
+    "kit": "TBD",
+    "coach": "Great first match back! Led twice against Geary but couldn't hold on for the win. Adam K was brilliant with two goals. This week we focus on defensive concentration and converting our chances. CMFSC Thunder will be tough - let's get back to winning!",
+    "training_recap": "Jan 8: Good training session with 12 players. Team looked sharp coming back from break.",
+    "match_update": "NEXT MATCH: Saturday Jan 17 at 11:15am vs CMFSC Thunder at Town Centre Fridge North (HOME).",
+    "this_week": "Training Wednesday, Match Saturday. Let's build on our strong performance!",
     "achievements": [
       "Sept 13 vs Millwall: Score First Goal and Team Work Goal",
       "Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
       "Sept 27 vs Swansea: Andy E first goal! Travis C 2 goals (beautiful free kick!)",
       "Oct 4 vs Tones: Best defensive performance! Yejun K and David C standout games",
       "Oct 18 vs Soccer Stars: Dominated possession 25 min (1st half) + 15 min (2nd half)",
-      "Andrew N solid defence, Ethan G & Andy E excellent versatility",
-      "Oct 23: Crossing mastery - attack & defence situations",
-      "Oct 24: Extended 2-hour practice session - game changer!",
       "Oct 25: FIRST WIN! 4-2 victory with Adam K hat-trick & Ethan G goal",
-      "Oct 25: Seven players best games - Yejun K, Rhodri W, Adam K, Andrew N, Niko D, David C, Owen H",
-      "Oct 25: Travis C & Andrew N excellent first-time goalkeepers",
-      "Nov 1: Match vs RMSC cancelled - flooded fields",
-      "Nov 6-7: Two excellent training sessions - finishing focus",
       "Nov 8: Andy E beautiful finish vs PCFC Thunder (Travis C assist)",
-      "Nov 8: TEN players standout performances - Yejun K, Niko D, Rafael H, David C, Andy E, Travis C, Minh-An D, Andrew N, Ethan G, Rhodri W",
-      "Nov 8: Excellent defensive organization - competed strongly for full match",
-      "Nov 8: Niko D & Rafael H first-time goalkeepers performed well",
       "Nov 15: SECOND WIN! 4-2 vs Sheffield United - Niko D penalty, Adam K brace, Travis C goal",
-      "Nov 15: Andy E showed character - missed penalty but assisted Travis C's goal",
-      "Nov 15: Adam K scoring twice with smart positioning - clinical hunter!",
-      "Nov 15: Rafael H hit post twice - creating quality chances",
-      "Nov 15: Team resilience despite wasted chances - winning mentality!",
       "Nov 22: THIRD WIN! 5-2 vs Middlesbrough - Travis C x2, Rafael H first goal, Ethan G, Andy E",
-      "Nov 22: Travis C stunning corner kick goal - Corner Kick Magic!",
-      "Nov 22: Rafael H BEST MATCH - first goal of the season!",
-      "Nov 22: Rhodri W clean sheet first half, Adam K crucial saves second half",
-      "Nov 22: Dominant defense - Yejun K, Andrew N, Rhodri W excellent",
-      "Nov 22: Four different scorers - Shared Glory achievement!",
-      "Dec 6: FOURTH WIN! 6-2 vs Blue Lightning - Travis C hat-trick, Owen H breakthrough goal!",
-      "Dec 6: Owen H first goal of the season!",
-      "Dec 6: Ethan G great saves as goalkeeper!",
-      "Oct Player of Month: Andrew N"
+      "Dec 6: FOURTH WIN! 6-2 vs Blue Lightning - Travis C hat-trick, Owen H first TWO goals!",
+      "Jan 10: Solid 2-2 draw vs Geary - Adam K brace, led twice"
     ]
   },
-  "status": "winning-streak"
+  "status": "preparing"
 }

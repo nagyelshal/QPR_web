@@ -1207,7 +1207,13 @@
       ],
       "starting_lineup": [],
       "rotating_players": [],
-      "unavailable_players": []
+      "unavailable_players": [
+        {
+          "name": "Henry K",
+          "jersey": "11",
+          "reason": "Not available"
+        }
+      ]
     },
     {
       "id": "match-015",

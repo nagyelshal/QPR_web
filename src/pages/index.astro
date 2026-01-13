@@ -83,13 +83,23 @@ const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
           <div class="stat-number">{wins}</div>
           <div class="stat-label">Wins</div>
         </div>
+        <div class="card stat-card stat-draws">
+          <div class="stat-number">{draws}</div>
+          <div class="stat-label">Draws</div>
+        </div>
         <div class="card stat-card stat-losses">
           <div class="stat-number">{losses}</div>
           <div class="stat-label">Losses</div>
         </div>
+      </div>
+      <div class="grid grid-2" style="margin-top: var(--spacing-md);">
         <div class="card stat-card stat-goals">
           <div class="stat-number">{totalGoals}</div>
           <div class="stat-label">Goals Scored</div>
+        </div>
+        <div class="card stat-card stat-goals-avg">
+          <div class="stat-number">{totalMatches > 0 ? (totalGoals / totalMatches).toFixed(1) : 0}</div>
+          <div class="stat-label">Goals per Match</div>
         </div>
       </div>
     </section>
@@ -196,12 +206,20 @@ const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
       background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
     }
 
+    .stat-draws {
+      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    }
+
     .stat-losses {
       background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     }
 
     .stat-goals {
       background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    }
+
+    .stat-goals-avg {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     }
 
     .stat-number {

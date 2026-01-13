@@ -26,21 +26,21 @@
     "upcoming_session": {
       "date": "2026-01-15",
       "focus_areas": ["Finishing", "Defensive shape", "Holding leads"],
-      "preparation_for": "Jan 17 match vs CMFSC Thunder"
+      "preparation_for": "Jan 17 match vs PCFC Thunder (AWAY)"
     },
-    "notes": "Wednesday training this week - preparing for Saturday's match vs Thunder"
+    "notes": "Wednesday training this week - preparing for Saturday's AWAY match vs PCFC Thunder"
   },
   "match": {
-    "opponent": "CMFSC Thunder",
+    "opponent": "PCFC Thunder",
     "date": "2026-01-17",
-    "kickoff": "11:15am",
-    "location": "Town Centre Fridge North",
-    "venue_type": "home",
+    "kickoff": "8:30am",
+    "location": "Gates Turf 1 South",
+    "venue_type": "away",
     "formation": "2-3-2",
-    "match_number": "2501813",
+    "match_number": "2502822",
     "week": "Week 20",
     "status": "upcoming",
-    "preparation_focus": "Coming off a solid 2-2 draw where we led twice. Focus on defensive concentration and converting our chances. Adam K in great form with a brace last match!"
+    "preparation_focus": "AWAY game at PCFC! Coming off a solid 2-2 draw where we led twice. Focus on defensive concentration and converting our chances. Adam K in great form with a brace last match!"
   },
   "last_match": {
     "opponent": "RMSC U11B6D3 (Geary)",
@@ -150,12 +150,12 @@
     ]
   },
   "notes": {
-    "arrival": "Arrive by 10:45 AM (30 min early for warm-up)",
+    "arrival": "Arrive by 8:00 AM (30 min early for warm-up) - EARLY START!",
     "kit": "TBD",
-    "coach": "Great first match back! Led twice against Geary but couldn't hold on for the win. Adam K was brilliant with two goals. This week we focus on defensive concentration and converting our chances. CMFSC Thunder will be tough - let's get back to winning!",
+    "coach": "Great first match back! Led twice against Geary but couldn't hold on for the win. Adam K was brilliant with two goals. This week we focus on defensive concentration and converting our chances. PCFC Thunder will be tough - let's get back to winning!",
     "training_recap": "Jan 8: Good training session with 12 players. Team looked sharp coming back from break.",
-    "match_update": "NEXT MATCH: Saturday Jan 17 at 11:15am vs CMFSC Thunder at Town Centre Fridge North (HOME).",
-    "this_week": "Training Wednesday, Match Saturday. Let's build on our strong performance!",
+    "match_update": "NEXT MATCH: Saturday Jan 17 at 8:30am vs PCFC Thunder at Gates Turf 1 South (AWAY). Early start!",
+    "this_week": "Training Wednesday, Match Saturday (AWAY - early 8:30am kickoff). Let's build on our strong performance!",
     "achievements": [
       "Sept 13 vs Millwall: Score First Goal and Team Work Goal",
       "Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",

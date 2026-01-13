@@ -125,8 +125,8 @@ function getVenueInfo(match) {
       <span class="match-count">{completedMatches.length} matches</span>
     </div>
 
-    <div class="matches-grid">
-      {completedMatches.map(match => {
+    <div class="matches-list">
+      {completedMatches.map((match, index) => {
         const venueInfo = getVenueInfo(match);
         // derive scores
         let qprScore = '-';
@@ -144,83 +144,66 @@ function getVenueInfo(match) {
             }
           }
         }
+        // Determine result class
+        const isWin = !isCancelled && Number(qprScore) > Number(oppScore);
+        const isDraw = !isCancelled && Number(qprScore) === Number(oppScore);
+        const isLoss = !isCancelled && Number(qprScore) < Number(oppScore);
+        const resultClass = isCancelled ? 'cancelled' : isWin ? 'win' : isDraw ? 'draw' : 'loss';
+        const isLatest = index === 0;
+
         return (
-        <div class="match-card" data-match-id={match.id}>
-          <div class="match-header">
-            <div class="match-date">
-              {new Date(match.date).toLocaleDateString('en-US', { 
-                weekday: 'short',
-                month: 'short', 
-                day: 'numeric'
-              })}
+        <details class={`match-accordion ${resultClass}`} open={isLatest} data-match-id={match.id}>
+          <summary class="match-summary">
+            <div class="summary-left">
+              <span class="summary-date">
+                {new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+              </span>
+              <span class="summary-opponent">{match.opponent}</span>
             </div>
-            <div class="match-week">Week {match.week}</div>
-            <div class={`venue-badge ${venueInfo.class}`}>
-              <span class="venue-icon">{venueInfo.icon}</span>
-              <span class="venue-text">{venueInfo.text}</span>
+            <div class="summary-right">
+              <span class={`summary-score ${resultClass}`}>
+                {isCancelled ? 'X-X' : `${qprScore}-${oppScore}`}
+              </span>
+              <span class={`summary-result ${resultClass}`}>
+                {isCancelled ? 'CAN' : isWin ? 'W' : isDraw ? 'D' : 'L'}
+              </span>
+              <span class="expand-icon"></span>
             </div>
+          </summary>
+
+          <div class="match-content">
+            <div class="match-header-row">
+              <div class="match-week">Week {match.week}</div>
+              <div class={`venue-badge ${venueInfo.class}`}>
+                <span class="venue-icon">{venueInfo.icon}</span>
+                <span class="venue-text">{venueInfo.text}</span>
+              </div>
+            </div>
+
+            <div class="match-details-compact">
+              <span>Kickoff: {match.kickoff}</span>
+              <span>{match.location}</span>
+            </div>
+
+            {!isCancelled && match.final_score && match.final_score.half_time && (
+              <div class="half-time">Half-time: {match.final_score.half_time}</div>
+            )}
+
+            {!isCancelled && match.scorers && match.scorers.length > 0 && (
+              <div class="scorers-compact">
+                <strong>Scorers:</strong> {match.scorers.join(', ')}
+              </div>
+            )}
+
+            {isCancelled && match.reason && (
+              <div class="cancel-reason">{match.reason}</div>
+            )}
+
+            <a href={`${base}matches/${match.id}/`} class="match-link-compact">
+              View Full Details
+            </a>
           </div>
-
-          <div class="match-teams">
-            <div class="team home">
-              <div class="team-name">QPR U11B</div>
-              <div class="team-score">{isCancelled ? 'X' : (match.result === 'pending' ? '-' : qprScore)}</div>
-            </div>
-            <div class="vs">VS</div>
-            <div class="team away">
-              <div class="team-name">{match.opponent}</div>
-              <div class="team-score">{isCancelled ? 'X' : (match.result === 'pending' ? '-' : oppScore)}</div>
-            </div>
-          </div>
-
-          <div class="match-details">
-            <div class="detail-item">
-              <span class="label">🕐 Kickoff:</span>
-              <span class="value">{match.kickoff}</span>
-            </div>
-            <div class="detail-item">
-              <span class="label">📍 Location:</span>
-              <span class="value">{match.location}</span>
-            </div>
-            <div class="detail-item">
-              <span class="label">🎫 Match #:</span>
-              <span class="value">{match.match_number}</span>
-            </div>
-          </div>
-
-          {match.result === 'pending' ? (
-            <div class="match-status pending">
-              <span>⏳ Upcoming Match</span>
-            </div>
-          ) : match.result === 'cancelled' ? (
-            <div class="match-status cancelled">
-              <span>❌ Cancelled</span>
-              {match.reason && <div class="cancel-reason">{match.reason}</div>}
-            </div>
-          ) : (
-            <div class="match-completed">
-              {match.final_score && match.final_score.half_time && (
-                <div class="half-time">Half-time: {match.final_score.half_time}</div>
-              )}
-              {match.scorers && match.scorers.length > 0 && (
-                <div class="scorers-section">
-                  <h4>⚽ Goal Scorers</h4>
-                  <div class="scorers-list">
-                    {match.scorers.map(name => (
-                      <div class="scorer-item">
-                        <span class="scorer-name">{name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
-          <a href={`${base}matches/${match.id}/`} class="match-link">
-            View Full Details →
-          </a>
-        </div>
+        </details>
         );
       })}
     </div>
@@ -323,6 +306,203 @@ function getVenueInfo(match) {
 
   .match-card.upcoming:hover {
     border-color: #e65100;
+  }
+
+  /* Collapsible Completed Matches */
+  .matches-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .match-accordion {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border-left: 4px solid #ccc;
+  }
+
+  .match-accordion.win {
+    border-left-color: #2ecc71;
+  }
+
+  .match-accordion.draw {
+    border-left-color: #9b59b6;
+  }
+
+  .match-accordion.loss {
+    border-left-color: #e74c3c;
+  }
+
+  .match-accordion.cancelled {
+    border-left-color: #95a5a6;
+  }
+
+  .match-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+  }
+
+  .match-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .match-summary:hover {
+    background: #f8f9fa;
+  }
+
+  .summary-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex: 1;
+    min-width: 0;
+  }
+
+  .summary-date {
+    font-weight: 600;
+    color: var(--color-text-light);
+    min-width: 60px;
+  }
+
+  .summary-opponent {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .summary-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .summary-score {
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 45px;
+    text-align: center;
+  }
+
+  .summary-score.win {
+    color: #2ecc71;
+  }
+
+  .summary-score.draw {
+    color: #9b59b6;
+  }
+
+  .summary-score.loss {
+    color: #e74c3c;
+  }
+
+  .summary-score.cancelled {
+    color: #95a5a6;
+  }
+
+  .summary-result {
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    min-width: 32px;
+    text-align: center;
+  }
+
+  .summary-result.win {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .summary-result.draw {
+    background: #e8daef;
+    color: #6c3483;
+  }
+
+  .summary-result.loss {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .summary-result.cancelled {
+    background: #e9ecef;
+    color: #6c757d;
+  }
+
+  .expand-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin-left: var(--spacing-sm);
+  }
+
+  .expand-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    transform: translate(-50%, -70%) rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  .match-accordion[open] .expand-icon::after {
+    transform: translate(-50%, -30%) rotate(-135deg);
+  }
+
+  .match-content {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    border-top: 1px solid #eee;
+    background: #fafafa;
+  }
+
+  .match-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .match-details-compact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .scorers-compact {
+    background: #e8f5e9;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+  }
+
+  .match-link-compact {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+  }
+
+  .match-link-compact:hover {
+    text-decoration: underline;
   }
 
   .match-header {

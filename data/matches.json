@@ -1165,15 +1165,49 @@
       "id": "match-014",
       "date": "2026-01-10",
       "opponent": "RMSC U11B6D3 (Geary)",
-      "result": "pending",
+      "result": "2-2 draw",
       "location": "Miller Park West",
       "kickoff": "11:00am",
       "match_number": "2501801",
       "week": 19,
       "venue_type": "home",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "final_score": {
+        "qpr": 2,
+        "opponent": 2,
+        "half_time": "1-1"
+      },
+      "captains": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "goalkeepers": {
+        "first_half": "Andrew N",
+        "second_half": "Rafael H"
+      },
+      "scorers": ["Adam K", "Adam K"],
+      "goal_details": [
+        {
+          "player": "Adam K",
+          "goals": 2,
+          "notes": "Brace with brilliant runs! Second goal assisted by crazy long pass from Niko D"
+        }
+      ],
+      "assists": ["Niko D"],
+      "formation": "2-3-2",
+      "performance_notes": "First match back after winter break ended in an exciting 2-2 draw. QPR led twice but couldn't hold on. Adam K scored both goals with brilliant runs, the second from an incredible long pass assist by Niko D. Solid team performance for the first game back, especially from Yejun K who hadn't had a chance to practice but still played great. Rafael H had a great first half before moving to goalkeeper in the second half. Andrew N solid in goal during first half.",
+      "highlights": [
+        "2-2 draw - led twice but couldn't hold on",
+        "Adam K brace - two goals with brilliant runs",
+        "Niko D crazy long pass assist for second goal",
+        "Yejun K solid performance without practice time",
+        "Rafael H great first half before GK duty",
+        "Andrew N solid first half in goal",
+        "First match back after winter break",
+        "Team showed good form returning from break"
+      ],
+      "starting_lineup": [],
+      "rotating_players": [],
+      "unavailable_players": []
     },
     {
       "id": "match-015",

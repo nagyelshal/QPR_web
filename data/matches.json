@@ -1235,7 +1235,7 @@
       "date": "2026-01-24",
       "opponent": "CMFSC Sheffield United",
       "result": "pending",
-      "location": "Town Centre Fridge North",
+      "location": "Town Centre Fridge South",
       "kickoff": "10:00am",
       "match_number": "2502826",
       "week": 21,
@@ -1253,7 +1253,7 @@
       "kickoff": "9:00am",
       "match_number": "2502830",
       "week": 22,
-      "venue_type": "home",
+      "venue_type": "away",
       "scorers": [],
       "assists": [],
       "highlights": []

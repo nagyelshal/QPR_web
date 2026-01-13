@@ -179,16 +179,16 @@
       "away_team": "CMFSC Sheffield United",
       "venue": "Home",
       "kickoff": "10:00am",
-      "field": "Town Centre Fridge North",
+      "field": "Town Centre Fridge South",
       "status": "scheduled"
     },
     {
       "week": 22,
       "match_number": "2502830",
       "date": "2026-01-31",
-      "home_team": "CMFSC Queens Park Rangers",
-      "away_team": "RMSC U11B14D3 (Johnson)",
-      "venue": "Home",
+      "home_team": "RMSC U11B14D3 (Johnson)",
+      "away_team": "CMFSC Queens Park Rangers",
+      "venue": "Away",
       "kickoff": "9:00am",
       "field": "Pitt Meadows Secondary 1",
       "status": "scheduled"
@@ -229,8 +229,8 @@
   ],
   "season_summary": {
     "total_matches": 20,
-    "home_matches": 17,
-    "away_matches": 3,
+    "home_matches": 16,
+    "away_matches": 4,
     "tba_matches": 0,
     "cancelled_matches": 1,
     "season_start": "2025-09-06",

@@ -1,87 +1,85 @@
 {
   "week": {
-    "date_range": "Jan 12 - Jan 18, 2026",
-    "theme": "Building on our Draw - Back to Winning Ways!",
-    "last_updated": "2026-01-13T12:00:00-08:00"
+    "date_range": "Jan 19 - Jan 25, 2026",
+    "theme": "FIFTH WIN! Revenge Against Thunder - Keep the Momentum!",
+    "last_updated": "2026-01-17T12:00:00-08:00"
   },
   "training": {
-    "date": "2026-01-15",
+    "date": "2026-01-22",
     "day": "Wednesday",
     "time": "5:00 PM",
     "location": "Mobilio West (Town Centre Park) - Grid D",
-    "focus": "Build on positive performance from last match, work on finishing and holding leads",
+    "focus": "Build on great win, maintain defensive shape, continue clinical finishing",
     "attendance_required": true,
     "completed": false,
     "sessions": [],
     "last_session": {
-      "date": "2026-01-08",
-      "attendance": 12,
-      "highlights": [
-        "Good session - all players attended except twins Eunjun and Yejun",
-        "Team looking sharp after winter break",
-        "Focus on match preparation for Saturday"
-      ],
-      "absent": ["Eunjun K", "Yejun K"]
+      "date": "2026-01-15",
+      "attendance": 0,
+      "highlights": [],
+      "absent": []
     },
     "upcoming_session": {
-      "date": "2026-01-15",
-      "focus_areas": ["Finishing", "Defensive shape", "Holding leads"],
-      "preparation_for": "Jan 17 match vs PCFC Thunder (AWAY)"
+      "date": "2026-01-22",
+      "focus_areas": ["Finishing", "Defensive shape", "Set pieces"],
+      "preparation_for": "Jan 24 match vs Sheffield United (HOME)"
     },
-    "notes": "Wednesday training this week - preparing for Saturday's AWAY match vs PCFC Thunder"
+    "notes": "Wednesday training this week - preparing for Saturday's HOME match vs Sheffield United"
   },
   "match": {
-    "opponent": "PCFC Thunder",
-    "date": "2026-01-17",
-    "kickoff": "8:30am",
-    "location": "Gates Turf 1 South",
-    "venue_type": "away",
+    "opponent": "CMFSC Sheffield United",
+    "date": "2026-01-24",
+    "kickoff": "10:00am",
+    "location": "Town Centre Fridge South",
+    "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2502822",
-    "week": "Week 20",
+    "match_number": "2502826",
+    "week": "Week 21",
     "status": "upcoming",
-    "preparation_focus": "AWAY game at PCFC! Coming off a solid 2-2 draw where we led twice. Focus on defensive concentration and converting our chances. Adam K in great form with a brace last match!"
+    "preparation_focus": "HOME game vs Sheffield United! We beat them 4-2 back in November. Coming off a brilliant revenge win against Thunder. Rafael H in great form with 3 assists. Let's keep the momentum going!"
   },
   "last_match": {
-    "opponent": "RMSC U11B6D3 (Geary)",
-    "date": "2026-01-10",
-    "result": "2-2 Draw",
-    "scorers": ["Adam K (2)"],
-    "assists": ["Niko D"],
+    "opponent": "PCFC Thunder",
+    "date": "2026-01-17",
+    "result": "3-1 WIN",
+    "scorers": ["Minh-An D (1)", "Ethan G (2)"],
+    "assists": ["Rafael H (3)"],
     "goalkeepers": {
-      "first_half": "Andrew N",
-      "second_half": "Rafael H"
+      "first_half": "Henry K",
+      "second_half": "Minh-An D"
     },
     "highlights": [
-      "Led twice (1-0 and 2-1) but couldn't hold on",
-      "Adam K brace with brilliant runs",
-      "Niko D crazy long pass assist",
-      "Yejun K solid without practice",
-      "Rafael H great first half before GK duty"
+      "REVENGE WIN against Thunder!",
+      "Minh-An D early goal (5') from Rafael H cross",
+      "Dominated first 20 minutes",
+      "Henry K excellent saves in 1st half",
+      "Minh-An D solid 2nd half GK - kept clean sheet",
+      "Great midfield - Niko, Rafael, Adam, Ethan, David",
+      "Ethan G brace from Rafael H assists"
     ],
-    "unavailable": ["Henry K"]
+    "unavailable": []
   },
   "captains": {
-    "reveal_at": "2026-01-16T18:00:00-08:00",
+    "reveal_at": "2026-01-23T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2026-01-16T18:00:00-08:00",
+    "reveal_at": "2026-01-23T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
     "rotation_note": "Continuing fair rotation across the squad"
   },
   "positions": {
-    "reveal_at": "2026-01-16T00:00:00-08:00",
+    "reveal_at": "2026-01-23T00:00:00-08:00",
     "starting_lineup": [],
     "all_positions": []
   },
   "off_pitch": {
-    "reveal_at": "2026-01-16T00:00:00-08:00",
+    "reveal_at": "2026-01-23T00:00:00-08:00",
     "zones": {
       "goalkeepers": [],
       "defence": [],
@@ -94,7 +92,7 @@
     }
   },
   "lineup": {
-    "reveal_at": "2026-01-16T00:00:00-08:00",
+    "reveal_at": "2026-01-23T00:00:00-08:00",
     "all_players": [
       {"name": "Adam K", "jersey": "13"},
       {"name": "Andy E", "jersey": "4"},
@@ -118,9 +116,9 @@
   "hype": {
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford!",
     "player_of_match": {
-      "name": "Adam K",
-      "match": "Jan 10 vs RMSC U11B6D3 (Geary)",
-      "reason": "Brace with brilliant runs!"
+      "name": "Rafael H",
+      "match": "Jan 17 vs PCFC Thunder",
+      "reason": "3 assists - set up all 3 goals!"
     }
   },
   "rotation_history": {
@@ -146,16 +144,17 @@
       {"match": "Nov 22 vs CMFSC Middlesbrough (THIRD WIN!)", "first_half": "Rhodri W", "second_half": "Adam K"},
       {"match": "Nov 29 vs RMSC U11B6D3 (Geary)", "first_half": "Andy E", "second_half": "David C"},
       {"match": "Dec 6 vs RMSC U11B10D3 Blue Lightning (FOURTH WIN!)", "first_half": "Ethan G", "second_half": "Yejun K"},
-      {"match": "Jan 10 vs RMSC U11B6D3 (Geary) - 2-2 Draw", "first_half": "Andrew N", "second_half": "Rafael H"}
+      {"match": "Jan 10 vs RMSC U11B6D3 (Geary) - 2-2 Draw", "first_half": "Andrew N", "second_half": "Rafael H"},
+      {"match": "Jan 17 vs PCFC Thunder (FIFTH WIN!)", "first_half": "Henry K", "second_half": "Minh-An D"}
     ]
   },
   "notes": {
-    "arrival": "Arrive by 8:00 AM (30 min early for warm-up) - EARLY START!",
+    "arrival": "Arrive by 9:30 AM (30 min early for warm-up)",
     "kit": "TBD",
-    "coach": "Great first match back! Led twice against Geary but couldn't hold on for the win. Adam K was brilliant with two goals. This week we focus on defensive concentration and converting our chances. PCFC Thunder will be tough - let's get back to winning!",
-    "training_recap": "Jan 8: Good training session with 12 players. Team looked sharp coming back from break.",
-    "match_update": "NEXT MATCH: Saturday Jan 17 at 8:30am vs PCFC Thunder at Gates Turf 1 South (AWAY). Early start!",
-    "this_week": "Training Wednesday, Match Saturday (AWAY - early 8:30am kickoff). Let's build on our strong performance!",
+    "coach": "BRILLIANT WIN! Revenge against Thunder - 3-1 away victory! Minh-An scored early, then we dominated. Ethan G brace in the second half from Rafael H's brilliant assists. Great team performance all around. Now let's keep the momentum going against Sheffield United - a team we beat 4-2 earlier in the season!",
+    "training_recap": "",
+    "match_update": "NEXT MATCH: Saturday Jan 24 at 10:00am vs Sheffield United at Town Centre Fridge South (HOME).",
+    "this_week": "Training Wednesday, Match Saturday (HOME). Let's make it SIX wins!",
     "achievements": [
       "Sept 13 vs Millwall: Score First Goal and Team Work Goal",
       "Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -167,7 +166,8 @@
       "Nov 15: SECOND WIN! 4-2 vs Sheffield United - Niko D penalty, Adam K brace, Travis C goal",
       "Nov 22: THIRD WIN! 5-2 vs Middlesbrough - Travis C x2, Rafael H first goal, Ethan G, Andy E",
       "Dec 6: FOURTH WIN! 6-2 vs Blue Lightning - Travis C hat-trick, Owen H first TWO goals!",
-      "Jan 10: Solid 2-2 draw vs Geary - Adam K brace, led twice"
+      "Jan 10: Solid 2-2 draw vs Geary - Adam K brace, led twice",
+      "Jan 17: FIFTH WIN! 3-1 vs PCFC Thunder (AWAY) - Revenge win! Minh-An D, Ethan G x2, Rafael H 3 assists"
     ]
   },
   "status": "preparing"

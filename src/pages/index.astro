@@ -58,6 +58,24 @@ matches.forEach(match => {
 // Sort by appearances (descending)
 const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
   .sort((a, b) => b[1] - a[1]);
+
+// Calculate clean sheet keepers (matches where their_score is 0 or matches marked as clean sheet)
+const cleanSheetKeepers = new Map();
+matches.forEach(match => {
+  // Check if it's a clean sheet (their_score = 0)
+  if (match.their_score === 0 && match.goalkeepers) {
+    if (match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
+      cleanSheetKeepers.set(match.goalkeepers.first_half, (cleanSheetKeepers.get(match.goalkeepers.first_half) || 0) + 1);
+    }
+    if (match.goalkeepers.second_half && match.goalkeepers.second_half !== 'TBD') {
+      cleanSheetKeepers.set(match.goalkeepers.second_half, (cleanSheetKeepers.get(match.goalkeepers.second_half) || 0) + 1);
+    }
+  }
+});
+
+// Sort clean sheet keepers by count
+const sortedCleanSheetKeepers = Array.from(cleanSheetKeepers.entries())
+  .sort((a, b) => b[1] - a[1]);
 ---
 
 <BaseLayout title="Home - Queens Park Rangers U11B">
@@ -138,6 +156,28 @@ const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
                 <div class="gk-appearances">
                   <span class="appearances-number">{gk[1]}</span>
                   <span class="appearances-label">{gk[1] === 1 ? 'half' : 'halves'}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Clean Sheet Honor Roll -->
+    {sortedCleanSheetKeepers.length > 0 && (
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>🛡️ Clean Sheet Honor Roll</h2>
+        <p style="color: var(--gray-600); margin-bottom: var(--spacing-md);">Goalkeepers who kept clean sheets (0 goals conceded in the match)</p>
+        <div class="card">
+          <div class="cleansheet-table">
+            {sortedCleanSheetKeepers.map((keeper, index) => (
+              <div class="cleansheet-row">
+                <div class="cleansheet-rank">{index + 1}</div>
+                <div class="cleansheet-name">{keeper[0]}</div>
+                <div class="cleansheet-count">
+                  <span class="cleansheet-number">{keeper[1]}</span>
+                  <span class="cleansheet-label">{keeper[1] === 1 ? 'clean sheet' : 'clean sheets'}</span>
                 </div>
               </div>
             ))}
@@ -398,6 +438,83 @@ const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
       color: rgba(255, 255, 255, 0.8);
     }
 
+    .cleansheet-table {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .cleansheet-row {
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      transition: all 0.2s;
+    }
+
+    .cleansheet-row:hover {
+      background: var(--gray-100);
+      transform: translateX(5px);
+    }
+
+    .cleansheet-row:first-child {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+    }
+
+    .cleansheet-row:nth-child(2) {
+      background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+      font-weight: bold;
+    }
+
+    .cleansheet-row:nth-child(3) {
+      background: linear-gradient(135deg, #cd7f32 0%, #e5a572 100%);
+      font-weight: bold;
+    }
+
+    .cleansheet-rank {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--qpr-blue);
+      text-align: center;
+    }
+
+    .cleansheet-row:first-child .cleansheet-rank,
+    .cleansheet-row:nth-child(2) .cleansheet-rank,
+    .cleansheet-row:nth-child(3) .cleansheet-rank {
+      color: #333;
+    }
+
+    .cleansheet-name {
+      font-size: 1rem;
+    }
+
+    .cleansheet-count {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .cleansheet-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--qpr-blue);
+    }
+
+    .cleansheet-row:first-child .cleansheet-number,
+    .cleansheet-row:nth-child(2) .cleansheet-number,
+    .cleansheet-row:nth-child(3) .cleansheet-number {
+      color: #333;
+    }
+
+    .cleansheet-label {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+
     @media (max-width: 768px) {
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
@@ -438,6 +555,23 @@ const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
       }
 
       .appearances-number {
+        font-size: 1.2rem;
+      }
+
+      .cleansheet-row {
+        grid-template-columns: 30px 1fr auto;
+        padding: var(--spacing-xs) var(--spacing-sm);
+      }
+
+      .cleansheet-rank {
+        font-size: 1rem;
+      }
+
+      .cleansheet-name {
+        font-size: 0.9rem;
+      }
+
+      .cleansheet-number {
         font-size: 1.2rem;
       }
     }

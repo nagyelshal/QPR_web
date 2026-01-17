@@ -1220,15 +1220,36 @@
       "id": "match-015",
       "date": "2026-01-17",
       "opponent": "PCFC Thunder",
-      "result": "pending",
+      "result": "3-1",
+      "outcome": "win",
+      "our_score": 3,
+      "their_score": 1,
       "location": "Gates Turf 1 South",
       "kickoff": "8:30am",
       "match_number": "2502822",
       "week": 20,
       "venue_type": "away",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "goalkeepers": {
+        "first_half": "Henry K",
+        "second_half": "Minh-An D"
+      },
+      "scorers": [
+        {"player": "Minh-An D", "goals": 1, "time": "5'"},
+        {"player": "Ethan G", "goals": 2}
+      ],
+      "assists": [
+        {"player": "Rafael H", "assists": 3}
+      ],
+      "highlights": [
+        "REVENGE WIN! Beat PCFC Thunder after losing to them earlier in the season",
+        "Minh-An D early goal (5') from Rafael H cross",
+        "Dominated first 20 minutes - opponent barely saw our goal",
+        "Henry K excellent saves in 1st half",
+        "Minh-An D solid 2nd half GK - saved chances, kept clean sheet",
+        "Great midfield performance - Niko D, Rafael H, Adam K, Ethan G, David C all outstanding",
+        "Ethan G brace - two beautiful goals from Rafael H assists",
+        "FIFTH WIN of the season!"
+      ]
     },
     {
       "id": "match-016",

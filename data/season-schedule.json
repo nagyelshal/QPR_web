@@ -169,7 +169,8 @@
       "venue": "Away",
       "kickoff": "8:30am",
       "field": "Gates Turf 1 South",
-      "status": "scheduled"
+      "status": "completed",
+      "result": "3-1 Win"
     },
     {
       "week": 21,

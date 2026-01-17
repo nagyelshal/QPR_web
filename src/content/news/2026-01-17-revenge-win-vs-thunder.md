@@ -1,11 +1,11 @@
 ---
-title: "Revenge is Sweet! QPR Beat Thunder 3-1 Away"
+title: "Sweet Victory! QPR Beat Thunder 3-1 Away"
 date: 2026-01-17
-summary: "QPR avenged their earlier season loss with a dominant 3-1 away victory against PCFC Thunder. Minh-An D opened the scoring early, with Ethan G adding a brace in the second half."
+summary: "QPR turned the tables on PCFC Thunder with a dominant 3-1 away victory. Minh-An D opened the scoring early, with Ethan G adding a brace in the second half."
 tags: ["match-report", "win", "away"]
 ---
 
-# Revenge is Sweet! QPR Beat Thunder 3-1 Away
+# Sweet Victory! QPR Beat Thunder 3-1 Away
 
 **Final Score: PCFC Thunder 1-3 QPR**
 

@@ -17,12 +17,20 @@ const matches = matchesData.default.matches;
 
 // Calculate goal scorers statistics
 const goalScorers = new Map();
+let totalGoals = 0;
 matches.forEach(match => {
   if (match.scorers && match.scorers.length > 0) {
     match.scorers.forEach(scorer => {
-      // Clean up scorer name (remove penalty notation, etc.)
-      const cleanName = scorer.replace(/\s*\(.*?\)\s*/g, '').trim();
-      goalScorers.set(cleanName, (goalScorers.get(cleanName) || 0) + 1);
+      // Handle both string format ("Player Name") and object format ({player: "Name", goals: N})
+      if (typeof scorer === 'string') {
+        const cleanName = scorer.replace(/\s*\(.*?\)\s*/g, '').trim();
+        goalScorers.set(cleanName, (goalScorers.get(cleanName) || 0) + 1);
+        totalGoals += 1;
+      } else if (scorer.player) {
+        const goals = scorer.goals || 1;
+        goalScorers.set(scorer.player, (goalScorers.get(scorer.player) || 0) + goals);
+        totalGoals += goals;
+      }
     });
   }
 });
@@ -37,10 +45,6 @@ const totalMatches = matches.filter(m => m.result && m.result !== 'pending' && m
 const wins = matches.filter(m => m.result && m.result.includes('win')).length;
 const losses = matches.filter(m => m.result && m.result.includes('loss')).length;
 const draws = matches.filter(m => m.result && m.result.includes('draw')).length;
-const totalGoals = matches.reduce((sum, match) => {
-  if (match.scorers) return sum + match.scorers.length;
-  return sum;
-}, 0);
 
 // Calculate goalkeeper appearances
 const goalkeeperStats = new Map();

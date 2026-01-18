@@ -63,22 +63,40 @@ matches.forEach(match => {
 const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
   .sort((a, b) => b[1] - a[1]);
 
-// Calculate clean sheet keepers (matches where their_score is 0 or matches marked as clean sheet)
-const cleanSheetKeepers = new Map();
+// Calculate clean sheet halves - each goalkeeper plays one half, credit them if no goals conceded in their half
+const cleanSheetHalves = new Map();
 matches.forEach(match => {
-  // Check if it's a clean sheet (their_score = 0)
-  if (match.their_score === 0 && match.goalkeepers) {
-    if (match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
-      cleanSheetKeepers.set(match.goalkeepers.first_half, (cleanSheetKeepers.get(match.goalkeepers.first_half) || 0) + 1);
+  if (!match.goalkeepers || match.result === 'cancelled' || match.result === 'pending') return;
+
+  // Parse half-time score to determine goals conceded per half
+  // Format: "X-Y" where X is QPR goals, Y is opponent goals at half-time
+  // Or "X-Y QPR" format
+  let firstHalfConceded = null;
+  let secondHalfConceded = null;
+
+  if (match.final_score && match.final_score.half_time && match.final_score.half_time !== 'TBD') {
+    const halfTime = match.final_score.half_time.replace(' QPR', '');
+    const htParts = halfTime.split('-').map(s => parseInt(s.trim()));
+    const totalConceded = match.final_score.opponent || 0;
+
+    if (htParts.length === 2 && !isNaN(htParts[0]) && !isNaN(htParts[1])) {
+      // htParts[1] is opponent goals at half-time (goals conceded in 1st half)
+      firstHalfConceded = htParts[1];
+      secondHalfConceded = totalConceded - htParts[1];
     }
-    if (match.goalkeepers.second_half && match.goalkeepers.second_half !== 'TBD') {
-      cleanSheetKeepers.set(match.goalkeepers.second_half, (cleanSheetKeepers.get(match.goalkeepers.second_half) || 0) + 1);
-    }
+  }
+
+  // Credit clean sheet halves
+  if (firstHalfConceded === 0 && match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
+    cleanSheetHalves.set(match.goalkeepers.first_half, (cleanSheetHalves.get(match.goalkeepers.first_half) || 0) + 1);
+  }
+  if (secondHalfConceded === 0 && match.goalkeepers.second_half && match.goalkeepers.second_half !== 'TBD') {
+    cleanSheetHalves.set(match.goalkeepers.second_half, (cleanSheetHalves.get(match.goalkeepers.second_half) || 0) + 1);
   }
 });
 
-// Sort clean sheet keepers by count
-const sortedCleanSheetKeepers = Array.from(cleanSheetKeepers.entries())
+// Sort clean sheet halves by count
+const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
   .sort((a, b) => b[1] - a[1]);
 ---
 
@@ -171,8 +189,8 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetKeepers.entries())
     <!-- Clean Sheet Honor Roll -->
     {sortedCleanSheetKeepers.length > 0 && (
       <section style="margin-top: var(--spacing-2xl);">
-        <h2>🛡️ Clean Sheet Honor Roll</h2>
-        <p style="color: var(--gray-600); margin-bottom: var(--spacing-md);">Goalkeepers who kept clean sheets (0 goals conceded in the match)</p>
+        <h2>🛡️ Clean Sheet Halves</h2>
+        <p style="color: var(--gray-600); margin-bottom: var(--spacing-md);">Goalkeepers who kept clean sheet halves (0 goals conceded in their half)</p>
         <div class="card">
           <div class="cleansheet-table">
             {sortedCleanSheetKeepers.map((keeper, index) => (
@@ -181,7 +199,7 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetKeepers.entries())
                 <div class="cleansheet-name">{keeper[0]}</div>
                 <div class="cleansheet-count">
                   <span class="cleansheet-number">{keeper[1]}</span>
-                  <span class="cleansheet-label">{keeper[1] === 1 ? 'clean sheet' : 'clean sheets'}</span>
+                  <span class="cleansheet-label">{keeper[1] === 1 ? 'half' : 'halves'}</span>
                 </div>
               </div>
             ))}

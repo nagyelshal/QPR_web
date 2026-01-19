@@ -859,7 +859,7 @@
       "final_score": {
         "qpr": 4,
         "opponent": 2,
-        "half_time": "TBD"
+        "half_time": "2-0"
       },
       "captains": {
         "first_half": "TBD",
@@ -921,7 +921,7 @@
       "final_score": {
         "qpr": 5,
         "opponent": 2,
-        "half_time": "TBD"
+        "half_time": "2-0"
       },
       "achievements": [
         "Third Win of the Season",
@@ -1224,6 +1224,11 @@
       "outcome": "win",
       "our_score": 3,
       "their_score": 1,
+      "final_score": {
+        "qpr": 3,
+        "opponent": 1,
+        "half_time": "1-1"
+      },
       "location": "Gates Turf 1 South",
       "kickoff": "8:30am",
       "match_number": "2502822",

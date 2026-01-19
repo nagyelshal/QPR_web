@@ -115,7 +115,7 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
     <section style="margin-top: var(--spacing-2xl);">
       <h2>📊 Season Dashboard</h2>
       <div class="grid grid-4">
-        <div class="card stat-card">
+        <div class="card stat-card stat-matches">
           <div class="stat-number">{totalMatches}</div>
           <div class="stat-label">Matches Played</div>
         </div>
@@ -263,9 +263,12 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
     .stat-card {
       text-align: center;
       padding: var(--spacing-lg);
-      background: linear-gradient(135deg, var(--qpr-blue) 0%, #1e4d8b 100%);
       color: white;
       border: none;
+    }
+
+    .stat-matches {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     }
 
     .stat-wins {

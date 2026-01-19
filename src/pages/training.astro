@@ -255,21 +255,32 @@ import Notice from '../components/Notice.astro';
       margin-bottom: var(--spacing-xs);
     }
     
+    /* Hide print button on mobile - printing not practical on phones */
+    @media (max-width: 768px) {
+      .no-print {
+        display: none;
+      }
+    }
+
     @media print {
       .training-block {
         border-left: 2px solid #000;
         background: transparent;
         break-inside: avoid;
       }
-      
+
       .collapsible {
         border: 1px solid #000;
         margin-bottom: var(--spacing-lg);
       }
-      
+
       .collapsible-header {
         background: #f0f0f0;
         font-weight: bold;
+      }
+
+      .no-print {
+        display: none !important;
       }
     }
   </style>

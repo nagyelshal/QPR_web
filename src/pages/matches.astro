@@ -411,7 +411,7 @@ function getVenueInfo(match) {
   .summary-result {
     font-weight: 700;
     font-size: 0.85rem;
-    padding: 2px 8px;
+    padding: 2px 8px 2px 12px;
     border-radius: 4px;
     min-width: 32px;
     text-align: center;
@@ -420,15 +420,55 @@ function getVenueInfo(match) {
   .summary-result.win {
     background: #d4edda;
     color: #155724;
+    position: relative;
+  }
+
+  /* Colorblind-friendly: checkmark pattern for wins */
+  .summary-result.win::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #155724;
   }
 
   .summary-result.draw {
     background: #e8daef;
     color: #6c3483;
+    position: relative;
+  }
+
+  /* Colorblind-friendly: horizontal line pattern for draws */
+  .summary-result.draw::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 2px;
+    background: #6c3483;
   }
 
   .summary-result.loss {
     background: #f8d7da;
+    color: #721c24;
+    position: relative;
+  }
+
+  /* Colorblind-friendly: X pattern for losses */
+  .summary-result.loss::before {
+    content: '×';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    line-height: 1;
     color: #721c24;
   }
 

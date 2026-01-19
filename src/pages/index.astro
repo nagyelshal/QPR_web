@@ -15,6 +15,32 @@ const recentPosts = sortedPosts.slice(0, 3);
 const matchesData = await import('../../data/matches.json');
 const matches = matchesData.default.matches;
 
+// Import schedule data for next match countdown
+const scheduleData = await import('../../data/season-schedule.json');
+const schedule = scheduleData.default.matches;
+
+// Find next upcoming match
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const nextMatch = schedule.find(m => {
+  const matchDate = new Date(m.date);
+  return m.status === 'scheduled' && matchDate >= today;
+});
+
+// Format next match date for display
+function formatMatchDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+// Get opponent name (cleaned up)
+function getOpponent(match: any) {
+  if (match.venue === 'Home') {
+    return match.away_team.replace('CMFSC ', '').replace('PCFC ', '').replace('RMSC ', '').replace('PMSC ', '').replace('AFC ', '');
+  }
+  return match.home_team.replace('CMFSC ', '').replace('PCFC ', '').replace('RMSC ', '').replace('PMSC ', '').replace('AFC ', '');
+}
+
 // Calculate goal scorers statistics
 const goalScorers = new Map();
 let totalGoals = 0;
@@ -107,6 +133,20 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
       <h1 class="soccer-bounce">⚽ Queens Park Rangers ⚽</h1>
       <p><strong>U11 Boys • Coquitlam Metro-Ford SC • Season 2025-2026</strong></p>
       <p>Building momentum with {wins} {wins === 1 ? 'win' : 'wins'} this season! 🏆</p>
+
+      {nextMatch && (
+        <div class="next-match-widget">
+          <div class="next-match-header">NEXT MATCH</div>
+          <div class="next-match-opponent">vs {getOpponent(nextMatch)}</div>
+          <div class="next-match-details">
+            <span class="next-match-date">{formatMatchDate(nextMatch.date)}</span>
+            <span class="next-match-time">{nextMatch.kickoff}</span>
+            <span class="next-match-venue badge-{nextMatch.venue.toLowerCase()}">{nextMatch.venue}</span>
+          </div>
+          <div class="next-match-countdown" data-match-date={nextMatch.date} data-match-time={nextMatch.kickoff}></div>
+          <div class="next-match-location">{nextMatch.field}</div>
+        </div>
+      )}
     </div>
   </section>
 
@@ -571,6 +611,177 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
       .cleansheet-number {
         font-size: 1.2rem;
       }
+
+      .next-match-widget {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Next Match Widget */
+    .next-match-widget {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      color: var(--gray-900);
+    }
+
+    .next-match-header {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--qpr-blue);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .next-match-opponent {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .next-match-details {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      margin-bottom: var(--spacing-md);
+      font-size: 0.9rem;
+    }
+
+    .next-match-date {
+      font-weight: 600;
+    }
+
+    .next-match-time {
+      color: var(--gray-600);
+    }
+
+    .next-match-venue {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-home {
+      background: var(--qpr-blue);
+      color: white;
+    }
+
+    .badge-away {
+      background: var(--gray-600);
+      color: white;
+    }
+
+    .next-match-countdown {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .countdown-item {
+      text-align: center;
+      min-width: 50px;
+    }
+
+    .countdown-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--qpr-blue);
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      letter-spacing: 0.5px;
+    }
+
+    .next-match-location {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+
+    @media (max-width: 480px) {
+      .next-match-widget {
+        padding: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+      }
+
+      .next-match-opponent {
+        font-size: 1.25rem;
+      }
+
+      .countdown-value {
+        font-size: 1.4rem;
+      }
+
+      .countdown-item {
+        min-width: 40px;
+      }
     }
   </style>
+
+  <script>
+    function updateCountdown() {
+      const countdownEl = document.querySelector('.next-match-countdown');
+      if (!countdownEl) return;
+
+      const matchDate = countdownEl.dataset.matchDate;
+      const matchTime = countdownEl.dataset.matchTime;
+
+      if (!matchDate) return;
+
+      // Parse match time (e.g., "10:00am" or "12:30pm")
+      let hours = 10, minutes = 0;
+      if (matchTime) {
+        const timeMatch = matchTime.match(/(\d+):?(\d*)([ap]m)?/i);
+        if (timeMatch) {
+          hours = parseInt(timeMatch[1]);
+          minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
+          const isPM = timeMatch[3]?.toLowerCase() === 'pm';
+          if (isPM && hours !== 12) hours += 12;
+          if (!isPM && hours === 12) hours = 0;
+        }
+      }
+
+      const match = new Date(matchDate + 'T00:00:00');
+      match.setHours(hours, minutes, 0, 0);
+
+      const now = new Date();
+      const diff = match.getTime() - now.getTime();
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = '<div class="countdown-item"><div class="countdown-value">MATCH DAY!</div></div>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+      let html = '';
+      if (days > 0) {
+        html += `<div class="countdown-item"><div class="countdown-value">${days}</div><div class="countdown-label">days</div></div>`;
+      }
+      html += `<div class="countdown-item"><div class="countdown-value">${hoursLeft}</div><div class="countdown-label">hrs</div></div>`;
+      html += `<div class="countdown-item"><div class="countdown-value">${minutesLeft}</div><div class="countdown-label">min</div></div>`;
+
+      countdownEl.innerHTML = html;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
 </BaseLayout>

@@ -13,31 +13,19 @@ const base = import.meta.env.BASE_URL;
     </header>
 
   <div class="grid grid-2">
-      
-      <!-- Pickup Information -->
+
+      <!-- Kit Information -->
       <div>
-        <h2>Kit Pickup</h2>
+        <h2>Team Kit</h2>
         <div class="card card-highlight">
-          <h3>Pickup Windows</h3>
-          <div style="font-size: var(--font-size-lg); margin: var(--spacing-md) 0;">
-            <p><strong>Window 1:</strong> Saturday, August 30<br>
-            <strong>Time:</strong> 10:00 AM - 12:00 PM</p>
-            
-            <p><strong>Window 2:</strong> Sunday, August 31<br>
-            <strong>Time:</strong> 2:00 PM - 4:00 PM</p>
-          </div>
-          
-          <div style="margin-top: var(--spacing-lg);">
-            <h4>Pickup Location</h4>
-            <p><strong>Coach's Residence</strong><br>
-            [Address will be provided via TeamSnap]</p>
-            
-            <Notice type="info">
-              <p><strong>Note:</strong> The Sept 2nd window is for missed initial pickups only. <em>Exchanges will not be processed at that window.</em> We'll schedule exchanges after initial distribution is complete.</p>
-            </Notice>
-          </div>
+          <h3>Kit Distribution Complete</h3>
+          <p style="margin: var(--spacing-md) 0;">Initial kit distribution for the 2025-2026 season has been completed. If you still need to pick up your kit or have sizing issues, please contact the coach directly.</p>
+
+          <Notice type="success">
+            <p>All players should now have received their kits. Contact coach via TeamSnap if you have any issues.</p>
+          </Notice>
         </div>
-        
+
         <div class="card" style="margin-top: var(--spacing-lg);">
           <h3>What's Included</h3>
           <ul>
@@ -47,14 +35,6 @@ const base = import.meta.env.BASE_URL;
             <li>Socks</li>
             <li>Team bag (if provided by club)</li>
           </ul>
-          
-          <Notice type="warning" title="Bring to Pickup">
-            <ul style="margin: 0;">
-              <li>Players Manifest form (signed)</li>
-              <li>Payment for any additional items</li>
-              <li>Player for sizing (recommended)</li>
-            </ul>
-          </Notice>
         </div>
       </div>
 
@@ -111,13 +91,8 @@ const base = import.meta.env.BASE_URL;
       <div class="grid grid-2">
         <div class="card">
           <h3>Lost or Damaged Kits</h3>
-          <p>Replacement kits can be ordered through the club. Costs vary by item:</p>
-          <ul>
-            <li>Jersey: $XX (check with club)</li>
-            <li>Shorts: $XX</li>
-            <li>Socks: $XX</li>
-          </ul>
-          <p><em>Contact coach for replacement orders.</em></p>
+          <p>Replacement kits can be ordered through the club. Contact the coach for current pricing and availability.</p>
+          <p><em>Replacement orders typically take 2-3 weeks to arrive.</em></p>
         </div>
         
         <div class="card">
@@ -147,8 +122,7 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Contact Information -->
     <Notice type="info" title="Questions?">
-      <p>For kit-related questions, sizing concerns, or exchange requests, contact the coach directly. Response time is typically within 24 hours.</p>
-      <p><strong>Goalkeeper kits:</strong> Pickup will be coordinated separately and <em>not</em> at the Sept 2nd window.</p>
+      <p>For kit-related questions, sizing concerns, or exchange requests, contact the coach directly via TeamSnap. Response time is typically within 24 hours.</p>
       <div style="margin-top: var(--spacing-md);">
         <a href={`${base}about/`} class="btn btn-small">Coach Contact Info</a>
       </div>

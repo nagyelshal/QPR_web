@@ -132,7 +132,7 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
           <div class="stat-label">Losses</div>
         </div>
       </div>
-      <div class="grid grid-2" style="margin-top: var(--spacing-md);">
+      <div class="grid grid-3" style="margin-top: var(--spacing-md);">
         <div class="card stat-card stat-goals">
           <div class="stat-number">{totalGoals}</div>
           <div class="stat-label">Goals Scored</div>
@@ -140,6 +140,10 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
         <div class="card stat-card stat-goals-avg">
           <div class="stat-number">{totalMatches > 0 ? (totalGoals / totalMatches).toFixed(1) : 0}</div>
           <div class="stat-label">Goals per Match</div>
+        </div>
+        <div class="card stat-card stat-cleansheets">
+          <div class="stat-number">{Array.from(cleanSheetHalves.values()).reduce((a, b) => a + b, 0)}</div>
+          <div class="stat-label">Clean Sheet Halves</div>
         </div>
       </div>
     </section>
@@ -165,28 +169,7 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
       </section>
     )}
 
-    <!-- Goalkeeper Stats Section -->
-    {sortedGoalkeepers.length > 0 && (
-      <section style="margin-top: var(--spacing-2xl);">
-        <h2>🧤 Goalkeeper Rotation</h2>
-        <div class="card">
-          <div class="gk-table">
-            {sortedGoalkeepers.map((gk, index) => (
-              <div class="gk-row">
-                <div class="gk-rank">{index + 1}</div>
-                <div class="gk-name">{gk[0]}</div>
-                <div class="gk-appearances">
-                  <span class="appearances-number">{gk[1]}</span>
-                  <span class="appearances-label">{gk[1] === 1 ? 'half' : 'halves'}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Clean Sheet Honor Roll -->
+    <!-- Clean Sheet Halves -->
     {sortedCleanSheetKeepers.length > 0 && (
       <section style="margin-top: var(--spacing-2xl);">
         <h2>🛡️ Clean Sheet Halves</h2>
@@ -200,6 +183,27 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
                 <div class="cleansheet-count">
                   <span class="cleansheet-number">{keeper[1]}</span>
                   <span class="cleansheet-label">{keeper[1] === 1 ? 'half' : 'halves'}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Goalkeeper Stats Section -->
+    {sortedGoalkeepers.length > 0 && (
+      <section style="margin-top: var(--spacing-2xl);">
+        <h2>🧤 Goalkeeper Rotation</h2>
+        <div class="card">
+          <div class="gk-table">
+            {sortedGoalkeepers.map((gk, index) => (
+              <div class="gk-row">
+                <div class="gk-rank">{index + 1}</div>
+                <div class="gk-name">{gk[0]}</div>
+                <div class="gk-appearances">
+                  <span class="appearances-number">{gk[1]}</span>
+                  <span class="appearances-label">{gk[1] === 1 ? 'half' : 'halves'}</span>
                 </div>
               </div>
             ))}
@@ -282,6 +286,10 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
 
     .stat-goals-avg {
       background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+
+    .stat-cleansheets {
+      background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
     }
 
     .stat-number {
@@ -396,35 +404,11 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
       transform: translateX(5px);
     }
 
-    .gk-row:first-child {
-      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
-      color: white;
-      font-weight: bold;
-    }
-
-    .gk-row:nth-child(2) {
-      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-      color: white;
-      font-weight: bold;
-    }
-
-    .gk-row:nth-child(3) {
-      background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
-      color: white;
-      font-weight: bold;
-    }
-
     .gk-rank {
       font-size: 1.2rem;
       font-weight: bold;
       color: var(--qpr-blue);
       text-align: center;
-    }
-
-    .gk-row:first-child .gk-rank,
-    .gk-row:nth-child(2) .gk-rank,
-    .gk-row:nth-child(3) .gk-rank {
-      color: white;
     }
 
     .gk-name {
@@ -443,21 +427,9 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
       color: var(--qpr-blue);
     }
 
-    .gk-row:first-child .appearances-number,
-    .gk-row:nth-child(2) .appearances-number,
-    .gk-row:nth-child(3) .appearances-number {
-      color: white;
-    }
-
     .appearances-label {
       font-size: 0.8rem;
       color: var(--gray-600);
-    }
-
-    .gk-row:first-child .appearances-label,
-    .gk-row:nth-child(2) .appearances-label,
-    .gk-row:nth-child(3) .appearances-label {
-      color: rgba(255, 255, 255, 0.8);
     }
 
     .cleansheet-table {

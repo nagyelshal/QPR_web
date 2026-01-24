@@ -1,36 +1,101 @@
 /* CSS Variables - Soccer Theme */
 :root {
+  /* Primary colors */
   --color-primary: #00a651;        /* Soccer field green */
   --color-primary-light: #22c55e;  /* Lighter green */
+  --color-primary-dark: #008c44;   /* Darker green for hover states */
   --color-secondary: #1e40af;      /* Soccer blue */
   --color-accent: #fbbf24;         /* Gold/yellow like trophy */
+
+  /* QPR brand colors */
+  --qpr-blue: #1976d2;
+  --qpr-blue-light: #42a5f5;
+  --qpr-blue-dark: #1565c0;
+
+  /* Text colors */
   --color-text: #0f172a;
   --color-text-light: #475569;
+  --color-text-muted: #64748b;
+
+  /* Gray palette */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
+  /* Background colors */
   --color-bg: #ffffff;
   --color-bg-alt: #f0fdf4;         /* Very light green */
   --color-border: #d1fae5;         /* Green tinted border */
-  --color-success: #059669;        /* Green success */
+
+  /* Semantic colors */
+  --color-success: #059669;
+  --color-success-light: #d1fae5;
   --color-warning: #f59e0b;
-  --color-hero-overlay: rgba(0, 0, 0, 0.3); /* Dark overlay for better contrast */
-  
+  --color-warning-light: #fef3c7;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-info: #0284c7;
+  --color-info-light: #e0f2fe;
+  --color-hero-overlay: rgba(0, 0, 0, 0.3);
+
+  /* Typography */
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
-  
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
-  
+  --spacing-3xl: 4rem;
+
+  /* Border radius */
   --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  --border-radius-lg: 0.75rem;
+
+  /* Shadows - elevation system */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* Colored shadows */
+  --shadow-primary: 0 4px 14px 0 rgba(0, 166, 81, 0.25);
+  --shadow-primary-lg: 0 10px 25px -3px rgba(0, 166, 81, 0.3);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(0, 166, 81, 0.4);
+  --focus-ring-offset: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-primary);
 }
 
 /* Reset */
@@ -828,4 +893,310 @@ a:hover, a:focus {
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* ==========================================
+   Focus States & Accessibility
+   ========================================== */
+
+/* Global focus visible styles */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Focus styles for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Enhanced button focus */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-offset);
+}
+
+/* Card focus for keyboard navigation */
+.card:focus-visible,
+a.card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-primary-lg);
+}
+
+/* Nav link focus */
+.nav a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: white;
+}
+
+/* Skip link improvements */
+.skip-link:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   Button Variants
+   ========================================== */
+
+/* Ghost button - transparent background */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  box-shadow: none;
+  border: none;
+}
+
+.btn-ghost::before {
+  display: none;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+  background: rgba(0, 166, 81, 0.1);
+  color: var(--color-primary-dark);
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-ghost:active {
+  background: rgba(0, 166, 81, 0.2);
+}
+
+/* Outline button */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  box-shadow: none;
+}
+
+.btn-outline::before {
+  display: none;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-outline:active {
+  background: var(--color-primary-dark);
+}
+
+/* Outline secondary */
+.btn-outline-secondary {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+  box-shadow: none;
+}
+
+.btn-outline-secondary::before {
+  display: none;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background: var(--color-secondary);
+  color: white;
+}
+
+/* Disabled button state */
+.btn:disabled,
+.btn.disabled,
+.btn[aria-disabled="true"] {
+  background: var(--gray-300);
+  color: var(--gray-500);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.btn:disabled::before,
+.btn.disabled::before {
+  display: none;
+}
+
+/* Button sizes */
+.btn-xs {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-lg);
+}
+
+/* Icon button (square) */
+.btn-icon {
+  padding: var(--spacing-sm);
+  aspect-ratio: 1;
+  justify-content: center;
+}
+
+/* ==========================================
+   Reduced Motion Support
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .logo::before {
+    animation: none;
+  }
+
+  .soccer-icon::before {
+    animation: none;
+  }
+
+  .qpr-accent {
+    animation: none;
+  }
+
+  .team-highlight::before {
+    animation: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .nav a:hover {
+    transform: none;
+  }
+
+  .soccer-bounce {
+    animation: none;
+  }
+}
+
+/* ==========================================
+   Additional Utility Classes
+   ========================================== */
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Not screen reader only - makes sr-only visible on focus */
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-sm { font-size: var(--font-size-sm); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+
+.text-muted { color: var(--color-text-muted); }
+.text-light { color: var(--color-text-light); }
+.text-primary { color: var(--color-primary); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Interactive states */
+.interactive {
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.interactive:hover {
+  transform: translateY(-2px);
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+/* Elevation utilities */
+.elevation-sm { box-shadow: var(--shadow-sm); }
+.elevation-md { box-shadow: var(--shadow-md); }
+.elevation-lg { box-shadow: var(--shadow-lg); }
+.elevation-xl { box-shadow: var(--shadow-xl); }
+
+/* Transition utilities */
+.transition-fast { transition: all var(--transition-fast); }
+.transition-base { transition: all var(--transition-base); }
+.transition-slow { transition: all var(--transition-slow); }
+
+/* Colorblind accessibility patterns for badges */
+.badge-pattern-win::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.badge-pattern-draw::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 3px;
+  background: currentColor;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.badge-pattern-loss::before {
+  content: '\00D7';
+  font-weight: bold;
+  margin-right: 4px;
 }

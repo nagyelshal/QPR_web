@@ -110,7 +110,7 @@ const homeAwayIcon = isHome ? '🏠' : '✈️';
 const homeAwayText = isHome ? 'Home' : 'Away';
 ---
 
-<BaseLayout title="Current Week - Queens Park Rangers U11B">
+<BaseLayout title="Current Week - Queens Park Rangers U11B" description="This week's training schedule, match lineup, and goalkeeper rotation for QPR U11B. Check for practice times and upcoming game details.">
   <div class="container current-week-page" data-init>
     
     <!-- Hero Section -->
@@ -1409,7 +1409,8 @@ const homeAwayText = isHome ? 'Home' : 'Away';
     font-style: italic;
   }
 </style>
-</style><script>
+
+<script>
   // Add smooth scrolling for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

@@ -7,7 +7,7 @@ const allPosts = await getCollection('news');
 const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<BaseLayout title="News - Queens Park Rangers U11B">
+<BaseLayout title="News - Queens Park Rangers U11B" description="Latest news, match reports, and announcements for QPR U11B youth soccer team.">
   <div class="container">
     <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
       <h1>Team News</h1>

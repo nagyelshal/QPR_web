@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nagyelshal.github.io/QPR_web/sitemap.xml

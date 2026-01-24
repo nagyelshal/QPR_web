@@ -4,9 +4,13 @@ import '../styles/globals.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "Coquitlam Metro-Ford SC - Queens Park Rangers U11 Boys team website" } = Astro.props;
+const { title, description = "Coquitlam Metro-Ford SC - Queens Park Rangers U11 Boys team website", image } = Astro.props;
+const siteUrl = "https://nagyelshal.github.io/QPR_web";
+const ogImage = image || `${siteUrl}/og-image.png`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 
 // Get the base path from the config
 const base = import.meta.env.BASE_URL;
@@ -21,8 +25,23 @@ const currentWeekData = isCurrentWeekPage ? await import('../../data/current-wee
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="QPR U11B" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-14R3RPES8W"></script>

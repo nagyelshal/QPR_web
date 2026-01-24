@@ -6,7 +6,7 @@ const archived = (await getCollection('archive'))
   .sort((a, b) => new Date(b.data.archived_at).getTime() - new Date(a.data.archived_at).getTime());
 ---
 
-<BaseLayout title="Archive - Queens Park Rangers U11B">
+<BaseLayout title="Archive - Queens Park Rangers U11B" description="Archived news and content from previous weeks for QPR U11B.">
   <div class="container">
     <header class="archive-hero">
       <h1>Archive</h1>

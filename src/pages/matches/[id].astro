@@ -55,7 +55,7 @@ const base = import.meta.env.BASE_URL;
           </div>
           <div class="info-item">
             <span class="info-label">⚽ Formation:</span>
-            <span class="info-value">3-3-1</span>
+            <span class="info-value">{match.formation || '2-3-2'}</span>
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ const base = import.meta.env.BASE_URL;
               <div class="event-item achievement">
                 <div class="event-time">FT</div>
                 <div class="event-content">
-                  <span class="event-icon">�</span>
+                  <span class="event-icon">🏆</span>
                   <span class="event-text">Team Goals Achieved: {match.achievements.join(', ')}</span>
                 </div>
               </div>

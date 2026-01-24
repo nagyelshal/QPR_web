@@ -16,7 +16,7 @@ const playersWithProfiles = roster.players.map(player => {
 });
 ---
 
-<BaseLayout title="Roster - Queens Park Rangers U11B">
+<BaseLayout title="Roster - Queens Park Rangers U11B" description="Meet the QPR U11B squad! View player profiles, jersey numbers, and positions for our 2025-2026 youth soccer team.">
   <div class="container roster-page">
     <header class="roster-header">
       <h1>🏆 Team Roster</h1>
@@ -42,10 +42,10 @@ const playersWithProfiles = roster.players.map(player => {
         return (
           <a href={`${base}players/${playerId}/`} class="player-card">
             <div class="player-photo">
-              <img 
-                src={player.profile?.photo || '/images/players/placeholder.jpg'} 
+              <img
+                src={player.profile?.photo || `${base}images/players/placeholder.jpg`}
                 alt={player.name}
-                onerror="this.src='/images/players/placeholder.jpg'"
+                onerror={`this.src='${base}images/players/placeholder.jpg'`}
               />
               <div class="jersey-badge">
                 #{player.jersey}

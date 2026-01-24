@@ -1,0 +1,529 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Collapsible from '../../components/Collapsible.astro';
+import matchesData from '../../../data/matches.json';
+
+const base = import.meta.env.BASE_URL;
+
+// Separate matches into upcoming and completed
+const allMatches = matchesData.matches;
+const upcomingMatches = allMatches.filter(m => m.result === 'pending');
+const completedMatches = allMatches.filter(m => m.result !== 'pending').reverse(); // Most recent first
+
+// Calculate season stats
+const playedMatches = allMatches.filter(m => m.result && m.result !== 'pending' && m.result !== 'cancelled');
+const wins = playedMatches.filter(m => m.result.includes('win')).length;
+const losses = playedMatches.filter(m => m.result.includes('loss')).length;
+const draws = playedMatches.filter(m => m.result.includes('draw')).length;
+const cancelled = allMatches.filter(m => m.result === 'cancelled').length;
+
+// Calculate goals
+let goalsFor = 0;
+let goalsAgainst = 0;
+playedMatches.forEach(m => {
+  if (m.final_score) {
+    goalsFor += m.final_score.qpr || 0;
+    goalsAgainst += m.final_score.opponent || 0;
+  }
+});
+
+// Helper function to get result class
+function getResultClass(result: string) {
+  if (result.includes('win')) return 'win';
+  if (result.includes('loss')) return 'loss';
+  if (result.includes('draw')) return 'draw';
+  if (result === 'cancelled') return 'cancelled';
+  return 'pending';
+}
+
+// Helper function to format date
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
+---
+
+<BaseLayout title="Match Center - Queens Park Rangers U11B">
+  <div class="container matches-page">
+    <header class="matches-header">
+      <h1>Match Center</h1>
+      <p>All QPR U11B matches for the 2025-2026 season</p>
+    </header>
+
+    <!-- Season Stats Overview -->
+    <section class="stats-overview">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">{playedMatches.length}</div>
+          <div class="stat-label">Played</div>
+        </div>
+        <div class="stat-card win">
+          <div class="stat-number">{wins}</div>
+          <div class="stat-label">Wins</div>
+        </div>
+        <div class="stat-card draw">
+          <div class="stat-number">{draws}</div>
+          <div class="stat-label">Draws</div>
+        </div>
+        <div class="stat-card loss">
+          <div class="stat-number">{losses}</div>
+          <div class="stat-label">Losses</div>
+        </div>
+        <div class="stat-card goals">
+          <div class="stat-number">{goalsFor}</div>
+          <div class="stat-label">Goals For</div>
+        </div>
+        <div class="stat-card goals-against">
+          <div class="stat-number">{goalsAgainst}</div>
+          <div class="stat-label">Goals Against</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Matches -->
+    {upcomingMatches.length > 0 && (
+      <section class="matches-section">
+        <h2>Upcoming Matches</h2>
+        <div class="matches-grid">
+          {upcomingMatches.map(match => (
+            <a href={`${base}matches/${match.id}/`} class="match-card upcoming">
+              <div class="match-date">{formatDate(match.date)}</div>
+              <div class="match-teams">
+                <span class="team-home">QPR U11B</span>
+                <span class="vs">vs</span>
+                <span class="team-away">{match.opponent}</span>
+              </div>
+              <div class="match-details">
+                <span class="match-time">{match.kickoff}</span>
+                <span class="match-venue">
+                  {match.venue_type === 'home' ? '🏠 Home' : '✈️ Away'}
+                </span>
+              </div>
+              <div class="match-location">{match.location}</div>
+              <div class="view-details">View Details →</div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Completed Matches -->
+    <section class="matches-section">
+      <h2>Completed Matches</h2>
+      <div class="completed-matches">
+        {completedMatches.map(match => (
+          <div class={`completed-match-card ${getResultClass(match.result)}`}>
+            <div class="match-header-row">
+              <div class="match-info">
+                <span class="match-date-small">{formatDate(match.date)}</span>
+                <span class="match-week">Week {match.week}</span>
+              </div>
+              <span class={`result-badge ${getResultClass(match.result)}`}>
+                {match.result === 'cancelled' ? 'Cancelled' :
+                 match.final_score ? `${match.final_score.qpr}-${match.final_score.opponent}` : match.result}
+              </span>
+            </div>
+
+            <div class="match-main">
+              <div class="teams-row">
+                <span class="team-name qpr">QPR U11B</span>
+                <span class="vs-small">vs</span>
+                <span class="team-name opponent">{match.opponent}</span>
+              </div>
+
+              {match.result !== 'cancelled' && match.final_score && (
+                <div class="score-display">
+                  <span class="score qpr-score">{match.final_score.qpr}</span>
+                  <span class="score-separator">-</span>
+                  <span class="score opponent-score">{match.final_score.opponent}</span>
+                </div>
+              )}
+
+              {match.result === 'cancelled' && match.reason && (
+                <div class="cancellation-reason">{match.reason}</div>
+              )}
+            </div>
+
+            {match.result !== 'cancelled' && (
+              <div class="match-extras">
+                {match.scorers && match.scorers.length > 0 && (
+                  <div class="scorers">
+                    <span class="label">Goals:</span>
+                    <span class="names">
+                      {match.scorers.map((scorer, i) => (
+                        <span>
+                          {typeof scorer === 'string' ? scorer : scorer.player}
+                          {i < match.scorers.length - 1 ? ', ' : ''}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                )}
+
+                {match.goalkeepers && (
+                  <div class="goalkeepers">
+                    <span class="label">GK:</span>
+                    <span class="names">{match.goalkeepers.first_half} / {match.goalkeepers.second_half}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <a href={`${base}matches/${match.id}/`} class="view-match-link">
+              View Full Details →
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {cancelled > 0 && (
+      <p class="cancelled-note">* {cancelled} match{cancelled > 1 ? 'es' : ''} cancelled this season</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .matches-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .matches-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .matches-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .matches-header p {
+    color: var(--color-text-light);
+  }
+
+  /* Stats Overview */
+  .stats-overview {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .stat-card.win { border-top-color: #2ecc71; }
+  .stat-card.draw { border-top-color: #9b59b6; }
+  .stat-card.loss { border-top-color: #e74c3c; }
+  .stat-card.goals { border-top-color: #f39c12; }
+  .stat-card.goals-against { border-top-color: #3498db; }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .stat-card.win .stat-number { color: #2ecc71; }
+  .stat-card.draw .stat-number { color: #9b59b6; }
+  .stat-card.loss .stat-number { color: #e74c3c; }
+  .stat-card.goals .stat-number { color: #f39c12; }
+  .stat-card.goals-against .stat-number { color: #3498db; }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Matches Section */
+  .matches-section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .matches-section h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Upcoming Matches Grid */
+  .matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .match-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+  }
+
+  .match-card.upcoming {
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .match-date {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .match-teams {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .team-home {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .vs {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .team-away {
+    font-weight: 600;
+  }
+
+  .match-details {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+
+  .match-time {
+    font-weight: 600;
+  }
+
+  .match-venue {
+    color: var(--color-text-light);
+  }
+
+  .match-location {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .view-details {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* Completed Matches */
+  .completed-matches {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .completed-match-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #95a5a6;
+    transition: all 0.2s ease;
+  }
+
+  .completed-match-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .completed-match-card.win { border-left-color: #2ecc71; }
+  .completed-match-card.loss { border-left-color: #e74c3c; }
+  .completed-match-card.draw { border-left-color: #9b59b6; }
+  .completed-match-card.cancelled { border-left-color: #95a5a6; opacity: 0.8; }
+
+  .match-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .match-info {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .match-date-small {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .match-week {
+    font-size: 0.8rem;
+    background: var(--color-bg-alt);
+    padding: 2px 8px;
+    border-radius: 12px;
+    color: var(--color-text-light);
+  }
+
+  .result-badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .result-badge.win { background: rgba(46, 204, 113, 0.15); color: #27ae60; }
+  .result-badge.loss { background: rgba(231, 76, 60, 0.15); color: #c0392b; }
+  .result-badge.draw { background: rgba(155, 89, 182, 0.15); color: #8e44ad; }
+  .result-badge.cancelled { background: rgba(149, 165, 166, 0.15); color: #7f8c8d; }
+
+  .match-main {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .teams-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .team-name {
+    font-weight: 600;
+  }
+
+  .team-name.qpr {
+    color: var(--color-primary);
+  }
+
+  .vs-small {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+  }
+
+  .score-display {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .score {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .qpr-score {
+    color: var(--color-primary);
+  }
+
+  .score-separator {
+    color: var(--color-text-light);
+  }
+
+  .cancellation-reason {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-style: italic;
+  }
+
+  .match-extras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .match-extras .label {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .view-match-link {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .view-match-link:hover {
+    text-decoration: underline;
+  }
+
+  .cancelled-note {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .matches-header h1 {
+      font-size: 2rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-card {
+      padding: var(--spacing-md);
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+    }
+
+    .match-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+
+    .teams-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .match-extras {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+  }
+</style>

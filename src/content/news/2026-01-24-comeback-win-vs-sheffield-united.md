@@ -33,7 +33,11 @@ Just minutes later, **Rafael H** produced a moment of magic - going past multipl
 
 ## Securing the Win
 
-With QPR ahead, Sheffield United pushed for an equalizer. **Owen H** in goal produced some miraculous saves to deny them, showing incredible reflexes and bravery to secure the three points.
+With QPR ahead, Sheffield United pushed for an equalizer. **Owen H** in goal produced some miraculous saves to deny them, showing incredible reflexes and bravery to protect the lead and secure the three points.
+
+## Ethan's Ideal Performance
+
+Special mention to **Ethan G** who played almost 50 minutes and was everywhere on the pitch. He contributed to both defense and attack throughout, putting in an ideal all-round performance that was crucial to the team's success.
 
 ## Sixth Win of the Season!
 
@@ -41,10 +45,11 @@ This victory is our sixth win of the season and showcases the never-say-die atti
 
 ### Match Highlights:
 - Niko D clean sheet in the first half - key late saves
-- Owen H miraculous saves in the second half to secure the win
+- Owen H miraculous saves after conceding to secure the win
 - Travis C brace - both goals in the comeback
 - Andy E beautiful assist for the equalizer
 - Rafael H incredible run past multiple defenders for the winner
+- Ethan G ideal performance - 50 minutes contributing to defense and attack
 - Adam K and Yejun K solid defensive partnership
 - Rafael H and Ethan G controlling the midfield
 - Great character shown - never gave up when behind
@@ -52,8 +57,8 @@ This victory is our sixth win of the season and showcases the never-say-die atti
 ### Man of the Match: Travis C
 Two goals to complete the comeback - clinical finishing when it mattered most!
 
-### Special Mention: Adam K, Yejun K, Rafael H, Ethan G
-The defense held strong with Adam and Yejun, while Rafael and Ethan dominated the midfield. The whole team contributed to this special win.
+### Special Mention: Ethan G, Adam K, Yejun K, Rafael H
+Ethan's 50-minute shift covering both ends was outstanding. The defense held strong with Adam and Yejun, while Rafael controlled the midfield. The whole team contributed to this special win.
 
 ## Up Next
 

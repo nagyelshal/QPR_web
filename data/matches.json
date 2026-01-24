@@ -1260,15 +1260,63 @@
       "id": "match-016",
       "date": "2026-01-24",
       "opponent": "CMFSC Sheffield United",
-      "result": "pending",
+      "result": "2-1 win",
+      "outcome": "win",
+      "our_score": 2,
+      "their_score": 1,
+      "final_score": {
+        "qpr": 2,
+        "opponent": 1,
+        "half_time": "0-0"
+      },
       "location": "Town Centre Fridge South",
       "kickoff": "10:00am",
       "match_number": "2502826",
       "week": 21,
       "venue_type": "home",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "goalkeepers": {
+        "first_half": "Niko D",
+        "second_half": "Owen H"
+      },
+      "scorers": [
+        {"player": "Travis C", "goals": 2}
+      ],
+      "assists": [
+        {"player": "Andy E", "assists": 1},
+        {"player": "Rafael H", "assists": 1}
+      ],
+      "performance_notes": "Tough, hard-fought comeback victory against Sheffield United! First half was tight with chances for both teams - Niko made key late saves to secure a clean sheet at 0-0. Second half was challenging with limited rotation due to missing Rhodri, David and Andrew. Players got tired but showed incredible character. Opponent broke through in the middle of the second half, but Andy and Travis coming off the bench changed the game. Andy's beautiful assist set up Travis to equalize, then Rafael went past multiple defenders and found Travis for the winning goal. Owen made miraculous saves to secure the comeback. Outstanding team effort with Adam and Yejun solid in defense, Rafael and Ethan controlling midfield, and the Andy-Travis partnership proving decisive up front.",
+      "highlights": [
+        "SIXTH WIN of the season! 2-1 comeback victory!",
+        "Niko D clean sheet first half - key saves late in the half",
+        "Owen H miraculous saves in second half to secure the win",
+        "Travis C brace - scored both goals in the comeback",
+        "Andy E beautiful assist for first Travis goal",
+        "Rafael H went past multiple defenders to set up winning goal",
+        "Adam K and Yejun K solid defensive partnership",
+        "Rafael H and Ethan G controlled the midfield",
+        "Andy-Travis attacking harmony brought us back into the game",
+        "Short bench due to missing Rhodri, David, Andrew",
+        "Great character shown - never gave up when behind",
+        "Tough opponent with very good goalkeeper"
+      ],
+      "unavailable_players": [
+        {
+          "name": "Rhodri W",
+          "jersey": "10",
+          "reason": "Not available"
+        },
+        {
+          "name": "David C",
+          "jersey": "14",
+          "reason": "Not available"
+        },
+        {
+          "name": "Andrew N",
+          "jersey": "5",
+          "reason": "Not available"
+        }
+      ]
     },
     {
       "id": "match-017",

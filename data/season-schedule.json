@@ -181,7 +181,8 @@
       "venue": "Home",
       "kickoff": "10:00am",
       "field": "Town Centre Fridge South",
-      "status": "scheduled"
+      "status": "completed",
+      "result": "2-1 Win"
     },
     {
       "week": 22,

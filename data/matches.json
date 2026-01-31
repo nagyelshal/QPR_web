@@ -217,7 +217,7 @@
       "kickoff": "1:00pm",
       "match_number": "2500583",
       "week": 4,
-      "venue_type": "home",
+      "venue_type": "away",
       "final_score": {
         "qpr": 3,
         "opponent": 6,
@@ -573,7 +573,7 @@
       "kickoff": "10:00am",
       "match_number": "2501716",
       "week": 8,
-      "venue_type": "away",
+      "venue_type": "home",
       "final_score": {
         "qpr": 4,
         "opponent": 2,
@@ -727,7 +727,7 @@
       "kickoff": "11:30am",
       "match_number": "2501729",
       "week": 10,
-      "venue_type": "away",
+      "venue_type": "home",
       "final_score": {
         "qpr": 1,
         "opponent": 2,
@@ -917,7 +917,7 @@
       "kickoff": "10:30am",
       "match_number": "2501742",
       "week": 12,
-      "venue_type": "away",
+      "venue_type": "home",
       "final_score": {
         "qpr": 5,
         "opponent": 2,
@@ -1088,7 +1088,7 @@
       "kickoff": "10:30am",
       "match_number": "2501753",
       "week": 14,
-      "venue_type": "away",
+      "venue_type": "home",
       "final_score": {
         "qpr": 6,
         "opponent": 2,

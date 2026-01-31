@@ -61,11 +61,11 @@ When you think back to how this season started, this seventh win represents incr
 - Henry K everywhere - maintained possession brilliantly
 - Great depth shown despite missing players
 
-### Man of the Match: Travis C
-Back-to-back braces! Four goals in two games. Clinical finishing when it matters.
+### Man of the Match: Niko D
+Played the entire game and was everywhere on the pitch. Recovered countless balls, disrupted the opposition's play, and showed incredible stamina and determination. A true team player who gave everything for his teammates.
 
 ### Special Mentions:
-- **Niko D** - Played the entire game, recovered countless balls
+- **Travis C** - Back-to-back braces! Four goals in two games
 - **Henry K** - Was everywhere, assist for second goal
 - **Rhodri W & Ethan G** - First cleansheet in team history!
 - **Andy E** - Returned after injury, skills and teamwork helped maintain possession

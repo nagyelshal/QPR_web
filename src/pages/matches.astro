@@ -192,6 +192,30 @@ function getResultInfo(match) {
             </a>
           );
         })}
+
+        <!-- Remaining Fixtures -->
+        {upcomingMatches.length > 1 && (
+          <div class="upcoming-list">
+            <div class="upcoming-header">
+              <span>Upcoming Fixtures</span>
+              <span class="upcoming-count">{upcomingMatches.length - 1} more</span>
+            </div>
+            <div class="upcoming-fixtures">
+              {upcomingMatches.slice(1).map(match => {
+                const venueInfo = getVenueInfo(match);
+                return (
+                  <a href={`${base}matches/${match.id}/`} class="fixture-row">
+                    <span class="fixture-date">
+                      {new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                    </span>
+                    <span class="fixture-opponent">{match.opponent}</span>
+                    <span class={`fixture-venue ${venueInfo.class}`}>{venueInfo.icon}</span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </section>
     )}
 
@@ -604,6 +628,94 @@ function getResultInfo(match) {
     opacity: 0.7;
   }
 
+  /* Upcoming Fixtures List */
+  .upcoming-list {
+    margin-top: var(--spacing-md);
+    background: white;
+    border-radius: 10px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .upcoming-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    border-bottom: 1px solid #eee;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .upcoming-count {
+    font-size: 0.7rem;
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+
+  .upcoming-fixtures {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .fixture-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 6px 0;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    border-radius: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .fixture-row:hover {
+    background: #f8f9fa;
+  }
+
+  .fixture-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    min-width: 55px;
+  }
+
+  .fixture-opponent {
+    flex: 1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fixture-venue {
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fixture-venue.home {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .fixture-venue.away {
+    background: #e3f2fd;
+    color: #1565c0;
+  }
+
   /* Results List */
   .results-section {
     margin-bottom: var(--spacing-lg);
@@ -825,6 +937,15 @@ function getResultInfo(match) {
 
     .milestones-grid {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .upcoming-list {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .fixture-opponent {
+      font-size: 0.8rem;
+      max-width: 160px;
     }
   }
 

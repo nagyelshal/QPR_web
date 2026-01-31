@@ -1,87 +1,88 @@
 {
   "week": {
-    "date_range": "Jan 26 - Feb 1, 2026",
-    "theme": "SIXTH WIN! Incredible Comeback vs Sheffield United - Keep Fighting!",
-    "last_updated": "2026-01-25T12:00:00-08:00"
+    "date_range": "Feb 2 - Feb 8, 2026",
+    "theme": "SEVENTH WIN & FIRST CLEANSHEET EVER! Milestone Victory!",
+    "last_updated": "2026-01-31T12:00:00-08:00"
   },
   "training": {
-    "date": "2026-01-29",
+    "date": "2026-02-05",
     "day": "Wednesday",
     "time": "5:00 PM",
     "location": "Mobilio West (Town Centre Park) - Grid D",
-    "focus": "Build on comeback win mentality, maintain defensive solidity, continue clinical finishing",
+    "focus": "Celebrate milestone, maintain momentum, prepare for home game",
     "attendance_required": true,
     "completed": false,
     "sessions": [],
     "last_session": {
-      "date": "2026-01-22",
+      "date": "2026-01-29",
       "attendance": 0,
       "highlights": [],
       "absent": []
     },
     "upcoming_session": {
-      "date": "2026-01-29",
-      "focus_areas": ["Team shape", "Quick transitions", "Set pieces"],
-      "preparation_for": "Jan 31 match vs RMSC Johnson (AWAY)"
+      "date": "2026-02-05",
+      "focus_areas": ["Team shape", "Finishing", "Set pieces"],
+      "preparation_for": "Feb 7 match vs PCFC Sonics (HOME)"
     },
-    "notes": "Wednesday training this week - preparing for Saturday's AWAY match vs RMSC Johnson"
+    "notes": "Wednesday training this week - preparing for Saturday's HOME match vs PCFC Sonics"
   },
   "match": {
-    "opponent": "RMSC U11B14D3 (Johnson)",
-    "date": "2026-01-31",
-    "kickoff": "9:00am",
-    "location": "Pitt Meadows Secondary 1",
-    "venue_type": "away",
+    "opponent": "PCFC Sonics",
+    "date": "2026-02-07",
+    "kickoff": "12:15pm",
+    "location": "Percy Perry Stadium South",
+    "venue_type": "home",
     "formation": "2-3-2",
-    "match_number": "2502830",
-    "week": "Week 22",
+    "match_number": "2502834",
+    "week": "Week 23",
     "status": "upcoming",
-    "preparation_focus": "AWAY game vs RMSC Johnson! Coming off an incredible 2-1 comeback win. Travis C in red-hot form with 2 goals. Team showed great character fighting back from behind. Let's keep the momentum rolling!"
+    "preparation_focus": "HOME game vs PCFC Sonics! Coming off our historic 7th win and FIRST CLEANSHEET EVER. Travis C on fire with back-to-back braces. Team showing incredible depth and character. Let's make it EIGHT wins!"
   },
   "last_match": {
-    "opponent": "CMFSC Sheffield United",
-    "date": "2026-01-24",
-    "result": "2-1 WIN (COMEBACK!)",
+    "opponent": "RMSC U11B14D3 (Johnson)",
+    "date": "2026-01-31",
+    "result": "2-0 WIN (FIRST CLEANSHEET!)",
     "scorers": ["Travis C (2)"],
-    "assists": ["Andy E (1)", "Rafael H (1)"],
+    "assists": ["Owen H (1)", "Henry K (1)"],
     "goalkeepers": {
-      "first_half": "Niko D",
-      "second_half": "Owen H"
+      "first_half": "Ethan G",
+      "second_half": "Rhodri W"
     },
     "highlights": [
-      "INCREDIBLE COMEBACK WIN!",
-      "Niko D clean sheet first half - key late saves",
-      "Owen H miraculous saves to secure the win",
-      "Travis C brace - both goals in the comeback",
-      "Andy E beautiful assist for equalizer",
-      "Rafael H went past multiple defenders for winning assist",
-      "Ethan G ideal 50-minute performance - defense and attack",
-      "Adam K and Yejun K solid defensive partnership",
-      "Short bench (missing Rhodri, David, Andrew) but never gave up"
+      "SEVENTH WIN & FIRST CLEANSHEET EVER!",
+      "Travis C brace - both goals",
+      "Owen H beautiful assist for 1st goal",
+      "Henry K assist for 2nd goal - was everywhere",
+      "Ethan G clean sheet 1st half with nice saves",
+      "Rhodri W clean sheet 2nd half with nice saves",
+      "Niko D played entire game - recovered countless balls",
+      "Incredible counter attack: Owen, Minh-An, Travis, Andy quick passes",
+      "Big games from Minh-An, Andy, Travis, Owen, Henry",
+      "Showed depth despite missing David, Rafael, Adam (injured)"
     ],
-    "unavailable": ["Rhodri W", "David C", "Andrew N"]
+    "unavailable": ["David C", "Rafael H", "Adam K (injured 10 min in)"]
   },
   "captains": {
-    "reveal_at": "2026-01-30T18:00:00-08:00",
+    "reveal_at": "2026-02-06T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2026-01-30T18:00:00-08:00",
+    "reveal_at": "2026-02-06T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
     "rotation_note": "Continuing fair rotation across the squad"
   },
   "positions": {
-    "reveal_at": "2026-01-30T00:00:00-08:00",
+    "reveal_at": "2026-02-06T00:00:00-08:00",
     "starting_lineup": [],
     "all_positions": []
   },
   "off_pitch": {
-    "reveal_at": "2026-01-30T00:00:00-08:00",
+    "reveal_at": "2026-02-06T00:00:00-08:00",
     "zones": {
       "goalkeepers": [],
       "defence": [],
@@ -94,7 +95,7 @@
     }
   },
   "lineup": {
-    "reveal_at": "2026-01-30T00:00:00-08:00",
+    "reveal_at": "2026-02-06T00:00:00-08:00",
     "all_players": [
       {"name": "Adam K", "jersey": "13"},
       {"name": "Andy E", "jersey": "4"},
@@ -119,8 +120,8 @@
     "chant": "1-2-3 QPR! 1-2-3 Metro-Ford!",
     "player_of_match": {
       "name": "Travis C",
-      "match": "Jan 24 vs CMFSC Sheffield United",
-      "reason": "2 goals - completed the incredible comeback!"
+      "match": "Jan 31 vs RMSC Johnson",
+      "reason": "2 goals - back-to-back braces! FIRST CLEANSHEET!"
     }
   },
   "rotation_history": {
@@ -148,16 +149,17 @@
       {"match": "Dec 6 vs RMSC U11B10D3 Blue Lightning (FOURTH WIN!)", "first_half": "Ethan G", "second_half": "Yejun K"},
       {"match": "Jan 10 vs RMSC U11B6D3 (Geary) - 2-2 Draw", "first_half": "Andrew N", "second_half": "Rafael H"},
       {"match": "Jan 17 vs PCFC Thunder (FIFTH WIN!)", "first_half": "Henry K", "second_half": "Minh-An D"},
-      {"match": "Jan 24 vs CMFSC Sheffield United (SIXTH WIN!)", "first_half": "Niko D", "second_half": "Owen H"}
+      {"match": "Jan 24 vs CMFSC Sheffield United (SIXTH WIN!)", "first_half": "Niko D", "second_half": "Owen H"},
+      {"match": "Jan 31 vs RMSC Johnson (SEVENTH WIN! FIRST CLEANSHEET!)", "first_half": "Ethan G", "second_half": "Rhodri W"}
     ]
   },
   "notes": {
-    "arrival": "Arrive by 8:30 AM (30 min early for warm-up)",
+    "arrival": "Arrive by 11:45 AM (30 min early for warm-up)",
     "kit": "TBD",
-    "coach": "INCREDIBLE COMEBACK WIN! Down 0-1, we never gave up. Travis C scored twice with beautiful assists from Andy E and Rafael H. Niko kept a clean sheet in the first half with key saves. Owen made miraculous saves to protect the lead. Ethan G was everywhere for 50 minutes. Adam and Yejun were rocks in defense. Even with a short bench (missing Rhodri, David, Andrew), the team showed amazing character!",
+    "coach": "HISTORIC WIN! Our SEVENTH WIN and FIRST CLEANSHEET EVER! Travis C scored both goals with beautiful assists from Owen H and Henry K. Ethan G and Rhodri W both kept clean sheets in their halves. Niko D played the entire game due to player shortages and was immense - recovering countless balls. The counter attack from Owen, Minh-An, Travis and Andy showed incredible quick-passing teamwork. Henry K was everywhere maintaining possession. A milestone to celebrate considering how the season started!",
     "training_recap": "",
-    "match_update": "NEXT MATCH: Saturday Jan 31 at 9:00am vs RMSC Johnson at Pitt Meadows Secondary 1 (AWAY).",
-    "this_week": "Training Wednesday, Match Saturday (AWAY). Let's make it SEVEN wins!",
+    "match_update": "NEXT MATCH: Saturday Feb 7 at 12:15pm vs PCFC Sonics at Percy Perry Stadium South (HOME).",
+    "this_week": "Training Wednesday, Match Saturday (HOME). Let's make it EIGHT wins!",
     "achievements": [
       "Sept 13 vs Millwall: Score First Goal and Team Work Goal",
       "Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -171,7 +173,8 @@
       "Dec 6: FOURTH WIN! 6-2 vs Blue Lightning - Travis C hat-trick, Owen H first TWO goals!",
       "Jan 10: Solid 2-2 draw vs Geary - Adam K brace, led twice",
       "Jan 17: FIFTH WIN! 3-1 vs PCFC Thunder (AWAY) - Payback! Minh-An D, Ethan G x2, Rafael H 3 assists",
-      "Jan 24: SIXTH WIN! 2-1 vs Sheffield United (HOME) - COMEBACK! Travis C brace, great character shown"
+      "Jan 24: SIXTH WIN! 2-1 vs Sheffield United (HOME) - COMEBACK! Travis C brace, great character",
+      "Jan 31: SEVENTH WIN! FIRST CLEANSHEET! 2-0 vs RMSC Johnson - Travis C brace, Ethan & Rhodri cleansheets"
     ]
   },
   "status": "preparing"

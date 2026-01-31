@@ -193,7 +193,8 @@
       "venue": "Away",
       "kickoff": "9:00am",
       "field": "Pitt Meadows Secondary 1",
-      "status": "scheduled"
+      "status": "completed",
+      "result": "2-0 Win"
     },
     {
       "week": 23,

@@ -1323,15 +1323,63 @@
       "id": "match-017",
       "date": "2026-01-31",
       "opponent": "RMSC U11B14D3 (Johnson)",
-      "result": "pending",
+      "result": "2-0 win",
+      "outcome": "win",
+      "our_score": 2,
+      "their_score": 0,
+      "final_score": {
+        "qpr": 2,
+        "opponent": 0,
+        "half_time": "1-0"
+      },
       "location": "Pitt Meadows Secondary 1",
       "kickoff": "9:00am",
       "match_number": "2502830",
       "week": 22,
       "venue_type": "away",
-      "scorers": [],
-      "assists": [],
-      "highlights": []
+      "goalkeepers": {
+        "first_half": "Ethan G",
+        "second_half": "Rhodri W"
+      },
+      "scorers": [
+        {"player": "Travis C", "goals": 2}
+      ],
+      "assists": [
+        {"player": "Owen H", "assists": 1},
+        {"player": "Henry K", "assists": 1}
+      ],
+      "performance_notes": "SEVENTH WIN and FIRST CLEANSHEET EVER! A milestone victory considering how the season started. Both teams were missing many players. Adam K was injured just 10 minutes into the game, further limiting our options. Niko D played the entire game due to lack of available players and had a massive game - recovering countless balls. Henry K was everywhere on the field, maintaining our possession brilliantly. The best moment came when Owen, Minh-An, Travis and Andy combined for an incredible quick-passing counter attack showing quality teamwork. Ethan G and Rhodri W both kept clean sheets with nice saves in their respective halves.",
+      "highlights": [
+        "SEVENTH WIN of the season! 2-0 victory!",
+        "FIRST CLEANSHEET EVER! Historic milestone!",
+        "Travis C brace - goals from Owen H and Henry K assists",
+        "Owen H beautiful assist for first goal",
+        "Henry K assist for second goal - was everywhere on the field",
+        "Ethan G clean sheet first half with nice saves",
+        "Rhodri W clean sheet second half with nice saves",
+        "Niko D played entire game - recovered many balls, massive performance",
+        "Incredible counter attack: Owen, Minh-An, Travis, Andy quick passing masterclass",
+        "Big games from Minh-An D, Andy E, Travis C, Owen H, Henry K",
+        "Showed great depth despite missing David, Rafael, and Adam (injured)",
+        "Milestone win - shows how far the team has come since season start"
+      ],
+      "unavailable_players": [
+        {
+          "name": "David C",
+          "jersey": "14",
+          "reason": "Not available"
+        },
+        {
+          "name": "Rafael H",
+          "jersey": "12",
+          "reason": "Not available"
+        },
+        {
+          "name": "Adam K",
+          "jersey": "13",
+          "reason": "Injured 10 minutes into the game"
+        }
+      ]
     },
     {
       "id": "match-018",

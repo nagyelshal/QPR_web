@@ -32,11 +32,11 @@
       "week": 3,
       "match_number": "2500567",
       "date": "2025-09-20",
-      "home_team": "PCFC Thunder",
+      "home_team": "PCFC Wolf Pack (McNeill)",
       "away_team": "CMFSC Queens Park Rangers",
       "venue": "Away",
       "kickoff": "10:00am",
-      "field": "Mclean Park South",
+      "field": "Mclean Park North",
       "status": "completed"
     },
     {
@@ -158,7 +158,8 @@
       "venue": "Home",
       "kickoff": "11:00am",
       "field": "Miller Park West",
-      "status": "scheduled"
+      "status": "completed",
+      "result": "2-2 Draw"
     },
     {
       "week": 20,
@@ -232,10 +233,10 @@
   ],
   "season_summary": {
     "total_matches": 20,
-    "home_matches": 16,
-    "away_matches": 4,
+    "home_matches": 10,
+    "away_matches": 10,
     "tba_matches": 0,
-    "cancelled_matches": 1,
+    "cancelled_matches": 2,
     "season_start": "2025-09-06",
     "season_end": "2026-02-28"
   }

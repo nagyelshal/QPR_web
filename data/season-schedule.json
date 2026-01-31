@@ -211,11 +211,11 @@
       "week": 25,
       "match_number": "2502838",
       "date": "2026-02-21",
-      "home_team": "CMFSC Queens Park Rangers",
-      "away_team": "CMFSC Blackburn Rovers",
-      "venue": "Home",
-      "kickoff": "TBA",
-      "field": "TBA",
+      "home_team": "CMFSC Blackburn Rovers",
+      "away_team": "CMFSC Queens Park Rangers",
+      "venue": "Away",
+      "kickoff": "10:00am",
+      "field": "Miller Park East",
       "status": "scheduled"
     },
     {

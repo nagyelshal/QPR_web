@@ -103,30 +103,32 @@ const assists = formatAssists(match.assists);
 
       <!-- Score Display -->
       <div class={`score-section ${isPending ? 'pending' : isCancelled ? 'cancelled' : resultClass}`}>
-        <div class="team team-qpr">
-          <span class="team-name">QPR</span>
-          <span class="team-score">
-            {isPending ? '-' : isCancelled ? 'X' : match.final_score?.qpr ?? '-'}
-          </span>
-        </div>
-        <div class="score-divider">
-          {isCompleted && (
-            <span class={`result-badge ${resultClass}`}>{resultText}</span>
-          )}
-          {isPending && <span class="status-text">vs</span>}
-          {isCancelled && <span class="status-text cancelled">Cancelled</span>}
-        </div>
-        <div class="team team-opp">
-          <span class="team-score">
-            {isPending ? '-' : isCancelled ? 'X' : match.final_score?.opponent ?? '-'}
-          </span>
-          <span class="team-name">{match.opponent}</span>
-        </div>
-      </div>
+        {isCompleted && (
+          <span class={`result-badge ${resultClass}`}>{resultText}</span>
+        )}
+        {isPending && <span class="status-badge pending">Upcoming</span>}
+        {isCancelled && <span class="status-badge cancelled">Cancelled</span>}
 
-      {isCompleted && match.final_score?.half_time && (
-        <div class="half-time">HT: {match.final_score.half_time}</div>
-      )}
+        <div class="score-display">
+          <div class="team team-qpr">
+            <span class="team-name">QPR</span>
+            <span class="team-score">
+              {isPending ? '-' : isCancelled ? 'X' : match.final_score?.qpr ?? '-'}
+            </span>
+          </div>
+          <span class="score-dash">-</span>
+          <div class="team team-opp">
+            <span class="team-name">{match.opponent}</span>
+            <span class="team-score">
+              {isPending ? '-' : isCancelled ? 'X' : match.final_score?.opponent ?? '-'}
+            </span>
+          </div>
+        </div>
+
+        {isCompleted && match.final_score?.half_time && (
+          <div class="half-time">HT: {match.final_score.half_time}</div>
+        )}
+      </div>
 
       {isCancelled && match.reason && (
         <div class="cancel-reason">{match.reason}</div>
@@ -358,38 +360,55 @@ const assists = formatAssists(match.assists);
   /* Score Section */
   .score-section {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .result-badge,
+  .status-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .result-badge.win { background: #d4edda; color: #155724; }
+  .result-badge.loss { background: #f8d7da; color: #721c24; }
+  .result-badge.draw { background: #e8daef; color: #6c3483; }
+  .status-badge.pending { background: #e3f2fd; color: #1565c0; }
+  .status-badge.cancelled { background: #f8d7da; color: #721c24; }
+
+  .score-display {
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
   }
 
   .team {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80px;
-  }
-
-  .team-qpr {
-    text-align: right;
-  }
-
-  .team-opp {
-    text-align: left;
+    min-width: 100px;
   }
 
   .team-name {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-light);
     margin-bottom: 4px;
+    max-width: 140px;
+    text-align: center;
+    line-height: 1.2;
   }
 
   .team-score {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--color-primary);
+    color: var(--color-text);
     line-height: 1;
   }
 
@@ -397,39 +416,16 @@ const assists = formatAssists(match.assists);
   .score-section.loss .team-qpr .team-score { color: #e74c3c; }
   .score-section.draw .team-qpr .team-score { color: #9b59b6; }
 
-  .score-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .result-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 12px;
-    text-transform: uppercase;
-  }
-
-  .result-badge.win { background: #d4edda; color: #155724; }
-  .result-badge.loss { background: #f8d7da; color: #721c24; }
-  .result-badge.draw { background: #e8daef; color: #6c3483; }
-
-  .status-text {
-    font-size: 0.9rem;
+  .score-dash {
+    font-size: 1.5rem;
+    font-weight: 300;
     color: var(--color-text-light);
-  }
-
-  .status-text.cancelled {
-    color: #dc3545;
-    font-weight: 600;
+    margin-top: 20px;
   }
 
   .half-time {
     font-size: 0.8rem;
     color: var(--color-text-light);
-    margin-top: var(--spacing-sm);
   }
 
   .cancel-reason {
@@ -740,15 +736,21 @@ const assists = formatAssists(match.assists);
     }
 
     .team-name {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      max-width: 100px;
     }
 
-    .score-section {
+    .score-display {
       gap: var(--spacing-sm);
     }
 
     .team {
-      min-width: 60px;
+      min-width: 80px;
+    }
+
+    .score-dash {
+      font-size: 1.2rem;
+      margin-top: 16px;
     }
 
     .info-section,

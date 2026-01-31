@@ -27,7 +27,7 @@ The first goal came in the first half from a beautiful assist by **Owen H**. The
 
 ## Double Clean Sheet
 
-The goalkeeping duo of **Ethan G** (first half) and **Rhodri W** (second half) both made nice saves to keep our first-ever clean sheet. A historic moment for the team!
+The goalkeeping duo of **Rhodri W** (first half) and **Ethan G** (second half) both made nice saves to keep our first-ever clean sheet. A historic moment for the team!
 
 ## Henry's Engine Room Performance
 
@@ -53,8 +53,8 @@ When you think back to how this season started, this seventh win represents incr
 - SEVENTH WIN of the season!
 - FIRST CLEANSHEET EVER - historic milestone!
 - Travis C brace - goals from Owen H and Henry K assists
-- Ethan G clean sheet first half with nice saves
-- Rhodri W clean sheet second half with nice saves
+- Rhodri W clean sheet first half with nice saves
+- Ethan G clean sheet second half with nice saves
 - Niko D played entire game - recovered countless balls
 - Andy E returned after injury - helped maintain possession
 - Incredible counter attack showing quality teamwork
@@ -67,7 +67,7 @@ Back-to-back braces! Four goals in two games. Clinical finishing when it matters
 ### Special Mentions:
 - **Niko D** - Played the entire game, recovered countless balls
 - **Henry K** - Was everywhere, assist for second goal
-- **Ethan G & Rhodri W** - First cleansheet in team history!
+- **Rhodri W & Ethan G** - First cleansheet in team history!
 - **Andy E** - Returned after injury, skills and teamwork helped maintain possession
 
 ## Up Next

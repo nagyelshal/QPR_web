@@ -1338,8 +1338,8 @@
       "week": 22,
       "venue_type": "away",
       "goalkeepers": {
-        "first_half": "Ethan G",
-        "second_half": "Rhodri W"
+        "first_half": "Rhodri W",
+        "second_half": "Ethan G"
       },
       "scorers": [
         {"player": "Travis C", "goals": 2}
@@ -1348,15 +1348,15 @@
         {"player": "Owen H", "assists": 1},
         {"player": "Henry K", "assists": 1}
       ],
-      "performance_notes": "SEVENTH WIN and FIRST CLEANSHEET EVER! A milestone victory considering how the season started. Both teams were missing many players. Adam K was injured just 10 minutes into the game, further limiting our options. Niko D played the entire game due to lack of available players and had a massive game - recovering countless balls. Henry K was everywhere on the field, maintaining our possession brilliantly. The best moment came when Owen, Minh-An, Travis and Andy combined for an incredible quick-passing counter attack showing quality teamwork. Ethan G and Rhodri W both kept clean sheets with nice saves in their respective halves.",
+      "performance_notes": "SEVENTH WIN and FIRST CLEANSHEET EVER! A milestone victory considering how the season started. Both teams were missing many players. Adam K was injured just 10 minutes into the game, further limiting our options. Niko D played the entire game due to lack of available players and had a massive game - recovering countless balls. Henry K was everywhere on the field, maintaining our possession brilliantly. The best moment came when Owen, Minh-An, Travis and Andy combined for an incredible quick-passing counter attack showing quality teamwork. Rhodri W and Ethan G both kept clean sheets with nice saves in their respective halves.",
       "highlights": [
         "SEVENTH WIN of the season! 2-0 victory!",
         "FIRST CLEANSHEET EVER! Historic milestone!",
         "Travis C brace - goals from Owen H and Henry K assists",
         "Owen H beautiful assist for first goal",
         "Henry K assist for second goal - was everywhere on the field",
-        "Ethan G clean sheet first half with nice saves",
-        "Rhodri W clean sheet second half with nice saves",
+        "Rhodri W clean sheet first half with nice saves",
+        "Ethan G clean sheet second half with nice saves",
         "Niko D played entire game - recovered many balls, massive performance",
         "Incredible counter attack: Owen, Minh-An, Travis, Andy quick passing masterclass",
         "Big games from Minh-An D, Andy E, Travis C, Owen H, Henry K",

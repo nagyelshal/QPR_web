@@ -37,6 +37,10 @@ Special mention to **Henry K** who was absolutely everywhere on the field. He ma
 
 The best moment of the match came when **Owen H**, **Minh-An D**, **Travis C**, and **Andy E** combined for an incredible quick-passing counter attack. The ball movement and teamwork on display was breathtaking - showing just how far this team has come in working together.
 
+## Andy's Courageous Return
+
+**Andy E** showed incredible heart today. Despite picking up an injury in the second half, he refused to stay down and went back onto the field. His skills on the ball and teamwork were vital in helping us maintain possession during key moments. A true warrior performance that exemplifies the character of this team.
+
 ## Big Performances All Around
 
 **Minh-An D**, **Andy E**, **Travis C**, **Owen H**, and **Henry K** all had outstanding games. The team depth and character on display was remarkable.
@@ -52,6 +56,7 @@ When you think back to how this season started, this seventh win represents incr
 - Ethan G clean sheet first half with nice saves
 - Rhodri W clean sheet second half with nice saves
 - Niko D played entire game - recovered countless balls
+- Andy E returned after injury - helped maintain possession
 - Incredible counter attack showing quality teamwork
 - Henry K everywhere - maintained possession brilliantly
 - Great depth shown despite missing players
@@ -63,6 +68,7 @@ Back-to-back braces! Four goals in two games. Clinical finishing when it matters
 - **Niko D** - Played the entire game, recovered countless balls
 - **Henry K** - Was everywhere, assist for second goal
 - **Ethan G & Rhodri W** - First cleansheet in team history!
+- **Andy E** - Returned after injury, skills and teamwork helped maintain possession
 
 ## Up Next
 

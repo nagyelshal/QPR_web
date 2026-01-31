@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import matchesData from '../../../data/matches.json';
-import achievementsData from '../../../data/achievements.json';
+import seasonSchedule from '../../../data/season-schedule.json';
 
 export async function getStaticPaths() {
   return matchesData.matches.map(match => ({
@@ -12,865 +12,760 @@ export async function getStaticPaths() {
 
 const { match } = Astro.props;
 const title = `Match vs ${match.opponent}`;
-const description = `Detailed match information for QPR U11B vs ${match.opponent}`;
+const description = `Match details for QPR U11B vs ${match.opponent}`;
 
-// Get the base path from the config
 const base = import.meta.env.BASE_URL;
+
+// Get venue info
+function getVenueInfo(match) {
+  const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === match.match_number);
+  if (scheduleMatch) {
+    const isQPRHome = scheduleMatch.home_team.includes('Queens Park Rangers') || scheduleMatch.home_team.includes('QPR');
+    return { isHome: isQPRHome, text: isQPRHome ? 'Home' : 'Away', class: isQPRHome ? 'home' : 'away' };
+  }
+  const isHome = match.location?.toLowerCase().includes('home') || match.venue_type === 'home';
+  return { isHome, text: isHome ? 'Home' : 'Away', class: isHome ? 'home' : 'away' };
+}
+
+const venueInfo = getVenueInfo(match);
+const isPending = match.result === 'pending';
+const isCancelled = match.result === 'cancelled';
+const isCompleted = !isPending && !isCancelled;
+
+// Determine result
+let resultClass = '';
+let resultText = '';
+if (isCompleted) {
+  const qprScore = match.final_score?.qpr ?? 0;
+  const oppScore = match.final_score?.opponent ?? 0;
+  if (qprScore > oppScore) {
+    resultClass = 'win';
+    resultText = 'Victory';
+  } else if (qprScore < oppScore) {
+    resultClass = 'loss';
+    resultText = 'Defeat';
+  } else {
+    resultClass = 'draw';
+    resultText = 'Draw';
+  }
+}
+
+// Format scorers for display
+function formatScorers(scorers) {
+  if (!scorers || scorers.length === 0) return [];
+  return scorers.map(s => {
+    if (typeof s === 'object' && s.player) {
+      return { name: s.player, goals: s.goals || 1, time: s.time };
+    }
+    // Handle "Player (2)" format
+    const match = String(s).match(/^(.+?)\s*\((\d+)\)$/);
+    if (match) {
+      return { name: match[1].trim(), goals: parseInt(match[2]) };
+    }
+    return { name: String(s), goals: 1 };
+  });
+}
+
+// Format assists for display
+function formatAssists(assists) {
+  if (!assists || assists.length === 0) return [];
+  return assists.map(a => {
+    if (typeof a === 'object' && a.player) {
+      return { name: a.player, assists: a.assists || 1 };
+    }
+    return { name: String(a), assists: 1 };
+  });
+}
+
+const scorers = formatScorers(match.scorers);
+const assists = formatAssists(match.assists);
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="container">
-    <div class="match-detail-header">
-      <a href={`${base}matches/`} class="back-link">← Back to Matches</a>
-      <h1>QPR U11B vs {match.opponent}</h1>
+  <div class="match-detail">
+    <!-- Back Link -->
+    <a href={`${base}matches/`} class="back-link">← Back to Matches</a>
+
+    <!-- Match Header -->
+    <header class="match-header">
       <div class="match-meta">
         <span class="match-date">
-          {new Date(match.date).toLocaleDateString('en-US', { 
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long', 
-            day: 'numeric'
+          {new Date(match.date).toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
           })}
         </span>
-        <span class="match-week">Week {match.week}</span>
+        <span class={`venue-badge ${venueInfo.class}`}>{venueInfo.text}</span>
+        <span class="week-badge">Week {match.week}</span>
       </div>
-    </div>
 
-    <div class="match-detail-grid">
-      <!-- Match Info Card -->
-      <div class="info-card">
-        <h2>📋 Match Information</h2>
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="info-label">🏟️ Venue:</span>
-            <span class="info-value">{match.location}</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">🕐 Kickoff:</span>
-            <span class="info-value">{match.kickoff}</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">🎫 Match #:</span>
-            <span class="info-value">{match.match_number}</span>
-          </div>
-          <div class="info-item">
-            <span class="info-label">⚽ Formation:</span>
-            <span class="info-value">{match.formation || '2-3-2'}</span>
-          </div>
+      <!-- Score Display -->
+      <div class={`score-section ${isPending ? 'pending' : isCancelled ? 'cancelled' : resultClass}`}>
+        <div class="team team-qpr">
+          <span class="team-name">QPR</span>
+          <span class="team-score">
+            {isPending ? '-' : isCancelled ? 'X' : match.final_score?.qpr ?? '-'}
+          </span>
+        </div>
+        <div class="score-divider">
+          {isCompleted && (
+            <span class={`result-badge ${resultClass}`}>{resultText}</span>
+          )}
+          {isPending && <span class="status-text">vs</span>}
+          {isCancelled && <span class="status-text cancelled">Cancelled</span>}
+        </div>
+        <div class="team team-opp">
+          <span class="team-score">
+            {isPending ? '-' : isCancelled ? 'X' : match.final_score?.opponent ?? '-'}
+          </span>
+          <span class="team-name">{match.opponent}</span>
         </div>
       </div>
 
-      <!-- Score Card -->
-      <div class="score-card">
-        <div class="teams-display">
-          <div class="team home-team">
-            <div class="team-logo">🛡️</div>
-            <div class="team-name">QPR U11B</div>
-            <div class="team-score">
-              {match.result === 'pending' ? '-' : 
-               match.result === 'cancelled' ? 'X' :
-               match.final_score ? match.final_score.qpr : 
-               match.result.includes('loss') ? match.result.split('-')[0] : '2'}
-            </div>
-          </div>
-          <div class="vs-divider">
-            <span>VS</span>
-          </div>
-          <div class="team away-team">
-            <div class="team-logo">⚡</div>
-            <div class="team-name">{match.opponent}</div>
-            <div class="team-score">
-              {match.result === 'pending' ? '-' : 
-               match.result === 'cancelled' ? 'X' :
-               match.final_score ? match.final_score.opponent : 
-               match.result.includes('loss') ? match.result.split('-')[1].split(' ')[0] : '1'}
-            </div>
-          </div>
+      {isCompleted && match.final_score?.half_time && (
+        <div class="half-time">HT: {match.final_score.half_time}</div>
+      )}
+
+      {isCancelled && match.reason && (
+        <div class="cancel-reason">{match.reason}</div>
+      )}
+    </header>
+
+    <!-- Match Info -->
+    <section class="info-section">
+      <div class="info-row">
+        <span class="info-label">Kickoff</span>
+        <span class="info-value">{match.kickoff}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Location</span>
+        <span class="info-value">{match.location}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Match #</span>
+        <span class="info-value">{match.match_number}</span>
+      </div>
+      {match.formation && (
+        <div class="info-row">
+          <span class="info-label">Formation</span>
+          <span class="info-value">{match.formation}</span>
         </div>
-        
-        {match.result === 'pending' ? (
-          <div class="match-status">
-            <span class="status-badge pending">⏳ Upcoming</span>
-          </div>
-        ) : match.result === 'cancelled' ? (
-          <div class="match-status">
-            <span class="status-badge cancelled">❌ Cancelled</span>
-            {match.reason && <p class="cancellation-reason">{match.reason}</p>}
-          </div>
-        ) : (
-          <div class="match-status">
-            <span class="status-badge completed">✅ Final</span>
-            {match.final_score && match.final_score.half_time && (
-              <p class="half-time">Half-time: {match.final_score.half_time}</p>
+      )}
+    </section>
+
+    {isCompleted && (
+      <>
+        <!-- Scorers & Assists -->
+        {(scorers.length > 0 || assists.length > 0) && (
+          <section class="events-section">
+            <h2>Match Events</h2>
+            {scorers.length > 0 && (
+              <div class="event-group">
+                <h3>Goals</h3>
+                <div class="event-list">
+                  {scorers.map(s => (
+                    <div class="event-item goal">
+                      <span class="event-icon">⚽</span>
+                      <span class="event-player">{s.name}</span>
+                      {s.goals > 1 && <span class="event-count">x{s.goals}</span>}
+                      {s.time && <span class="event-time">{s.time}</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
-          </div>
+            {assists.length > 0 && (
+              <div class="event-group">
+                <h3>Assists</h3>
+                <div class="event-list">
+                  {assists.map(a => (
+                    <div class="event-item assist">
+                      <span class="event-icon">🎯</span>
+                      <span class="event-player">{a.name}</span>
+                      {a.assists > 1 && <span class="event-count">x{a.assists}</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
         )}
-      </div>
 
-      <!-- Goals & Events Card -->
-      {match.result !== 'pending' && match.result !== 'cancelled' && (
-        <div class="events-card">
-          <h2>⚽ Match Events</h2>
-          <div class="events-timeline">
-            {match.scorers && match.scorers.length > 0 && match.scorers.map((scorer, index) => (
-              <div class="event-item goal">
-                <div class="event-time">{index === 0 ? '12\'' : '34\''}</div>
-                <div class="event-content">
-                  <span class="event-icon">⚽</span>
-                  <span class="event-text">
-                    <strong>{scorer}</strong> scores!
-                    {match.assists && match.assists[index] && ` Assist by ${match.assists[index]}`}
-                  </span>
+        <!-- Goalkeepers -->
+        {match.goalkeepers && (
+          <section class="gk-section">
+            <h2>Goalkeepers</h2>
+            <div class="gk-grid">
+              <div class="gk-card">
+                <span class="gk-half">1st Half</span>
+                <span class="gk-name">{match.goalkeepers.first_half}</span>
+              </div>
+              <div class="gk-card">
+                <span class="gk-half">2nd Half</span>
+                <span class="gk-name">{match.goalkeepers.second_half}</span>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <!-- Captains -->
+        {match.captains && (
+          <section class="captains-section">
+            <h2>Captains</h2>
+            <div class="captains-grid">
+              <div class="captain-card">
+                <span class="captain-half">1st Half</span>
+                <span class="captain-name">{match.captains.first_half}</span>
+              </div>
+              <div class="captain-card">
+                <span class="captain-half">2nd Half</span>
+                <span class="captain-name">{match.captains.second_half}</span>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <!-- Highlights -->
+        {match.highlights && match.highlights.length > 0 && (
+          <section class="highlights-section">
+            <h2>Match Highlights</h2>
+            <ul class="highlights-list">
+              {match.highlights.map(h => (
+                <li>{h}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <!-- Lineup -->
+        {match.starting_lineup && match.starting_lineup.length > 0 && (
+          <section class="lineup-section">
+            <h2>Starting Lineup</h2>
+            <div class="lineup-grid">
+              {match.starting_lineup.map(player => (
+                <div class="player-chip">
+                  <span class="player-number">#{player.jersey}</span>
+                  <span class="player-name">{player.name}</span>
+                  <span class="player-pos">{player.pos}</span>
                 </div>
-              </div>
-            ))}
-            
-            {match.achievements && match.achievements.length > 0 && (
-              <div class="event-item achievement">
-                <div class="event-time">FT</div>
-                <div class="event-content">
-                  <span class="event-icon">🏆</span>
-                  <span class="event-text">Team Goals Achieved: {match.achievements.join(', ')}</span>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- Achievements -->
+        {match.achievements && match.achievements.length > 0 && (
+          <section class="achievements-section">
+            <h2>Achievements</h2>
+            <div class="achievements-list">
+              {match.achievements.map(a => (
+                <div class="achievement-badge">
+                  <span class="achievement-icon">🏆</span>
+                  <span>{a}</span>
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+              ))}
+            </div>
+          </section>
+        )}
+      </>
+    )}
 
-      <!-- Lineup & Performance -->
-      {match.result !== 'pending' && match.result !== 'cancelled' && match.starting_lineup && (
-        <div class="lineup-card">
-          <h2>⚽ Starting Lineup ({match.formation || '3-3-1'})</h2>
-          <div class="lineup-grid">
-            {match.starting_lineup.map(player => (
-              <div class="player-card">
-                <div class="player-number">#{player.jersey}</div>
-                <div class="player-info">
-                  <div class="player-name">{player.name}</div>
-                  <div class="player-position">{player.pos}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {match.captains && (
-            <div class="match-roles">
-              <h3>👨‍✈️ Match Captains</h3>
-              <p><strong>1st Half:</strong> {match.captains.first_half}</p>
-              <p><strong>2nd Half:</strong> {match.captains.second_half}</p>
-            </div>
-          )}
-          
-          {match.goalkeepers && (
-            <div class="match-roles">
-              <h3>🥅 Goalkeepers</h3>
-              <p><strong>1st Half:</strong> {match.goalkeepers.first_half}</p>
-              <p><strong>2nd Half:</strong> {match.goalkeepers.second_half}</p>
-            </div>
-          )}
+    {isPending && (
+      <section class="upcoming-section">
+        <div class="upcoming-message">
+          <span class="upcoming-icon">⏳</span>
+          <h3>Upcoming Match</h3>
+          <p>Match details will be updated after the game</p>
         </div>
-      )}
-
-      <!-- Performance Highlights -->
-      {match.result !== 'pending' && match.result !== 'cancelled' && (
-        <div class="performance-card">
-          <h2>⭐ Performance Highlights</h2>
-          
-          {match.scorers && match.scorers.length > 0 && (
-            <div class="highlight-section">
-              <h3>⚽ Goal Scorers</h3>
-              <div class="performers-list">
-                {match.scorers.map(scorer => (
-                  <span class="performer-badge goal-scorer">{scorer}</span>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          {match.assists && match.assists.length > 0 && (
-            <div class="highlight-section">
-              <h3>🎯 Assists</h3>
-              <div class="performers-list">
-                {match.assists.map(assist => (
-                  <span class="performer-badge assist">{assist}</span>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          {match.defensive_stars && match.defensive_stars.length > 0 && (
-            <div class="highlight-section">
-              <h3>🛡️ Defensive Stars</h3>
-              <div class="performers-list">
-                {match.defensive_stars.map(defender => (
-                  <span class="performer-badge defensive">{defender}</span>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      <!-- Team Achievements -->
-      {match.result !== 'pending' && match.result !== 'cancelled' && match.achievements && match.achievements.length > 0 && (
-        <div class="achievements-card">
-          <h2>🏆 Team Goals Achieved</h2>
-          <div class="achievements-grid">
-            {match.achievements.map(achievement => (
-              <div class="achievement-earned">
-                <span class="achievement-icon">
-                  {achievement.includes('First Goal') ? '⚽' : 
-                   achievement.includes('Team Work') ? '🤝' : '🏆'}
-                </span>
-                <div class="achievement-info">
-                  <h4>{achievement}</h4>
-                  <p>
-                    {achievement.includes('First Goal') ? 'Team scored their first goal of the season!' :
-                     achievement.includes('Team Work') ? 'Excellent teamwork and collaboration demonstrated!' :
-                     'Team achievement unlocked!'}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-    </div>
+      </section>
+    )}
   </div>
 </BaseLayout>
 
 <style>
-  .match-detail-header {
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
+  .match-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
   }
 
   .back-link {
     display: inline-block;
-    margin-bottom: var(--spacing-md);
     color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-md);
   }
 
   .back-link:hover {
-    color: #1565c0;
+    text-decoration: underline;
   }
 
-  .match-detail-header h1 {
-    font-size: 2.5rem;
-    color: var(--color-text);
+  /* Match Header */
+  .match-header {
+    background: white;
+    border-radius: 16px;
+    padding: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;
   }
 
   .match-meta {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-lg);
     align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
   }
 
   .match-date {
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     color: var(--color-text-light);
   }
 
-  .match-week {
+  .venue-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+
+  .venue-badge.home {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .venue-badge.away {
+    background: #cce5ff;
+    color: #004085;
+  }
+
+  .week-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
     background: var(--color-primary);
     color: white;
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: 20px;
+  }
+
+  /* Score Section */
+  .score-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+  }
+
+  .team-qpr {
+    text-align: right;
+  }
+
+  .team-opp {
+    text-align: left;
+  }
+
+  .team-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .team-score {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .score-section.win .team-qpr .team-score { color: #2ecc71; }
+  .score-section.loss .team-qpr .team-score { color: #e74c3c; }
+  .score-section.draw .team-qpr .team-score { color: #9b59b6; }
+
+  .score-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .result-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+  }
+
+  .result-badge.win { background: #d4edda; color: #155724; }
+  .result-badge.loss { background: #f8d7da; color: #721c24; }
+  .result-badge.draw { background: #e8daef; color: #6c3483; }
+
+  .status-text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .status-text.cancelled {
+    color: #dc3545;
     font-weight: 600;
   }
 
-  .match-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--spacing-lg);
+  .half-time {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: var(--spacing-sm);
   }
 
-  .info-card,
-  .score-card,
-  .events-card,
-  .potm-card,
-  .celebrations-card,
-  .achievements-card,
-  .stats-card {
+  .cancel-reason {
+    font-size: 0.85rem;
+    color: #dc3545;
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+  }
+
+  /* Info Section */
+  .info-section {
     background: white;
-    border-radius: 16px;
-    padding: var(--spacing-xl);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
-  .info-card:hover,
-  .score-card:hover,
-  .events-card:hover,
-  .potm-card:hover,
-  .celebrations-card:hover,
-  .achievements-card:hover,
-  .stats-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .info-card h2,
-  .events-card h2,
-  .potm-card h2,
-  .celebrations-card h2,
-  .achievements-card h2,
-  .stats-card h2 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-lg);
-    font-size: 1.3rem;
-  }
-
-  .info-grid {
-    display: grid;
-    gap: var(--spacing-md);
-  }
-
-  .info-item {
+  .info-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-xs) 0;
     border-bottom: 1px solid #f0f0f0;
   }
 
-  .info-item:last-child {
+  .info-row:last-child {
     border-bottom: none;
   }
 
   .info-label {
-    font-weight: 600;
+    font-size: 0.85rem;
     color: var(--color-text-light);
   }
 
   .info-value {
-    font-weight: 500;
-  }
-
-  .score-card {
-    grid-column: span 2;
-  }
-
-  .teams-display {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .team {
-    text-align: center;
-    flex: 1;
-  }
-
-  .team-logo {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .team-name {
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .team-score {
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--color-primary);
-  }
-
-  .vs-divider {
-    margin: 0 var(--spacing-lg);
-    font-weight: 700;
-    color: var(--color-text-light);
-    font-size: 1.5rem;
-  }
-
-  .match-status {
-    text-align: center;
-  }
-
-  .status-badge {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 600;
-    font-size: 1rem;
   }
 
-  .status-badge.pending {
-    background: #fff3e0;
-    color: #e65100;
+  /* Section Styles */
+  section h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
   }
 
-  .status-badge.completed {
-    background: #e8f5e8;
-    color: #2e7d32;
+  /* Events Section */
+  .events-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
-  .events-timeline {
-    display: grid;
-    gap: var(--spacing-md);
+  .event-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .event-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .event-group h3 {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+  }
+
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .event-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: #f8f9fa;
     border-radius: 8px;
-    border-left: 4px solid;
   }
 
   .event-item.goal {
-    background: #e8f5e8;
-    border-left-color: #4caf50;
+    background: #e8f5e9;
+    border-left: 3px solid #2ecc71;
   }
 
-  .event-item.opponent-goal {
-    background: #ffebee;
-    border-left-color: #f44336;
-  }
-
-  .event-item.celebration {
-    background: #f3e5f5;
-    border-left-color: #9c27b0;
-  }
-
-  .event-time {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--color-primary);
-    min-width: 40px;
-  }
-
-  .event-content {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
+  .event-item.assist {
+    background: #e3f2fd;
+    border-left: 3px solid #1976d2;
   }
 
   .event-icon {
-    font-size: 1.2rem;
-  }
-
-  .player-voting-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .player-vote-option {
-    background: #f8f9fa;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: var(--spacing-md);
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-  }
-
-  .player-vote-option:hover {
-    background: #e3f2fd;
-    border-color: var(--color-primary);
-  }
-
-  .player-vote-option.selected {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-  }
-
-  .potm-winner {
-    text-align: center;
-  }
-
-  .winner-display {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-  }
-
-  .winner-avatar {
-    font-size: 4rem;
-  }
-
-  .winner-info h3 {
-    font-size: 1.5rem;
-    margin: 0 0 var(--spacing-xs) 0;
-    color: #e65100;
-  }
-
-  .winner-info p {
-    margin: 0;
-    color: #e65100;
-    opacity: 0.8;
-  }
-
-  .achievement-earned {
-    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
-    padding: var(--spacing-md);
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .achievement-badge {
-    font-weight: 600;
-    color: #2e7d32;
-  }
-
-  .celebrations-showcase {
-    display: grid;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .celebration-highlight {
-    background: #f3e5f5;
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-  }
-
-  .celebration-highlight h3 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .celebration-highlight p {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .celebration-votes {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .vote-btn {
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease;
-  }
-
-  .vote-btn:hover {
-    background: #1565c0;
-  }
-
-  .vote-count {
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
-  .submit-celebration {
-    background: #f8f9fa;
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-  }
-
-  .submit-celebration h4 {
-    margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
-  }
-
-  .celebration-form {
-    display: grid;
-    gap: var(--spacing-md);
-  }
-
-  .celebration-form input,
-  .celebration-form textarea {
-    padding: var(--spacing-md);
-    border: 2px solid #e0e0e0;
-    border-radius: 6px;
-    font-family: inherit;
-  }
-
-  .celebration-form input:focus,
-  .celebration-form textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
-
-  .lineup-card, .performance-card {
-    background: white;
-    border-radius: 16px;
-    padding: var(--spacing-xl);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-
-  .lineup-card:hover, .performance-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .lineup-card h2, .performance-card h2 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-lg);
-    font-size: 1.3rem;
-  }
-
-  .lineup-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-  }
-
-  .position-group h4 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
     font-size: 1rem;
-    font-weight: 600;
   }
 
-  .player-list {
+  .event-player {
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex: 1;
+  }
+
+  .event-count {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    background: white;
+    padding: 2px 6px;
+    border-radius: 8px;
+  }
+
+  .event-time {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  /* GK & Captains */
+  .gk-section,
+  .captains-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .gk-grid,
+  .captains-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .gk-card,
+  .captain-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .gk-half,
+  .captain-half {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .gk-name,
+  .captain-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* Highlights */
+  .highlights-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .highlights-list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .player-list li {
-    padding: var(--spacing-sm);
-    background: #f8f9fa;
-    margin-bottom: 0.25rem;
-    border-radius: 6px;
-    border-left: 3px solid var(--color-primary);
-    font-weight: 500;
-  }
-
-  .captain-indicator {
-    color: #FFD700;
-    font-weight: 700;
-  }
-
-  .performance-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-  }
-
-  .highlight-section {
-    padding: var(--spacing-lg);
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid var(--color-primary);
-  }
-
-  .highlight-section h4 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .performer-badge {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    padding: 0.25rem var(--spacing-sm);
-    border-radius: 12px;
-    font-size: 0.8rem;
-    margin: 0.25rem 0.25rem 0.25rem 0;
-    font-weight: 600;
-  }
-
-  .achievements-grid {
-    display: grid;
-    gap: var(--spacing-md);
-  }
-
-  .achievement-earned {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
-    padding: var(--spacing-md);
-    border-radius: 8px;
-  }
-
-  .achievement-icon {
-    font-size: 2rem;
-  }
-
-  .achievement-info h4 {
-    margin: 0 0 var(--spacing-xs) 0;
-    color: #2e7d32;
-  }
-
-  .achievement-info p {
-    margin: 0;
-    color: #2e7d32;
-    opacity: 0.8;
-  }
-
-  .stats-grid {
-    display: grid;
-    gap: var(--spacing-md);
-  }
-
-  .stat-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-sm) 0;
+  .highlights-list li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    font-size: 0.85rem;
     border-bottom: 1px solid #f0f0f0;
   }
 
-  .stat-item:last-child {
+  .highlights-list li:last-child {
     border-bottom: none;
   }
 
-  .stat-label {
-    font-weight: 600;
-    color: var(--color-text-light);
+  .highlights-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
   }
 
-  .stat-value {
+  /* Lineup */
+  .lineup-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .lineup-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .player-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
+
+  .player-number {
     font-weight: 700;
-    font-size: 1.1rem;
     color: var(--color-primary);
   }
 
-  @media (max-width: 768px) {
-    .match-detail-header h1 {
-      font-size: 1.8rem;
+  .player-name {
+    font-weight: 600;
+  }
+
+  .player-pos {
+    color: var(--color-text-light);
+    font-size: 0.7rem;
+  }
+
+  /* Achievements */
+  .achievements-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .achievement-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e65100;
+  }
+
+  .achievement-icon {
+    font-size: 1rem;
+  }
+
+  /* Upcoming */
+  .upcoming-section {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .upcoming-message {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .upcoming-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .upcoming-message h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+  }
+
+  .upcoming-message p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .match-detail {
+      padding: var(--spacing-sm);
     }
 
-    .match-meta {
-      flex-direction: column;
+    .match-header {
+      padding: var(--spacing-md);
+    }
+
+    .team-score {
+      font-size: 2rem;
+    }
+
+    .team-name {
+      font-size: 0.75rem;
+    }
+
+    .score-section {
       gap: var(--spacing-sm);
     }
 
-    .match-detail-grid {
-      grid-template-columns: 1fr;
+    .team {
+      min-width: 60px;
     }
 
-    .score-card {
-      grid-column: span 1;
+    .info-section,
+    .events-section,
+    .gk-section,
+    .captains-section,
+    .highlights-section,
+    .lineup-section,
+    .achievements-section {
+      padding: var(--spacing-sm);
     }
+  }
 
-    .teams-display {
-      flex-direction: column;
-      gap: var(--spacing-lg);
-    }
-
-    .vs-divider {
-      transform: rotate(90deg);
-      margin: var(--spacing-sm) 0;
-    }
-
-    .winner-display {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .player-voting-grid {
-      grid-template-columns: 1fr;
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .back-link:hover {
+      text-decoration: underline;
     }
   }
 </style>
-
-<script>
-  // Mock roster data for voting
-  const rosterPlayers = [
-    'Adam K', 'Alexander V', 'David A', 'Ethan G', 'Eunjun P', 
-    'Minh-An D', 'Owen H', 'Rafael H', 'Romeo M'
-  ];
-
-  // Initialize voting grid
-  const votingGrid = document.getElementById('voting-grid');
-  const voteSubmit = document.getElementById('vote-submit');
-  let selectedPlayer = null;
-
-  if (votingGrid && voteSubmit) {
-    rosterPlayers.forEach(player => {
-      const option = document.createElement('div');
-      option.className = 'player-vote-option';
-      option.textContent = player;
-      option.dataset.player = player;
-      option.addEventListener('click', selectPlayer);
-      votingGrid.appendChild(option);
-    });
-
-    function selectPlayer(e) {
-      // Remove previous selection
-      document.querySelectorAll('.player-vote-option').forEach(option => {
-        option.classList.remove('selected');
-      });
-      
-      // Select current player
-      e.target.classList.add('selected');
-      selectedPlayer = e.target.dataset.player;
-      voteSubmit.disabled = false;
-      voteSubmit.textContent = `Vote for ${selectedPlayer}`;
-    }
-
-    voteSubmit.addEventListener('click', () => {
-      if (selectedPlayer) {
-        // In a real app, send vote to server
-        console.log('Voting for:', selectedPlayer);
-        
-        // Show success
-        voteSubmit.textContent = 'Vote Submitted! ✅';
-        voteSubmit.disabled = true;
-        voteSubmit.style.background = '#4caf50';
-        
-        // Disable all voting options
-        document.querySelectorAll('.player-vote-option').forEach(option => {
-          option.style.opacity = '0.6';
-          option.style.cursor = 'not-allowed';
-          option.removeEventListener('click', selectPlayer);
-        });
-      }
-    });
-  }
-
-  // Handle celebration voting
-  document.querySelectorAll('.vote-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const voteCountSpan = e.target.parentElement.querySelector('.vote-count');
-      const currentVotes = parseInt(voteCountSpan.textContent.split(' ')[0]);
-      
-      // Update vote count
-      voteCountSpan.textContent = `${currentVotes + 1} votes`;
-      
-      // Disable button
-      e.target.textContent = 'Voted! ✅';
-      e.target.disabled = true;
-      e.target.style.background = '#4caf50';
-    });
-  });
-
-  // Handle celebration form submission
-  document.querySelector('.celebration-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-    const name = formData.get('name') || e.target.querySelector('input').value;
-    const description = formData.get('description') || e.target.querySelector('textarea').value;
-    
-    if (name && description) {
-      alert('Celebration idea submitted! Thanks for your creativity! 🎉');
-      e.target.reset();
-    }
-  });
-</script>
-</BaseLayout>

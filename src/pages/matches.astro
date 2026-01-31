@@ -6,749 +6,841 @@ import seasonSchedule from '../../data/season-schedule.json';
 const title = "Match Center";
 const description = "View match details, scores, and highlights";
 
-// Use site base path for links
 const base = import.meta.env.BASE_URL;
 
 // Split matches into upcoming and completed, sort appropriately
 const upcomingMatches = matchesData.matches
   .filter(m => m.result === 'pending')
-  .sort((a, b) => new Date(a.date) - new Date(b.date)); // Soonest first
+  .sort((a, b) => new Date(a.date) - new Date(b.date));
 
 const completedMatches = matchesData.matches
-  .filter(m => m.result !== 'pending')
-  .sort((a, b) => new Date(b.date) - new Date(a.date)); // Most recent first
+  .filter(m => m.result !== 'pending' && m.result !== 'cancelled')
+  .sort((a, b) => new Date(a.date) - new Date(b.date)); // Chronological for timeline
+
+const recentMatches = [...completedMatches].reverse(); // Most recent first for list
+
+// Calculate season stats
+const wins = completedMatches.filter(m => m.result.includes('win')).length;
+const losses = completedMatches.filter(m => m.result.includes('loss')).length;
+const draws = completedMatches.filter(m => m.result.includes('draw')).length;
+
+let goalsFor = 0;
+let goalsAgainst = 0;
+completedMatches.forEach(m => {
+  if (m.final_score) {
+    goalsFor += m.final_score.qpr || 0;
+    goalsAgainst += m.final_score.opponent || 0;
+  }
+});
+
+// Get last 5 form
+const last5 = recentMatches.slice(0, 5).map(m => {
+  if (m.result.includes('win')) return 'W';
+  if (m.result.includes('draw')) return 'D';
+  return 'L';
+}).reverse();
+
+// Find milestones
+const firstWin = completedMatches.find(m => m.result.includes('win'));
+const cleanSheetMatches = completedMatches.filter(m =>
+  m.final_score && m.final_score.opponent === 0
+);
+const firstCleanSheet = cleanSheetMatches.length > 0 ? cleanSheetMatches[0] : null;
 
 // Helper function to determine home/away status
 function getVenueInfo(match) {
-  // First try to find the match in season schedule by match number
   const scheduleMatch = seasonSchedule.matches.find(m => m.match_number === match.match_number);
-  
+
   if (scheduleMatch) {
-    // Use the definitive home/away info from season schedule
     const isQPRHome = scheduleMatch.home_team.includes('Queens Park Rangers') || scheduleMatch.home_team.includes('QPR');
     return {
       isHome: isQPRHome,
-      icon: isQPRHome ? '🏠' : '✈️',
+      icon: isQPRHome ? 'H' : 'A',
       text: isQPRHome ? 'Home' : 'Away',
       class: isQPRHome ? 'home' : 'away'
     };
   }
-  
-  // Fallback logic if not found in schedule
-  const isHome = match.location.toLowerCase().includes('home') || 
+
+  const isHome = match.location.toLowerCase().includes('home') ||
                  match.location.toLowerCase() === 'tbd';
-  
+
   return {
     isHome,
-    icon: isHome ? '🏠' : '✈️',
+    icon: isHome ? 'H' : 'A',
     text: isHome ? 'Home' : 'Away',
     class: isHome ? 'home' : 'away'
   };
 }
+
+function getResultInfo(match) {
+  if (match.result === 'cancelled') return { class: 'cancelled', letter: 'X' };
+  if (match.result.includes('win')) return { class: 'win', letter: 'W' };
+  if (match.result.includes('draw')) return { class: 'draw', letter: 'D' };
+  return { class: 'loss', letter: 'L' };
+}
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="container">
-    <div class="matches-header">
+  <div class="matches-page">
+    <!-- Header -->
+    <header class="page-header">
       <h1>Match Center</h1>
-      <p>View match details, scores, and highlights.</p>
+      <p class="subtitle">2025-26 Season</p>
+    </header>
+
+    <!-- Quick Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-value">{completedMatches.length}</span>
+        <span class="stat-label">Played</span>
+      </div>
+      <div class="stat win">
+        <span class="stat-value">{wins}</span>
+        <span class="stat-label">Wins</span>
+      </div>
+      <div class="stat draw">
+        <span class="stat-value">{draws}</span>
+        <span class="stat-label">Draws</span>
+      </div>
+      <div class="stat loss">
+        <span class="stat-value">{losses}</span>
+        <span class="stat-label">Losses</span>
+      </div>
+      <div class="stat goals">
+        <span class="stat-value">{goalsFor}</span>
+        <span class="stat-label">Scored</span>
+      </div>
     </div>
 
-    {upcomingMatches.length > 0 && (
-      <div class="section-header upcoming-header">
-        <h2>Upcoming Matches</h2>
-        <span class="match-count">{upcomingMatches.length} matches</span>
+    <!-- Form Guide -->
+    <div class="form-section">
+      <div class="form-header">
+        <span class="form-label">Current Form</span>
+        <span class="form-streak">Last 5 games</span>
       </div>
+      <div class="form-badges">
+        {last5.map((result, i) => (
+          <span class={`form-badge ${result.toLowerCase()}`} style={`animation-delay: ${i * 0.1}s`}>
+            {result}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Season Journey Timeline -->
+    <section class="journey-section">
+      <h2 class="section-title">
+        <span class="title-icon">📈</span>
+        Season Journey
+      </h2>
+      <div class="journey-timeline">
+        {completedMatches.map((match, index) => {
+          const result = getResultInfo(match);
+          const score = match.final_score ? `${match.final_score.qpr}-${match.final_score.opponent}` : '-';
+          const isFirstWin = firstWin && match.id === firstWin.id;
+          const isFirstCleanSheet = firstCleanSheet && match.id === firstCleanSheet.id;
+          const isMilestone = isFirstWin || isFirstCleanSheet;
+
+          return (
+            <a href={`${base}matches/${match.id}/`} class={`journey-match ${result.class} ${isMilestone ? 'milestone' : ''}`}>
+              <div class="journey-week">W{match.week}</div>
+              <div class={`journey-result ${result.class}`}>{result.letter}</div>
+              <div class="journey-score">{score}</div>
+              {isMilestone && (
+                <div class="milestone-badge">
+                  {isFirstWin && isFirstCleanSheet ? '1st W + CS' : isFirstWin ? '1st Win!' : '1st CS!'}
+                </div>
+              )}
+            </a>
+          );
+        })}
+      </div>
+      <div class="journey-legend">
+        <span class="legend-item"><span class="dot win"></span> Win</span>
+        <span class="legend-item"><span class="dot draw"></span> Draw</span>
+        <span class="legend-item"><span class="dot loss"></span> Loss</span>
+      </div>
+    </section>
+
+    <!-- Upcoming Match -->
+    {upcomingMatches.length > 0 && (
+      <section class="upcoming-section">
+        <h2 class="section-title">
+          <span class="title-icon">⏳</span>
+          Next Match
+        </h2>
+        {upcomingMatches.slice(0, 1).map(match => {
+          const venueInfo = getVenueInfo(match);
+          return (
+            <a href={`${base}matches/${match.id}/`} class="next-match-card">
+              <div class="next-match-date">
+                <span class="day">{new Date(match.date).toLocaleDateString('en-US', { weekday: 'short' })}</span>
+                <span class="date">{new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+              </div>
+              <div class="next-match-info">
+                <div class="matchup">
+                  <span class="team-qpr">QPR</span>
+                  <span class="vs">vs</span>
+                  <span class="team-opp">{match.opponent}</span>
+                </div>
+                <div class="match-meta">
+                  <span class="kickoff">{match.kickoff}</span>
+                  <span class={`venue-pill ${venueInfo.class}`}>{venueInfo.text}</span>
+                </div>
+              </div>
+              <div class="next-match-arrow">→</div>
+            </a>
+          );
+        })}
+      </section>
     )}
 
-    <div class="matches-grid">
-      {upcomingMatches.map(match => {
-        const venueInfo = getVenueInfo(match);
-        return (
-        <div class="match-card upcoming" data-match-id={match.id}>
-          <div class="match-header">
-            <div class="match-date">
-              {new Date(match.date).toLocaleDateString('en-US', {
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric'
-              })}
-            </div>
-            <div class="match-week">Week {match.week}</div>
-            <div class={`venue-badge ${venueInfo.class}`}>
-              <span class="venue-icon">{venueInfo.icon}</span>
-              <span class="venue-text">{venueInfo.text}</span>
-            </div>
-          </div>
+    <!-- Recent Results -->
+    <section class="results-section">
+      <h2 class="section-title">
+        <span class="title-icon">📋</span>
+        Results
+      </h2>
+      <div class="results-list">
+        {recentMatches.map((match, index) => {
+          const venueInfo = getVenueInfo(match);
+          const result = getResultInfo(match);
+          const qprScore = match.final_score?.qpr ?? '-';
+          const oppScore = match.final_score?.opponent ?? '-';
+          const isLatest = index === 0;
 
-          <div class="match-teams">
-            <div class="team home">
-              <div class="team-name">QPR U11B</div>
-              <div class="team-score">-</div>
-            </div>
-            <div class="vs">VS</div>
-            <div class="team away">
-              <div class="team-name">{match.opponent}</div>
-              <div class="team-score">-</div>
-            </div>
-          </div>
-
-          <div class="match-details">
-            <div class="detail-item">
-              <span class="label">Kickoff:</span>
-              <span class="value">{match.kickoff}</span>
-            </div>
-            <div class="detail-item">
-              <span class="label">Location:</span>
-              <span class="value">{match.location}</span>
-            </div>
-            <div class="detail-item">
-              <span class="label">Match #:</span>
-              <span class="value">{match.match_number}</span>
-            </div>
-          </div>
-
-          <div class="match-status pending">
-            <span>Upcoming Match</span>
-          </div>
-
-          <a href={`${base}matches/${match.id}/`} class="match-link">
-            View Details
-          </a>
-        </div>
-        );
-      })}
-    </div>
-
-    <div class="section-header completed-header">
-      <h2>Completed Matches</h2>
-      <span class="match-count">{completedMatches.length} matches</span>
-    </div>
-
-    <div class="matches-list">
-      {completedMatches.map((match, index) => {
-        const venueInfo = getVenueInfo(match);
-        // derive scores
-        let qprScore = '-';
-        let oppScore = '-';
-        let isCancelled = match.result === 'cancelled';
-        if (!isCancelled) {
-          if (match.final_score && typeof match.final_score.qpr !== 'undefined') {
-            qprScore = match.final_score.qpr;
-            oppScore = match.final_score.opponent;
-          } else if (typeof match.result === 'string') {
-            const m = match.result.match(/^(\d+)-(\d+)/);
-            if (m) {
-              qprScore = m[1];
-              oppScore = m[2];
-            }
-          }
-        }
-        // Determine result class
-        const isWin = !isCancelled && Number(qprScore) > Number(oppScore);
-        const isDraw = !isCancelled && Number(qprScore) === Number(oppScore);
-        const isLoss = !isCancelled && Number(qprScore) < Number(oppScore);
-        const resultClass = isCancelled ? 'cancelled' : isWin ? 'win' : isDraw ? 'draw' : 'loss';
-        const isLatest = index === 0;
-
-        return (
-        <details class={`match-accordion ${resultClass}`} open={isLatest} data-match-id={match.id}>
-          <summary class="match-summary">
-            <div class="summary-left">
-              <span class="summary-date">
-                {new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-              </span>
-              <span class="summary-opponent">{match.opponent}</span>
-            </div>
-            <div class="summary-right">
-              <span class={`summary-score ${resultClass}`}>
-                {isCancelled ? 'X-X' : `${qprScore}-${oppScore}`}
-              </span>
-              <span class={`summary-result ${resultClass}`}>
-                {isCancelled ? 'CAN' : isWin ? 'W' : isDraw ? 'D' : 'L'}
-              </span>
-              <span class="expand-icon"></span>
-            </div>
-          </summary>
-
-          <div class="match-content">
-            <div class="match-header-row">
-              <div class="match-week">Week {match.week}</div>
-              <div class={`venue-badge ${venueInfo.class}`}>
-                <span class="venue-icon">{venueInfo.icon}</span>
-                <span class="venue-text">{venueInfo.text}</span>
+          return (
+            <a href={`${base}matches/${match.id}/`} class={`result-row ${result.class} ${isLatest ? 'latest' : ''}`}>
+              <div class="result-left">
+                <span class={`result-indicator ${result.class}`}>{result.letter}</span>
+                <div class="result-teams">
+                  <span class="result-opponent">{match.opponent}</span>
+                  <span class="result-meta">
+                    {new Date(match.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                    <span class={`venue-dot ${venueInfo.class}`}></span>
+                    {venueInfo.text}
+                  </span>
+                </div>
               </div>
-            </div>
-
-            <div class="match-details-compact">
-              <span>Kickoff: {match.kickoff}</span>
-              <span>{match.location}</span>
-            </div>
-
-            {!isCancelled && match.final_score && match.final_score.half_time && (
-              <div class="half-time">Half-time: {match.final_score.half_time}</div>
-            )}
-
-            {!isCancelled && match.scorers && match.scorers.length > 0 && (
-              <div class="scorers-compact">
-                <strong>Scorers:</strong> {match.scorers.join(', ')}
+              <div class="result-right">
+                <span class={`result-score ${result.class}`}>{qprScore}-{oppScore}</span>
+                {isLatest && <span class="latest-badge">Latest</span>}
               </div>
-            )}
-
-            {isCancelled && match.reason && (
-              <div class="cancel-reason">{match.reason}</div>
-            )}
-
-            <a href={`${base}matches/${match.id}/`} class="match-link-compact">
-              View Full Details
             </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Milestones -->
+    {(firstWin || firstCleanSheet) && (
+      <section class="milestones-section">
+        <h2 class="section-title">
+          <span class="title-icon">🏆</span>
+          Season Milestones
+        </h2>
+        <div class="milestones-grid">
+          {firstWin && (
+            <div class="milestone-card">
+              <div class="milestone-icon">🎉</div>
+              <div class="milestone-content">
+                <h3>First Win</h3>
+                <p>vs {firstWin.opponent}</p>
+                <span class="milestone-date">{new Date(firstWin.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+              </div>
+            </div>
+          )}
+          {firstCleanSheet && (
+            <div class="milestone-card">
+              <div class="milestone-icon">🧤</div>
+              <div class="milestone-content">
+                <h3>First Clean Sheet</h3>
+                <p>vs {firstCleanSheet.opponent}</p>
+                <span class="milestone-date">{new Date(firstCleanSheet.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+              </div>
+            </div>
+          )}
+          <div class="milestone-card">
+            <div class="milestone-icon">⚽</div>
+            <div class="milestone-content">
+              <h3>{wins} Wins</h3>
+              <p>{goalsFor} goals scored</p>
+              <span class="milestone-date">This season</span>
+            </div>
           </div>
-        </details>
-        );
-      })}
-    </div>
+        </div>
+      </section>
+    )}
   </div>
 </BaseLayout>
 
 <style>
-  .matches-header {
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
-  }
-  .half-time {
-    margin-bottom: var(--spacing-md);
-    color: var(--color-text-light);
-    font-style: italic;
+  .matches-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
   }
 
-  .matches-header h1 {
-    font-size: 3rem;
-    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+  /* Header */
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #42a5f5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
   }
 
-  .section-header {
+  .subtitle {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  /* Stats Bar */
+  .stats-bar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-lg);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: 12px;
-  }
-
-  .section-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .section-header .match-count {
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 20px;
-  }
-
-  .upcoming-header {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-  }
-
-  .upcoming-header h2 {
-    color: #e65100;
-  }
-
-  .upcoming-header .match-count {
-    background: #e65100;
-    color: white;
-  }
-
-  .completed-header {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    margin-top: var(--spacing-xl);
-  }
-
-  .completed-header h2 {
-    color: #1565c0;
-  }
-
-  .completed-header .match-count {
-    background: #1565c0;
-    color: white;
-  }
-
-  .matches-grid {
-    display: grid;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .match-card {
     background: white;
-    border-radius: 16px;
-    padding: var(--spacing-xl);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: var(--spacing-md);
+    overflow-x: auto;
   }
 
-  .match-card.upcoming {
-    border-left: 4px solid #e65100;
-  }
-
-  .match-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    border-color: var(--color-primary);
-  }
-
-  .match-card.upcoming:hover {
-    border-color: #e65100;
-  }
-
-  /* Collapsible Completed Matches */
-  .matches-list {
+  .stat {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .match-accordion {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    border-left: 4px solid #ccc;
-  }
-
-  .match-accordion.win {
-    border-left-color: #2ecc71;
-  }
-
-  .match-accordion.draw {
-    border-left-color: #9b59b6;
-  }
-
-  .match-accordion.loss {
-    border-left-color: #e74c3c;
-  }
-
-  .match-accordion.cancelled {
-    border-left-color: #95a5a6;
-  }
-
-  .match-summary {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md) var(--spacing-lg);
-    cursor: pointer;
-    user-select: none;
-    list-style: none;
+    min-width: 50px;
   }
 
-  .match-summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .match-summary:hover {
-    background: #f8f9fa;
-  }
-
-  .summary-left {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    flex: 1;
-    min-width: 0;
-  }
-
-  .summary-date {
-    font-weight: 600;
-    color: var(--color-text-light);
-    min-width: 60px;
-  }
-
-  .summary-opponent {
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .summary-right {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-  }
-
-  .summary-score {
-    font-weight: 700;
-    font-size: 1.1rem;
-    min-width: 45px;
-    text-align: center;
-  }
-
-  .summary-score.win {
-    color: #2ecc71;
-  }
-
-  .summary-score.draw {
-    color: #9b59b6;
-  }
-
-  .summary-score.loss {
-    color: #e74c3c;
-  }
-
-  .summary-score.cancelled {
-    color: #95a5a6;
-  }
-
-  .summary-result {
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 2px 8px 2px 12px;
-    border-radius: 4px;
-    min-width: 32px;
-    text-align: center;
-  }
-
-  .summary-result.win {
-    background: #d4edda;
-    color: #155724;
-    position: relative;
-  }
-
-  /* Colorblind-friendly: checkmark pattern for wins */
-  .summary-result.win::before {
-    content: '';
-    position: absolute;
-    left: 2px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #155724;
-  }
-
-  .summary-result.draw {
-    background: #e8daef;
-    color: #6c3483;
-    position: relative;
-  }
-
-  /* Colorblind-friendly: horizontal line pattern for draws */
-  .summary-result.draw::before {
-    content: '';
-    position: absolute;
-    left: 2px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 2px;
-    background: #6c3483;
-  }
-
-  .summary-result.loss {
-    background: #f8d7da;
-    color: #721c24;
-    position: relative;
-  }
-
-  /* Colorblind-friendly: X pattern for losses */
-  .summary-result.loss::before {
-    content: '×';
-    position: absolute;
-    left: 2px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 10px;
-    line-height: 1;
-    color: #721c24;
-  }
-
-  .summary-result.cancelled {
-    background: #e9ecef;
-    color: #6c757d;
-  }
-
-  .expand-icon {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    margin-left: var(--spacing-sm);
-  }
-
-  .expand-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid #666;
-    border-bottom: 2px solid #666;
-    transform: translate(-50%, -70%) rotate(45deg);
-    transition: transform 0.2s ease;
-  }
-
-  .match-accordion[open] .expand-icon::after {
-    transform: translate(-50%, -30%) rotate(-135deg);
-  }
-
-  .match-content {
-    padding: 0 var(--spacing-lg) var(--spacing-lg);
-    border-top: 1px solid #eee;
-    background: #fafafa;
-  }
-
-  .match-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .match-details-compact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .scorers-compact {
-    background: #e8f5e9;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-sm);
-    font-size: 0.95rem;
-  }
-
-  .match-link-compact {
-    display: inline-block;
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-top: var(--spacing-sm);
-  }
-
-  .match-link-compact:hover {
-    text-decoration: underline;
-  }
-
-  .match-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
-    border-bottom: 2px solid #f0f0f0;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-  }
-
-  .match-date {
-    font-size: 1.2rem;
+  .stat-value {
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-primary);
   }
 
-  .match-week {
-    background: var(--color-primary);
-    color: white;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
+  .stat.win .stat-value { color: #2ecc71; }
+  .stat.draw .stat-value { color: #9b59b6; }
+  .stat.loss .stat-value { color: #e74c3c; }
+  .stat.goals .stat-value { color: #f39c12; }
 
-  .venue-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius);
-    font-weight: 600;
-    font-size: var(--font-size-sm);
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
-  .venue-badge.home {
-    background: linear-gradient(135deg, #00a651 0%, #00d064 100%);
-    color: white;
-    box-shadow: 0 2px 8px rgba(0, 166, 81, 0.3);
+  /* Form Section */
+  .form-section {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
-  .venue-badge.away {
-    background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
-    color: white;
-    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.3);
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
   }
 
-  .venue-icon {
-    font-size: 1em;
+  .form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
   }
 
-  .match-teams {
+  .form-streak {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .form-badges {
+    display: flex;
+    gap: var(--spacing-xs);
+  }
+
+  .form-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-lg);
-    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
   }
 
-  .team {
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .form-badge.w { background: #d4edda; color: #155724; }
+  .form-badge.d { background: #e8daef; color: #6c3483; }
+  .form-badge.l { background: #f8d7da; color: #721c24; }
+
+  /* Section Title */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+  }
+
+  .title-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Journey Timeline */
+  .journey-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .journey-timeline {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-sm);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .journey-match {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 44px;
+    padding: var(--spacing-xs);
+    border-radius: 8px;
+    background: white;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  .journey-match:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .journey-match.milestone {
+    border: 2px solid #f39c12;
+  }
+
+  .journey-week {
+    font-size: 0.6rem;
+    color: var(--color-text-light);
+    margin-bottom: 2px;
+  }
+
+  .journey-result {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+  }
+
+  .journey-result.win { background: #2ecc71; color: white; }
+  .journey-result.draw { background: #9b59b6; color: white; }
+  .journey-result.loss { background: #e74c3c; color: white; }
+  .journey-result.cancelled { background: #95a5a6; color: white; }
+
+  .journey-score {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .milestone-badge {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f39c12;
+    color: white;
+    font-size: 0.5rem;
+    padding: 1px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .journey-legend {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+
+  .dot.win { background: #2ecc71; }
+  .dot.draw { background: #9b59b6; }
+  .dot.loss { background: #e74c3c; }
+
+  /* Next Match */
+  .upcoming-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .next-match-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+  }
+
+  .next-match-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+  }
+
+  .next-match-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    min-width: 60px;
+  }
+
+  .next-match-date .day {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  .next-match-date .date {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .next-match-info {
     flex: 1;
   }
 
-  .team-name {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-xs);
+  .matchup {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: 4px;
   }
 
-  .team-score {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--color-primary);
+  .team-qpr {
+    font-weight: 700;
+    font-size: 1rem;
   }
 
   .vs {
-    margin: 0 var(--spacing-lg);
-    font-weight: 700;
-    color: var(--color-text-light);
-    font-size: 1.2rem;
-  }
-
-  .match-details {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .detail-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-  }
-
-  .label {
-    font-weight: 600;
-    color: var(--color-text-light);
-  }
-
-  .value {
-    font-weight: 500;
-  }
-
-  .match-status.pending {
-    text-align: center;
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    padding: var(--spacing-md);
-    border-radius: 12px;
-    font-weight: 600;
-    color: #e65100;
-  }
-
-  .match-status.cancelled {
-    text-align: center;
-    background: #ffebee;
-    padding: var(--spacing-md);
-    border-radius: 12px;
-    font-weight: 700;
-    color: #c62828;
-  }
-
-  .match-status.cancelled .cancel-reason {
-    margin-top: var(--spacing-xs);
-    font-weight: 500;
-    color: #b71c1c;
-  }
-
-  .match-completed h4 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
-  }
-
-  .scorers-section {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .scorers-list {
-    background: #e8f5e8;
-    border-radius: 8px;
-    padding: var(--spacing-md);
-  }
-
-  .scorer-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-  }
-
-  .scorer-name {
-    font-weight: 600;
-  }
-
-  .scorer-time {
-    background: #4caf50;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
+    opacity: 0.7;
     font-size: 0.8rem;
+  }
+
+  .team-opp {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .match-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  .venue-pill {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
     font-weight: 600;
   }
 
+  .venue-pill.home { background: rgba(46, 204, 113, 0.3); }
+  .venue-pill.away { background: rgba(255, 255, 255, 0.2); }
 
-  .match-link {
-    display: block;
-    text-align: center;
-    margin-top: var(--spacing-lg);
-    padding: var(--spacing-sm);
+  .next-match-arrow {
+    font-size: 1.2rem;
+    opacity: 0.7;
+  }
+
+  /* Results List */
+  .results-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    border-left: 3px solid transparent;
+  }
+
+  .result-row:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .result-row.win { border-left-color: #2ecc71; }
+  .result-row.draw { border-left-color: #9b59b6; }
+  .result-row.loss { border-left-color: #e74c3c; }
+
+  .result-row.latest {
+    background: linear-gradient(to right, white, #f8f9fa);
+  }
+
+  .result-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .result-indicator {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: white;
+  }
+
+  .result-indicator.win { background: #2ecc71; }
+  .result-indicator.draw { background: #9b59b6; }
+  .result-indicator.loss { background: #e74c3c; }
+
+  .result-teams {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-opponent {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .result-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .venue-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .venue-dot.home { background: #2ecc71; }
+  .venue-dot.away { background: #1976d2; }
+
+  .result-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .result-score {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .result-score.win { color: #2ecc71; }
+  .result-score.draw { color: #9b59b6; }
+  .result-score.loss { color: #e74c3c; }
+
+  .latest-badge {
     background: var(--color-primary);
     color: white;
-    text-decoration: none;
-    border-radius: 8px;
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    border-radius: 4px;
     font-weight: 600;
-    transition: background 0.3s ease;
+    text-transform: uppercase;
   }
 
-  .match-link:hover {
-    background: #1565c0;
+  /* Milestones */
+  .milestones-section {
+    margin-bottom: var(--spacing-lg);
   }
 
-
-  @media (max-width: 768px) {
-    .matches-header h1 {
-      font-size: 2rem;
-    }
-
-    .match-teams {
-      flex-direction: column;
-      gap: var(--spacing-md);
-    }
-
-    .vs {
-      transform: rotate(90deg);
-      margin: var(--spacing-sm) 0;
-    }
-
+  .milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-sm);
   }
- 
+
+  .milestone-card {
+    background: white;
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s;
+  }
+
+  .milestone-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .milestone-icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .milestone-content h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--color-text);
+  }
+
+  .milestone-content p {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin-bottom: 4px;
+  }
+
+  .milestone-date {
+    font-size: 0.65rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 600px) {
+    .matches-page {
+      padding: var(--spacing-sm);
+    }
+
+    .page-header h1 {
+      font-size: 1.6rem;
+    }
+
+    .stats-bar {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .stat-value {
+      font-size: 1.1rem;
+    }
+
+    .stat-label {
+      font-size: 0.6rem;
+    }
+
+    .form-badge {
+      width: 32px;
+      height: 32px;
+    }
+
+    .journey-match {
+      min-width: 40px;
+    }
+
+    .journey-result {
+      width: 22px;
+      height: 22px;
+    }
+
+    .next-match-card {
+      padding: var(--spacing-sm);
+    }
+
+    .team-opp {
+      font-size: 0.85rem;
+      max-width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .result-row {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .result-opponent {
+      max-width: 140px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .milestones-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .form-badge {
+      animation: none;
+      opacity: 1;
+    }
+
+    .result-row:hover,
+    .next-match-card:hover,
+    .milestone-card:hover,
+    .journey-match:hover {
+      transform: none;
+    }
+  }
 </style>
-
 </BaseLayout>

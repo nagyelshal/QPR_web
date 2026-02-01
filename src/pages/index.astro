@@ -47,7 +47,6 @@ let totalGoals = 0;
 matches.forEach(match => {
   if (match.scorers && match.scorers.length > 0) {
     match.scorers.forEach(scorer => {
-      // Handle both string format ("Player Name") and object format ({player: "Name", goals: N})
       if (typeof scorer === 'string') {
         const cleanName = scorer.replace(/\s*\(.*?\)\s*/g, '').trim();
         goalScorers.set(cleanName, (goalScorers.get(cleanName) || 0) + 1);
@@ -64,39 +63,55 @@ matches.forEach(match => {
 // Sort by goals (descending)
 const sortedScorers = Array.from(goalScorers.entries())
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 10); // Top 10 scorers
+  .slice(0, 5); // Top 5 scorers
+
+// Calculate assist statistics
+const assistStats = new Map();
+matches.forEach(match => {
+  if (match.assists && match.assists.length > 0) {
+    match.assists.forEach(assist => {
+      if (typeof assist === 'string') {
+        const cleanName = assist.replace(/\s*\(.*?\)\s*/g, '').trim();
+        assistStats.set(cleanName, (assistStats.get(cleanName) || 0) + 1);
+      } else if (assist.player) {
+        const assists = assist.assists || 1;
+        assistStats.set(assist.player, (assistStats.get(assist.player) || 0) + assists);
+      }
+    });
+  }
+});
+
+const sortedAssists = Array.from(assistStats.entries())
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 5);
 
 // Calculate team stats
-const totalMatches = matches.filter(m => m.result && m.result !== 'pending' && m.result !== 'cancelled').length;
+const completedMatches = matches.filter(m => m.result && m.result !== 'pending' && m.result !== 'cancelled');
+const totalMatches = completedMatches.length;
 const wins = matches.filter(m => m.result && m.result.includes('win')).length;
 const losses = matches.filter(m => m.result && m.result.includes('loss')).length;
 const draws = matches.filter(m => m.result && m.result.includes('draw')).length;
 
-// Calculate goalkeeper appearances
-const goalkeeperStats = new Map();
-matches.forEach(match => {
-  if (match.goalkeepers) {
-    if (match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
-      goalkeeperStats.set(match.goalkeepers.first_half, (goalkeeperStats.get(match.goalkeepers.first_half) || 0) + 1);
-    }
-    if (match.goalkeepers.second_half && match.goalkeepers.second_half !== 'TBD') {
-      goalkeeperStats.set(match.goalkeepers.second_half, (goalkeeperStats.get(match.goalkeepers.second_half) || 0) + 1);
-    }
+let goalsAgainst = 0;
+completedMatches.forEach(m => {
+  if (m.final_score) {
+    goalsAgainst += m.final_score.opponent || 0;
   }
 });
 
-// Sort by appearances (descending)
-const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
-  .sort((a, b) => b[1] - a[1]);
+// Get last 5 form
+const recentMatches = [...completedMatches].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const last5 = recentMatches.slice(0, 5).map(m => {
+  if (m.result.includes('win')) return 'W';
+  if (m.result.includes('draw')) return 'D';
+  return 'L';
+}).reverse();
 
-// Calculate clean sheet halves - each goalkeeper plays one half, credit them if no goals conceded in their half
+// Calculate clean sheet halves
 const cleanSheetHalves = new Map();
 matches.forEach(match => {
   if (!match.goalkeepers || match.result === 'cancelled' || match.result === 'pending') return;
 
-  // Parse half-time score to determine goals conceded per half
-  // Format: "X-Y" where X is QPR goals, Y is opponent goals at half-time
-  // Or "X-Y QPR" format
   let firstHalfConceded = null;
   let secondHalfConceded = null;
 
@@ -106,13 +121,11 @@ matches.forEach(match => {
     const totalConceded = match.final_score.opponent || 0;
 
     if (htParts.length === 2 && !isNaN(htParts[0]) && !isNaN(htParts[1])) {
-      // htParts[1] is opponent goals at half-time (goals conceded in 1st half)
       firstHalfConceded = htParts[1];
       secondHalfConceded = totalConceded - htParts[1];
     }
   }
 
-  // Credit clean sheet halves
   if (firstHalfConceded === 0 && match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
     cleanSheetHalves.set(match.goalkeepers.first_half, (cleanSheetHalves.get(match.goalkeepers.first_half) || 0) + 1);
   }
@@ -121,667 +134,807 @@ matches.forEach(match => {
   }
 });
 
-// Sort clean sheet halves by count
+const totalCleanSheetHalves = Array.from(cleanSheetHalves.values()).reduce((a, b) => a + b, 0);
 const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
-  .sort((a, b) => b[1] - a[1]);
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 3);
 ---
 
 <BaseLayout title="Home - Queens Park Rangers U11B" description="Official website for QPR U11B youth soccer team. View match results, schedules, player stats, and team news for the 2025-2026 season.">
-  <!-- Hero Section -->
-  <section class="hero field-pattern">
-    <div class="container">
-      <h1 class="soccer-bounce">⚽ Queens Park Rangers ⚽</h1>
-      <p><strong>U11 Boys • Coquitlam Metro-Ford SC • Season 2025-2026</strong></p>
-      <p>Building momentum with {wins} {wins === 1 ? 'win' : 'wins'} this season! 🏆</p>
+  <div class="home-page">
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="hero-content">
+        <h1>Queens Park Rangers</h1>
+        <p class="team-info">U11 Boys • Coquitlam Metro-Ford SC • 2025-26</p>
 
-      {nextMatch && (
-        <div class="next-match-widget">
+        <!-- Quick Stats -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value win">{wins}</span>
+            <span class="hero-stat-label">Wins</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">{totalGoals}</span>
+            <span class="hero-stat-label">Goals</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">{totalCleanSheetHalves}</span>
+            <span class="hero-stat-label">Clean Halves</span>
+          </div>
+        </div>
+
+        <!-- Current Form -->
+        {last5.length > 0 && (
+          <div class="hero-form">
+            <span class="form-label">Form</span>
+            <div class="form-badges">
+              {last5.map(result => (
+                <span class={`form-badge ${result.toLowerCase()}`}>{result}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Next Match Card -->
+    {nextMatch && (
+      <section class="next-match-section">
+        <a href={`${base}matches/`} class="next-match-card">
           <div class="next-match-header">NEXT MATCH</div>
-          <div class="next-match-opponent">vs {getOpponent(nextMatch)}</div>
-          <div class="next-match-details">
-            <span class="next-match-date">{formatMatchDate(nextMatch.date)}</span>
-            <span class="next-match-time">{nextMatch.kickoff}</span>
-            <span class="next-match-venue badge-{nextMatch.venue.toLowerCase()}">{nextMatch.venue}</span>
+          <div class="next-match-content">
+            <div class="next-match-teams">
+              <span class="team-qpr">QPR</span>
+              <span class="vs">vs</span>
+              <span class="team-opponent">{getOpponent(nextMatch)}</span>
+            </div>
+            <div class="next-match-details">
+              <span class="match-date">{formatMatchDate(nextMatch.date)}</span>
+              <span class="match-time">{nextMatch.kickoff}</span>
+              <span class={`venue-badge ${nextMatch.venue.toLowerCase()}`}>{nextMatch.venue}</span>
+            </div>
+            <div class="next-match-location">{nextMatch.field}</div>
           </div>
           <div class="next-match-countdown" data-match-date={nextMatch.date} data-match-time={nextMatch.kickoff}></div>
-          <div class="next-match-location">{nextMatch.field}</div>
+        </a>
+      </section>
+    )}
+
+    <div class="content-wrapper">
+      <!-- Season Stats Bar -->
+      <section class="stats-section">
+        <h2 class="section-title">
+          <span class="title-icon">📊</span>
+          Season Stats
+        </h2>
+        <div class="stats-bar">
+          <div class="stat">
+            <span class="stat-value">{totalMatches}</span>
+            <span class="stat-label">Played</span>
+          </div>
+          <div class="stat win">
+            <span class="stat-value">{wins}</span>
+            <span class="stat-label">Wins</span>
+          </div>
+          <div class="stat draw">
+            <span class="stat-value">{draws}</span>
+            <span class="stat-label">Draws</span>
+          </div>
+          <div class="stat loss">
+            <span class="stat-value">{losses}</span>
+            <span class="stat-label">Losses</span>
+          </div>
+          <div class="stat goals">
+            <span class="stat-value">{totalGoals}</span>
+            <span class="stat-label">Scored</span>
+          </div>
+          <div class="stat conceded">
+            <span class="stat-value">{goalsAgainst}</span>
+            <span class="stat-label">Conceded</span>
+          </div>
         </div>
-      )}
+      </section>
+
+      <!-- Player Stats Grid -->
+      <section class="player-stats-section">
+        <div class="stats-grid">
+          <!-- Top Scorers -->
+          <div class="stats-card">
+            <h3 class="stats-card-title">
+              <span class="card-icon">⚽</span>
+              Top Scorers
+            </h3>
+            <div class="stats-list">
+              {sortedScorers.map((scorer, index) => (
+                <div class={`stats-row ${index < 3 ? 'top-' + (index + 1) : ''}`}>
+                  <span class="rank">{index + 1}</span>
+                  <span class="name">{scorer[0]}</span>
+                  <span class="value">{scorer[1]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Top Assists -->
+          <div class="stats-card">
+            <h3 class="stats-card-title">
+              <span class="card-icon">🎯</span>
+              Top Assists
+            </h3>
+            <div class="stats-list">
+              {sortedAssists.length > 0 ? (
+                sortedAssists.map((assist, index) => (
+                  <div class={`stats-row ${index < 3 ? 'top-' + (index + 1) : ''}`}>
+                    <span class="rank">{index + 1}</span>
+                    <span class="name">{assist[0]}</span>
+                    <span class="value">{assist[1]}</span>
+                  </div>
+                ))
+              ) : (
+                <div class="no-data">No assists recorded yet</div>
+              )}
+            </div>
+          </div>
+
+          <!-- Clean Sheet Halves -->
+          <div class="stats-card">
+            <h3 class="stats-card-title">
+              <span class="card-icon">🧤</span>
+              Clean Sheet Halves
+            </h3>
+            <div class="stats-list">
+              {sortedCleanSheetKeepers.map((keeper, index) => (
+                <div class={`stats-row ${index < 3 ? 'top-' + (index + 1) : ''}`}>
+                  <span class="rank">{index + 1}</span>
+                  <span class="name">{keeper[0]}</span>
+                  <span class="value">{keeper[1]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="quick-links-section">
+        <h2 class="section-title">
+          <span class="title-icon">🔗</span>
+          Quick Links
+        </h2>
+        <div class="quick-links-grid">
+          <a href={`${base}current-week/`} class="quick-link">
+            <span class="quick-link-icon">📅</span>
+            <div class="quick-link-content">
+              <span class="quick-link-title">This Week</span>
+              <span class="quick-link-desc">Training & lineup</span>
+            </div>
+            <span class="quick-link-arrow">→</span>
+          </a>
+
+          <a href={`${base}matches/`} class="quick-link">
+            <span class="quick-link-icon">🏟️</span>
+            <div class="quick-link-content">
+              <span class="quick-link-title">Match Center</span>
+              <span class="quick-link-desc">Results & fixtures</span>
+            </div>
+            <span class="quick-link-arrow">→</span>
+          </a>
+
+          <a href={`${base}roster/`} class="quick-link">
+            <span class="quick-link-icon">👥</span>
+            <div class="quick-link-content">
+              <span class="quick-link-title">Team Roster</span>
+              <span class="quick-link-desc">Meet the squad</span>
+            </div>
+            <span class="quick-link-arrow">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Latest News -->
+      <section class="news-section">
+        <h2 class="section-title">
+          <span class="title-icon">📰</span>
+          Latest News
+        </h2>
+        <div class="news-grid">
+          {recentPosts.map(post => (
+            <PostCard
+              title={post.data.title}
+              date={post.data.date}
+              summary={post.data.summary}
+              slug={post.slug}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+        <div class="news-more">
+          <a href={`${base}news/`} class="view-all-link">View All News →</a>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <div class="container">
-    <!-- Season Dashboard -->
-    <section style="margin-top: var(--spacing-2xl);">
-      <h2>📊 Season Dashboard</h2>
-      <div class="grid grid-4">
-        <div class="card stat-card stat-matches">
-          <div class="stat-number">{totalMatches}</div>
-          <div class="stat-label">Matches Played</div>
-        </div>
-        <div class="card stat-card stat-wins">
-          <div class="stat-number">{wins}</div>
-          <div class="stat-label">Wins</div>
-        </div>
-        <div class="card stat-card stat-draws">
-          <div class="stat-number">{draws}</div>
-          <div class="stat-label">Draws</div>
-        </div>
-        <div class="card stat-card stat-losses">
-          <div class="stat-number">{losses}</div>
-          <div class="stat-label">Losses</div>
-        </div>
-      </div>
-      <div class="grid grid-3" style="margin-top: var(--spacing-md);">
-        <div class="card stat-card stat-goals">
-          <div class="stat-number">{totalGoals}</div>
-          <div class="stat-label">Goals Scored</div>
-        </div>
-        <div class="card stat-card stat-goals-avg">
-          <div class="stat-number">{totalMatches > 0 ? (totalGoals / totalMatches).toFixed(1) : 0}</div>
-          <div class="stat-label">Goals per Match</div>
-        </div>
-        <div class="card stat-card stat-cleansheets">
-          <div class="stat-number">{Array.from(cleanSheetHalves.values()).reduce((a, b) => a + b, 0)}</div>
-          <div class="stat-label">Clean Sheet Halves</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Top Scorers Section -->
-    {sortedScorers.length > 0 && (
-      <section style="margin-top: var(--spacing-2xl);">
-        <h2>⚽ Top Goal Scorers</h2>
-        <div class="card">
-          <div class="scorers-table">
-            {sortedScorers.map((scorer, index) => (
-              <div class="scorer-row">
-                <div class="scorer-rank">{index + 1}</div>
-                <div class="scorer-name">{scorer[0]}</div>
-                <div class="scorer-goals">
-                  <span class="goals-number">{scorer[1]}</span>
-                  <span class="goals-label">{scorer[1] === 1 ? 'goal' : 'goals'}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Clean Sheet Halves -->
-    {sortedCleanSheetKeepers.length > 0 && (
-      <section style="margin-top: var(--spacing-2xl);">
-        <h2>🛡️ Clean Sheet Halves</h2>
-        <p style="color: var(--gray-600); margin-bottom: var(--spacing-md);">Goalkeepers who kept clean sheet halves (0 goals conceded in their half)</p>
-        <div class="card">
-          <div class="cleansheet-table">
-            {sortedCleanSheetKeepers.map((keeper, index) => (
-              <div class="cleansheet-row">
-                <div class="cleansheet-rank">{index + 1}</div>
-                <div class="cleansheet-name">{keeper[0]}</div>
-                <div class="cleansheet-count">
-                  <span class="cleansheet-number">{keeper[1]}</span>
-                  <span class="cleansheet-label">{keeper[1] === 1 ? 'half' : 'halves'}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Goalkeeper Stats Section -->
-    {sortedGoalkeepers.length > 0 && (
-      <section style="margin-top: var(--spacing-2xl);">
-        <h2>🧤 Goalkeeper Rotation</h2>
-        <div class="card">
-          <div class="gk-table">
-            {sortedGoalkeepers.map((gk, index) => (
-              <div class="gk-row">
-                <div class="gk-rank">{index + 1}</div>
-                <div class="gk-name">{gk[0]}</div>
-                <div class="gk-appearances">
-                  <span class="appearances-number">{gk[1]}</span>
-                  <span class="appearances-label">{gk[1] === 1 ? 'half' : 'halves'}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Latest News Section -->
-    <section style="margin-top: var(--spacing-2xl);">
-      <h2>📰 Latest News</h2>
-      <div class="grid grid-3">
-        {recentPosts.map(post => (
-          <PostCard 
-            title={post.data.title}
-            date={post.data.date}
-            summary={post.data.summary}
-            slug={post.slug}
-            tags={post.data.tags}
-          />
-        ))}
-      </div>
-      <div style="text-align: center; margin-top: var(--spacing-lg);">
-        <a href={`${base}news/`} class="btn">View All News →</a>
-      </div>
-    </section>
-
-    <!-- Quick Links -->
-    <section style="margin-top: var(--spacing-2xl);">
-      <h2>🔗 Quick Links</h2>
-      <div class="grid grid-3">
-        <a href={`${base}current-week/`} class="card game-card" style="text-decoration: none; color: inherit;">
-          <h3>📅 This Week</h3>
-          <p>Training schedule, lineup, and next match</p>
-        </a>
-        
-        <a href={`${base}matches/`} class="card game-card" style="text-decoration: none; color: inherit;">
-          <h3>🏟️ Match Center</h3>
-          <p>View games, scores, and highlights</p>
-        </a>
-        
-        <a href={`${base}roster/`} class="card game-card" style="text-decoration: none; color: inherit;">
-          <h3>👥 Team Roster</h3>
-          <p>Meet the QPR U11B squad</p>
-        </a>
-      </div>
-    </section>
   </div>
+</BaseLayout>
 
-  <style>
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+<style>
+  .home-page {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    color: white;
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-info {
+    opacity: 0.9;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .hero-stat-value.win {
+    color: #a5d6a7;
+  }
+
+  .hero-stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+
+  .hero-form {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.15);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+  }
+
+  .form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .form-badges {
+    display: flex;
+    gap: 4px;
+  }
+
+  .form-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.7rem;
+  }
+
+  .form-badge.w { background: #2ecc71; color: white; }
+  .form-badge.d { background: #9b59b6; color: white; }
+  .form-badge.l { background: #e74c3c; color: white; }
+
+  /* Next Match Section */
+  .next-match-section {
+    padding: 0 var(--spacing-md);
+    margin-top: calc(var(--spacing-xl) * -1);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .next-match-card {
+    display: block;
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .next-match-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .next-match-header {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+    text-align: center;
+  }
+
+  .next-match-content {
+    text-align: center;
+  }
+
+  .next-match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .team-qpr {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .vs {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .team-opponent {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .next-match-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .match-date {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .match-time {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .venue-badge {
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .venue-badge.home {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .venue-badge.away {
+    background: #e3f2fd;
+    color: #1565c0;
+  }
+
+  .next-match-location {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+
+  .next-match-countdown {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #eee;
+  }
+
+  .countdown-item {
+    text-align: center;
+    min-width: 50px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+  }
+
+  /* Content Wrapper */
+  .content-wrapper {
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Section Title */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+  }
+
+  .title-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .stats-bar {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+    padding: 0 var(--spacing-xs);
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .stat.win .stat-value { color: #2ecc71; }
+  .stat.draw .stat-value { color: #9b59b6; }
+  .stat.loss .stat-value { color: #e74c3c; }
+  .stat.goals .stat-value { color: #f39c12; }
+  .stat.conceded .stat-value { color: #95a5a6; }
+
+  .stat-label {
+    font-size: 0.65rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Player Stats Grid */
+  .player-stats-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .stats-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .stats-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid #eee;
+  }
+
+  .card-icon {
+    font-size: 1rem;
+  }
+
+  .stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .stats-row {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+
+  .stats-row:hover {
+    background: #f8f9fa;
+  }
+
+  .stats-row.top-1 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  }
+
+  .stats-row.top-2 {
+    background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+  }
+
+  .stats-row.top-3 {
+    background: linear-gradient(135deg, #e5a572 0%, #f0c9a6 100%);
+  }
+
+  .stats-row .rank {
+    width: 24px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+  }
+
+  .stats-row.top-1 .rank,
+  .stats-row.top-2 .rank,
+  .stats-row.top-3 .rank {
+    color: #333;
+  }
+
+  .stats-row .name {
+    flex: 1;
+    font-size: 0.9rem;
+  }
+
+  .stats-row .value {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary);
+  }
+
+  .stats-row.top-1 .value,
+  .stats-row.top-2 .value,
+  .stats-row.top-3 .value {
+    color: #333;
+  }
+
+  .no-data {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: var(--spacing-sm);
+  }
+
+  /* Quick Links */
+  .quick-links-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .quick-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .quick-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: white;
+    border-radius: 10px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .quick-link:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .quick-link-icon {
+    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f4f8;
+    border-radius: 8px;
+  }
+
+  .quick-link-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quick-link-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .quick-link-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+  }
+
+  .quick-link-arrow {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  /* News Section */
+  .news-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .news-more {
+    text-align: center;
+    margin-top: var(--spacing-md);
+  }
+
+  .view-all-link {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .view-all-link:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 600px) {
+    .hero-content h1 {
+      font-size: 1.6rem;
+    }
+
+    .hero-stats {
       gap: var(--spacing-md);
     }
 
-    .stat-card {
-      text-align: center;
-      padding: var(--spacing-lg);
-      color: white;
-      border: none;
+    .hero-stat-value {
+      font-size: 1.5rem;
     }
 
-    .stat-matches {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    .stats-bar {
+      padding: var(--spacing-xs) var(--spacing-sm);
     }
 
-    .stat-wins {
-      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    .stat-value {
+      font-size: 1.1rem;
     }
 
-    .stat-draws {
-      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    .stats-grid {
+      grid-template-columns: 1fr;
     }
 
-    .stat-losses {
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-    }
-
-    .stat-goals {
-      background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-    }
-
-    .stat-goals-avg {
-      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    }
-
-    .stat-cleansheets {
-      background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: bold;
-      line-height: 1;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .scorers-table {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-    }
-
-    .scorer-row {
-      display: grid;
-      grid-template-columns: 40px 1fr auto;
-      align-items: center;
+    .next-match-card {
       padding: var(--spacing-sm) var(--spacing-md);
-      background: var(--gray-50);
-      border-radius: var(--radius);
-      transition: all 0.2s;
     }
 
-    .scorer-row:hover {
-      background: var(--gray-100);
-      transform: translateX(5px);
+    .team-qpr {
+      font-size: 1.1rem;
     }
 
-    .scorer-row:first-child {
-      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-    }
-
-    .scorer-row:nth-child(2) {
-      background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
-      font-weight: bold;
-    }
-
-    .scorer-row:nth-child(3) {
-      background: linear-gradient(135deg, #cd7f32 0%, #e5a572 100%);
-      font-weight: bold;
-    }
-
-    .scorer-rank {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--qpr-blue);
-      text-align: center;
-    }
-
-    .scorer-row:first-child .scorer-rank,
-    .scorer-row:nth-child(2) .scorer-rank,
-    .scorer-row:nth-child(3) .scorer-rank {
-      color: #333;
-    }
-
-    .scorer-name {
+    .team-opponent {
       font-size: 1rem;
     }
 
-    .scorer-goals {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
+    .news-grid {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .goals-number {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--qpr-blue);
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .quick-link:hover,
+    .next-match-card:hover {
+      transform: none;
     }
+  }
+</style>
 
-    .scorer-row:first-child .goals-number,
-    .scorer-row:nth-child(2) .goals-number,
-    .scorer-row:nth-child(3) .goals-number {
-      color: #333;
-    }
+<script>
+  function updateCountdown() {
+    const countdownEl = document.querySelector('.next-match-countdown');
+    if (!countdownEl) return;
 
-    .goals-label {
-      font-size: 0.8rem;
-      color: var(--gray-600);
-    }
+    const matchDate = countdownEl.dataset.matchDate;
+    const matchTime = countdownEl.dataset.matchTime;
 
-    .gk-table {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-    }
+    if (!matchDate) return;
 
-    .gk-row {
-      display: grid;
-      grid-template-columns: 40px 1fr auto;
-      align-items: center;
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: var(--gray-50);
-      border-radius: var(--radius);
-      transition: all 0.2s;
-    }
-
-    .gk-row:hover {
-      background: var(--gray-100);
-      transform: translateX(5px);
-    }
-
-    .gk-rank {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--qpr-blue);
-      text-align: center;
-    }
-
-    .gk-name {
-      font-size: 1rem;
-    }
-
-    .gk-appearances {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-    }
-
-    .appearances-number {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--qpr-blue);
-    }
-
-    .appearances-label {
-      font-size: 0.8rem;
-      color: var(--gray-600);
-    }
-
-    .cleansheet-table {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-    }
-
-    .cleansheet-row {
-      display: grid;
-      grid-template-columns: 40px 1fr auto;
-      align-items: center;
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: var(--gray-50);
-      border-radius: var(--radius);
-      transition: all 0.2s;
-    }
-
-    .cleansheet-row:hover {
-      background: var(--gray-100);
-      transform: translateX(5px);
-    }
-
-    .cleansheet-row:first-child {
-      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-    }
-
-    .cleansheet-row:nth-child(2) {
-      background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
-      font-weight: bold;
-    }
-
-    .cleansheet-row:nth-child(3) {
-      background: linear-gradient(135deg, #cd7f32 0%, #e5a572 100%);
-      font-weight: bold;
-    }
-
-    .cleansheet-rank {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--qpr-blue);
-      text-align: center;
-    }
-
-    .cleansheet-row:first-child .cleansheet-rank,
-    .cleansheet-row:nth-child(2) .cleansheet-rank,
-    .cleansheet-row:nth-child(3) .cleansheet-rank {
-      color: #333;
-    }
-
-    .cleansheet-name {
-      font-size: 1rem;
-    }
-
-    .cleansheet-count {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-    }
-
-    .cleansheet-number {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--qpr-blue);
-    }
-
-    .cleansheet-row:first-child .cleansheet-number,
-    .cleansheet-row:nth-child(2) .cleansheet-number,
-    .cleansheet-row:nth-child(3) .cleansheet-number {
-      color: #333;
-    }
-
-    .cleansheet-label {
-      font-size: 0.8rem;
-      color: var(--gray-600);
-    }
-
-    @media (max-width: 768px) {
-      .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .scorer-row {
-        grid-template-columns: 30px 1fr auto;
-        padding: var(--spacing-xs) var(--spacing-sm);
-      }
-
-      .scorer-rank {
-        font-size: 1rem;
-      }
-
-      .scorer-name {
-        font-size: 0.9rem;
-      }
-
-      .goals-number {
-        font-size: 1.2rem;
-      }
-
-      .gk-row {
-        grid-template-columns: 30px 1fr auto;
-        padding: var(--spacing-xs) var(--spacing-sm);
-      }
-
-      .gk-rank {
-        font-size: 1rem;
-      }
-
-      .gk-name {
-        font-size: 0.9rem;
-      }
-
-      .appearances-number {
-        font-size: 1.2rem;
-      }
-
-      .cleansheet-row {
-        grid-template-columns: 30px 1fr auto;
-        padding: var(--spacing-xs) var(--spacing-sm);
-      }
-
-      .cleansheet-rank {
-        font-size: 1rem;
-      }
-
-      .cleansheet-name {
-        font-size: 0.9rem;
-      }
-
-      .cleansheet-number {
-        font-size: 1.2rem;
-      }
-
-      .next-match-widget {
-        max-width: 500px;
-        margin: 0 auto;
+    let hours = 10, minutes = 0;
+    if (matchTime) {
+      const timeMatch = matchTime.match(/(\d+):?(\d*)([ap]m)?/i);
+      if (timeMatch) {
+        hours = parseInt(timeMatch[1]);
+        minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
+        const isPM = timeMatch[3]?.toLowerCase() === 'pm';
+        if (isPM && hours !== 12) hours += 12;
+        if (!isPM && hours === 12) hours = 0;
       }
     }
 
-    /* Next Match Widget */
-    .next-match-widget {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      color: var(--gray-900);
+    const match = new Date(matchDate + 'T00:00:00');
+    match.setHours(hours, minutes, 0, 0);
+
+    const now = new Date();
+    const diff = match.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      countdownEl.innerHTML = '<div class="countdown-item"><div class="countdown-value">MATCH DAY!</div></div>';
+      return;
     }
 
-    .next-match-header {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--qpr-blue);
-      margin-bottom: var(--spacing-xs);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    let html = '';
+    if (days > 0) {
+      html += `<div class="countdown-item"><div class="countdown-value">${days}</div><div class="countdown-label">days</div></div>`;
     }
+    html += `<div class="countdown-item"><div class="countdown-value">${hoursLeft}</div><div class="countdown-label">hrs</div></div>`;
+    html += `<div class="countdown-item"><div class="countdown-value">${minutesLeft}</div><div class="countdown-label">min</div></div>`;
 
-    .next-match-opponent {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--gray-900);
-      margin-bottom: var(--spacing-sm);
-    }
+    countdownEl.innerHTML = html;
+  }
 
-    .next-match-details {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-md);
-      flex-wrap: wrap;
-      margin-bottom: var(--spacing-md);
-      font-size: 0.9rem;
-    }
-
-    .next-match-date {
-      font-weight: 600;
-    }
-
-    .next-match-time {
-      color: var(--gray-600);
-    }
-
-    .next-match-venue {
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .badge-home {
-      background: var(--qpr-blue);
-      color: white;
-    }
-
-    .badge-away {
-      background: var(--gray-600);
-      color: white;
-    }
-
-    .next-match-countdown {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .countdown-item {
-      text-align: center;
-      min-width: 50px;
-    }
-
-    .countdown-value {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--qpr-blue);
-      line-height: 1;
-    }
-
-    .countdown-label {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      letter-spacing: 0.5px;
-    }
-
-    .next-match-location {
-      font-size: 0.8rem;
-      color: var(--gray-500);
-    }
-
-    @media (max-width: 480px) {
-      .next-match-widget {
-        padding: var(--spacing-md);
-        margin-top: var(--spacing-lg);
-      }
-
-      .next-match-opponent {
-        font-size: 1.25rem;
-      }
-
-      .countdown-value {
-        font-size: 1.4rem;
-      }
-
-      .countdown-item {
-        min-width: 40px;
-      }
-    }
-  </style>
-
-  <script>
-    function updateCountdown() {
-      const countdownEl = document.querySelector('.next-match-countdown');
-      if (!countdownEl) return;
-
-      const matchDate = countdownEl.dataset.matchDate;
-      const matchTime = countdownEl.dataset.matchTime;
-
-      if (!matchDate) return;
-
-      // Parse match time (e.g., "10:00am" or "12:30pm")
-      let hours = 10, minutes = 0;
-      if (matchTime) {
-        const timeMatch = matchTime.match(/(\d+):?(\d*)([ap]m)?/i);
-        if (timeMatch) {
-          hours = parseInt(timeMatch[1]);
-          minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
-          const isPM = timeMatch[3]?.toLowerCase() === 'pm';
-          if (isPM && hours !== 12) hours += 12;
-          if (!isPM && hours === 12) hours = 0;
-        }
-      }
-
-      const match = new Date(matchDate + 'T00:00:00');
-      match.setHours(hours, minutes, 0, 0);
-
-      const now = new Date();
-      const diff = match.getTime() - now.getTime();
-
-      if (diff <= 0) {
-        countdownEl.innerHTML = '<div class="countdown-item"><div class="countdown-value">MATCH DAY!</div></div>';
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-      let html = '';
-      if (days > 0) {
-        html += `<div class="countdown-item"><div class="countdown-value">${days}</div><div class="countdown-label">days</div></div>`;
-      }
-      html += `<div class="countdown-item"><div class="countdown-value">${hoursLeft}</div><div class="countdown-label">hrs</div></div>`;
-      html += `<div class="countdown-item"><div class="countdown-value">${minutesLeft}</div><div class="countdown-label">min</div></div>`;
-
-      countdownEl.innerHTML = html;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 60000);
-  </script>
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+</script>
 </BaseLayout>

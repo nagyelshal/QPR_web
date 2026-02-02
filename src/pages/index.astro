@@ -62,8 +62,7 @@ matches.forEach(match => {
 
 // Sort by goals (descending)
 const sortedScorers = Array.from(goalScorers.entries())
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 5); // Top 5 scorers
+  .sort((a, b) => b[1] - a[1]);
 
 // Calculate assist statistics
 const assistStats = new Map();
@@ -82,8 +81,7 @@ matches.forEach(match => {
 });
 
 const sortedAssists = Array.from(assistStats.entries())
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 5);
+  .sort((a, b) => b[1] - a[1]);
 
 // Calculate team stats
 const completedMatches = matches.filter(m => m.result && m.result !== 'pending' && m.result !== 'cancelled');
@@ -136,8 +134,7 @@ matches.forEach(match => {
 
 const totalCleanSheetHalves = Array.from(cleanSheetHalves.values()).reduce((a, b) => a + b, 0);
 const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 3);
+  .sort((a, b) => b[1] - a[1]);
 ---
 
 <BaseLayout title="Home - Queens Park Rangers U11B" description="Official website for QPR U11B youth soccer team. View match results, schedules, player stats, and team news for the 2025-2026 season.">

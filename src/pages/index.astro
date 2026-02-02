@@ -135,6 +135,22 @@ matches.forEach(match => {
 const totalCleanSheetHalves = Array.from(cleanSheetHalves.values()).reduce((a, b) => a + b, 0);
 const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
   .sort((a, b) => b[1] - a[1]);
+
+// Calculate goalkeeper appearances
+const goalkeeperStats = new Map();
+matches.forEach(match => {
+  if (match.goalkeepers) {
+    if (match.goalkeepers.first_half && match.goalkeepers.first_half !== 'TBD') {
+      goalkeeperStats.set(match.goalkeepers.first_half, (goalkeeperStats.get(match.goalkeepers.first_half) || 0) + 1);
+    }
+    if (match.goalkeepers.second_half && match.goalkeepers.second_half !== 'TBD') {
+      goalkeeperStats.set(match.goalkeepers.second_half, (goalkeeperStats.get(match.goalkeepers.second_half) || 0) + 1);
+    }
+  }
+});
+
+const sortedGoalkeepers = Array.from(goalkeeperStats.entries())
+  .sort((a, b) => b[1] - a[1]);
 ---
 
 <BaseLayout title="Home - Queens Park Rangers U11B" description="Official website for QPR U11B youth soccer team. View match results, schedules, player stats, and team news for the 2025-2026 season.">
@@ -277,7 +293,7 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
           <!-- Clean Sheet Halves -->
           <div class="stats-card">
             <h3 class="stats-card-title">
-              <span class="card-icon">🧤</span>
+              <span class="card-icon">🛡️</span>
               Clean Sheet Halves
             </h3>
             <div class="stats-list">
@@ -286,6 +302,23 @@ const sortedCleanSheetKeepers = Array.from(cleanSheetHalves.entries())
                   <span class="rank">{index + 1}</span>
                   <span class="name">{keeper[0]}</span>
                   <span class="value">{keeper[1]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Goalkeeper Rotation -->
+          <div class="stats-card">
+            <h3 class="stats-card-title">
+              <span class="card-icon">🧤</span>
+              Goalkeeper Rotation
+            </h3>
+            <div class="stats-list">
+              {sortedGoalkeepers.map((gk, index) => (
+                <div class={`stats-row ${index < 3 ? 'top-' + (index + 1) : ''}`}>
+                  <span class="rank">{index + 1}</span>
+                  <span class="name">{gk[0]}</span>
+                  <span class="value">{gk[1]}</span>
                 </div>
               ))}
             </div>

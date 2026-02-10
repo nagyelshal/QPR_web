@@ -206,7 +206,8 @@
       "venue": "Home",
       "kickoff": "12:15pm",
       "field": "Percy Perry Stadium South",
-      "status": "scheduled"
+      "status": "completed",
+      "result": "2-1 Win"
     },
     {
       "week": 25,

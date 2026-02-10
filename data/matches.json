@@ -1385,15 +1385,53 @@
       "id": "match-018",
       "date": "2026-02-07",
       "opponent": "PCFC Sonics",
-      "result": "pending",
+      "result": "2-1 win",
+      "outcome": "win",
+      "our_score": 2,
+      "their_score": 1,
+      "final_score": {
+        "qpr": 2,
+        "opponent": 1,
+        "half_time": "0-0"
+      },
       "location": "Percy Perry Stadium South",
       "kickoff": "12:15pm",
       "match_number": "2502834",
       "week": 23,
       "venue_type": "home",
-      "scorers": [],
+      "goalkeepers": {
+        "first_half": "TBD",
+        "second_half": "TBD"
+      },
+      "scorers": [
+        {"player": "Ethan G", "goals": 1},
+        {"player": "Henry K", "goals": 1}
+      ],
+      "goal_details": [
+        {
+          "player": "Ethan G",
+          "goals": 1,
+          "notes": "Brilliant shot following a corner kick"
+        },
+        {
+          "player": "Henry K",
+          "goals": 1,
+          "notes": "Penalty after defender handball"
+        }
+      ],
       "assists": [],
-      "highlights": []
+      "performance_notes": "Full team available! First half was closely contested with defense and Travis blocking chances to keep a clean sheet. Second half started strong but conceded against the run of play. Team immediately pushed back. Ethan scored a brilliant follow-up from a corner, then after being close twice, Henry converted a penalty after a defender handball. Strong performances from Henry K, Owen H, Rhodri W, Yejun K, and Niko D. EIGHTH WIN of the season!",
+      "highlights": [
+        "EIGHTH WIN of the season! 2-1 victory!",
+        "Full team available for the first time in weeks",
+        "Clean sheet first half - defense and Travis blocked chances",
+        "Ethan G brilliant goal following a corner kick",
+        "Henry K penalty conversion after defender handball",
+        "Team showed character - pushed back immediately after conceding",
+        "Strong performances: Henry K, Owen H, Rhodri W, Yejun K, Niko D",
+        "Henry K one of the best players on the pitch",
+        "Milestone: 8 wins, 7 losses this season"
+      ]
     },
     {
       "id": "match-019",

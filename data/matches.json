@@ -1437,15 +1437,37 @@
       "id": "match-019",
       "date": "2026-02-21",
       "opponent": "CMFSC Blackburn Rovers",
-      "result": "pending",
+      "result": "0-3 loss",
+      "outcome": "loss",
+      "our_score": 0,
+      "their_score": 3,
+      "final_score": {
+        "qpr": 0,
+        "opponent": 3,
+        "half_time": "0-1"
+      },
       "location": "Miller Park East",
       "kickoff": "10:00am",
       "match_number": "2502838",
       "week": 25,
       "venue_type": "away",
+      "goalkeepers": {
+        "first_half": "Henry K",
+        "second_half": "Andrew N"
+      },
       "scorers": [],
+      "goal_details": [],
       "assists": [],
-      "highlights": []
+      "performance_notes": "Tough away match against a strong Blackburn Rovers side. Team fought hard and created many chances but couldn't convert. Multiple unsportsmanlike behaviours from the opposition throughout the game. Despite the 0-3 scoreline, the performance was not bad - the team kept pushing and never stopped trying. A difficult result but the effort was there.",
+      "highlights": [
+        "Tough away loss to a strong Blackburn Rovers team",
+        "Team created many chances but couldn't convert",
+        "Henry K in goal first half, Andrew N second half",
+        "Players kept fighting until the final whistle",
+        "Unsportsmanlike behaviour from opposition noted",
+        "Performance better than the scoreline suggests",
+        "Season record: 8 wins, 8 losses"
+      ]
     },
     {
       "id": "match-020",

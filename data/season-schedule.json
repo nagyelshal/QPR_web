@@ -218,7 +218,8 @@
       "venue": "Away",
       "kickoff": "10:00am",
       "field": "Miller Park East",
-      "status": "scheduled"
+      "status": "completed",
+      "result": "0-3 Loss"
     },
     {
       "week": 26,

@@ -1,87 +1,84 @@
 {
   "week": {
-    "date_range": "Feb 9 - Feb 22, 2026",
-    "theme": "EIGHTH WIN! More Wins Than Losses for the First Time!",
-    "last_updated": "2026-02-07T14:00:00-08:00"
+    "date_range": "Feb 23 - Mar 1, 2026",
+    "theme": "Bounce Back Week - Time to Respond!",
+    "last_updated": "2026-02-21T12:00:00-08:00"
   },
   "training": {
-    "date": "2026-02-19",
+    "date": "2026-02-26",
     "day": "Wednesday",
     "time": "5:00 PM",
     "location": "Mobilio West (Town Centre Park) - Grid D",
-    "focus": "Maintain winning momentum, prepare for away game",
+    "focus": "Bounce back from loss, sharpen finishing, prepare for Middlesbrough away",
     "attendance_required": true,
     "completed": false,
     "sessions": [],
     "last_session": {
-      "date": "2026-02-05",
+      "date": "2026-02-19",
       "attendance": 0,
       "highlights": [],
       "absent": []
     },
     "upcoming_session": {
-      "date": "2026-02-19",
-      "focus_areas": ["Team shape", "Away game tactics", "Set pieces"],
-      "preparation_for": "Feb 21 match vs CMFSC Blackburn Rovers (AWAY)"
+      "date": "2026-02-26",
+      "focus_areas": ["Finishing drills", "Composure in front of goal", "Away game tactics"],
+      "preparation_for": "Feb 28 match vs CMFSC Middlesbrough (AWAY)"
     },
-    "notes": "Two-week break before next match - training Wednesday Feb 19 for Saturday's AWAY game vs Blackburn Rovers"
+    "notes": "Training Wednesday to prepare for Saturday's AWAY game vs Middlesbrough - a team we beat 5-2 in November!"
   },
   "match": {
-    "opponent": "CMFSC Blackburn Rovers",
-    "date": "2026-02-21",
-    "kickoff": "10:00am",
-    "location": "Miller Park East",
+    "opponent": "CMFSC Middlesbrough",
+    "date": "2026-02-28",
+    "kickoff": "TBA",
+    "location": "TBA",
     "venue_type": "away",
     "formation": "2-3-2",
-    "match_number": "2502838",
-    "week": "Week 25",
+    "match_number": "2502841",
+    "week": "Week 26",
     "status": "upcoming",
-    "preparation_focus": "AWAY game vs CMFSC Blackburn Rovers! Coming off our EIGHTH WIN - first time this season with more wins than losses (8W-7L). Full team available and firing on all cylinders. Let's make it NINE wins!"
+    "preparation_focus": "AWAY game vs CMFSC Middlesbrough! We beat this team 5-2 back in November with a dominant performance. Time to bounce back from the Blackburn loss and show our true quality. We've responded to setbacks all season - let's do it again!"
   },
   "last_match": {
-    "opponent": "PCFC Sonics",
-    "date": "2026-02-07",
-    "result": "2-1 WIN (8TH WIN!)",
-    "scorers": ["Ethan G (1)", "Henry K (1 pen)"],
+    "opponent": "CMFSC Blackburn Rovers",
+    "date": "2026-02-21",
+    "result": "0-3 LOSS",
+    "scorers": [],
     "assists": [],
     "goalkeepers": {
-      "first_half": "TBD",
-      "second_half": "TBD"
+      "first_half": "Henry K",
+      "second_half": "Andrew N"
     },
     "highlights": [
-      "EIGHTH WIN of the season!",
-      "First time with more wins than losses (8W-7L)",
-      "Full team available for the first time in weeks",
-      "Clean sheet first half - defense solid with Travis blocking chances",
-      "Ethan G brilliant shot following a corner kick",
-      "Henry K calm penalty after handball in box",
-      "Henry K one of the best players on the pitch",
-      "Strong performances from Owen H, Rhodri W, Yejun K, Niko D",
-      "Great character - conceded against run of play, immediately fought back"
+      "Tough away loss to a strong Blackburn Rovers team",
+      "Created many chances but couldn't convert",
+      "Team kept fighting until the final whistle",
+      "Performance better than the scoreline suggests",
+      "Unsportsmanlike behaviour from opposition noted",
+      "Season record now level: 8 wins, 8 losses"
     ],
     "unavailable": []
   },
   "captains": {
-    "reveal_at": "2026-02-20T18:00:00-08:00",
+    "reveal_at": "2026-02-27T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "Lead warm-ups • Take set pieces • Guide positions • Motivate teammates",
     "training_update": "Captains will be announced before the match"
   },
   "goalkeepers": {
-    "reveal_at": "2026-02-20T18:00:00-08:00",
+    "reveal_at": "2026-02-27T18:00:00-08:00",
     "first_half": "TBD",
     "second_half": "TBD",
     "duties": "One GK in goal per 30-minute half • Non-GK plays field • Switch at half-time",
     "rotation_note": "Continuing fair rotation across the squad"
   },
   "positions": {
-    "reveal_at": "2026-02-20T00:00:00-08:00",
+    "reveal_at": "2026-02-27T00:00:00-08:00",
     "starting_lineup": [],
     "all_positions": []
   },
   "off_pitch": {
-    "reveal_at": "2026-02-20T00:00:00-08:00",
+    "reveal_at": "2026-02-27T00:00:00-08:00",
     "zones": {
       "goalkeepers": [],
       "defence": [],
@@ -94,7 +91,7 @@
     }
   },
   "lineup": {
-    "reveal_at": "2026-02-20T00:00:00-08:00",
+    "reveal_at": "2026-02-27T00:00:00-08:00",
     "all_players": [
       {"name": "Adam K", "jersey": "13"},
       {"name": "Andy E", "jersey": "4"},
@@ -150,16 +147,17 @@
       {"match": "Jan 17 vs PCFC Thunder (FIFTH WIN!)", "first_half": "Henry K", "second_half": "Minh-An D"},
       {"match": "Jan 24 vs CMFSC Sheffield United (SIXTH WIN!)", "first_half": "Niko D", "second_half": "Owen H"},
       {"match": "Jan 31 vs RMSC Johnson (SEVENTH WIN! FIRST CLEANSHEET!)", "first_half": "Ethan G", "second_half": "Rhodri W"},
-      {"match": "Feb 7 vs PCFC Sonics (EIGHTH WIN!)", "first_half": "TBD", "second_half": "TBD"}
+      {"match": "Feb 7 vs PCFC Sonics (EIGHTH WIN!)", "first_half": "TBD", "second_half": "TBD"},
+      {"match": "Feb 21 vs CMFSC Blackburn Rovers", "first_half": "Henry K", "second_half": "Andrew N"}
     ]
   },
   "notes": {
-    "arrival": "Arrive by 9:30 AM (30 min early for warm-up)",
+    "arrival": "TBA",
     "kit": "TBD",
-    "coach": "MILESTONE! Our EIGHTH WIN and first time all season with MORE WINS THAN LOSSES (8-7)! The team showed incredible character against Sonics - conceding against the run of play but immediately fighting back. Ethan G with a brilliant finish from a corner, and Henry K calmly converting the penalty for the winner. Full squad available and everyone contributed. Special mentions to Owen H, Rhodri W, Yejun K, and Niko D for strong performances. The turnaround from the start of the season has been remarkable!",
+    "coach": "Tough result against Blackburn but the effort was there. We created chances but couldn't convert - that's something we can fix in training. The unsportsmanlike behaviour from the opposition was disappointing but our players showed maturity by keeping their composure. Record is now level at 8-8. We've bounced back from setbacks all season long and we'll do it again. Middlesbrough next - a team we beat 5-2 in November. Time to respond!",
     "training_recap": "",
-    "match_update": "NEXT MATCH: Saturday Feb 21 at 10:00am vs CMFSC Blackburn Rovers at Miller Park East (AWAY).",
-    "this_week": "Two-week break. Training Wednesday Feb 19, Match Saturday Feb 21 (AWAY). Let's make it NINE wins!",
+    "match_update": "NEXT MATCH: Saturday Feb 28 vs CMFSC Middlesbrough (AWAY). Kickoff and venue TBA.",
+    "this_week": "Training Wednesday Feb 26, Match Saturday Feb 28 (AWAY). Time to bounce back!",
     "achievements": [
       "Sept 13 vs Millwall: Score First Goal and Team Work Goal",
       "Sept 20 vs PCFC Wolf Pack: Excellent second half comeback",
@@ -175,7 +173,8 @@
       "Jan 17: FIFTH WIN! 3-1 vs PCFC Thunder (AWAY) - Payback! Minh-An D, Ethan G x2, Rafael H 3 assists",
       "Jan 24: SIXTH WIN! 2-1 vs Sheffield United (HOME) - COMEBACK! Travis C brace, great character",
       "Jan 31: SEVENTH WIN! FIRST CLEANSHEET! 2-0 vs RMSC Johnson - Travis C brace, Ethan & Rhodri cleansheets",
-      "Feb 7: EIGHTH WIN! 2-1 vs PCFC Sonics - Ethan G & Henry K (pen), more wins than losses milestone!"
+      "Feb 7: EIGHTH WIN! 2-1 vs PCFC Sonics - Ethan G & Henry K (pen), more wins than losses milestone!",
+      "Feb 21: Tough 0-3 loss vs Blackburn Rovers (AWAY) - created chances, kept fighting"
     ]
   },
   "status": "preparing"
